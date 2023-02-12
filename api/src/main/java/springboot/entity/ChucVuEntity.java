@@ -23,7 +23,7 @@ public class ChucVuEntity {
 	private String tenChucVu;
 	
 	@OneToMany(mappedBy="chucVu", fetch = FetchType.LAZY)
-	private Collection<UserTBEntity> userTB;
+	private Collection<UserEntity> userTB;
 
 	public Long getId() {
 		return id;
@@ -41,15 +41,15 @@ public class ChucVuEntity {
 		this.tenChucVu = tenChucVu;
 	}
 
-	public Collection<UserTBEntity> getUserTB() {
+	public Collection<UserEntity> getUser() {
 		return userTB;
 	}
 
-	public void setUserTB(Collection<UserTBEntity> userTB) {
+	public void setUser(Collection<UserEntity> userTB) {
 		this.userTB = userTB;
 	}
 
-	public ChucVuEntity(Long id, String tenChucVu, Collection<UserTBEntity> userTB) {
+	public ChucVuEntity(Long id, String tenChucVu, Collection<UserEntity> userTB) {
 		super();
 		this.id = id;
 		this.tenChucVu = tenChucVu;

@@ -12,10 +12,10 @@ public class NhanVienDTO {
 	private String cmnd;
 	private String diaChi;
 	private Date ngayVaoLam;
-	private boolean daNghi;
+	private boolean trangThai;
 	
 	public NhanVienDTO(Long maNV, String hoTen, Date ngaySinh, boolean gioiTinh, int luong, String sdt, String cmnd,
-			String diaChi, Date ngayVaoLam, boolean daNghi) {
+			String diaChi, Date ngayVaoLam, boolean trangThai) {
 		super();
 		this.maNV = maNV;
 		this.hoTen = hoTen;
@@ -26,7 +26,7 @@ public class NhanVienDTO {
 		this.cmnd = cmnd;
 		this.diaChi = diaChi;
 		this.ngayVaoLam = ngayVaoLam;
-		this.daNghi = daNghi;
+		this.trangThai = trangThai;
 	}
 	public NhanVienDTO() {}
 	public Long getMaNV() {
@@ -83,11 +83,11 @@ public class NhanVienDTO {
 	public void setNgayVaoLam(Date ngayVaoLam) {
 		this.ngayVaoLam = ngayVaoLam;
 	}
-	public boolean getDaNghi() {
-		return daNghi;
+	public boolean getTrangThai() {
+		return trangThai;
 	}
-	public void setDaNghi(boolean daNghi) {
-		this.daNghi = daNghi;
+	public void setTrangThai(boolean trangThai) {
+		this.trangThai = trangThai;
 	}
 	
 	

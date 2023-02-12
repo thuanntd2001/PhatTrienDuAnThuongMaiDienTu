@@ -51,7 +51,7 @@ public class NhanVienAPI {
 		NhanVienEntity check = null;
 		try {
 			save.setCmnd(model.getCmnd());
-			save.setDaNghi(model.getDaNghi());
+			save.setTrangThai(model.getTrangThai());
 			save.setDiaChi(model.getDiaChi());
 			save.setGioiTinh(model.getGioiTinh());
 			save.setHoTen(model.getHoTen());
@@ -98,7 +98,7 @@ public class NhanVienAPI {
 				save.setLuong(model.getLuong());
 				save.setNgayVaoLam(model.getNgayVaoLam());
 				save.setSdt(model.getSdt());
-				save.setDaNghi(model.getDaNghi());
+				save.setTrangThai(model.getTrangThai());
 				check = repo.save(save);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -128,7 +128,7 @@ public class NhanVienAPI {
 			NhanVienEntity check = null;
 			try {
 
-				save.setDaNghi(true);
+				save.setTrangThai(true);
 				check = repo.save(save);
 
 			} catch (Exception e) {

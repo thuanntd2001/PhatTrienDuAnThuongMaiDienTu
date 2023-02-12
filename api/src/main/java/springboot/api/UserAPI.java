@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import springboot.dto.UserDTO;
-import springboot.entity.UserTBEntity;
+import springboot.entity.UserEntity;
 import springboot.repository.ChucVuRepository;
 import springboot.repository.NhanVienRepository;
-import springboot.repository.UserTBRepository;
+import springboot.repository.UserRepository;
 
 @RestController
 public class UserAPI {
 	@Autowired
-	UserTBRepository repo;
+	UserRepository repo;
 	@Autowired
 	NhanVienRepository nvrepo;
 	@Autowired
@@ -29,9 +29,9 @@ public class UserAPI {
 
 	@GetMapping("/user")
 	public List<UserDTO> getUser() {
-		List<UserTBEntity> list = repo.findAllActive();
+		List<UserEntity> list = repo.findAllActive();
 		List<UserDTO> listDTO = new ArrayList<UserDTO>();
-		for (UserTBEntity item : list) {
+		for (UserEntity item : list) {
 			UserDTO e = new UserDTO();
 			e.setEmail(item.getEmail());
 			e.setIcon(item.getIcon());
@@ -50,8 +50,8 @@ public class UserAPI {
 	@PostMapping(value = "/user")
 	public String create(@RequestBody UserDTO model) {
 
-		UserTBEntity save = new UserTBEntity();
-		UserTBEntity check = null;
+		UserEntity save = new UserEntity();
+		UserEntity check = null;
 		try {
 			save.setUserName(model.getUserName());
 			save.setPasswd(model.getPasswd());
@@ -77,7 +77,7 @@ public class UserAPI {
 	@PutMapping(value = "/user")
 	public String update(@RequestBody UserDTO model) {
 
-		Optional<UserTBEntity> option = repo.findById(model.getUserName());
+		Optional<UserEntity> option = repo.findById(model.getUserName());
 		if (option.isEmpty()) {
 
 			System.out.print("ko tồn tại");
@@ -86,8 +86,8 @@ public class UserAPI {
 
 		else {
 			System.out.print("tồn tại");
-			UserTBEntity save = option.get();
-			UserTBEntity check = null;
+			UserEntity save = option.get();
+			UserEntity check = null;
 			try {
 
 				save.setUserName(model.getUserName());
@@ -113,14 +113,14 @@ public class UserAPI {
 
 	@PatchMapping(value = "/user")
 	public String deleteUser(@RequestBody String ids) {
-		Optional<UserTBEntity> option = repo.findById(ids);
+		Optional<UserEntity> option = repo.findById(ids);
 		if (option.isEmpty()) {
 
 			System.out.print("ko tồn tại");
 			return "404";
 		} else {
 			System.out.print("tồn tại");
-			UserTBEntity save = option.get();
+			UserEntity save = option.get();
 
 			try {
 				save.setStatus(0);

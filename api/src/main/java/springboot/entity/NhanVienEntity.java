@@ -52,17 +52,17 @@ public class NhanVienEntity {
 	@DateTimeFormat(pattern = "dd-MMM-yyyy")
 	private Date ngayVaoLam;
 
-	@Column(name = "DANGHI")
-	private Boolean daNghi;
+	@Column(name = "TRANGTHAI")
+	private Boolean trangThai;
 
-	@OneToMany(mappedBy = "nvThucHien", fetch = FetchType.LAZY)
-	private Collection<HoaDonEntity> hoadon;
-
-	@OneToMany(mappedBy = "nvTao", fetch = FetchType.LAZY)
-	private Collection<ChiPhiEntity> chiPhi;
+//	@OneToMany(mappedBy = "nvThucHien", fetch = FetchType.LAZY)
+//	private Collection<HoaDonEntity> hoadon;
+//
+//	@OneToMany(mappedBy = "nvTao", fetch = FetchType.LAZY)
+//	private Collection<ChiPhiEntity> chiPhi;
 
 	@OneToMany(mappedBy = "usernv", fetch = FetchType.LAZY)
-	private Collection<UserTBEntity> userTB;
+	private Collection<UserEntity> user;
 
 	public Long getMaNV() {
 		return maNV;
@@ -136,57 +136,57 @@ public class NhanVienEntity {
 		this.ngayVaoLam = ngayVaoLam;
 	}
 
-	public Boolean getDaNghi() {
-		return daNghi;
+	public Boolean getTrangThai() {
+		return trangThai;
 	}
 
-	public void setDaNghi(Boolean daNghi) {
-		this.daNghi = daNghi;
+	public void setTrangThai(Boolean trangThai) {
+		this.trangThai = trangThai;
 	}
 
-	public Collection<HoaDonEntity> getHoadon() {
-		return hoadon;
+//	public Collection<HoaDonEntity> getHoadon() {
+//		return hoadon;
+//	}
+//
+//	public void setHoadon(Collection<HoaDonEntity> hoadon) {
+//		this.hoadon = hoadon;
+//	}
+//
+//	public Collection<ChiPhiEntity> getChiPhi() {
+//		return chiPhi;
+//	}
+//
+//	public void setChiPhi(Collection<ChiPhiEntity> chiPhi) {
+//		this.chiPhi = chiPhi;
+//	}
+
+	public Collection<UserEntity> getUser() {
+		return user;
 	}
 
-	public void setHoadon(Collection<HoaDonEntity> hoadon) {
-		this.hoadon = hoadon;
+	public void setUser(Collection<UserEntity> user) {
+		this.user = user;
 	}
 
-	public Collection<ChiPhiEntity> getChiPhi() {
-		return chiPhi;
-	}
-
-	public void setChiPhi(Collection<ChiPhiEntity> chiPhi) {
-		this.chiPhi = chiPhi;
-	}
-
-	public Collection<UserTBEntity> getUserTB() {
-		return userTB;
-	}
-
-	public void setUserTB(Collection<UserTBEntity> userTB) {
-		this.userTB = userTB;
-	}
-
-	public NhanVienEntity(Long maNV, String hoTen, Date ngaySinh, Boolean gioiTinh, Integer luong, String sdt,
-			String cmnd, String diaChi, Date ngayVaoLam, Boolean daNghi, Collection<HoaDonEntity> hoadon,
-			Collection<ChiPhiEntity> chiPhi, Collection<UserTBEntity> userTB) {
-		super();
-		this.maNV = maNV;
-		this.hoTen = hoTen;
-		this.ngaySinh = ngaySinh;
-		this.gioiTinh = gioiTinh;
-		this.luong = luong;
-		this.sdt = sdt;
-		this.cmnd = cmnd;
-		this.diaChi = diaChi;
-		this.ngayVaoLam = ngayVaoLam;
-		this.daNghi = daNghi;
-		this.hoadon = hoadon;
-
-		this.chiPhi = chiPhi;
-		this.userTB = userTB;
-	}
+//	public NhanVienEntity(Long maNV, String hoTen, Date ngaySinh, Boolean gioiTinh, Integer luong, String sdt,
+//			String cmnd, String diaChi, Date ngayVaoLam, Boolean trangThai, Collection<HoaDonEntity> hoadon,
+//			Collection<ChiPhiEntity> chiPhi, Collection<UserEntity> userTB) {
+//		super();
+//		this.maNV = maNV;
+//		this.hoTen = hoTen;
+//		this.ngaySinh = ngaySinh;
+//		this.gioiTinh = gioiTinh;
+//		this.luong = luong;
+//		this.sdt = sdt;
+//		this.cmnd = cmnd;
+//		this.diaChi = diaChi;
+//		this.ngayVaoLam = ngayVaoLam;
+//		this.trangThai = trangThai;
+//		this.hoadon = hoadon;
+//
+//		this.chiPhi = chiPhi;
+//		this.userTB = userTB;
+//	}
 
 	public NhanVienEntity() {
 		super();

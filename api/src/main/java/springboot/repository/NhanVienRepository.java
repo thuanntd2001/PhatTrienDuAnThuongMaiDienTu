@@ -13,7 +13,7 @@ import springboot.entity.NhanVienEntity;
 
 public interface NhanVienRepository extends JpaRepository<NhanVienEntity, Long>{
 	@Query(
-			  value = "SELECT * FROM NHANVIEN item WHERE DANGHI = 0", 
+			  value = "SELECT * FROM NHANVIEN item WHERE TRANGTHAI = 1", 
 			  nativeQuery = true)
 	List<NhanVienEntity> findAllActive();
 

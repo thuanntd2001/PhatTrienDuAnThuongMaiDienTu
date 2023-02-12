@@ -8,14 +8,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USERTB")
-public class UserTBEntity {
+@Table(name="USER")
+public class UserEntity {
 	@Id
 	@Column(name="USERNAME")
 	private String userName;
 	
 	@ManyToOne
-	@JoinColumn(name="ID")
+	@JoinColumn(name="MANV")
 	private NhanVienEntity usernv;
 	
 	@Column(name="PASSWD")
@@ -93,7 +93,7 @@ public class UserTBEntity {
 		this.status = status;
 	}
 
-	public UserTBEntity(String userName, NhanVienEntity usernv, String passwd, ChucVuEntity chucVu, Integer status,
+	public UserEntity(String userName, NhanVienEntity usernv, String passwd, ChucVuEntity chucVu, Integer status,
 			String email, String icon) {
 		super();
 		this.userName = userName;
@@ -105,7 +105,7 @@ public class UserTBEntity {
 		this.icon = icon;
 	}
 
-	public UserTBEntity() {
+	public UserEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
