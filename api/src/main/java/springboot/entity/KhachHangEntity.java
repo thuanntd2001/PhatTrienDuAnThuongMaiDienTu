@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,7 +18,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "NHANVIEN")
+@Table(name = "KHACHHANG")
 public class KhachHangEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,16 +40,11 @@ public class KhachHangEntity {
 	@Column(name = "SDT")
 	private String sdt;
 
-	@Column(name = "CMND")
-	private String cmnd;
 
 	@Column(name = "DIACHI")
 	private String diaChi;
 
-	@Column(name = "NGAYVAOLAM")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MMM-yyyy")
-	private Date ngayVaoLam;
+
 
 	@Column(name = "TRANGTHAI")
 	private Boolean trangThai;
@@ -59,8 +55,11 @@ public class KhachHangEntity {
 //	@OneToMany(mappedBy = "nvTao", fetch = FetchType.LAZY)
 //	private Collection<ChiPhiEntity> chiPhi;
 
-	@OneToMany(mappedBy = "userkh", fetch = FetchType.LAZY)
-	private Collection<UserKHEntity> user;
+//	@OneToMany(mappedBy = "userkh", fetch = FetchType.LAZY)
+//	private Collection<UserKHEntity> userkh;	
+	
+	@OneToOne(mappedBy = "userkh")
+	private UserKHEntity userkh;
 
 	public Long getMaKH() {
 		return maKH;
@@ -103,13 +102,7 @@ public class KhachHangEntity {
 		this.sdt = sdt;
 	}
 
-	public String getCmnd() {
-		return cmnd;
-	}
 
-	public void setCmnd(String cmnd) {
-		this.cmnd = cmnd;
-	}
 
 	public String getDiaChi() {
 		return diaChi;
@@ -119,13 +112,7 @@ public class KhachHangEntity {
 		this.diaChi = diaChi;
 	}
 
-	public Date getNgayVaoLam() {
-		return ngayVaoLam;
-	}
 
-	public void setNgayVaoLam(Date ngayVaoLam) {
-		this.ngayVaoLam = ngayVaoLam;
-	}
 
 	public Boolean getTrangThai() {
 		return trangThai;
@@ -151,12 +138,12 @@ public class KhachHangEntity {
 //		this.chiPhi = chiPhi;
 //	}
 
-	public Collection<UserKHEntity> getUser() {
-		return user;
+	public UserKHEntity getUser() {
+		return userkh;
 	}
 
-	public void setUser(Collection<UserKHEntity> user) {
-		this.user = user;
+	public void setUser(UserKHEntity userkh) {
+		this.userkh = userkh;
 	}
 
 

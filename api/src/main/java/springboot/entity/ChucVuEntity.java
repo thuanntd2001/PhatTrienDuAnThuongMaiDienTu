@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +25,17 @@ public class ChucVuEntity {
 	
 	@OneToMany(mappedBy="chucVu", fetch = FetchType.LAZY)
 	private Collection<UserEntity> userTB;
+
+
+	public Collection<UserEntity> getUserTB() {
+		return userTB;
+	}
+
+	public void setUserTB(Collection<UserEntity> userTB) {
+		this.userTB = userTB;
+	}
+
+
 
 	public Long getId() {
 		return id;
