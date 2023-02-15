@@ -73,7 +73,7 @@ public class LoginController extends HttpServlet {
 				if (model.getRoleID() == 1) {
 					response.sendRedirect(request.getContextPath() + "/admin-home/index.htm");
 				} else if (model.getRoleID() != null) {
-					response.sendRedirect(request.getContextPath() + "/goi-mon.htm");
+					response.sendRedirect(request.getContextPath() + "/user.htm");
 				}
 			} 
 		}
