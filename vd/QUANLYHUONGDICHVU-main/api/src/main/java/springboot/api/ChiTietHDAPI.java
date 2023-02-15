@@ -37,9 +37,10 @@ public class ChiTietHDAPI {
 	@GetMapping("/chitiethd")
 	public List<ChiTietHDDTO> getCTHD(HttpServletRequest request) {
 		String idhd = request.getParameter("idhd");
-		long id;
+
 	
 		List<ChiTietHDDTO> cts = new ArrayList<ChiTietHDDTO>();
+		long id;
 		if (idhd == null)
 			return null;
 		else {

@@ -11,7 +11,6 @@ public class GioHangDTO {
 
 		private Long MaSP;
 		
-		private Integer tongTien;
 		
 		private Integer soLuong;
 
@@ -37,14 +36,6 @@ public class GioHangDTO {
 
 		public void setMaSP(Long maSP) {
 			MaSP = maSP;
-		}
-
-		public Integer getTongTien() {
-			return tongTien;
-		}
-
-		public void setTongTien(Integer tongTien) {
-			this.tongTien = tongTien;
 		}
 
 		public Integer getSoLuong() {

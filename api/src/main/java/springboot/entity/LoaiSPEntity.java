@@ -18,8 +18,36 @@ public class LoaiSPEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
 	private Long id;
+	
 	@Column(name="TENLOAI")
-	private Long tenLoai;
+	private String tenLoai;
+	
+	@OneToMany(mappedBy = "loaiSP", fetch = FetchType.LAZY)
+	private Collection<SanPhamEntity> user;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTenLoai() {
+		return tenLoai;
+	}
+
+	public void setTenLoai(String tenLoai) {
+		this.tenLoai = tenLoai;
+	}
+
+	public Collection<SanPhamEntity> getUser() {
+		return user;
+	}
+
+	public void setUser(Collection<SanPhamEntity> user) {
+		this.user = user;
+	}
 
 	
 	
