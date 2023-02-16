@@ -19,7 +19,7 @@ public class Nhan_SanPhamEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "SANPHAM")
-	private SanPhamEntity SanPham;
+	private SanPhamEntity sanPham;
 	
 	@ManyToOne
 	@JoinColumn(name = "TENNHAN")
@@ -44,12 +44,12 @@ public class Nhan_SanPhamEntity {
 
 
 	public SanPhamEntity getSanPham() {
-		return SanPham;
+		return sanPham;
 	}
 
 
 	public void setSanPham(SanPhamEntity sanPham) {
-		SanPham = sanPham;
+		this.sanPham = sanPham;
 	}
 
 

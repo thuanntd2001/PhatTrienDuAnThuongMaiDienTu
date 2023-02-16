@@ -8,6 +8,6 @@ import springboot.entity.NhanEntity;
 
 
 
-public interface NhanRepository extends JpaRepository<NhanEntity, Long>{
+public interface NhanRepository extends JpaRepository<NhanEntity, String>{
 
 }

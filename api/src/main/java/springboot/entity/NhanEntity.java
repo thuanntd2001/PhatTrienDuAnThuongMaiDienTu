@@ -17,35 +17,50 @@ import javax.persistence.Table;
 public class NhanEntity {
 	@Id
 	@Column(name="TENNHAN")
-	private String tenTuKhoa;
+	private String tenNhan;
 	
 	@OneToMany(mappedBy = "nhan", fetch = FetchType.LAZY)
-	private Collection<TuKhoa_NhanEntity> chiTietTuKhoa= new ArrayList<TuKhoa_NhanEntity>();
+	private Collection<TuKhoa_NhanEntity> chiTietNhan= new ArrayList<TuKhoa_NhanEntity>();
+	
+	@OneToMany(mappedBy = "nhan", fetch = FetchType.LAZY)
+	private Collection<Nhan_SanPhamEntity> chiTietSp= new ArrayList<Nhan_SanPhamEntity>();
+
+	public Collection<Nhan_SanPhamEntity> getChiTietSp() {
+		return chiTietSp;
+	}
+
+
+
+	public void setChiTietSp(Collection<Nhan_SanPhamEntity> chiTietSp) {
+		this.chiTietSp = chiTietSp;
+	}
+
+
 
 	@ManyToOne
 	@JoinColumn(name = "SANPHAM")
 	private SanPhamEntity sanPham;
-	public String getTenTuKhoa() {
-		return tenTuKhoa;
+	public String getTenNhan() {
+		return tenNhan;
 	}
 
 
 
-	public void setTenTuKhoa(String tenTuKhoa) {
-		this.tenTuKhoa = tenTuKhoa;
+	public void setTenNhan(String tenNhan) {
+		this.tenNhan = tenNhan;
 	}
 
 
 
 
-	public Collection<TuKhoa_NhanEntity> getChiTietTuKhoa() {
-		return chiTietTuKhoa;
+	public Collection<TuKhoa_NhanEntity> getChiTietNhan() {
+		return chiTietNhan;
 	}
 
 
 
-	public void setChiTietTuKhoa(Collection<TuKhoa_NhanEntity> chiTietTuKhoa) {
-		this.chiTietTuKhoa = chiTietTuKhoa;
+	public void setChiTietNhan(Collection<TuKhoa_NhanEntity> chiTietNhan) {
+		this.chiTietNhan = chiTietNhan;
 	}
 
 

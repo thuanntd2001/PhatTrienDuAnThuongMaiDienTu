@@ -18,7 +18,7 @@ public class TuKhoaEntity {
 	private String tenTuKhoa;
 	
 	@OneToMany(mappedBy = "tuKhoa", fetch = FetchType.LAZY)
-	private Collection<TuKhoa_NhanEntity> chiTietNhan= new ArrayList<TuKhoa_NhanEntity>();
+	private Collection<TuKhoa_NhanEntity> chiTietTuKhoa= new ArrayList<TuKhoa_NhanEntity>();
 
 
 	public String getTenTuKhoa() {
@@ -31,6 +31,18 @@ public class TuKhoaEntity {
 		this.tenTuKhoa = tenTuKhoa;
 	}
 
+
+
+
+	public Collection<TuKhoa_NhanEntity> getChiTietTuKhoa() {
+		return chiTietTuKhoa;
+	}
+
+
+
+	public void setChiTietTuKhoa(Collection<TuKhoa_NhanEntity> chiTietTuKhoa) {
+		this.chiTietTuKhoa = chiTietTuKhoa;
+	}
 
 
 

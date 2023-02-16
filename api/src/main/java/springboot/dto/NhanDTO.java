@@ -5,7 +5,7 @@ package springboot.dto;
 public class NhanDTO {
 	//@Id
 	//@Column(name="TENNHAN")
-	private String tenTuKhoa;
+	private String tenNhan;
 	
 
 
@@ -25,14 +25,14 @@ public class NhanDTO {
 	//@ManyToOne
 	//@JoinColumn(name = "SANPHAM")
 	private Long sanPham;
-	public String getTenTuKhoa() {
-		return tenTuKhoa;
+	public String getTenNhan() {
+		return tenNhan;
 	}
 
 
 
-	public void setTenTuKhoa(String tenTuKhoa) {
-		this.tenTuKhoa = tenTuKhoa;
+	public void setTenNhan(String tenNhan) {
+		this.tenNhan = tenNhan;
 	}
 
 

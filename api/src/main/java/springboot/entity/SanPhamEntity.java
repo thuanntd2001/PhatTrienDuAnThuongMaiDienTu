@@ -26,8 +26,16 @@ public class SanPhamEntity {
 	private Integer gia;
 	
 	@OneToMany(mappedBy = "sanPham", fetch = FetchType.LAZY)
-	private Collection<NhanEntity> chiTietNhan= new ArrayList<NhanEntity>();
+	private Collection<Nhan_SanPhamEntity> chiTietNhan= new ArrayList<Nhan_SanPhamEntity>();
 	
+	public Collection<Nhan_SanPhamEntity> getChiTietNhan() {
+		return chiTietNhan;
+	}
+
+	public void setChiTietNhan(Collection<Nhan_SanPhamEntity> chiTietNhan) {
+		this.chiTietNhan = chiTietNhan;
+	}
+
 	@Column(name = "SOLUONGTON")
 	private Integer slTon;
 

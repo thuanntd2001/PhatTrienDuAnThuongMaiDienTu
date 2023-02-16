@@ -8,6 +8,8 @@ import springboot.entity.TuKhoaEntity;
 
 
 
-public interface TuKhoaRepository extends JpaRepository<TuKhoaEntity, Long>{
+public interface TuKhoaRepository extends JpaRepository<TuKhoaEntity, String>{
+
+
 
 }
