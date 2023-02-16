@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,22 +31,53 @@ public class CTDDHAPI {
 	DDHRepository DDHRepo;
 
 	@GetMapping("/ctddh")
-	public List<CTDDHDTO> getCTDDH() {
+	public List<CTDDHDTO> getCTDDH(HttpServletRequest request) {
+		String idkh = request.getParameter("maddh");
+		long id;
+		if (idkh == null) {
+			System.out.print("null");
 
-		List<CTDDHEntity> list = repo.findAll();
-		List<CTDDHDTO> listDTO = new ArrayList<CTDDHDTO>();
-		for (CTDDHEntity model : list) {
-			CTDDHDTO save = new CTDDHDTO();
-			save.setId(model.getId());
-			save.setDdh(model.getDdh().getId());
-			save.setSanPham(model.getSanPham().getId());
-			save.setSoLuong(model.getSoLuong());
-			save.setTongTien(model.getTongTien());
+			{
+				List<CTDDHEntity> list = repo.findAll();
+				List<CTDDHDTO> listDTO = new ArrayList<CTDDHDTO>();
+				for (CTDDHEntity model : list) {
+					CTDDHDTO save = new CTDDHDTO();
+					save.setId(model.getId());
+					save.setDdh(model.getDdh().getId());
+					save.setSanPham(model.getSanPham().getId());
+					save.setSoLuong(model.getSoLuong());
+					save.setTongTien(model.getTongTien());
 
-			listDTO.add(save);
+					listDTO.add(save);
+				}
+				System.out.print(list.size());
+				return listDTO;
+			}
 		}
-		System.out.print(list.size());
-		return listDTO;
+
+		else {
+			try {
+				id = Long.parseLong(idkh);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+			List<CTDDHEntity> list = (List<CTDDHEntity>) DDHRepo.findById(id).get().getChiTietDDH();
+			List<CTDDHDTO> listDTO = new ArrayList<CTDDHDTO>();
+			for (CTDDHEntity model : list) {
+				CTDDHDTO save = new CTDDHDTO();
+				save.setId(model.getId());
+				save.setDdh(model.getDdh().getId());
+				save.setSanPham(model.getSanPham().getId());
+				save.setSoLuong(model.getSoLuong());
+				save.setTongTien(model.getTongTien());
+
+				listDTO.add(save);
+			}
+			System.out.print(list.size());
+			return listDTO;
+		}
+
 	}
 
 	@PostMapping(value = "/ctddh")
@@ -60,7 +93,6 @@ public class CTDDHAPI {
 			check = repo.save(save);
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 
 			return "01";
 		}

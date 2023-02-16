@@ -52,8 +52,14 @@ public class DDHEntity {
 	
 	@ManyToOne
 	@JoinColumn(name = "MAKH")
-	private NhanVienEntity khThucHien;
+	private KhachHangEntity khThucHien;
 	
+
+	public void setKhThucHien(KhachHangEntity khThucHien) {
+		this.khThucHien = khThucHien;
+	}
+
+
 
 	public NhanVienEntity getNvThucHien() {
 		return nvThucHien;
@@ -94,13 +100,12 @@ public class DDHEntity {
 
 	
 
-	public NhanVienEntity getKhThucHien() {
+
+	public KhachHangEntity getKhThucHien() {
 		return khThucHien;
 	}
 
-	public void setKhThucHien(NhanVienEntity khThucHien) {
-		this.khThucHien = khThucHien;
-	}
+
 
 	public DDHEntity() {
 		super();

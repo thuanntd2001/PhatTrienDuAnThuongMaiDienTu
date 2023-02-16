@@ -1,14 +1,17 @@
 package springboot.entity;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,12 +31,28 @@ public class PhieuNhapEntity {
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
 	private Date ngayThucHien;
 
-
+	@Column(name = "TINHTRANG")
+	private Integer tinhTrang;
 
 	@ManyToOne
 	@JoinColumn(name = "MANV")
 	private NhanVienEntity nvThucHien;
 	
+	@OneToMany(mappedBy = "phieuNhap", fetch = FetchType.LAZY)
+	private Collection<CTPNEntity> ctpns;
+	
+	public Collection<CTPNEntity> getCtpns() {
+		return ctpns;
+	}
+
+
+
+	public void setCtpns(Collection<CTPNEntity> ctpns) {
+		this.ctpns = ctpns;
+	}
+
+
+
 	public String getNcc() {
 		return ncc;
 	}
@@ -53,8 +72,7 @@ public class PhieuNhapEntity {
 		return nvThucHien;
 	}
 
-	@Column(name = "TINHTRANG")
-	private Integer tinhTrang;
+
 
 	public void setNvThucHien(NhanVienEntity nvThucHien) {
 		this.nvThucHien = nvThucHien;

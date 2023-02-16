@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,22 +31,51 @@ public class CTPNAPI {
 	PhieuNhapRepository PNRepo;
 
 	@GetMapping("/ctpn")
-	public List<CTPNDTO> getCTPN() {
+	public List<CTPNDTO> getCTPN(HttpServletRequest request) {
+		String idkh = request.getParameter("maddh");
+		long id;
+		if (idkh == null) {
+			System.out.print("null");
+			List<CTPNEntity> list = repo.findAll();
+			List<CTPNDTO> listDTO = new ArrayList<CTPNDTO>();
+			for (CTPNEntity model : list) {
+				CTPNDTO save = new CTPNDTO();
+				save.setId(model.getId());
+				save.setPhieuNhap(model.getPhieuNhap().getId());
+				save.setSanPham(model.getSanPham().getId());
+				save.setSoLuong(model.getSoLuong());
+				save.setDonGia(model.getDonGia());
 
-		List<CTPNEntity> list = repo.findAll();
-		List<CTPNDTO> listDTO = new ArrayList<CTPNDTO>();
-		for (CTPNEntity model : list) {
-			CTPNDTO save = new CTPNDTO();
-			save.setId(model.getId());
-			save.setPhieuNhap(model.getPhieuNhap().getId());
-			save.setSanPham(model.getSanPham().getId());
-			save.setSoLuong(model.getSoLuong());
-			save.setDonGia(model.getDonGia());
-
-			listDTO.add(save);
+				listDTO.add(save);
+			}
+			System.out.print(list.size());
+			return listDTO;
 		}
-		System.out.print(list.size());
-		return listDTO;
+			
+		else {
+			try {
+				id = Long.parseLong(idkh);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+			List<CTPNEntity> list = (List<CTPNEntity>) PNRepo.findById(id).get().getCtpns();
+			List<CTPNDTO> listDTO = new ArrayList<CTPNDTO>();
+			for (CTPNEntity model : list) {
+				CTPNDTO save = new CTPNDTO();
+				save.setId(model.getId());
+				save.setPhieuNhap(model.getPhieuNhap().getId());
+				save.setSanPham(model.getSanPham().getId());
+				save.setSoLuong(model.getSoLuong());
+				save.setDonGia(model.getDonGia());
+
+				listDTO.add(save);
+			}
+			System.out.print(list.size());
+			return listDTO;
+		}
+
+
 	}
 
 	@PostMapping(value = "/ctpn")
