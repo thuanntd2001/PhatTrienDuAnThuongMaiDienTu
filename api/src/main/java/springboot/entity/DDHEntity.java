@@ -33,8 +33,18 @@ public class DDHEntity {
 	private Date ngayThucHien;
 
 	@OneToMany(mappedBy = "ddh", fetch = FetchType.LAZY)
-	private Collection<CTDDHEntity> chiTietHD= new ArrayList<CTDDHEntity>();
+	private Collection<CTDDHEntity> chiTietDDH= new ArrayList<CTDDHEntity>();
 
+
+	public Collection<CTDDHEntity> getChiTietDDH() {
+		return chiTietDDH;
+	}
+
+
+
+	public void setChiTietDDH(Collection<CTDDHEntity> chiTietDDH) {
+		this.chiTietDDH = chiTietDDH;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "NVXACNHAN")

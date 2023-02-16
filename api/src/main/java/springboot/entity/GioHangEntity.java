@@ -21,7 +21,7 @@ public class GioHangEntity {
 	
 	@ManyToOne
 	@JoinColumn(name="MAKH")
-	private KhachHangEntity userkh;
+	private KhachHangEntity khachHang;
 
 	@ManyToOne
 	@JoinColumn(name="SANPHAM")
@@ -40,12 +40,14 @@ public class GioHangEntity {
 		ID = iD;
 	}
 
-	public KhachHangEntity getUserkh() {
-		return userkh;
+
+
+	public KhachHangEntity getKhachHang() {
+		return khachHang;
 	}
 
-	public void setUserkh(KhachHangEntity userkh) {
-		this.userkh = userkh;
+	public void setKhachHang(KhachHangEntity khachHang) {
+		this.khachHang = khachHang;
 	}
 
 	public SanPhamEntity getSp() {

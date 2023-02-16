@@ -34,6 +34,16 @@ public class PhieuNhapEntity {
 	@JoinColumn(name = "MANV")
 	private NhanVienEntity nvThucHien;
 	
+	public String getNcc() {
+		return ncc;
+	}
+
+
+
+	public void setNcc(String ncc) {
+		this.ncc = ncc;
+	}
+
 	@Column(name = "NHACC")
 	private String ncc;
 

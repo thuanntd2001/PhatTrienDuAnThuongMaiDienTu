@@ -11,5 +11,5 @@ import springboot.entity.GioHangEntity;
 
 
 public interface GioHangRepository extends JpaRepository<GioHangEntity, Long>{
-	List<GioHangEntity> findByUserkhMaKH(Long maKH);
+	List<GioHangEntity> findByKhachHangMaKH(Long maKH);
 }

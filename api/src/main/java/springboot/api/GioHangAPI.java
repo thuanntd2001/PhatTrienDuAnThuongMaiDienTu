@@ -47,7 +47,7 @@ public class GioHangAPI {
 				e.printStackTrace();
 				return null;
 			}
-			List<GioHangEntity> list = repo.findByUserkhMaKH(id);
+			List<GioHangEntity> list = repo.findByKhachHangMaKH(id);
 			List<GioHangDTO> listDTO = new ArrayList<GioHangDTO>();
 			for (GioHangEntity model : list) {
 				GioHangDTO save = new GioHangDTO();
@@ -69,7 +69,7 @@ public class GioHangAPI {
 		GioHangEntity save = new GioHangEntity();
 		GioHangEntity check = null;
 		try {
-			save.setUserkh(KHRepo.findById(model.getMaKH()).get());
+			save.setKhachHang(KHRepo.findById(model.getMaKH()).get());
 			save.setSp(sanPhamRepo.findById(model.getMaSP()).get());
 			save.setSoLuong(model.getSoLuong());
 
@@ -104,7 +104,7 @@ public class GioHangAPI {
 			try {
 
 				save.setID(model.getID());
-				save.setUserkh(KHRepo.findById(model.getMaKH()).get());
+				save.setKhachHang(KHRepo.findById(model.getMaKH()).get());
 				save.setSp(sanPhamRepo.findById(model.getMaSP()).get());
 				save.setSoLuong(model.getSoLuong());
 				check = repo.save(save);

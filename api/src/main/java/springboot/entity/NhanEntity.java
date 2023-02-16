@@ -38,6 +38,30 @@ public class NhanEntity {
 
 
 
+	public Collection<TuKhoa_NhanEntity> getChiTietTuKhoa() {
+		return chiTietTuKhoa;
+	}
+
+
+
+	public void setChiTietTuKhoa(Collection<TuKhoa_NhanEntity> chiTietTuKhoa) {
+		this.chiTietTuKhoa = chiTietTuKhoa;
+	}
+
+
+
+	public SanPhamEntity getSanPham() {
+		return sanPham;
+	}
+
+
+
+	public void setSanPham(SanPhamEntity sanPham) {
+		this.sanPham = sanPham;
+	}
+
+
+
 	public NhanEntity() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -55,8 +55,8 @@ public class KhachHangEntity {
 	@OneToOne(mappedBy = "userkh")
 	private UserKHEntity userkh;
 
-//	@OneToMany(mappedBy = "userkh", fetch = FetchType.LAZY)
-//	private Collection<UserKHEntity> userkh;	
+	@OneToMany(mappedBy = "khachHang", fetch = FetchType.LAZY)
+	private Collection<GioHangEntity> gioHangs;	
 	
 	public Collection<DDHEntity> getDdhs() {
 		return ddhs;
