@@ -4,7 +4,7 @@ import java.util.Date;
 
 //@Entity
 //@Table(name = "PHIEUNHAP")
-public class PhieuNhapEntity {
+public class PhieuNhapDTO {
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@Column(name = "MAPN")
@@ -76,7 +76,7 @@ public class PhieuNhapEntity {
 	}
 
 	
-	public PhieuNhapEntity() {
+	public PhieuNhapDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

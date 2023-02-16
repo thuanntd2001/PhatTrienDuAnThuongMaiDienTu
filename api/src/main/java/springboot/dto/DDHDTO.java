@@ -4,7 +4,7 @@ import java.util.Date;
 
 //@Entity
 //@Table(name = "DONDATHANG")
-public class DDHEntity {
+public class DDHDTO {
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@Column(name = "MADDH")
@@ -74,7 +74,7 @@ public class DDHEntity {
 		this.khThucHien = khThucHien;
 	}
 
-	public DDHEntity() {
+	public DDHDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

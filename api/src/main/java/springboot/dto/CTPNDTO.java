@@ -2,7 +2,7 @@ package springboot.dto;
 
 //@Entity
 //@Table(name = "CTDDH")
-public class CTPNEntity {	
+public class CTPNDTO {	
 
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class CTPNEntity {
 
 	//@ManyToOne
 	//@JoinColumn(name = "MAPN")
-	private PhieuNhapEntity phieuNhap;
+	private Long phieuNhap;
 
 	//@Column(name = "DONGIA")
 	private Integer donGia;
@@ -41,11 +41,11 @@ public class CTPNEntity {
 		this.sanPham = sanPham;
 	}
 
-	public PhieuNhapEntity getPhieuNhap() {
+	public Long getPhieuNhap() {
 		return phieuNhap;
 	}
 
-	public void setPhieuNhap(PhieuNhapEntity phieuNhap) {
+	public void setPhieuNhap(Long phieuNhap) {
 		this.phieuNhap = phieuNhap;
 	}
 

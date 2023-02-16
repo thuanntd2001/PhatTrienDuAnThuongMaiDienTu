@@ -2,7 +2,7 @@ package springboot.dto;
 
 //@Entity
 //@Table(name = "TUKHOA")
-public class TuKhoaEntity {
+public class TuKhoaDTO {
 	//@Id
 	//@Column(name="TENTUKHOA")
 	private String tenTuKhoa;
@@ -23,7 +23,7 @@ public class TuKhoaEntity {
 
 
 
-	public TuKhoaEntity() {
+	public TuKhoaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
