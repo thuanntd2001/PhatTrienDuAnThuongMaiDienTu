@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -55,17 +56,27 @@ public class NhanVienEntity {
 	@Column(name = "TRANGTHAI")
 	private Boolean trangThai;
 
-//	@OneToMany(mappedBy = "nvThucHien", fetch = FetchType.LAZY)
-//	private Collection<HoaDonEntity> hoadon;
-//
+	@OneToMany(mappedBy = "nvThucHien", fetch = FetchType.LAZY)
+	private Collection<DDHEntity> ddhs;
+	
+	@OneToOne(mappedBy = "usernv")
+	private UserEntity user;
+
 //	@OneToMany(mappedBy = "nvTao", fetch = FetchType.LAZY)
 //	private Collection<ChiPhiEntity> chiPhi;
 
-	@OneToMany(mappedBy = "usernv", fetch = FetchType.LAZY)
-	private Collection<UserEntity> user;
+	
 
 	public Long getMaNV() {
 		return maNV;
+	}
+
+	public Collection<DDHEntity> getDdhs() {
+		return ddhs;
+	}
+
+	public void setDdhs(Collection<DDHEntity> ddhs) {
+		this.ddhs = ddhs;
 	}
 
 	public void setMaNV(Long maNV) {
@@ -160,11 +171,11 @@ public class NhanVienEntity {
 //		this.chiPhi = chiPhi;
 //	}
 
-	public Collection<UserEntity> getUser() {
+	public UserEntity getUser() {
 		return user;
 	}
 
-	public void setUser(Collection<UserEntity> user) {
+	public void setUser(UserEntity user) {
 		this.user = user;
 	}
 

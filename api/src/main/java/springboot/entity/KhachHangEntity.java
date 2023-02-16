@@ -1,12 +1,15 @@
 package springboot.entity;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -46,17 +49,33 @@ public class KhachHangEntity {
 	@Column(name = "TRANGTHAI")
 	private Boolean trangThai;
 
-//	@OneToMany(mappedBy = "nvThucHien", fetch = FetchType.LAZY)
-//	private Collection<HoaDonEntity> hoadon;
-//
-//	@OneToMany(mappedBy = "nvTao", fetch = FetchType.LAZY)
-//	private Collection<ChiPhiEntity> chiPhi;
+	@OneToMany(mappedBy = "khThucHien", fetch = FetchType.LAZY)
+	private Collection<DDHEntity> ddhs;
+	
+	@OneToOne(mappedBy = "userkh")
+	private UserKHEntity userkh;
 
 //	@OneToMany(mappedBy = "userkh", fetch = FetchType.LAZY)
 //	private Collection<UserKHEntity> userkh;	
 	
-	@OneToOne(mappedBy = "userkh")
-	private UserKHEntity userkh;
+	public Collection<DDHEntity> getDdhs() {
+		return ddhs;
+	}
+
+	public void setDdhs(Collection<DDHEntity> ddhs) {
+		this.ddhs = ddhs;
+	}
+
+	public UserKHEntity getUserkh() {
+		return userkh;
+	}
+
+	public void setUserkh(UserKHEntity userkh) {
+		this.userkh = userkh;
+	}
+
+
+	
 
 	public Long getMaKH() {
 		return maKH;
@@ -119,21 +138,7 @@ public class KhachHangEntity {
 		this.trangThai = trangThai;
 	}
 
-//	public Collection<HoaDonEntity> getHoadon() {
-//		return hoadon;
-//	}
-//
-//	public void setHoadon(Collection<HoaDonEntity> hoadon) {
-//		this.hoadon = hoadon;
-//	}
-//
-//	public Collection<ChiPhiEntity> getChiPhi() {
-//		return chiPhi;
-//	}
-//
-//	public void setChiPhi(Collection<ChiPhiEntity> chiPhi) {
-//		this.chiPhi = chiPhi;
-//	}
+
 
 	public UserKHEntity getUser() {
 		return userkh;
