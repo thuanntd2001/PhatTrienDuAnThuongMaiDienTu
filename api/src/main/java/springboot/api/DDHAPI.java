@@ -67,7 +67,7 @@ public class DDHAPI {
 
 			return "02";
 		}
-		return "00";
+		return Long.toString(check.getId());
 	}
 
 	@PutMapping(value = "/ddh")

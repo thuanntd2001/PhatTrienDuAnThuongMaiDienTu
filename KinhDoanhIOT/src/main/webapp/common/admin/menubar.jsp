@@ -5,7 +5,7 @@
 <div class="sidebar">
 	<div class="logo_content">
 		<div class="logo">
-			<div class="logo_name">Phúc Long MilkTea</div>
+			<div class="logo_name">icdayroi.com</div>
 		</div>
 
 	</div>
@@ -16,18 +16,18 @@
 		</a></li>
 		<li><a href="admin-nhaphang.htm"> <i
 				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
-					LÝ CHI PHÍ</span>
+					LÝ NHẬP HÀNG</span>
 		</a></li>
-		<li><a href="admin-qlban.htm"> <i
+		<li><a href="admin-sanpham.htm"> <i
 				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
-					LÝ BÀN</span>
+					LÝ SẢN PHẨM</span>
 		</a></li>
-		<li><a href="admin-hoadon.htm"> <i
+		<li><a href="admin-dondathang.htm"> <i
 				class="fas fa-file-invoice-dollar"></i> <span class="links_name">QUẢN
-					LÝ HÓA ĐƠN</span>
+					LÝ ĐƠN ĐẶT HÀNG</span>
 		</a></li>
 		<li><a href="admin-qlthucdon.htm"> <i class="fas fa-coffee"></i>
-				<span class="links_name">QUẢN LÝ THỰC ĐƠN</span>
+				<span class="links_name">QUẢN LÝ NHẬP XUẤT</span>
 		</a></li>
 		<li><a href="admin-user.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">TÀI KHOẢN</span>

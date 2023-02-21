@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class LoginDTO {
 	private Long maNV;
+	private Long maKH;
+
 	private String hoTen;
 	private Date ngaySinh;
 	private boolean gioiTinh;
@@ -162,6 +164,14 @@ public class LoginDTO {
 
 	public void setRoleID(Long roleID) {
 		this.roleID = roleID;
+	}
+
+	public Long getMaKH() {
+		return maKH;
+	}
+
+	public void setMaKH(Long maKH) {
+		this.maKH = maKH;
 	}
 
 }

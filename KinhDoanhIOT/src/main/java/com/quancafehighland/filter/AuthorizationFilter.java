@@ -33,6 +33,8 @@ public class AuthorizationFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String url = request.getRequestURI();
 		LoginDTO model = (LoginDTO) SessionUtil.getInstance().getValue(request, "USERMODEL");
+		LoginDTO modelkh = (LoginDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+//admin
 		if (url.indexOf("/admin") != -1) {
 
 			if (model != null) {
@@ -46,9 +48,24 @@ public class AuthorizationFilter implements Filter {
 				response.sendRedirect(
 						request.getContextPath() + "/dang-nhap.htm?action=login&message=not_login&alert=danger");
 			}
-		} else if (url.indexOf("/dang-nhap") != -1 || url.equals("/dichvu/") || url.indexOf("/mailer")!=-1 ) {
+		} 
+		
+		// khach hang
+		else if (url.indexOf("/thanhtoan") != -1 || url.indexOf("/giohang")!=-1|| url.indexOf("/KH")!=-1  ) {
+			if (modelkh == null) {
+				response.sendRedirect(
+						request.getContextPath() + "/dang-nhap.htm?action=login&message=not_login&alert=danger");
+			}
+			else filterChain.doFilter(servletRequest, servletResponse);
+		}
+		
+		
+		//login chung
+		else if (url.indexOf("/dang-nhap") != -1 || url.equals("/dichvu/") || url.indexOf("/mailer")!=-1 || url.indexOf("/khachhang")!=-1 ) {
 			filterChain.doFilter(servletRequest, servletResponse);
-		} else {
+		} 
+		//nhan vien
+		else {
 			if (model == null) {
 				response.sendRedirect(
 						request.getContextPath() + "/dang-nhap.htm?action=login&message=not_login&alert=danger");
