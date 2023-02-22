@@ -18,17 +18,15 @@
 				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
 					LÝ NHẬP HÀNG</span>
 		</a></li>
-		<li><a href="admin-sanpham.htm"> <i
+		<li><a href="admin-qlsanpham.htm"> <i
 				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
 					LÝ SẢN PHẨM</span>
 		</a></li>
-		<li><a href="admin-dondathang.htm"> <i
+		<li><a href="admin-ddh.htm"> <i
 				class="fas fa-file-invoice-dollar"></i> <span class="links_name">QUẢN
 					LÝ ĐƠN ĐẶT HÀNG</span>
 		</a></li>
-		<li><a href="admin-qlthucdon.htm"> <i class="fas fa-coffee"></i>
-				<span class="links_name">QUẢN LÝ NHẬP XUẤT</span>
-		</a></li>
+
 		<li><a href="admin-user.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">TÀI KHOẢN</span>
 		</a></li>

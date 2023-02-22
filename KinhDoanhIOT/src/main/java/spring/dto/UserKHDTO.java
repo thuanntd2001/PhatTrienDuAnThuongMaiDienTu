@@ -1,6 +1,6 @@
-package springboot.dto;
+package spring.dto;
 
-public class UserDTO {
+public class UserKHDTO {
 
 	private String userName;
 

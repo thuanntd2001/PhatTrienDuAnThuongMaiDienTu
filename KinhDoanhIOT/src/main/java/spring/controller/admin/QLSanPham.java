@@ -13,29 +13,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
-import spring.dto.ChiPhiDTO;
-import spring.dto.HoaDonDTO;
 import spring.dto.LoaiThucUongDTO;
 import spring.dto.ThucDonDTO;
 
 @Controller
 
 @RequestMapping(value = "/admin-home/")
-public class QLThucDon {
+public class QLSanPham {
 
 	// CONTROLLER
-	@RequestMapping(value = "admin-qlthucdon", method = RequestMethod.GET)
+	@RequestMapping(value = "admin-qlsanpham", method = RequestMethod.GET)
 	public <E> String showThucDon(HttpServletRequest request, ModelMap model) {
 
 		List<ThucDonDTO> list = null;
 		try {
-			list = Collector.getListAll("/thucdon", ThucDonDTO.class);
+			list = Collector.getListAll("/sanpham", ThucDonDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("list", list);
-		return "admin/qlthucdon";
+		return "admin/qlsanpham";
 	}
 
 	/* hiển thị form */
@@ -63,7 +61,7 @@ public class QLThucDon {
 	public List<ThucDonDTO> getThucDons() {
 		List<ThucDonDTO> list = null;
 		try {
-			list = Collector.getListAll("/thucdon", ThucDonDTO.class);
+			list = Collector.getListAll("/sanpham", ThucDonDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,7 +84,7 @@ public class QLThucDon {
 	}
 
 	public Integer insertThucDon(ThucDonDTO td) {
-		String flag = Collector.postMess("/thucdon", td);
+		String flag = Collector.postMess("/sanpham", td);
 		System.out.println(flag);
 		if (flag.equals("00")) {
 			return 1;
@@ -132,13 +130,13 @@ public class QLThucDon {
 			model.addAttribute("message", "Thêm thất bại " + error);
 		}
 
-		return "admin/qlthucdon";
+		return "admin/qlsanpham";
 	}
 
 	public ThucDonDTO getTD (String id) {
 		List<ThucDonDTO> list = null;
 		try {
-			list = Collector.getListAll("/thucdon", ThucDonDTO.class);
+			list = Collector.getListAll("/sanpham", ThucDonDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -192,13 +190,13 @@ public class QLThucDon {
 
 		}
 		
-		return "admin/qlthucdon";
+		return "admin/qlsanpham";
 	}
 	
 	
 	
 	public Integer updateTD(ThucDonDTO td) {
-		String flag = Collector.putMess("/thucdon", td);
+		String flag = Collector.putMess("/sanpham", td);
 		System.out.println(flag);
 		if (flag.equals("00")){
 			return 1;
@@ -206,7 +204,7 @@ public class QLThucDon {
 			return 0;
 	}
 	
-	@RequestMapping(value = "admin-qlthucdon", params = "linkDelete")
+	@RequestMapping(value = "admin-qlsanpham", params = "linkDelete")
 	public <E> String deleteDonNhapHang (HttpServletRequest request, ModelMap model, @ModelAttribute("td") ThucDonDTO td) {
 		
 		Integer temp = this.deleteThucDon(td);
@@ -217,10 +215,10 @@ public class QLThucDon {
 			model.addAttribute("message", "Delete không thành công ! Thực đơn đã có trong hóa đơn");
 		}
 		
-		return "admin/qlthucdon";
+		return "admin/qlsanpham";
 	}
 	public Integer deleteThucDon (ThucDonDTO td) {
-		String flag = Collector.delMess("/thucdon", td);
+		String flag = Collector.delMess("/sanpham", td);
 		System.out.println(flag);
 		if (flag.equals("00")) {
 			return 1;

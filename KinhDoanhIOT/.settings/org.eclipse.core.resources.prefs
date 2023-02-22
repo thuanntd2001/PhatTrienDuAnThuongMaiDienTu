@@ -1,11 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/main/java/spring/controller/admin/AdminUser.java=UTF-8
-encoding//src/main/java/spring/controller/admin/QLBan.java=UTF-8
-encoding//src/main/java/spring/controller/admin/QLHoaDon.java=UTF-8
+encoding//src/main/java/spring/controller/admin/QLDDH.java=UTF-8
 encoding//src/main/java/spring/controller/admin/QLNhanVienHome.java=UTF-8
 encoding//src/main/java/spring/controller/admin/QLNhapHang.java=UTF-8
+encoding//src/main/java/spring/controller/admin/QLSanPham.java=UTF-8
 encoding//src/main/java/spring/controller/admin/QLTaiKhoan.java=UTF-8
-encoding//src/main/java/spring/controller/admin/QLThucDon.java=UTF-8
 encoding//src/main/java/spring/controller/chung/LoginController.java=UTF-8
 encoding//src/main/java/spring/controller/chung/LoginKHController.java=UTF-8
 encoding//src/main/java/spring/controller/khachhang/HomeKH.java=UTF-8

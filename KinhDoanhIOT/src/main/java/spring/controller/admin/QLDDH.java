@@ -12,38 +12,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
-import spring.dto.BanDTO;
-import spring.dto.HoaDonDTO;
+import spring.dto.DDHDTO;
 
 @Controller
 
 @RequestMapping(value = "/admin-home/")
-public class QLHoaDon {
+public class QLDDH {
 
 
 	// CONTROLLER
-	@RequestMapping(value = "admin-hoadon", method = RequestMethod.GET)
-	public <E> String showHoaDon(HttpServletRequest request,ModelMap model){	
+	@RequestMapping(value = "admin-ddh", method = RequestMethod.GET)
+	public <E> String showDDH(HttpServletRequest request,ModelMap model){	
 
-		List<HoaDonDTO> list=null;
+		List<DDHDTO> list=null;
 		try {
-			list = Collector.getListAll("/hoadon",HoaDonDTO.class);
+			list = Collector.getListAll("/ddh",DDHDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("list", list);
 		
-		return "admin/qlhoadon";
+		return "admin/qlddh";
 	}
 	
 //	phần tìm kiếm
 
-	@RequestMapping(value="admin-hoadon", params = "btnsearch", method=RequestMethod.POST)
-	public <E> String searchHoaDon(HttpServletRequest request, ModelMap model) {
+	@RequestMapping(value="admin-ddh", params = "btnsearch", method=RequestMethod.POST)
+	public <E> String searchDDH(HttpServletRequest request, ModelMap model) {
 	
 		
-		return "admin/qlhoadon";
+		return "admin/qlddh";
 	}
 	
 }

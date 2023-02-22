@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
 import spring.dto.ChucVuDTO;
-import spring.dto.LoaiBanDTO;
 import spring.dto.NhanVienDTO;
-import spring.dto.ThucDonDTO;
 import spring.dto.UserDTO;
 
 
@@ -124,7 +122,7 @@ public class QLTaiKhoan {
 		NhanVienDTO nv;
 		for (int i = 0; i < n; i++) {
 			nv = list.get(i);
-			if (manv == nv.getMaNV() && nv.getDaNghi()  == false) {
+			if (manv == nv.getMaNV() && nv.getTrangThai()  == true) {
 				return true;
 			}
 		}

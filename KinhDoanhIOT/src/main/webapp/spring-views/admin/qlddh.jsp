@@ -17,9 +17,9 @@
 		<div class="container">
 			<div class="header-content d-flex justify-content-center">QUẢN
 				LÍ HÓA ĐƠN</div>
-		<%-- 	<jsp:useBean id="pagedListHolder" scope="request"
+			<%-- 	<jsp:useBean id="pagedListHolder" scope="request"
 				type="org.springframework.beans.support.PagedListHolder" /> --%>
-			<c:url value="admin-hoadon.htm" var="pagedLink">
+			<c:url value="admin-ddh.htm" var="pagedLink">
 				<c:param name="p" value="~" />
 			</c:url>
 			<form class="input-group" style="margin: 20px 0" method="post">
@@ -38,8 +38,10 @@
 						<th scope="col">ID</th>
 
 						<th scope="col">Nhân Viên Thực Hiện</th>
-						<th scope="col">Bàn</th>
+						<th scope="col">Khách hàng</th>
 						<th scope="col">Ngày Thực Hiện</th>
+						<th scope="col">Tình Trạng</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -47,8 +49,10 @@
 						<tr>
 							<th scope="row">${hd.id}</th>
 							<td>${hd.nvThucHien}</td>
-							<td>${hd.ban}</td>
+							<td>${hd.khThucHien}</td>
 							<td>${hd.ngayThucHien}</td>
+							<td>${hd.tinhTrang}</td>
+
 						</tr>
 					</c:forEach>
 
@@ -56,7 +60,7 @@
 			</table>
 			<tg:paging pagedLink="${pagedLink}"
 				pagedListHolder="${pagedListHolder}"></tg:paging>
-			
+
 		</div>
 	</div>
 

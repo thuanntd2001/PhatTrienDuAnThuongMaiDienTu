@@ -2,7 +2,6 @@ package spring.controller.admin;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,18 +9,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.time.DateUtils;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import spring.bean.BanHoaDonModel;
 import spring.bean.Collector;
-import spring.dto.ChiTietHDDTO;
 import spring.dto.NhanVienDTO;
 import spring.dto.UserDTO;
 
@@ -120,7 +114,7 @@ public class QLNhanVienHome {
 		nv.getDiaChi().trim();
 		nv.getSdt().trim();
 
-		nv.setDaNghi(false);
+		nv.setTrangThai(true);
 
 		Integer temp = this.insertUser(nv);
 		if (temp != 0) {
@@ -270,7 +264,8 @@ public class QLNhanVienHome {
 		if (!checkAdmin) {
 			error = ", nhân viên đã có tài khoản, xóa tài khoản trước";
 		} else {
-			tmp.setDaNghi(true);
+			tmp.setTrangThai(false);
+;
 			
 			temp = this.updateNV(tmp);
 
