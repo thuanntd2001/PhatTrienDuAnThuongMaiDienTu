@@ -13,10 +13,10 @@
 
 
 		<li><a href="goi-mon.htm"> <i class="fas fa-cash-register"></i>
-				<span class="links_name">QUẢN LÝ ĐƠN ĐẶT HÀNG</span>
+				<span class="links_name">GỌI MÓN</span>
 		</a></li>
 		<li><a href="thanh-toan.htm"> <i class="fas fa-cash-register"></i>
-				<span class="links_name">XÁC NHẬN ĐƠN HÀNG</span>
+				<span class="links_name">THANH TOÁN</span>
 		</a></li>
 
 		<li><a href="hoa-don.htm"> <i
@@ -24,10 +24,7 @@
 					LÝ HÓA ĐƠN</span>
 		</a></li>
 		<li><a href="thuc-don.htm"> <i class="fas fa-coffee"></i> <span
-				class="links_name">QUẢN LÝ SẢN PHẨM</span>
-		</a></li>
-				<li><a href="thuc-don.htm"> <i class="fas fa-coffee"></i> <span
-				class="links_name">QUẢN LÝ NHÃN TỪ KHÓA</span>
+				class="links_name">QUẢN LÝ THỰC ĐƠN</span>
 		</a></li>
 		<li><a href="user.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">TÀI KHOẢN</span>

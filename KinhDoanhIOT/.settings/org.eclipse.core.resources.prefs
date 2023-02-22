@@ -7,5 +7,7 @@ encoding//src/main/java/spring/controller/admin/QLNhapHang.java=UTF-8
 encoding//src/main/java/spring/controller/admin/QLTaiKhoan.java=UTF-8
 encoding//src/main/java/spring/controller/admin/QLThucDon.java=UTF-8
 encoding//src/main/java/spring/controller/chung/LoginController.java=UTF-8
+encoding//src/main/java/spring/controller/chung/LoginKHController.java=UTF-8
+encoding//src/main/java/spring/controller/khachhang/HomeKH.java=UTF-8
 encoding//src/main/java/spring/controller/web/UserController.java=UTF-8
 encoding//src/main/resources/message_vi.properties=ISO-8859-1
