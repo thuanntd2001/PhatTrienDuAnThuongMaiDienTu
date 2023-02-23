@@ -51,8 +51,8 @@ body {
 							</span>
 						</div>
 						<form:input id="fullname" type="text" class="form-control"
-							placeholder="Nguyễn Văn A" path="hoTen" aria-label="Username" maxlength="50"
-							aria-describedby="basic-addon1" />
+							placeholder="Nguyễn Văn A" path="hoTen" aria-label="Username"
+							maxlength="50" aria-describedby="basic-addon1" />
 						<span class="form-message"></span>
 					</div>
 
@@ -73,8 +73,8 @@ body {
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label>CMND/CCCD</label> <br>
-					<form:input id="cmnd" type="text" path="cmnd" minlength="9" maxlength="13"
-						 required="true" pattern="^[0-9]{1,15}$" />
+					<form:input id="cmnd" type="text" path="cmnd" minlength="9"
+						maxlength="13" required="true" pattern="^[0-9]{1,15}$" />
 					<span class="form-message"></span>
 				</div>
 				<div class="form-group col-md-4">
@@ -87,9 +87,9 @@ body {
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="basic-addon1"> </span>
 						</div>
-						<form:input min="50000" max="100000000" type="number" minlength="5" maxlength="15"
-							class="form-control" path="luong" aria-label="luong"
-							aria-describedby="basic-addon1" />
+						<form:input min="50000" max="100000000" type="number"
+							minlength="5" maxlength="15" class="form-control" path="luong"
+							aria-label="luong" aria-describedby="basic-addon1" />
 						<div class="input-group-append">
 							<span class="input-group-text">VNĐ</span>
 						</div>
@@ -104,16 +104,15 @@ body {
 				<div class="form-group col-md-6">
 					<div class="form-group">
 						<label>Ngày Sinh</label> <br> <input type="date"
-							id="ngaysinh" name="ngaysinh"
-							value="${ngaysinh}" />
-							<span class="form-message"></span>
+							id="ngaysinh" name="ngaysinh" value="${ngaysinh}" /> <span
+							class="form-message"></span>
 					</div>
 				</div>
 
 				<div class="form-group col-md-6">
 					<div class="form-group">
 						<label>Ngày vào làm</label> <br> <input type="date"
-						max="2023-01-01" name="ngayvaolam" value="${ngayvaolam}" />
+							max="2023-01-01" name="ngayvaolam" value="${ngayvaolam}" />
 					</div>
 				</div>
 
@@ -124,9 +123,8 @@ body {
 				<div class="form-group col-md-6">
 					<label>Số Điện Thoại</label> <br>
 
-					<form:input id="sdt" path="sdt" type="text" minlength="10" maxlength="10"
-
-						pattern="^[0-9]{10,15}$" required="true" />
+					<form:input id="sdt" path="sdt" type="text" minlength="10"
+						maxlength="10" pattern="^[0-9]{10,15}$" required="true" />
 					<span class="form-message"></span>
 
 				</div>
@@ -150,11 +148,11 @@ body {
 				<label class="col-sm-2 col-form-label">Nghỉ làm</label>
 				<div class="col-sm-10">
 					<div class="form-check form-check-inline">
-						<form:radiobutton path="daNghi" value="0" />
-						<label class="form-check-label">Đang làm</label>
+						<form:radiobutton path="trangThai" value="0" />
+						<label class="form-check-label">Đã nghỉ</label>
 						<div class="form-check form-check-inline">
-							<form:radiobutton path="daNghi" value="1" />
-							<label class="form-check-label">Đã nghỉ</label>
+							<form:radiobutton path="trangThai" value="1" />
+							<label class="form-check-label">Đang làm</label>
 						</div>
 
 					</div>
@@ -190,7 +188,7 @@ body {
 						Validator.minLength('#cmnd', 9),
 						Validator.minLength('#sdt', 10),
 						Validator.isDate('#ngaysinh'),
-				
+
 				],
 			/*   onSubmit: function (data) {
 			      // Call API

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
-import spring.dto.LoaiThucUongDTO;
-import spring.dto.ThucDonDTO;
+import spring.dto.LoaiSPDTO;
+import spring.dto.SanPhamDTO;
 
 @Controller
 
@@ -23,11 +23,11 @@ public class QLSanPham {
 
 	// CONTROLLER
 	@RequestMapping(value = "admin-qlsanpham", method = RequestMethod.GET)
-	public <E> String showThucDon(HttpServletRequest request, ModelMap model) {
+	public <E> String showSanPham(HttpServletRequest request, ModelMap model) {
 
-		List<ThucDonDTO> list = null;
+		List<SanPhamDTO> list = null;
 		try {
-			list = Collector.getListAll("/sanpham", ThucDonDTO.class);
+			list = Collector.getListAll("/sanpham", SanPhamDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,91 +37,39 @@ public class QLSanPham {
 	}
 
 	/* hiển thị form */
-	@RequestMapping(value = "formThucDon", method = RequestMethod.GET)
-	public String index_formThucDon(ModelMap model) {
-		model.addAttribute("td", new ThucDonDTO());
+	@RequestMapping(value = "formSanPham", method = RequestMethod.GET)
+	public String index_formSanPham(ModelMap model) {
+		model.addAttribute("td", new SanPhamDTO());
 
-		model.addAttribute("loaithucuongs", getLoaiThucUongs());
+		model.addAttribute("loaisps", getLoaiSPs());
 
-		return "admin/form/inputThucDon";
+		return "admin/form/inputSanPham";
 	}
 
-	public List<LoaiThucUongDTO> getLoaiThucUongs() {
-		List<LoaiThucUongDTO> list = null;
-		try {
-			list = Collector.getListAll("/loaithucuong", LoaiThucUongDTO.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return list;
-	}
-
-	public List<ThucDonDTO> getThucDons() {
-		List<ThucDonDTO> list = null;
-		try {
-			list = Collector.getListAll("/sanpham", ThucDonDTO.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return list;
-	}
-
-	public List<String> checkInfo(ThucDonDTO td) {
-		List<String> listError = new ArrayList<>();
-
-		if (td.getGia() == 0) {
-			listError.add("chưa nhập giá thành");
-		}
-		if (td.getid().trim().equals("")) {
-			listError.add("chưa nhập ID");
-		}
-
-		return listError;
-
-	}
-
-	public Integer insertThucDon(ThucDonDTO td) {
-		String flag = Collector.postMess("/sanpham", td);
-		System.out.println(flag);
-		if (flag.equals("00")) {
-			return 1;
-		} else
-			return 0;
-	}
-
-	public boolean CheckIDThucDon(String IDthucDon) {
-		List<ThucDonDTO> list = getThucDons();
-		int n = list.size();
-		String user;
-		for (int i = 0; i < n; i++) {
-			user = list.get(i).getid();
-			if (user.equals(IDthucDon)) {
-				return true;
-			}
-		}
-		return false;
-	}
+	
 
 //thêm 
-	@RequestMapping(value = "formThucDon", params = "Insert", method = RequestMethod.POST)
-	public <E> String addThucDon(HttpServletRequest request, ModelMap model, @ModelAttribute("td") ThucDonDTO td) {
+	@RequestMapping(value = "formSanPham", params = "Insert", method = RequestMethod.POST)
+	public <E> String addSanPham(HttpServletRequest request, ModelMap model, @ModelAttribute("td") SanPhamDTO td) {
 		String error = "";
 		Integer temp = 0;
-		if (CheckIDThucDon(td.getid())) {
+		if (CheckIDSanPham(td.getID())) {
 			error = "ID thực đơn đã tồn tại!!!";
 		} else {
-			String idLoaiTU = request.getParameter("loaithucuong");
+			String idLoaiTU = request.getParameter("loai");
 			String tmp = request.getParameter("gia");
 			Integer giaTD = Integer.parseInt(tmp);
 			String tenTD = request.getParameter("ten");
+			String dvt = request.getParameter("dvt");
 
-			td.setLoaiThucUong(idLoaiTU);
+			td.setLoai(Long.parseLong(idLoaiTU));
 			td.setGia(giaTD);
 			td.setTen(tenTD);
-			temp = this.insertThucDon(td);
+			td.setIcon("gi do");
+			td.setSlTon(0);
+			td.setDvt(dvt);
+			td.setTrangThai(1);
+			temp = this.insertSanPham(td);
 		}
 		if (temp != 0) {
 			model.addAttribute("message", "Thêm thành công");
@@ -130,33 +78,18 @@ public class QLSanPham {
 			model.addAttribute("message", "Thêm thất bại " + error);
 		}
 
-		return "admin/qlsanpham";
+		return "redirect:admin-qlsanpham.htm";
 	}
 
-	public ThucDonDTO getTD (String id) {
-		List<ThucDonDTO> list = null;
-		try {
-			list = Collector.getListAll("/sanpham", ThucDonDTO.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		ThucDonDTO ss = new ThucDonDTO();
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).getid().equals(id))
-				ss = list.get(i);
-		}
-		
-		return ss;
-	}
 	
-	@RequestMapping(value = "formThucDon", params = "linkEdit" )
-	public String editTD_showform (HttpServletRequest request, ModelMap model,@ModelAttribute("td") ThucDonDTO td) {
+	
+	@RequestMapping(value = "formSanPham", params = "linkEdit" )
+	public String editTD_showform (HttpServletRequest request, ModelMap model,@ModelAttribute("td") SanPhamDTO td) {
 		
-		String idTD = td.getid();
-		model.addAttribute("loaithucuongs",this.getLoaiThucUongs());
-		String x = this.getTD(idTD).getLoaiThucUong();
-		model.addAttribute("idloaiTU", td.getLoaiThucUong());
+		Long idTD = td.getID();
+		model.addAttribute("loais",this.getLoaiSPs());
+		Long x = this.getTD(idTD).getLoai();
+		model.addAttribute("idloaiTU", td.getLoai());
 		
 		String ten = this.getTD(idTD).getTen();
 		model.addAttribute("ten",ten);
@@ -165,14 +98,14 @@ public class QLSanPham {
 		/*model.addAttribute("td",td);*/
 		model.addAttribute("btnupdate","true");
 		model.addAttribute("read","true");
-		return "admin/form/inputThucDon";
+		return "admin/form/inputSanPham";
 	}
 
-	@RequestMapping(value = "formThucDon", params = "btnupdate" , method = RequestMethod.POST )
+	@RequestMapping(value = "formSanPham", params = "btnupdate" , method = RequestMethod.POST )
 	public <E> String editTD(HttpServletRequest requets, ModelMap model, 
-			@ModelAttribute("td") ThucDonDTO td) {
-		String idLoaiTU =requets.getParameter("loaithucuong");	
-		td.setLoaiThucUong(idLoaiTU);
+			@ModelAttribute("td") SanPhamDTO td) {
+		String idLoaiTU =requets.getParameter("loai");	
+		td.setLoai(Long.parseLong(idLoaiTU));
 		
 		
 		String tmp =requets.getParameter("gia");
@@ -195,19 +128,12 @@ public class QLSanPham {
 	
 	
 	
-	public Integer updateTD(ThucDonDTO td) {
-		String flag = Collector.putMess("/sanpham", td);
-		System.out.println(flag);
-		if (flag.equals("00")){
-			return 1;
-		} else
-			return 0;
-	}
+	
 	
 	@RequestMapping(value = "admin-qlsanpham", params = "linkDelete")
-	public <E> String deleteDonNhapHang (HttpServletRequest request, ModelMap model, @ModelAttribute("td") ThucDonDTO td) {
+	public <E> String deleteDonNhapHang (HttpServletRequest request, ModelMap model, @ModelAttribute("td") SanPhamDTO td) {
 		
-		Integer temp = this.deleteThucDon(td);
+		Integer temp = this.deleteSanPham(td);
 		if(temp != 0) {
 			model.addAttribute("message","Delete thành công");
 		}
@@ -217,10 +143,101 @@ public class QLSanPham {
 		
 		return "admin/qlsanpham";
 	}
-	public Integer deleteThucDon (ThucDonDTO td) {
+	public Integer deleteSanPham (SanPhamDTO td) {
 		String flag = Collector.delMess("/sanpham", td);
 		System.out.println(flag);
 		if (flag.equals("00")) {
+			return 1;
+		} else
+			return 0;
+	}
+	public List<LoaiSPDTO> getLoaiSPs() {
+		List<LoaiSPDTO> list = null;
+		try {
+			list = Collector.getListAll("/loaisp", LoaiSPDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	public List<SanPhamDTO> getSanPhams() {
+		List<SanPhamDTO> list = null;
+		try {
+			list = Collector.getListAll("/sanpham", SanPhamDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<String> checkInfo(SanPhamDTO td) {
+		List<String> listError = new ArrayList<>();
+
+		if (td.getGia() == 0) {
+			listError.add("chưa nhập giá thành");
+		}
+		if (td.getID()==null) {
+			listError.add("chưa nhập ID");
+		}
+
+		return listError;
+
+	}
+
+	public Integer insertSanPham(SanPhamDTO td) {
+		String flag;
+		try {
+			 flag = Collector.postMess("/sanpham", td);
+			System.out.println(flag);
+		}
+		catch(Exception e) {
+			System.out.println("loi api");
+			e.printStackTrace();
+			return 0;
+		}
+		
+		if (flag.equals("00")) {
+			return 1;
+		} else
+			return 0;
+	}
+
+	public boolean CheckIDSanPham(Long IDthucDon) {
+		List<SanPhamDTO> list = getSanPhams();
+		int n = list.size();
+		Long user;
+		for (int i = 0; i < n; i++) {
+			user = list.get(i).getID();
+			if (user==IDthucDon) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public SanPhamDTO getTD (Long id) {
+		List<SanPhamDTO> list = null;
+		try {
+			list = Collector.getListAll("/sanpham", SanPhamDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		SanPhamDTO ss = new SanPhamDTO();
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).getID().equals(id))
+				ss = list.get(i);
+		}
+		
+		return ss;
+	}
+	public Integer updateTD(SanPhamDTO td) {
+		String flag = Collector.putMess("/sanpham", td);
+		System.out.println(flag);
+		if (flag.equals("00")){
 			return 1;
 		} else
 			return 0;

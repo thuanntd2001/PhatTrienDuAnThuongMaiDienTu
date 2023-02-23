@@ -11,24 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
-import spring.dto.ThucDonDTO;
+import spring.dto.SanPhamDTO;
 
 
 
 
 @Controller
-public class ThucDonController {
+public class SanPhamController {
 
 
-	@RequestMapping(value = "thuc-don", method = RequestMethod.GET)
+	@RequestMapping(value = "sanpham", method = RequestMethod.GET)
 	public String showMenu(ModelMap model, HttpServletRequest request) throws IOException {
 		
-		List<ThucDonDTO> list = Collector.getListAll("/thucdon",ThucDonDTO.class);
+		List<SanPhamDTO> list = Collector.getListAll("/sanpham",SanPhamDTO.class);
 		model.addAttribute("list", list);
 		return "web/menu";
 	}
 
-	@RequestMapping(value = "thuc-don", params="btnsearch")
+	@RequestMapping(value = "sanpham", params="btnsearch")
 	public <E> String showMenu2(ModelMap model, HttpServletRequest request) {
 		
 	

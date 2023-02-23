@@ -5,42 +5,42 @@ import java.util.List;
 
 
 public class ThongKeDTO {
-	private int soHoaDon;
+	private int soDDH;
 	private int doanhThu;
 	private int chiPhi;
 	private int loiNhuan;
-	private List<HoaDonDTO> HoaDons;
-	private List<ChiPhiDTO> chiPhis;
+	private List<DDHDTO> DDHs;
+	private List<PhieuNhapDTO> chiPhis;
 
 	
-	public int getSoHoaDon() {
-		return soHoaDon;
+	public int getSoDDH() {
+		return soDDH;
 	}
-	public void setSoHoaDon(int soHoaDon) {
-		this.soHoaDon = soHoaDon;
+	public void setSoDDH(int soDDH) {
+		this.soDDH = soDDH;
 	}
 	public int getDoanhThu() {
 		return doanhThu;
 	}
-	public List<HoaDonDTO> getHoaDons() {
-		return HoaDons;
+	public List<DDHDTO> getDDHs() {
+		return DDHs;
 	}
-	public void setHoaDons(List<HoaDonDTO> hoaDons) {
-		HoaDons = hoaDons;
+	public void setDDHs(List<DDHDTO> hoaDons) {
+		DDHs = hoaDons;
 	}
-	public List<ChiPhiDTO> getChiPhis() {
+	public List<PhieuNhapDTO> getPhieuNhaps() {
 		return chiPhis;
 	}
-	public void setChiPhis(List<ChiPhiDTO> chiPhis) {
+	public void setPhieuNhaps(List<PhieuNhapDTO> chiPhis) {
 		this.chiPhis = chiPhis;
 	}
 	public void setDoanhThu(int doanhThu) {
 		this.doanhThu = doanhThu;
 	}
-	public int getChiPhi() {
+	public int getPhieuNhap() {
 		return chiPhi;
 	}
-	public void setChiPhi(int chiPhi) {
+	public void setPhieuNhap(int chiPhi) {
 		this.chiPhi = chiPhi;
 	}
 	public int getLoiNhuan() {

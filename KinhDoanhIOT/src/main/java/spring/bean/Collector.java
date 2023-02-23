@@ -72,6 +72,7 @@ public class Collector<T> {
 
 		try {
 			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
+			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
 			obj = rc.post(url, objectMapper.writeValueAsString(pojo));
 			
 

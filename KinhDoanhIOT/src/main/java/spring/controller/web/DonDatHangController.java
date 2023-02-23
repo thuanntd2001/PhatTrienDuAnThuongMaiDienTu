@@ -18,14 +18,14 @@ import spring.dto.HoaDonDTO;
 
 
 @Controller
-public class HoaDonController {
+public class DonDatHangController {
 
-	@RequestMapping(value = "hoa-don" , method = RequestMethod.GET)
+	@RequestMapping(value = "ddh" , method = RequestMethod.GET)
 	public <E> String showMenu(ModelMap model,HttpServletRequest request) {
 
 		List<HoaDonDTO> list=null;
 		try {
-			list = Collector.getListAll("/hoadon",HoaDonDTO.class);
+			list = Collector.getListAll("/ddh",HoaDonDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,7 +37,7 @@ public class HoaDonController {
 		return "web/bill";
 	}
 	
-	@RequestMapping(value = "hoa-don", params="btnsearch")
+	@RequestMapping(value = "ddh", params="btnsearch")
 	public <E> String showMen2u(ModelMap model,HttpServletRequest request) {
 		
 		
@@ -48,7 +48,7 @@ public class HoaDonController {
 		return "web/bill";
 	}
 	
-	@RequestMapping(value = "hoa-don/{id}.htm", params = "linkView")
+	@RequestMapping(value = "ddh/{id}.htm", params = "linkView")
 	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model,
 			@PathVariable("id") Long id) throws IOException {
 

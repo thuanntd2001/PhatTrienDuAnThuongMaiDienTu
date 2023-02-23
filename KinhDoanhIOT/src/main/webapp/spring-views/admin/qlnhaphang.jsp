@@ -49,7 +49,7 @@
 
 						<th scope="row">Mã Đơn</th>
 						<th scope="row">Ngày Nhập</th>
-	
+
 						<th scope="row">Nhà Cung Cấp</th>
 						<th scope="row">Tình Trạng</th>
 
@@ -74,18 +74,19 @@
 									<button type="button" class="btn btn-secondary">SỬA</button>
 							</a></td>
 
-							<td>
-								<a
-														href="/dichvu/admin-home/admin-nhaphang.htm?linkDelete&id=${nh.id}"<%--
+							<td><a
+								href="/dichvu/admin-home/admin-nhaphang.htm?linkDelete&id=${nh.id}"<%--
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
-														<button name="btnXOA" id="#exampleModal2" type="button"
-															class="btn btn-warning">Xóa</button>
-													</a>
-
-
+									<button name="btnXOA" id="#exampleModal2" type="button"
+										class="btn btn-warning">Xóa</button>
+							</a></td>
+							<td>
+								<div class="">
+									<a style="font-size: 10px;" class="btn btn-primary"
+										href="admin-nhaphang.htm/${nh.id}.htm?linkView"> XEM </a>
+								</div>
 							</td>
-
 						</tr>
 					</c:forEach>
 				</tbody>

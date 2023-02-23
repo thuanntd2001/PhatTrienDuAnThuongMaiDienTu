@@ -55,45 +55,45 @@ public class ThongKe {
 
 	@RequestMapping(value = "thong-ke", params = "btn-search", method = RequestMethod.POST)
 	public String searchThongKe1(ModelMap model, HttpServletRequest request) {
-		DateDTO date = new DateDTO();
-		Calendar calendar = Calendar.getInstance();
-
-		try {
-			date.setNgay(Integer.parseInt(request.getParameter("day")));
-		} catch (Exception e) {
-			date.setNgay(-1);
-		}
-		try {
-			date.setThang(Integer.parseInt(request.getParameter("month")));
-		} catch (Exception e) {
-			date.setThang(-1);
-		}
-		try {
-			date.setNam(Integer.parseInt(request.getParameter("year")));
-		} catch (Exception e) {
-			date.setNam(calendar.get(Calendar.YEAR));
-		}
-
-		ThongKeDTO thongKe = Collector.postObj("/thongke", date, ThongKeDTO.class);
-		ThongKeDTO thongKeList = Collector.postObj("/thongke?flaglist=true", date, ThongKeDTO.class);
-
-		List<Integer> s = new ArrayList<Integer>();
-		List<HoaDonDTO> b = thongKeList.getHoaDons();
-		for (HoaDonDTO hd : b) {
-			s.add(hd.getTongTien());
-		}
-		model.addAttribute("timeradio", "day");
-		model.addAttribute("day", date.getNgay());
-		model.addAttribute("month", date.getThang());
-		model.addAttribute("year", date.getNam());
-		model.addAttribute("soHoaDon", thongKe.getSoHoaDon());
-		model.addAttribute("doanhThu", thongKe.getDoanhThu());
-		model.addAttribute("chiPhi", thongKe.getChiPhi());
-		model.addAttribute("loiNhuan", thongKe.getLoiNhuan());
-
-		model.addAttribute("hoaDon", b);
-		model.addAttribute("bangChiPhi", thongKeList.getChiPhis());
-		model.addAttribute("tongHD", s);
+//		DateDTO date = new DateDTO();
+//		Calendar calendar = Calendar.getInstance();
+//
+//		try {
+//			date.setNgay(Integer.parseInt(request.getParameter("day")));
+//		} catch (Exception e) {
+//			date.setNgay(-1);
+//		}
+//		try {
+//			date.setThang(Integer.parseInt(request.getParameter("month")));
+//		} catch (Exception e) {
+//			date.setThang(-1);
+//		}
+//		try {
+//			date.setNam(Integer.parseInt(request.getParameter("year")));
+//		} catch (Exception e) {
+//			date.setNam(calendar.get(Calendar.YEAR));
+//		}
+//
+//		ThongKeDTO thongKe = Collector.postObj("/thongke", date, ThongKeDTO.class);
+//		ThongKeDTO thongKeList = Collector.postObj("/thongke?flaglist=true", date, ThongKeDTO.class);
+//
+//		List<Integer> s = new ArrayList<Integer>();
+//		List<HoaDonDTO> b = thongKeList.getHoaDons();
+//		for (HoaDonDTO hd : b) {
+//			s.add(hd.getTongTien());
+//		}
+//		model.addAttribute("timeradio", "day");
+//		model.addAttribute("day", date.getNgay());
+//		model.addAttribute("month", date.getThang());
+//		model.addAttribute("year", date.getNam());
+//		model.addAttribute("soHoaDon", thongKe.getSoHoaDon());
+//		model.addAttribute("doanhThu", thongKe.getDoanhThu());
+//		model.addAttribute("chiPhi", thongKe.getChiPhi());
+//		model.addAttribute("loiNhuan", thongKe.getLoiNhuan());
+//
+//		model.addAttribute("hoaDon", b);
+//		model.addAttribute("bangChiPhi", thongKeList.getChiPhis());
+//		model.addAttribute("tongHD", s);
 		return "admin/thongke";
 
 	}

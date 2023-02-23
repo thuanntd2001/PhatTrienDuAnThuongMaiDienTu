@@ -54,18 +54,18 @@
                     <c:forEach  var="th" items="${list}">
                        
                      <tr>
-                            <th scope="row">${th.id}</th>
-                            <td>${th.loaiThucUong}</td>
+                            <th scope="row">${th.ID}</th>
+                            <td>${th.loai}</td>
                             <td>${th.ten}</td>
                             <td>${th.gia}</td>
-                            <td><a href="/dichvu/admin-home/formSanPham.htm?linkEdit&id=${th.id}">
+                            <td><a href="/dichvu/admin-home/formSanPham.htm?linkEdit&id=${th.ID}">
 											<button type="button"
 												class="btn btn-primary" data-toggle="modal" 
 												data-whatever="@mdo">SỬA</button>
 										</a></td>
                             <td>
                                 <a
-														href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.id}"<%--
+														href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.ID}"<%--
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
 														<button name="btnXOA1" type="button"
