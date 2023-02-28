@@ -1,4 +1,4 @@
-package springboot.dto;
+package spring.dto;
 
 public class DateDTO {
 	private int ngay=-1;

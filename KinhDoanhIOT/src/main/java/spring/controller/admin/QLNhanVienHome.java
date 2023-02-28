@@ -131,8 +131,8 @@ public class QLNhanVienHome {
 			model.addAttribute("message", "Thêm thất bại! " + listError);
 
 		}
-		return "admin/QLNV";
-		// "redirect:/admin-home/index.htm"
+//		return "admin/QLNV";
+		return "redirect:/admin-home/index.htm";
 	}
 
 	long temp = 0;
@@ -218,7 +218,9 @@ public class QLNhanVienHome {
 
 		}
 
-		return "admin/QLNV";
+		//return "admin/QLNV";
+		return "redirect:/admin-home/index.htm";
+
 	}
 
 	public Integer updateNV(NhanVienDTO nv) {
@@ -277,7 +279,8 @@ public class QLNhanVienHome {
 			model.addAttribute("message", "Xóa thành công");
 		}
 
-		return "admin/QLNV";
+		return "redirect:/admin-home/index.htm";
+
 
 	}
 	
