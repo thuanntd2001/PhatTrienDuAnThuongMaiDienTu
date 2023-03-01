@@ -16,32 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `KHACHHANG`
+-- Dumping data for table `CTDDH`
 --
 
-DROP TABLE IF EXISTS `KHACHHANG`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `KHACHHANG` (
-  `MAKH` bigint NOT NULL AUTO_INCREMENT,
-  `HOTEN` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `NGAYSINH` date DEFAULT NULL,
-  `GIOITINH` bit(1) DEFAULT b'1',
-  `SDT` varchar(10) NOT NULL,
-  `DIACHI` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `TRANGTHAI` int NOT NULL DEFAULT '1' COMMENT '1 Hoat dong\\n0 BAN\\n',
-  PRIMARY KEY (`MAKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `KHACHHANG`
---
-
-LOCK TABLES `KHACHHANG` WRITE;
-/*!40000 ALTER TABLE `KHACHHANG` DISABLE KEYS */;
-INSERT INTO `KHACHHANG` VALUES (1,'thuan','2001-10-03',_binary '','0987754321','66 thu q9',1);
-/*!40000 ALTER TABLE `KHACHHANG` ENABLE KEYS */;
+LOCK TABLES `CTDDH` WRITE;
+/*!40000 ALTER TABLE `CTDDH` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CTDDH` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +33,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:15
+-- Dump completed on 2023-03-01 17:21:56

@@ -2,13 +2,12 @@ package springboot.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,6 +23,16 @@ public class NhanEntity {
 	
 	@OneToMany(mappedBy = "nhan", fetch = FetchType.LAZY)
 	private Collection<Nhan_SanPhamEntity> chiTietSp= new ArrayList<Nhan_SanPhamEntity>();
+	
+	
+	@Column(name="NGAYTAO")
+	private Date ngayTao;
+	
+	@Column(name="NVTAO")
+	private Long nvTao;
+	
+	@Column(name="NVSUA")
+	private Long nvSua;
 
 	public Collection<Nhan_SanPhamEntity> getChiTietSp() {
 		return chiTietSp;
@@ -37,14 +46,47 @@ public class NhanEntity {
 
 
 
-	@ManyToOne
-	@JoinColumn(name = "SANPHAM")
-	private SanPhamEntity sanPham;
+
 	public String getTenNhan() {
 		return tenNhan;
 	}
 
 
+
+	
+	public Date getNgayTao() {
+		return ngayTao;
+	}
+
+
+
+	public void setNgayTao(Date ngayTao) {
+		this.ngayTao = ngayTao;
+	}
+
+
+
+	public Long getNvTao() {
+		return nvTao;
+	}
+
+
+
+	public void setNvTao(Long nvTao) {
+		this.nvTao = nvTao;
+	}
+
+
+
+	public Long getNvSua() {
+		return nvSua;
+	}
+
+
+
+	public void setNvSua(Long nvSua) {
+		this.nvSua = nvSua;
+	}
 
 	public void setTenNhan(String tenNhan) {
 		this.tenNhan = tenNhan;
@@ -65,15 +107,7 @@ public class NhanEntity {
 
 
 
-	public SanPhamEntity getSanPham() {
-		return sanPham;
-	}
 
-
-
-	public void setSanPham(SanPhamEntity sanPham) {
-		this.sanPham = sanPham;
-	}
 
 
 

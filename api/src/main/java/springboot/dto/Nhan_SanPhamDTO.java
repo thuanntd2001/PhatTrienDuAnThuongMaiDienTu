@@ -2,7 +2,7 @@ package springboot.dto;
 
 //@Entity
 //@Table(name = "NHAN_SANPHAM")
-public class Nhan_SanPhamDTO {
+public class Nhan_SanPhamDTO extends LogDTO{
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@Column(name = "ID")

@@ -37,6 +37,9 @@ public class NhanAPI {
 				for (NhanEntity model : list) {
 					NhanDTO save = new NhanDTO();
 					save.setTenNhan(model.getTenNhan());
+					save.setNvSua(model.getNvSua());
+					save.setNvTao(model.getNvTao());
+					save.setNgayTao(model.getNgayTao());
 
 					listDTO.add(save);
 				}
@@ -55,6 +58,9 @@ public class NhanAPI {
 		NhanEntity check = null;
 		try {
 			save.setTenNhan(model.getTenNhan());
+			save.setNvSua(model.getNvSua());
+			save.setNvTao(model.getNvTao());
+			save.setNgayTao(model.getNgayTao());
 
 			check = repo.save(save);
 		} catch (Exception e) {

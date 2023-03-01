@@ -44,7 +44,9 @@ public class Nhan_SanPhamAPI {
 				Nhan_SanPhamDTO save = new Nhan_SanPhamDTO();
 				save.setNhan(model.getNhan().getTenNhan());
 				save.setSanPham(model.getSanPham().getId());
-				
+				save.setNvSua(model.getNvSua());
+				save.setNvTao(model.getNvTao());
+				save.setNgayTao(model.getNgayTao());
 
 				listDTO.add(save);
 			}
@@ -65,7 +67,9 @@ public class Nhan_SanPhamAPI {
 				Nhan_SanPhamDTO save = new Nhan_SanPhamDTO();
 				save.setNhan(model.getNhan().getTenNhan());
 				save.setSanPham(model.getSanPham().getId());
-				
+				save.setNvSua(model.getNvSua());
+				save.setNvTao(model.getNvTao());
+				save.setNgayTao(model.getNgayTao());
 
 				listDTO.add(save);
 			}
@@ -90,6 +94,9 @@ public class Nhan_SanPhamAPI {
 		try {
 			save.setNhan(nRepo.findById(model.getNhan()).get());
 			save.setSanPham(spRepo.findById(model.getSanPham()).get());
+			save.setNvSua(model.getNvSua());
+			save.setNvTao(model.getNvTao());
+			save.setNgayTao(model.getNgayTao());
 
 			check = repo.save(save);
 		} catch (Exception e) {

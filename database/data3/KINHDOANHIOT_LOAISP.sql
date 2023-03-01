@@ -16,30 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `PHIEUXUAT`
+-- Dumping data for table `LOAISP`
 --
 
-DROP TABLE IF EXISTS `PHIEUXUAT`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `PHIEUXUAT` (
-  `MAPX` bigint NOT NULL AUTO_INCREMENT,
-  `MANV` bigint NOT NULL DEFAULT '0',
-  `NGAY` date NOT NULL,
-  `MADDH` bigint NOT NULL,
-  PRIMARY KEY (`MAPX`),
-  KEY `fk_PHIEUXUAT_DONDATHANG1_idx` (`MADDH`),
-  CONSTRAINT `fk_PHIEUXUAT_DONDATHANG1` FOREIGN KEY (`MADDH`) REFERENCES `DONDATHANG` (`MADDH`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `PHIEUXUAT`
---
-
-LOCK TABLES `PHIEUXUAT` WRITE;
-/*!40000 ALTER TABLE `PHIEUXUAT` DISABLE KEYS */;
-/*!40000 ALTER TABLE `PHIEUXUAT` ENABLE KEYS */;
+LOCK TABLES `LOAISP` WRITE;
+/*!40000 ALTER TABLE `LOAISP` DISABLE KEYS */;
+INSERT INTO `LOAISP` VALUES (1,'Arduino'),(2,'Cảm biến'),(3,'Linh kiện điện tử 1');
+/*!40000 ALTER TABLE `LOAISP` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:15
+-- Dump completed on 2023-03-01 17:21:56

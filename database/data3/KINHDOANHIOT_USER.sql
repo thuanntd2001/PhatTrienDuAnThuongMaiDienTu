@@ -16,35 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `SANPHAM`
+-- Dumping data for table `USER`
 --
 
-DROP TABLE IF EXISTS `SANPHAM`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `SANPHAM` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `TEN` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `LOAI` bigint NOT NULL,
-  `GIA` int NOT NULL,
-  `DONVITINH` varchar(45) NOT NULL DEFAULT 'Cái',
-  `SOLUONGTON` int NOT NULL DEFAULT '0',
-  `ICON` varchar(255) NOT NULL DEFAULT 'logo.webp',
-  `TRANGTHAI` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  KEY `FK_THUCDON_LOAITHUCUONG` (`LOAI`),
-  CONSTRAINT `FK_THUCDON_LOAITHUCUONG` FOREIGN KEY (`LOAI`) REFERENCES `LOAISP` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `SANPHAM`
---
-
-LOCK TABLES `SANPHAM` WRITE;
-/*!40000 ALTER TABLE `SANPHAM` DISABLE KEYS */;
-INSERT INTO `SANPHAM` VALUES (1,'Arduino Uno',1,200000,'Cái',200,'logo.webp',1);
-/*!40000 ALTER TABLE `SANPHAM` ENABLE KEYS */;
+LOCK TABLES `USER` WRITE;
+/*!40000 ALTER TABLE `USER` DISABLE KEYS */;
+INSERT INTO `USER` VALUES ('admin','1234',1,1,1,'abc@hh.com','lo_highland.png'),('nhanvien1','1234',2,2,1,'ádas@ss.com','lo_highland.png');
+/*!40000 ALTER TABLE `USER` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:16
+-- Dump completed on 2023-03-01 17:21:57

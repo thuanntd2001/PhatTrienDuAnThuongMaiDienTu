@@ -2,7 +2,7 @@ package spring.dto;
 
 //@Entity
 //@Table(name = "TUKHOA_NHAN")
-public class TuKhoa_NhanDTO {
+public class TuKhoa_NhanDTO extends LogDTO{
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@Column(name = "ID")

@@ -2,29 +2,18 @@ package spring.dto;
 
 //@Entity
 //@Table(name = "NHAN")
-public class NhanDTO {
+public class NhanDTO extends LogDTO{
 	//@Id
 	//@Column(name="TENNHAN")
 	private String tenNhan;
 	
 
 
-	public Long getSanPham() {
-		return sanPham;
-	}
-
-
-
-	public void setSanPham(Long sanPham) {
-		this.sanPham = sanPham;
-	}
-
 
 
 
 	//@ManyToOne
 	//@JoinColumn(name = "SANPHAM")
-	private Long sanPham;
 	public String getTenNhan() {
 		return tenNhan;
 	}

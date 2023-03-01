@@ -2,6 +2,7 @@ package springboot.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +20,57 @@ public class TuKhoaEntity {
 	
 	@OneToMany(mappedBy = "tuKhoa", fetch = FetchType.LAZY)
 	private Collection<TuKhoa_NhanEntity> chiTietTuKhoa= new ArrayList<TuKhoa_NhanEntity>();
+
+	@Column(name="NGAYTAO")
+	private Date ngayTao;
+	
+	@Column(name="NVTAO")
+	private Long nvTao;
+	
+	@Column(name="NVSUA")
+	private Long nvSua;
+	
+	public Date getNgayTao() {
+		return ngayTao;
+	}
+
+
+
+	public void setNgayTao(Date ngayTao) {
+		this.ngayTao = ngayTao;
+	}
+
+
+
+	public Long getNvTao() {
+		return nvTao;
+	}
+
+
+
+	public void setNvTao(Long nvTao) {
+		this.nvTao = nvTao;
+	}
+
+
+
+	public Long getNvSua() {
+		return nvSua;
+	}
+
+
+
+	public void setNvSua(Long nvSua) {
+		this.nvSua = nvSua;
+	}
+
+	
+	
+	
+	
+	
+	
+
 
 
 	public String getTenTuKhoa() {

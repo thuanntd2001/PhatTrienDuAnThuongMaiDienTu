@@ -16,28 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `PHIEUNHAP`
+-- Dumping data for table `SANPHAM`
 --
 
-DROP TABLE IF EXISTS `PHIEUNHAP`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `PHIEUNHAP` (
-  `MAPN` bigint NOT NULL AUTO_INCREMENT,
-  `NHACC` varchar(45) NOT NULL DEFAULT '0',
-  `MANV` varchar(255) NOT NULL,
-  `NGAY` varchar(45) NOT NULL,
-  PRIMARY KEY (`MAPN`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `PHIEUNHAP`
---
-
-LOCK TABLES `PHIEUNHAP` WRITE;
-/*!40000 ALTER TABLE `PHIEUNHAP` DISABLE KEYS */;
-/*!40000 ALTER TABLE `PHIEUNHAP` ENABLE KEYS */;
+LOCK TABLES `SANPHAM` WRITE;
+/*!40000 ALTER TABLE `SANPHAM` DISABLE KEYS */;
+INSERT INTO `SANPHAM` VALUES (1,'Arduino Uno',1,200000,'Cái',200,'logo.webp',1),(2,'CB Nhiệt độ KJ45',2,10000,'Cái',1000,'logo.webp',1),(3,'Arduino MICRO',1,200000,'Cái',200,'logo.webp',1),(4,'ádfff',1,120000,'cái',0,'gi do',1),(5,'ewgw',1,200000,'qwer',0,'gi do',1),(6,'cảm biến ánh sáng',2,30000,'10 cái',0,'gi do',1),(7,'cảm biên bụi',2,5000,'cái',0,'gi do',1);
+/*!40000 ALTER TABLE `SANPHAM` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:16
+-- Dump completed on 2023-03-01 17:21:57

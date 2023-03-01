@@ -16,33 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `CTPX`
+-- Dumping data for table `CTPN`
 --
 
-DROP TABLE IF EXISTS `CTPX`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `CTPX` (
-  `MAPX` bigint NOT NULL,
-  `SANPHAM` bigint NOT NULL,
-  `SOLUONG` int NOT NULL DEFAULT '0',
-  `DONGIA` varchar(45) NOT NULL,
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ID`),
-  KEY `fk_CTPX_SANPHAM1_idx` (`SANPHAM`),
-  KEY `fk_CTPX_PHIEUXUAT1` (`MAPX`),
-  CONSTRAINT `fk_CTPX_PHIEUXUAT1` FOREIGN KEY (`MAPX`) REFERENCES `PHIEUXUAT` (`MAPX`),
-  CONSTRAINT `fk_CTPX_SANPHAM1` FOREIGN KEY (`SANPHAM`) REFERENCES `SANPHAM` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `CTPX`
---
-
-LOCK TABLES `CTPX` WRITE;
-/*!40000 ALTER TABLE `CTPX` DISABLE KEYS */;
-/*!40000 ALTER TABLE `CTPX` ENABLE KEYS */;
+LOCK TABLES `CTPN` WRITE;
+/*!40000 ALTER TABLE `CTPN` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CTPN` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +33,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:15
+-- Dump completed on 2023-03-01 17:21:56

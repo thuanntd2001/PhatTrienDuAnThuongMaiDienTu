@@ -16,27 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `CHUCVU`
+-- Dumping data for table `NHAN_SANPHAM`
 --
 
-DROP TABLE IF EXISTS `CHUCVU`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `CHUCVU` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `TENCHUCVU` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `CHUCVU`
---
-
-LOCK TABLES `CHUCVU` WRITE;
-/*!40000 ALTER TABLE `CHUCVU` DISABLE KEYS */;
-INSERT INTO `CHUCVU` VALUES (1,'Admin'),(2,'Nhân viên'),(3,'Khách hàng');
-/*!40000 ALTER TABLE `CHUCVU` ENABLE KEYS */;
+LOCK TABLES `NHAN_SANPHAM` WRITE;
+/*!40000 ALTER TABLE `NHAN_SANPHAM` DISABLE KEYS */;
+INSERT INTO `NHAN_SANPHAM` VALUES (1,1,'cảm','2021-01-01',1,NULL);
+/*!40000 ALTER TABLE `NHAN_SANPHAM` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:15
+-- Dump completed on 2023-03-01 17:21:57

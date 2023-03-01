@@ -16,27 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `LOAISP`
+-- Dumping data for table `GIOHANG`
 --
 
-DROP TABLE IF EXISTS `LOAISP`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `LOAISP` (
-  `ID` bigint NOT NULL AUTO_INCREMENT,
-  `TENLOAI` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `LOAISP`
---
-
-LOCK TABLES `LOAISP` WRITE;
-/*!40000 ALTER TABLE `LOAISP` DISABLE KEYS */;
-INSERT INTO `LOAISP` VALUES (1,'ARDUINO');
-/*!40000 ALTER TABLE `LOAISP` ENABLE KEYS */;
+LOCK TABLES `GIOHANG` WRITE;
+/*!40000 ALTER TABLE `GIOHANG` DISABLE KEYS */;
+INSERT INTO `GIOHANG` VALUES (1,1,2,1);
+/*!40000 ALTER TABLE `GIOHANG` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:16
+-- Dump completed on 2023-03-01 17:21:56
