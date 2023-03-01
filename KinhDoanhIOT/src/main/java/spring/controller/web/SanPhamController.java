@@ -25,14 +25,14 @@ public class SanPhamController {
 		
 		List<SanPhamDTO> list = Collector.getListAll("/sanpham",SanPhamDTO.class);
 		model.addAttribute("list", list);
-		return "web/menu";
+		return "web/sanpham";
 	}
 
 	@RequestMapping(value = "sanpham", params="btnsearch")
 	public <E> String showMenu2(ModelMap model, HttpServletRequest request) {
 		
 	
-		return "web/menu";
+		return "web/sanpham";
 	}
 	
 
