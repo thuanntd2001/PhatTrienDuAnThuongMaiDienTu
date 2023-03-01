@@ -28,6 +28,11 @@
 				<li><a href="nhan.htm"> <i class="fas fa-coffee"></i> <span
 				class="links_name">QUẢN LÝ NHÃN</span>
 		</a></li>
+
+		<li><a href="nhap-hang.htm"> <i class="fas fa-user"></i> <span
+				class="links_name">QUẢN LÝ NHẬP HÀNG</span>
+		</a></li>
+				
 		<li><a href="user.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">TÀI KHOẢN</span>
 		</a></li>
