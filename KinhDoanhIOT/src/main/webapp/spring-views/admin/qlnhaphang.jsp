@@ -84,7 +84,7 @@
 							<td>
 								<div class="">
 									<a style="font-size: 10px;" class="btn btn-primary"
-										href="admin-nhaphang.htm/${nh.id}.htm?linkView"> XEM </a>
+										href="admin-nhaphang/${nh.id}.htm?linkView"> XEM </a>
 								</div>
 							</td>
 						</tr>
