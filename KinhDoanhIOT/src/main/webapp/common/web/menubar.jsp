@@ -12,7 +12,7 @@
 	<ul class="nav_list">
 
 
-		<li><a href="goi-mon.htm"> <i class="fas fa-cash-register"></i>
+		<li><a href="ddh.htm"> <i class="fas fa-cash-register"></i>
 				<span class="links_name">QUẢN LÝ ĐƠN ĐẶT HÀNG</span>
 		</a></li>
 		<li><a href="thanh-toan.htm"> <i class="fas fa-cash-register"></i>

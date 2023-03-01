@@ -35,6 +35,7 @@ public class QLLoaiSPController {
 		return "admin/qlloaisp";
 	}
 
+
 	/* hiển thị form */
 	@RequestMapping(value = "formLoaiSP", method = RequestMethod.GET)
 	public String index_formLoaiSP(ModelMap model) {

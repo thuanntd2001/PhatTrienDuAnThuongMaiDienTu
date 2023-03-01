@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
-import spring.dto.PhieuNhapDTO;
+import spring.dto.CTPNDTO;
 import spring.dto.PhieuNhapDTO;
 
 
@@ -40,6 +41,25 @@ public class QLNhapHangController {
 		
 		return "admin/qlnhaphang";
 	}
+	
+	@RequestMapping(value = "hoa-don/{id}.htm", params = "linkView")
+	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model,
+			@PathVariable("id") Long id) {
+		List<CTPNDTO>  cthds= this.getCtnps(id);
+
+	
+		
+		/*List<ChiTietHDEntity> chiTietHD = this.getChiTietHD(id);
+		model.addAttribute("chiTietHD", chiTietHD);*/
+		int tong=0;
+		for (CTPNDTO ctpn:cthds) {
+			tong+=ctpn.getDonGia()*ctpn.getSoLuong();
+		}
+		model.addAttribute("tongTien",tong);
+		model.addAttribute("idhd",id);
+		return "admin/ctpn";
+	}
+
 
 	/* hiển thị form */
 	@RequestMapping(value = "formNhapHang", method = RequestMethod.GET)
@@ -47,26 +67,21 @@ public class QLNhapHangController {
 		model.addAttribute("nh", new PhieuNhapDTO());
 		return "admin/form/inputNhapHang";
 	}
+	@RequestMapping(value = "admin-nhaphang", params = "linkDelete")
+	public <E> String deleteDonNhapHang(HttpServletRequest request, ModelMap model,
+			@ModelAttribute("nh") PhieuNhapDTO nh) {
+		String id1 = request.getParameter("id");
+		long id = Long.parseLong(id1);
+		Integer temp = this.deleteDonNhapHang(this.getDonNhapHang(id));
 
-	public List<String> checkInfo(PhieuNhapDTO cp ) {
-
-		List<String> listError = new ArrayList<>();
+		if (temp != 0) {
+			model.addAttribute("message", "Xóa thành công");
+		} else {
+			model.addAttribute("message", "Xóa không thành công");
+		}
 		
-		return listError;
-		
-
+		return "admin/qlnhaphang";
 	}
-
-	public Integer insert_NhapHang(PhieuNhapDTO nv) {
-		String flag = Collector.postMess("/phieunhap", nv);
-		System.out.println(flag);
-		if (flag.equals("00")) {
-			return 1;
-		} else
-			return 0;
-
-	}
-	
 	/* thêm đơn nhập hàng */
 	@RequestMapping(value = "formNhapHang", params = "Insert", method = RequestMethod.POST)
 	public <E> String add_DonNhapHang(HttpServletRequest request, ModelMap model,
@@ -91,13 +106,36 @@ public class QLNhapHangController {
 		
 		return "admin/qlnhaphang";
 	}
-	long temp = 0;
+	
+	@RequestMapping(value = "formNhapHang", params = "btnupdate", method = RequestMethod.POST)
+	public <E> String edit_NhapHang(HttpServletRequest requets, ModelMap model, @ModelAttribute("nh") PhieuNhapDTO nh) {
+		/*
+		 * UserModel user1 = (UserModel) SessionUtil.getInstance().getValue(requets,
+		 * "USERMODEL"); nh.setCpnv(user1.getUsernv());
+		 */
+		PhieuNhapDTO cp = new PhieuNhapDTO();
+		cp = getDonNhapHang(nh.getId());
+		nh.setNgayThucHien(cp.getNgayThucHien());
+		nh.setNvThucHien(cp.getNvThucHien());
+
+		List<String> listError = checkInfo(nh);
+		Integer temp = this.updateNH(nh);
+		if (temp != 0) {
+			model.addAttribute("message", "Cập nhật thành công");
+
+		} else {
+			model.addAttribute("message", "Cập nhật không thành công! "+listError);
+
+		}
+
+		// model.addAttribute("bans", list);
+		return "admin/qlnhaphang";
+	}
 	@RequestMapping(value = "formNhapHang", params = "linkEdit")
 	public String editNhapHang_showform(HttpServletRequest request, ModelMap model) {
 		String id1 = request.getParameter("id");
 		long id = Long.parseLong(id1);
-		temp = id;
-		List<PhieuNhapDTO> nhanvien = this.getDonNhapHangs();
+	
 		//model.addAttribute("pagedListHolder", nhanvien);
 		PhieuNhapDTO phieunhap = this.getDonNhapHang(id);
 		//Timestamp ngaynhap = (Timestamp) phieunhap.getNgayThucHien();
@@ -109,10 +147,43 @@ public class QLNhapHangController {
 		return "admin/form/inputNhapHang";
 	}
 	
+	public List<String> checkInfo(PhieuNhapDTO cp ) {
+
+		List<String> listError = new ArrayList<>();
+		
+		return listError;
+		
+
+	}
+
+	public Integer insert_NhapHang(PhieuNhapDTO nv) {
+		String flag = Collector.postMess("/phieunhap", nv);
+		System.out.println(flag);
+		if (flag.equals("00")) {
+			return 1;
+		} else
+			return 0;
+
+	}
+	
+	
+
+	
 	public List<PhieuNhapDTO> getDonNhapHangs() {
 		List<PhieuNhapDTO> list = null;
 		try {
 			list = Collector.getListAll("/phieunhap", PhieuNhapDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	public List<CTPNDTO> getCtnps(Long idpn) {
+		List<CTPNDTO> list = null;
+		try {
+			list = Collector.getListAll("/ctpn?mapn="+idpn.toString(), CTPNDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,40 +208,7 @@ public class QLNhapHangController {
 		
 		return ss;
 	}
-	
-	@RequestMapping(value = "formNhapHang", params = "btnupdate", method = RequestMethod.POST)
-	public <E> String edit_NhapHang(HttpServletRequest requets, ModelMap model, @ModelAttribute("nh") PhieuNhapDTO nh) {
-		/*
-		 * UserModel user1 = (UserModel) SessionUtil.getInstance().getValue(requets,
-		 * "USERMODEL"); nh.setCpnv(user1.getUsernv());
-		 */
-		PhieuNhapDTO cp = new PhieuNhapDTO();
-		cp = getDonNhapHang(temp);
-		nh.setNgayThucHien(cp.getNgayThucHien());
-		nh.setNvThucHien(cp.getNvThucHien());
-//		if(nh.getDonVi().startsWith("C")){
-//			nh.setDonVi("Cai");
-//		}else if (nh.getDonVi().startsWith("N")) {
-//			nh.setDonVi("Nguoi");
-//		}else if (nh.getDonVi().startsWith("KG")) {
-//			nh.setDonVi("KG");
-//		}
-//		else {
-//			nh.setDonVi("Khac");
-//		}
-		List<String> listError = checkInfo(nh);
-		Integer temp = this.updateNH(nh);
-		if (temp != 0) {
-			model.addAttribute("message", "Cập nhật thành công");
 
-		} else {
-			model.addAttribute("message", "Cập nhật không thành công! "+listError);
-
-		}
-
-		// model.addAttribute("bans", list);
-		return "admin/qlnhaphang";
-	}
 
 	public Integer updateNH(PhieuNhapDTO nh) {
 		String flag = Collector.putMess("/phieunhap", nh);
@@ -181,21 +219,7 @@ public class QLNhapHangController {
 			return 0;
 	}
 	
-	@RequestMapping(value = "admin-nhaphang", params = "linkDelete")
-	public <E> String deleteDonNhapHang(HttpServletRequest request, ModelMap model,
-			@ModelAttribute("nh") PhieuNhapDTO nh) {
-		String id1 = request.getParameter("id");
-		long id = Long.parseLong(id1);
-		Integer temp = this.deleteDonNhapHang(this.getDonNhapHang(id));
 
-		if (temp != 0) {
-			model.addAttribute("message", "Xóa thành công");
-		} else {
-			model.addAttribute("message", "Xóa không thành công");
-		}
-		
-		return "admin/qlnhaphang";
-	}
 
 	public Integer deleteDonNhapHang(PhieuNhapDTO user) {
 		String flag = Collector.delMess("/phieunhap", user);
