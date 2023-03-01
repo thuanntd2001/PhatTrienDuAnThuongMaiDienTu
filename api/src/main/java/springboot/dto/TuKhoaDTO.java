@@ -2,7 +2,7 @@ package springboot.dto;
 
 //@Entity
 //@Table(name = "TUKHOA")
-public class TuKhoaDTO {
+public class TuKhoaDTO extends LogDTO{
 	//@Id
 	//@Column(name="TENTUKHOA")
 	private String tenTuKhoa;

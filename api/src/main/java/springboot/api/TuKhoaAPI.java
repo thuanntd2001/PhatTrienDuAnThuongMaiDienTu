@@ -37,7 +37,9 @@ public class TuKhoaAPI {
 				for (TuKhoaEntity model : list) {
 					TuKhoaDTO save = new TuKhoaDTO();
 					save.setTenTuKhoa(model.getTenTuKhoa());
-
+					save.setNvSua(model.getNvSua());
+					save.setNvTao(model.getNvTao());
+					save.setNgayTao(model.getNgayTao());
 					listDTO.add(save);
 				}
 				System.out.print(list.size());
@@ -55,7 +57,9 @@ public class TuKhoaAPI {
 		TuKhoaEntity check = null;
 		try {
 			save.setTenTuKhoa(model.getTenTuKhoa());
-
+			save.setNvSua(model.getNvSua());
+			save.setNvTao(model.getNvTao());
+			save.setNgayTao(model.getNgayTao());
 			check = repo.save(save);
 		} catch (Exception e) {
 			e.printStackTrace();

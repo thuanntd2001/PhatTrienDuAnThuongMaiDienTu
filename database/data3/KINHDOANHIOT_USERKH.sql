@@ -16,29 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `USERKH`
---
-
-DROP TABLE IF EXISTS `USERKH`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `USERKH` (
-  `USERNAME` varchar(20) NOT NULL,
-  `PASSWD` varchar(50) NOT NULL,
-  `MAKH` bigint NOT NULL,
-  `ROLEID` bigint NOT NULL,
-  `STATUS` int NOT NULL,
-  `EMAIL` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'n19dccn000@studen.ptithcm.edu.vn',
-  `ICON` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'lo_highland.png',
-  PRIMARY KEY (`USERNAME`),
-  KEY `FK_USERTB_CHUCVU` (`ROLEID`),
-  KEY `fk_USERKH_KHACHHANG1_idx` (`MAKH`),
-  CONSTRAINT `fk_USERKH_KHACHHANG1` FOREIGN KEY (`MAKH`) REFERENCES `KHACHHANG` (`MAKH`),
-  CONSTRAINT `FK_USERTB_CHUCVU0` FOREIGN KEY (`ROLEID`) REFERENCES `CHUCVU` (`ID`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `USERKH`
 --
 
@@ -57,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 14:07:15
+-- Dump completed on 2023-03-01 17:21:57

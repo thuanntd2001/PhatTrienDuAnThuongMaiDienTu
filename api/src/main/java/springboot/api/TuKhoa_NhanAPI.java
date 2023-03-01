@@ -43,6 +43,9 @@ public class TuKhoa_NhanAPI {
 				TuKhoa_NhanDTO save = new TuKhoa_NhanDTO();
 				save.setNhan(model.getNhan().getTenNhan());
 				save.setTuKhoa(model.getTuKhoa().getTenTuKhoa());
+				save.setNvSua(model.getNvSua());
+				save.setNvTao(model.getNvTao());
+				save.setNgayTao(model.getNgayTao());
 				
 
 				listDTO.add(save);
@@ -58,6 +61,9 @@ public class TuKhoa_NhanAPI {
 				TuKhoa_NhanDTO save = new TuKhoa_NhanDTO();
 				save.setNhan(model.getNhan().getTenNhan());
 				save.setTuKhoa(model.getTuKhoa().getTenTuKhoa());
+				save.setNvSua(model.getNvSua());
+				save.setNvTao(model.getNvTao());
+				save.setNgayTao(model.getNgayTao());
 				
 
 				listDTO.add(save);
@@ -83,6 +89,9 @@ public class TuKhoa_NhanAPI {
 		try {
 			save.setNhan(nRepo.findById(model.getNhan()).get());
 			save.setTuKhoa(tkRepo.findById(model.getTuKhoa()).get());
+			save.setNvSua(model.getNvSua());
+			save.setNvTao(model.getNvTao());
+			save.setNgayTao(model.getNgayTao());
 
 			check = repo.save(save);
 		} catch (Exception e) {
