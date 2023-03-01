@@ -30,12 +30,12 @@
 	<div class="row main">
 
             <div class="container">
-            <div class="header-content d-flex justify-content-center">QUẢN LÝ NHẬP HÀNG</div>
+            <div class="header-content d-flex justify-content-center">QUẢN LÝ TỪ KHÓA</div>
                <h4>${message}</h4>
 			<div>
 				<a href="/dichvu/admin-home/formLoaiSP.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
-						type="button" class="btn btn-primary">Thêm đơn nhập hàng</button>
+						type="button" class="btn btn-primary">Thêm từ khóa</button>
 				</a>
 
 			</div>
@@ -57,21 +57,19 @@
                 <table class="table table-striped shadow-box bg-white">
                     <thead>
                         <tr>
-                            <th scope="row">ID</th>
+                            <th scope="row">Tên từ khóa</th>
                             <th scope="row">Ngày tạo</th>
-                            <th scope="row">Nhà cung cấp</th>
-                            <th scope="row">Tình trạng</th>
              
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach  var="nhaphang" items="${list}">
+                    <c:forEach  var="tukhoa" items="${list}">
                        
                      <tr>
-							<td>${nhaphang.id}</td>                          
-                            <td>${nhaphang.ngayThucHien}</td>
-                            <td>${nhaphang.tinhTrang}</td>
+							<td>${tukhoa.tenTuKhoa}</td>                          
+                            <td>${tukhoa.ngayTao}</td>
+        
                             <td><a href="/dichvu/admin-home/formLoaiSP.htm?linkEdit&id=${th.id}">
 											<button type="button"
 												class="btn btn-primary" data-toggle="modal" 

@@ -2,6 +2,7 @@ package spring.controller.web;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,6 +28,10 @@ public class DonDatHangController {
 		List<DDHDTO> list=null;
 		try {
 			list = Collector.getListAll("/ddh",DDHDTO.class);
+			list = list.stream()
+                    .filter(ddh -> ddh.getTinhTrang() != 0)
+                    .collect(Collectors.toList());
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

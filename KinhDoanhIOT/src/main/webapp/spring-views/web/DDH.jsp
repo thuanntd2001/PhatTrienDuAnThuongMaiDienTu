@@ -60,19 +60,20 @@
 					<thead>
 						<tr>
 							<th scope="row">ID</th>
-							<th scope="row">Ngày Thực Hiện</th>
-							<th scope="row">Nhân Viên Thực Hiện</th>
-							<th scope="row">KH Thực Hiện</th>
-							<th></th>
+							<th scope="row">Mã khách hàng</th>
+							<th scope="row">Ngày xác nhận</th>
+							<th scope="row">Nhân viên xác nhận</th>
+							<th scope="row">Trạng thái đơn hàng</th>						
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="ddh" items="${list}">
 							<tr>
 								<th scope="row">${ddh.id }</th>
+								<td>${ddh.khThucHien}</td>
 								<td>${ddh.ngayThucHien}</td>
 								<td>${ddh.nvThucHien}</td>
-								<td>${ddh.khThucHien}</td>
+								<td>${ddh.tinhTrang}</td>
 								<td>
 									<div class="">
 										<a style="font-size: 10px;" class="btn btn-primary"

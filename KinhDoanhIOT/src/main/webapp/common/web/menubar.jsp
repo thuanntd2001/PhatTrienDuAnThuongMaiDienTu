@@ -15,7 +15,7 @@
 		<li><a href="ddh.htm"> <i class="fas fa-cash-register"></i>
 				<span class="links_name">QUẢN LÝ ĐƠN ĐẶT HÀNG</span>
 		</a></li>
-		<li><a href="thanh-toan.htm"> <i class="fas fa-cash-register"></i>
+		<li><a href="xacnhanDH.htm"> <i class="fas fa-cash-register"></i>
 				<span class="links_name">XÁC NHẬN ĐƠN HÀNG</span>
 		</a></li>
 
@@ -29,7 +29,7 @@
 				class="links_name">QUẢN LÝ NHÃN</span>
 		</a></li>
 
-		<li><a href="nhap-hang.htm"> <i class="fas fa-user"></i> <span
+		<li><a href="nhaphang.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">QUẢN LÝ NHẬP HÀNG</span>
 		</a></li>
 				

@@ -22,71 +22,82 @@
 	type="text/css">
 
 </head>
-
-
-
 <body>
 	<jsp:include page="/common/web/header.jsp" />
 	<jsp:include page="/common/web/menubar.jsp" />
-	<!-- CONTENT -->
-	<div class="container-fluid main">
-		<div class="container">
-			<div class="content">
-				<div class="header-content d-flex justify-content-center">DANH SÁCH SẢN PHẨM</div>
-				
 
-				<%--  <jsp:useBean id="pagedListHolder" scope="request"
-					type="org.springframework.beans.support.PagedListHolder" /> --%>
-				<%-- <c:url value="hoa-don.htm" var="pagedLink">
-					<c:param name="p" value="~" />
-				</c:url>
-                <form class="input-group" style="margin: 20px 0" method="post">
-					<div>
-						<input id="search-input" type="search" name="searchInput"
-							class="form-control" placeholder="Tìm kiếm"/>
-					</div>
-					<button id="search-button" type="submit" class="btn btn-primary" name="btnsearch">
-						<i class="fas fa-search"></i>
-					</button>
-				</form> --%>
-				<table class="table table-striped datatable shadow-box bg-white">
-					<thead>
-						<tr>
-							<th scope="row"></th>
-						
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="nhan" items="${list}">
-							<tr>
-								
-								<td>${nhan.tenNhan}</td>
-					
-								<td>
-									<div class="">
-										<a style="font-size: 10px;" class="btn btn-primary"
-											href="hoa-don/${hd.id}.htm?linkView"> XEM </a>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-						
-					</tbody>
-				</table>
+	<!-- CONTEND -->
+	<div class="row main">
+
+            <div class="container">
+            <div class="header-content d-flex justify-content-center">QUẢN LÝ NHÃN SẢN PHẨM</div>
+               <h4>${message}</h4>
+			<div>
+				<a href="/dichvu/admin-home/formLoaiSP.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
+						type="button" class="btn btn-primary">Thêm nhãn</button>
+				</a>
 
 			</div>
+			<%-- <jsp:useBean id="pagedListHolder" scope="request"
+				type="org.springframework.beans.support.PagedListHolder" /> --%>
+			<c:url value="admin-qlthucdon.htm" var="pagedLink">
+				<c:param name="p" value="~" />
+			</c:url>
+			<form class="input-group" style="margin: 20px 0" method="post">
+				<div>
+					<input id="search-input" type="search" name="searchInput"
+						class="form-control" placeholder="Tìm kiếm" />
+				</div>
+				<button id="search-button" type="submit" class="btn btn-primary"
+					name="btnsearch">
+					<i class="fas fa-search"></i>
+				</button>
+			</form>
+                <table class="table table-striped shadow-box bg-white">
+                    <thead>
+                        <tr>
+                            <th scope="row">Tên nhãn</th>
+                            <th scope="row">Ngày tạo</th>
+             
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach  var="nhan" items="${list}">
+                       
+                     <tr>
+							<td>${nhan.tenNhan}</td>                          
+                            <td>${nhan.ngayTao}</td>
+        
+                            <td><a href="/dichvu/admin-home/formLoaiSP.htm?linkEdit&id=${th.id}">
+											<button type="button"
+												class="btn btn-primary" data-toggle="modal" 
+												data-whatever="@mdo">SỬA</button>
+										</a></td>
+                            <td>
+                                <a
+														href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.id}"<%--
+																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
+																		--%>>
+														<button name="btnXOA1" type="button"
+															class="btn btn-warning">Xóa</button>
+													</a>
+                            </td>
 
-		</div>
-	</div>
-
+                        </tr>
+                        </c:forEach>
+                        
+                    </tbody>
+                </table>
+               <tg:paging pagedLink="${pagedLink}"
+				pagedListHolder="${pagedListHolder}"></tg:paging>              
+            </div>
+        </div>
 	<jsp:include page="/common/web/footer.jsp" />
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script src="<c:url value='/template/web/scipts.js'/>"></script>
+
 
 
 </body>
+
 </html>
