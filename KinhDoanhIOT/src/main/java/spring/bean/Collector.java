@@ -66,12 +66,10 @@ public class Collector<T> {
 
 	}
 	
-	@SuppressWarnings("hiding")
 	public static <K> String postMess(String url, K pojo) {
 		String obj = null;
 
 		try {
-			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
 			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
 			obj = rc.post(url, objectMapper.writeValueAsString(pojo));
 			

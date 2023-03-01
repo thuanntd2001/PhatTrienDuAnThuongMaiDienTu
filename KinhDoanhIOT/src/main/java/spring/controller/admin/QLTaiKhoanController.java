@@ -69,6 +69,7 @@ public class QLTaiKhoanController {
 				tk.setID(tk.getID());
 				tk.setRoleID((long) idChucVU);
 				tk.setStatus(1);
+				tk.setIcon("logo.webp");
 				// tk.setPasswd(request.getParameter("mk"));
 				temp = this.insertTaiKhoan(tk);
 			}
@@ -81,7 +82,7 @@ public class QLTaiKhoanController {
 			model.addAttribute("message", "Thêm thất bại " + error + " ");
 		}
 		System.out.println(error + "1");
-		return "admin/qltaikhoan";
+		return "redirect:admin-taikhoan";
 	}
 
 	public UserDTO getTaiKhoan(String username) {
@@ -174,7 +175,7 @@ public class QLTaiKhoanController {
 		NhanVienDTO nv;
 		for (int i = 0; i < n; i++) {
 			nv = list.get(i);
-			if (manv == nv.getMaNV() && nv.getTrangThai() == true) {
+			if (manv == nv.getMaNV() ) {
 				return true;
 			}
 		}

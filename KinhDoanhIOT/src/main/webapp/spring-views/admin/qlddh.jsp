@@ -54,7 +54,7 @@
 							<td>${hd.tinhTrang}</td>
 							 <td>
                                 <div class="">
-                                    <a style="font-size: 10px;" class="btn btn-primary" href="admin-ddh.htm/${hd.id}.htm?linkView">
+                                    <a style="font-size: 10px;" class="btn btn-primary" href="admin-ddh/${hd.id}.htm?linkView">
                                         XEM
                                     </a>
                                 </div>

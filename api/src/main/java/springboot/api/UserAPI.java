@@ -59,7 +59,7 @@ public class UserAPI {
 			save.setChucVu(cvrepo.getOne(model.getRoleID()));
 			save.setEmail(model.getEmail());
 			save.setStatus(1);
-			save.setIcon(null);
+			save.setIcon("logo.webp");
 
 			check = repo.save(save);
 		} catch (Exception e) {
