@@ -32,7 +32,7 @@ public class CTPNAPI {
 
 	@GetMapping("/ctpn")
 	public List<CTPNDTO> getCTPN(HttpServletRequest request) {
-		String idkh = request.getParameter("maddh");
+		String idkh = request.getParameter("mapn");
 		long id;
 		if (idkh == null) {
 			System.out.print("null");

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
 import spring.dto.ChiTietHDDTO;
+import spring.dto.DDHDTO;
 import spring.dto.HoaDonDTO;
 
 
@@ -23,9 +24,9 @@ public class DonDatHangController {
 	@RequestMapping(value = "ddh" , method = RequestMethod.GET)
 	public <E> String showMenu(ModelMap model,HttpServletRequest request) {
 
-		List<HoaDonDTO> list=null;
+		List<DDHDTO> list=null;
 		try {
-			list = Collector.getListAll("/ddh",HoaDonDTO.class);
+			list = Collector.getListAll("/ddh",DDHDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +35,7 @@ public class DonDatHangController {
 		model.addAttribute("list", list);
 		
         
-		return "web/bill";
+		return "web/DDH";
 	}
 	
 	@RequestMapping(value = "ddh", params="btnsearch")
