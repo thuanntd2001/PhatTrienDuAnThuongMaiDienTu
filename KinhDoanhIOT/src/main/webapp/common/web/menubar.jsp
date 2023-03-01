@@ -19,15 +19,14 @@
 				<span class="links_name">XÁC NHẬN ĐƠN HÀNG</span>
 		</a></li>
 
-		<li><a href="hoa-don.htm"> <i
-				class="fas fa-file-invoice-dollar"></i> <span class="links_name">QUẢN
-					LÝ HÓA ĐƠN</span>
+		<li><a href="sanpham.htm"> <i
+				class="fas fa-file-invoice-dollar"></i> <span class="links_name">QUẢN LÝ SẢN PHẨM</span>
 		</a></li>
-		<li><a href="thuc-don.htm"> <i class="fas fa-coffee"></i> <span
-				class="links_name">QUẢN LÝ SẢN PHẨM</span>
+		<li><a href="tukhoa.htm"> <i class="fas fa-coffee"></i> <span
+				class="links_name">QUẢN LÝ TỪ KHÓA</span>
 		</a></li>
-				<li><a href="thuc-don.htm"> <i class="fas fa-coffee"></i> <span
-				class="links_name">QUẢN LÝ NHÃN TỪ KHÓA</span>
+				<li><a href="nhan.htm"> <i class="fas fa-coffee"></i> <span
+				class="links_name">QUẢN LÝ NHÃN</span>
 		</a></li>
 		<li><a href="user.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">TÀI KHOẢN</span>
