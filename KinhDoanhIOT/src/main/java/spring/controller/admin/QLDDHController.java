@@ -17,7 +17,7 @@ import spring.dto.DDHDTO;
 @Controller
 
 @RequestMapping(value = "/admin-home/")
-public class QLDDH {
+public class QLDDHController {
 
 
 	// CONTROLLER

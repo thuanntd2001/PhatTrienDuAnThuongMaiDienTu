@@ -20,7 +20,7 @@ import spring.dto.UserDTO;
 @Controller
 
 @RequestMapping(value = "/admin-home/")
-public class AdminUser {
+public class UserAdminController {
 
 	@Autowired
 	ServletContext session;

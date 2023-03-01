@@ -19,7 +19,7 @@ import spring.dto.SanPhamDTO;
 @Controller
 
 @RequestMapping(value = "/admin-home/")
-public class QLSanPham {
+public class QLSanPhamController {
 
 	// CONTROLLER
 	@RequestMapping(value = "admin-qlsanpham", method = RequestMethod.GET)
@@ -88,12 +88,12 @@ public class QLSanPham {
 		
 		Long idTD = td.getID();
 		model.addAttribute("loais",this.getLoaiSPs());
-		Long x = this.getTD(idTD).getLoai();
+		Long x = this.getSP(idTD).getLoai();
 		model.addAttribute("idloaiTU", td.getLoai());
 		
-		String ten = this.getTD(idTD).getTen();
+		String ten = this.getSP(idTD).getTen();
 		model.addAttribute("ten",ten);
-		model.addAttribute("gia",this.getTD(idTD).getGia());
+		model.addAttribute("gia",this.getSP(idTD).getGia());
 
 		/*model.addAttribute("td",td);*/
 		model.addAttribute("btnupdate","true");
@@ -218,7 +218,7 @@ public class QLSanPham {
 		}
 		return false;
 	}
-	public SanPhamDTO getTD (Long id) {
+	public SanPhamDTO getSP (Long id) {
 		List<SanPhamDTO> list = null;
 		try {
 			list = Collector.getListAll("/sanpham", SanPhamDTO.class);

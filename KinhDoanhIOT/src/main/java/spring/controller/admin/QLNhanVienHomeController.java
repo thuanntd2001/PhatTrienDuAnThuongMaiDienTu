@@ -21,7 +21,7 @@ import spring.dto.UserDTO;
 
 @Controller
 @RequestMapping(value = "/admin-home/")
-public class QLNhanVienHome {
+public class QLNhanVienHomeController {
 
 	// CONTROLLER
 	@RequestMapping(value = "index", method = RequestMethod.GET)
