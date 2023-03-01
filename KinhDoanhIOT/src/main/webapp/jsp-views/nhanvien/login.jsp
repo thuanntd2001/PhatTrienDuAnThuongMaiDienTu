@@ -44,9 +44,9 @@
 		<form action="" method="post">
 			<div class="card">
 				<div class="card-header">
-					<img style="height: 50px; width: 50px;text-align: center;"
-						src="<c:url value='/common/images/logo_highland.png'/>"
-						alt="highland"> Đăng nhập vào Phúc Long
+					<img style="height: 50px; width: 50px; text-align: center;"
+						src="<c:url value='/common/images/logo.webp'/>" alt="highland">
+					Đăng nhập vào Icdauroi.com
 
 				</div>
 				<c:if test="${not empty message}">
@@ -71,13 +71,14 @@
 					</div>
 
 
-					
+
 				</div>
 				<div class="card-footer text-muted">
 					<button type="submit" class="btn btn-primary">Đăng Nhập</button>
 
 					<button class="btn btn-secondary" type="reset">Làm Mới</button>
-					<a href="mailer/form.htm" class="btn btn-primary">Quên mật khẩu?</a>
+					<a href="mailer/form.htm" class="btn btn-primary">Quên mật
+						khẩu?</a>
 
 				</div>
 			</div>

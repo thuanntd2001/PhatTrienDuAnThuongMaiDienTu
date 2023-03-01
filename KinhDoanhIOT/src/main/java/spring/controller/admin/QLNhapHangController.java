@@ -21,7 +21,7 @@ import spring.dto.PhieuNhapDTO;
 @Controller
 
 @RequestMapping(value = "/admin-home/")
-public class QLNhapHang {
+public class QLNhapHangController {
 
 	// show trang quan li nhap hang
 

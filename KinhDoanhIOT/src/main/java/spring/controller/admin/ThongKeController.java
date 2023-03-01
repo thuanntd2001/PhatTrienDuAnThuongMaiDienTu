@@ -19,7 +19,7 @@ import spring.dto.ThongKeDTO;
 
 @Controller
 @RequestMapping(value = "/admin-home/")
-public class ThongKe {
+public class ThongKeController {
 
 	@RequestMapping(value = "thong-ke", method = RequestMethod.GET)
 	public String thongKe(ModelMap model, HttpServletRequest request) {
