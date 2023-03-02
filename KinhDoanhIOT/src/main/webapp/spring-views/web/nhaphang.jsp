@@ -33,7 +33,7 @@
             <div class="header-content d-flex justify-content-center">QUẢN LÝ NHẬP HÀNG</div>
                <h4>${message}</h4>
 			<div>
-				<a href="/dichvu/admin-home/formLoaiSP.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+				<a href="/dichvu/formNhapHang.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
 						type="button" class="btn btn-primary">Thêm đơn nhập hàng</button>
 				</a>
@@ -72,20 +72,24 @@
 							<td>${nhaphang.id}</td>                          
                             <td>${nhaphang.ngayThucHien}</td>
                             <td>${nhaphang.tinhTrang}</td>
-                            <td><a href="/dichvu/admin-home/formLoaiSP.htm?linkEdit&id=${th.id}">
-											<button type="button"
-												class="btn btn-primary" data-toggle="modal" 
-												data-whatever="@mdo">SỬA</button>
-										</a></td>
-                            <td>
-                                <a
-														href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.id}"<%--
+                            <td><a
+								href="/dichvu/admin-home/formNhapHang.htm?linkEdit&id=${nh.id}">
+									<button type="button" class="btn btn-secondary">SỬA</button>
+							</a></td>
+
+							<td><a
+								href="/dichvu/admin-home/admin-nhaphang.htm?linkDelete&id=${nh.id}"<%--
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
-														<button name="btnXOA1" type="button"
-															class="btn btn-warning">Xóa</button>
-													</a>
-                            </td>
+									<button name="btnXOA" id="#exampleModal2" type="button"
+										class="btn btn-warning">Xóa</button>
+							</a></td>
+							<td>
+								<div class="">
+									<a style="font-size: 10px;" class="btn btn-primary"
+										href="nhanvien-nhaphang/${nh.id}.htm?linkView"> XEM </a>
+								</div>
+							</td>
 
                         </tr>
                         </c:forEach>
