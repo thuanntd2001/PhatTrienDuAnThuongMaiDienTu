@@ -2,9 +2,20 @@ package springboot.dto;
 
 import java.util.Date;
 
+import springboot.entity.PhieuNhapEntity;
+
 //@Entity
 //@Table(name = "PHIEUNHAP")
 public class PhieuNhapDTO {
+	public PhieuNhapDTO(PhieuNhapEntity model) {
+		super();
+		this.setId(model.getId());
+		this.setNgayThucHien(model.getNgayThucHien());
+		this.setNvThucHien(model.getNvThucHien().getMaNV());
+		this.setTinhTrang(model.getTinhTrang());
+		this.setNcc(model.getNcc());
+	}
+
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@Column(name = "MAPN")

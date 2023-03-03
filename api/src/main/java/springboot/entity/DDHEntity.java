@@ -33,46 +33,38 @@ public class DDHEntity {
 	private Date ngayThucHien;
 
 	@OneToMany(mappedBy = "ddh", fetch = FetchType.LAZY)
-	private Collection<CTDDHEntity> chiTietDDH= new ArrayList<CTDDHEntity>();
-
-
-	public Collection<CTDDHEntity> getChiTietDDH() {
-		return chiTietDDH;
-	}
-
-
-
-	public void setChiTietDDH(Collection<CTDDHEntity> chiTietDDH) {
-		this.chiTietDDH = chiTietDDH;
-	}
+	private Collection<CTDDHEntity> chiTietDDH = new ArrayList<CTDDHEntity>();
 
 	@ManyToOne
 	@JoinColumn(name = "NVXACNHAN")
 	private NhanVienEntity nvThucHien;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "MAKH")
 	private KhachHangEntity khThucHien;
-	
+
+	@Column(name = "TINHTRANG")
+	private Integer tinhTrang;
 
 	public void setKhThucHien(KhachHangEntity khThucHien) {
 		this.khThucHien = khThucHien;
 	}
 
-
-
 	public NhanVienEntity getNvThucHien() {
 		return nvThucHien;
 	}
 
-	@Column(name = "TINHTRANG")
-	private Integer tinhTrang;
+	public Collection<CTDDHEntity> getChiTietDDH() {
+		return chiTietDDH;
+	}
+
+	public void setChiTietDDH(Collection<CTDDHEntity> chiTietDDH) {
+		this.chiTietDDH = chiTietDDH;
+	}
 
 	public void setNvThucHien(NhanVienEntity nvThucHien) {
 		this.nvThucHien = nvThucHien;
 	}
-
-
 
 	public Integer getTinhTrang() {
 		return tinhTrang;
@@ -98,19 +90,13 @@ public class DDHEntity {
 		this.ngayThucHien = ngayThucHien;
 	}
 
-	
-
-
 	public KhachHangEntity getKhThucHien() {
 		return khThucHien;
 	}
-
-
 
 	public DDHEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 
 }

@@ -2,12 +2,23 @@ package springboot.dto;
 
 import java.util.Date;
 
+import springboot.entity.DDHEntity;
+
 //@Entity
 //@Table(name = "DONDATHANG")
 public class DDHDTO {
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "MADDH")
+
+	
+	
+	public DDHDTO(DDHEntity model) {
+		super();
+		this.setId(model.getId());
+		this.setKhThucHien(model.getKhThucHien().getMaKH());
+		this.setNgayThucHien(model.getNgayThucHien());
+		this.setNvThucHien(model.getNvThucHien().getMaNV());
+		this.setTinhTrang(model.getTinhTrang());
+	}
+
 	private Long id;
 
 	//@Column(name = "NGAYTHUCHIEN")
