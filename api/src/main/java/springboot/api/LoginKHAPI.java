@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import springboot.dto.LoginDTO;
+import springboot.dto.LoginKHDTO;
+import springboot.dto.UserKHDTO;
 import springboot.entity.KhachHangEntity;
 import springboot.entity.UserKHEntity;
 import springboot.repository.KhachHangRepository;
@@ -20,7 +21,7 @@ public class LoginKHAPI {
 
 
 	@PostMapping(value = "/loginkh")
-	public LoginDTO checkUserNameAndPass(@RequestBody LoginDTO model) {
+	public LoginKHDTO checkUserNameAndPass(@RequestBody UserKHDTO model) {
 
 	
 		UserKHEntity user = urepo.findByUserNameAndPasswd(model.getUserName(),model.getPasswd());
@@ -29,7 +30,7 @@ public class LoginKHAPI {
 		}
 		else {
 			
-			LoginDTO e=new LoginDTO();
+			LoginKHDTO e=new LoginKHDTO();
 			KhachHangEntity kh=user.getUserkh();
 			e.setMaKH(kh.getMaKH());
 			e.setDiaChi(kh.getDiaChi());
@@ -41,7 +42,6 @@ public class LoginKHAPI {
 			e.setIcon(user.getIcon());
 			//e.setID(user.getUserkh().getMaNV());
 			e.setPasswd(user.getPasswd());
-			e.setStatus(user.getStatus());
 			e.setUserName(user.getUserName());
 			return e;
 		}

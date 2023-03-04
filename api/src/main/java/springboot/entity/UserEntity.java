@@ -26,10 +26,7 @@ public class UserEntity {
 	@ManyToOne
 	@JoinColumn(name="ROLEID")
 	private ChucVuEntity chucVu;
-	
-	@Column(name="STATUS")
-	private Integer status;
-	
+
 	@Column(name ="EMAIL")
 	private String email;
 	
@@ -86,13 +83,7 @@ public class UserEntity {
 		this.chucVu = chucVu;
 	}
 
-	public Integer getStatus() {
-		return status;
-	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
 
 	public UserEntity(String userName, NhanVienEntity usernv, String passwd, ChucVuEntity chucVu, Integer status,
 			String email, String icon) {
@@ -101,7 +92,6 @@ public class UserEntity {
 		this.usernv = usernv;
 		this.passwd = passwd;
 		this.chucVu = chucVu;
-		this.status = status;
 		this.email = email;
 		this.icon = icon;
 	}

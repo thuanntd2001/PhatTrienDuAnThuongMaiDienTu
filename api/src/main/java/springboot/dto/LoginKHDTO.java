@@ -11,11 +11,11 @@ public class LoginKHDTO {
 	private String diaChi;
 	private boolean daNghi;
 
-	public Long getMaNV() {
+	public Long getMaKH() {
 		return maKH;
 	}
 
-	public void setMaNV(Long maNV) {
+	public void setMaKH(Long maNV) {
 		this.maKH = maNV;
 	}
 
