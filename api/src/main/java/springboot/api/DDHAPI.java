@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import springboot.config.Collector;
+import springboot.dto.CTDDHDTO;
+import springboot.dto.CTPNDTO;
 import springboot.dto.DDHDTO;
 import springboot.entity.DDHEntity;
 import springboot.input.ObjDelLong;
@@ -66,8 +69,16 @@ public class DDHAPI {
 		if (check == null) {
 
 			return "02";
+		} else {
+			String flag = "00";
+			for (CTDDHDTO item : model.getCtddhs()) {
+				item.setDdh(check.getId());
+				item.setId(0l);
+				flag = Collector.postMess("/ctddh", item);
+			}
+
+			return flag;
 		}
-		return Long.toString(check.getId());
 	}
 
 	@PutMapping(value = "/ddh")

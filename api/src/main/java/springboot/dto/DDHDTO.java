@@ -1,6 +1,7 @@
 package springboot.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import springboot.entity.DDHEntity;
 
@@ -37,6 +38,7 @@ public class DDHDTO {
 	//@JoinColumn(name = "MAKH")
 	private Long khThucHien;
 	
+	private List<CTDDHDTO> ctddhs;
 
 	public Long getNvThucHien() {
 		return nvThucHien;
@@ -88,6 +90,18 @@ public class DDHDTO {
 	public DDHDTO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public List<CTDDHDTO> getCtddhs() {
+		return ctddhs;
+	}
+
+
+
+	public void setCtddhs(List<CTDDHDTO> ctddhs) {
+		this.ctddhs = ctddhs;
 	}
 
 

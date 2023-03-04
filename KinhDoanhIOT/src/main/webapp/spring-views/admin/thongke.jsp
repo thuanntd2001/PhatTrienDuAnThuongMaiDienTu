@@ -79,7 +79,7 @@
 					<div class="col-md-6 col-lg-3">
 						<div class="card info-card sales-card">
 							<div class="card-body">
-								<div class="card-title text-center">Số Đơn</div>
+								<div class="card-title text-center">Số Đơn Đặt Hàng</div>
 
 								<div class="d-flex align-items-center justify-content-center">
 									<div
@@ -87,7 +87,7 @@
 										style="color: #e2b816; background-color: #f9f6cd;">
 										<i class="bi bi-receipt"></i>
 									</div>
-									<h6>${soHoaDon} đơn</h6>
+									<h6>${soDDH} đơn</h6>
 								</div>
 							</div>
 
@@ -239,9 +239,7 @@
 										<tr>
 											<th scope="col">ID</th>
 											<th scope="col">Nhân Viên Thực Hiện</th>
-											<th scope="col">Bàn</th>
 											<th scope="col">Thời Gian</th>
-											<th scope="col">Tổng</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -249,9 +247,7 @@
 											<tr>
 												<th scope="row">${hd.id}</th>
 												<td>${hd.nvThucHien}</td>
-												<td>${hd.ban }</td>
 												<td>${hd.ngayThucHien }</td>
-												<td>${hd.tongTien} đồng</td>
 											</tr>
 										</c:forEach>
 									</tbody>

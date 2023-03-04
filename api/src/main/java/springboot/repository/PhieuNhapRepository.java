@@ -36,15 +36,15 @@ public interface PhieuNhapRepository extends JpaRepository<PhieuNhapEntity, Long
 
 
 
-	@Query(value = "FROM PhieuNhapEntity WHERE " + "YEAR(ngayNhap) = ?1 "
-			+ "ORDER BY id DESC, ngayNhap DESC", nativeQuery = false)
+	@Query(value = "FROM PhieuNhapEntity WHERE " + "YEAR(ngayThucHien) = ?1 "
+			+ "ORDER BY id DESC, ngayThucHien DESC", nativeQuery = false)
 	List<PhieuNhapEntity> getPhieuNhapNam(Integer nam);
 
-	@Query(value = "FROM PhieuNhapEntity WHERE " + "MONTH(ngayNhap) = ?1 AND YEAR(ngayNhap) = ?2 "  
-			+ "ORDER BY id DESC, ngayNhap DESC", nativeQuery = false)
+	@Query(value = "FROM PhieuNhapEntity WHERE " + "MONTH(ngayThucHien) = ?1 AND YEAR(ngayThucHien) = ?2 "  
+			+ "ORDER BY id DESC, ngayThucHien DESC", nativeQuery = false)
 	List<PhieuNhapEntity> getPhieuNhapThang(Integer thang, Integer nam);
 
-	@Query(value = "FROM PhieuNhapEntity WHERE " + "DAY(ngayNhap) = ?1 AND MONTH(ngayNhap) = ?2 AND YEAR(ngayNhap) = ?3 "
-			+ "ORDER BY id DESC, ngayNhap DESC", nativeQuery = false)
+	@Query(value = "FROM PhieuNhapEntity WHERE " + "DAY(ngayThucHien) = ?1 AND MONTH(ngayThucHien) = ?2 AND YEAR(ngayThucHien) = ?3 "
+			+ "ORDER BY id DESC, ngayThucHien DESC", nativeQuery = false)
 	List<PhieuNhapEntity> getPhieuNhapNgay(Integer ngay, Integer thang, Integer nam);
 }
