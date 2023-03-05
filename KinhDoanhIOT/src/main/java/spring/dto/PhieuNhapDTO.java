@@ -1,5 +1,6 @@
 package spring.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class PhieuNhapDTO {
 	//@Column(name = "NHACC")
 	private String ncc;
 
-	private List<CTPNDTO> ctpns;
+	private List<CTPNDTO> ctpns=new ArrayList<CTPNDTO>();
 
 
 	public Long getNvThucHien() {

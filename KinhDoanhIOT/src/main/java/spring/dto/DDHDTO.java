@@ -1,5 +1,6 @@
 package spring.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class DDHDTO {
 	//@JoinColumn(name = "MAKH")
 	private Long khThucHien;
 	
-	private List<CTDDHDTO> ctddhs;
+	private List<CTDDHDTO> ctddhs= new ArrayList<CTDDHDTO>();
 
 	public Long getNvThucHien() {
 		return nvThucHien;

@@ -1,5 +1,6 @@
 package springboot.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,17 @@ public class PhieuNhapDTO {
 	private Date ngayThucHien;
 
 
+	public List<CTPNDTO> getCtpns() {
+		return ctpns;
+	}
+
+
+
+	public void setCtpns(List<CTPNDTO> ctpns) {
+		this.ctpns = ctpns;
+	}
+
+	List<CTPNDTO> ctpns = new ArrayList<CTPNDTO>();
 
 	//@ManyToOne
 	//@JoinColumn(name = "MANV")
@@ -36,8 +48,7 @@ public class PhieuNhapDTO {
 	//@Column(name = "NHACC")
 	private String ncc;
 
-	private List<CTPNDTO> ctpns;
-
+	
 
 	public Long getNvThucHien() {
 		return nvThucHien;
@@ -92,18 +103,6 @@ public class PhieuNhapDTO {
 	public PhieuNhapDTO() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-
-
-	public List<CTPNDTO> getCtpns() {
-		return ctpns;
-	}
-
-
-
-	public void setCtpns(List<CTPNDTO> ctpns) {
-		this.ctpns = ctpns;
 	}
 
 
