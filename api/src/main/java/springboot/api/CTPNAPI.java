@@ -99,7 +99,7 @@ public class CTPNAPI {
 
 			return "02";
 		}
-		return Long.toString(check.getId());
+		return "00";
 	}
 
 	@PutMapping(value = "/ctpn")

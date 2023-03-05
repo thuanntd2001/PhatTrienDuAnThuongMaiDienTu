@@ -10,14 +10,15 @@
 <body>
 
 	<jsp:include page="/common/admin/header.jsp" />
-		<jsp:include page="/common/admin/menubar.jsp" />
+	<jsp:include page="/common/admin/menubar.jsp" />
 
 	<!-- CONTEND -->
 	<div class="row main">
 
-            <div class="container">
-            <div class="header-content d-flex justify-content-center">QUẢN LÍ SẢN PHẨM</div>
-               <h4>${message}</h4>
+		<div class="container">
+			<div class="header-content d-flex justify-content-center">QUẢN
+				LÍ SẢN PHẨM</div>
+			<h4>${message}</h4>
 			<div>
 				<a href="/dichvu/admin-home/formSanPham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
@@ -40,48 +41,49 @@
 					<i class="fas fa-search"></i>
 				</button>
 			</form>
-                <table class="table table-striped shadow-box bg-white">
-                    <thead>
-                        <tr>
-                            <th scope="row">ID</th>
-                            <th scope="row">Loại</th>
-                            <th scope="row">Tên</th>
-                            <th scope="row">Giá</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach  var="th" items="${list}">
-                       
-                     <tr>
-                            <th scope="row">${th.ID}</th>
-                            <td>${th.loai}</td>
-                            <td>${th.ten}</td>
-                            <td>${th.gia}</td>
-                            <td><a href="/dichvu/admin-home/formSanPham.htm?linkEdit&id=${th.ID}">
-											<button type="button"
-												class="btn btn-primary" data-toggle="modal" 
-												data-whatever="@mdo">SỬA</button>
-										</a></td>
-                            <td>
-                                <a
-														href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.ID}"<%--
+			<table class="table table-striped shadow-box bg-white">
+				<thead>
+					<tr>
+						<th scope="row">ID</th>
+						<th scope="row">Loại</th>
+						<th scope="row">Tên</th>
+						<th scope="row">Giá</th>
+						<th scope="row">SL tồn</th>
+
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="th" items="${list}">
+
+						<tr>
+							<th scope="row">${th.ID}</th>
+							<td>${th.loai}</td>
+							<td>${th.ten}</td>
+							<td>${th.gia}</td>
+							<td>${th.slTon}</td>
+
+							<td><a
+								href="/dichvu/admin-home/formSanPham.htm?linkEdit&id=${th.ID}">
+									<button type="button" class="btn btn-primary"
+										data-toggle="modal" data-whatever="@mdo">SỬA</button>
+							</a></td>
+							<td><a
+								href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.ID}"<%--
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
-														<button name="btnXOA1" type="button"
-															class="btn btn-warning">Xóa</button>
-													</a>
-                            </td>
+									<button name="btnXOA1" type="button" class="btn btn-warning">Xóa</button>
+							</a></td>
 
-                        </tr>
-                        </c:forEach>
-                        
-                    </tbody>
-                </table>
-               <tg:paging pagedLink="${pagedLink}"
-				pagedListHolder="${pagedListHolder}"></tg:paging>              
-            </div>
-        </div>
+						</tr>
+					</c:forEach>
+
+				</tbody>
+			</table>
+			<tg:paging pagedLink="${pagedLink}"
+				pagedListHolder="${pagedListHolder}"></tg:paging>
+		</div>
+	</div>
 	<jsp:include page="/common/admin/footer.jsp" />
 
 
