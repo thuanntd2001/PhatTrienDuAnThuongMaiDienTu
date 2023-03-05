@@ -13,8 +13,8 @@ import springboot.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, String>{
 	@Query(
-			  value = "SELECT * from USER WHERE Status= 1", 
-			  nativeQuery = true)
+			  value = "from UserEntity ur WHERE ur.usernv.trangThai = 1", 
+			  nativeQuery = false)
 	List<UserEntity> findAllActive();
 	UserEntity findByUserNameAndPasswd(String userName, String passwd);
 }

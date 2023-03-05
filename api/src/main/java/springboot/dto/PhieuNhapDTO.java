@@ -1,10 +1,23 @@
 package springboot.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import springboot.entity.PhieuNhapEntity;
 
 //@Entity
 //@Table(name = "PHIEUNHAP")
 public class PhieuNhapDTO {
+	public PhieuNhapDTO(PhieuNhapEntity model) {
+		super();
+		this.setId(model.getId());
+		this.setNgayThucHien(model.getNgayThucHien());
+		this.setNvThucHien(model.getNvThucHien().getMaNV());
+		this.setTinhTrang(model.getTinhTrang());
+		this.setNcc(model.getNcc());
+	}
+
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@Column(name = "MAPN")
@@ -16,6 +29,17 @@ public class PhieuNhapDTO {
 	private Date ngayThucHien;
 
 
+	public List<CTPNDTO> getCtpns() {
+		return ctpns;
+	}
+
+
+
+	public void setCtpns(List<CTPNDTO> ctpns) {
+		this.ctpns = ctpns;
+	}
+
+	List<CTPNDTO> ctpns = new ArrayList<CTPNDTO>();
 
 	//@ManyToOne
 	//@JoinColumn(name = "MANV")

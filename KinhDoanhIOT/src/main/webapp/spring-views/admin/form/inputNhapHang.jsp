@@ -28,10 +28,10 @@ body {
 <body>
 	<div style="margin-top: 3%;" class="container card">
 		<div class="card-header">
-			<h4>Nhập Thông Tin Chi Phí</h4>
+			<h4>Nhập Thông Tin Nhập Hàng</h4>
 		</div>
-		<form:form id="form-1" action="admin-home/formNhapHang.htm"
-			modelAttribute="nh" method="post">
+		<form:form id="form-1" action="/dichvu/admin-home/formNhapHang.htm"
+			modelAttribute="pn" method="post">
 			<div class="form-group">
 
 				<form:input type="hidden" readonly="true" path="id" />
@@ -64,11 +64,12 @@ body {
 			</div>
 
 
-
-
 			<div class="card-footer">
+				<button type="submit" class="btn btn-primary" name="addctnh1">Thêm
+					chi tiết nhập hàng</button>
 				<button class="btn btn-primary" type="submit"
 					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Update' : 'Insert'}</button>
+
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
 					href="admin-home/admin-nhaphang.htm"> QUAY LẠI </a>
 			</div>

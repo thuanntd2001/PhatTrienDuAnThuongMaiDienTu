@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +38,6 @@ public class UserAPI {
 			e.setID(item.getUsernv().getMaNV());
 			e.setPasswd(item.getPasswd());
 			e.setRoleID(item.getChucVu().getId());
-			e.setStatus(item.getStatus());
 			e.setUserName(item.getUserName());
 	
 			listDTO.add(e);
@@ -58,7 +57,6 @@ public class UserAPI {
 			save.setUsernv(nvrepo.getOne(model.getID()));
 			save.setChucVu(cvrepo.getOne(model.getRoleID()));
 			save.setEmail(model.getEmail());
-			save.setStatus(1);
 			save.setIcon("logo.webp");
 
 			check = repo.save(save);
@@ -95,7 +93,6 @@ public class UserAPI {
 				save.setUsernv(nvrepo.getOne(model.getID()));
 				save.setChucVu(cvrepo.getOne(model.getRoleID()));
 				save.setEmail(model.getEmail());
-				save.setStatus(model.getStatus());
 				save.setIcon(model.getIcon());
 				check = repo.save(save);
 			} catch (Exception e) {
@@ -111,7 +108,7 @@ public class UserAPI {
 
 	}
 
-	@PatchMapping(value = "/user")
+	@DeleteMapping(value = "/user")
 	public String deleteUser(@RequestBody String ids) {
 		Optional<UserEntity> option = repo.findById(ids);
 		if (option.isEmpty()) {
@@ -120,11 +117,9 @@ public class UserAPI {
 			return "404";
 		} else {
 			System.out.print("tồn tại");
-			UserEntity save = option.get();
 
 			try {
-				save.setStatus(0);
-				repo.save(save);
+				repo.deleteById(ids);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return "02";

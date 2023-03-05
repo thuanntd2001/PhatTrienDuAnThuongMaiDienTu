@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import springboot.config.Collector;
+import springboot.dto.CTPNDTO;
 import springboot.dto.PhieuNhapDTO;
 import springboot.entity.PhieuNhapEntity;
 import springboot.input.ObjDelLong;
@@ -69,7 +71,16 @@ public class PhieuNhapAPI {
 
 			return "02";
 		}
-		return "00";
+		else {
+			String flat="00";
+			for (CTPNDTO item : model.getCtpns()) {
+				item.setPhieuNhap(check.getId());
+				item.setId(0l);
+				flat= Collector.postMess("/ctpn", item);
+			}
+		
+			return flat;
+		}
 	}
 
 	@PutMapping(value = "/phieunhap")

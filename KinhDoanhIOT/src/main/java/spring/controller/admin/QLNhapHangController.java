@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import spring.bean.Collector;
 import spring.dto.CTPNDTO;
 import spring.dto.PhieuNhapDTO;
+import spring.dto.SanPhamDTO;
 
 @Controller
 
@@ -41,31 +42,35 @@ public class QLNhapHangController {
 	}
 
 	@RequestMapping(value = "admin-nhaphang/{id}.htm", params = "linkView")
-	public  String xemChiTietPN(HttpServletRequest request, ModelMap model, @PathVariable("id") Long id) {
+	public String xemChiTietPN(HttpServletRequest request, ModelMap model, @PathVariable("id") Long id) {
 		List<CTPNDTO> cthds = this.getCtnps(id);
 
-		
-		  model.addAttribute("chiTiet", cthds);
-		 
+		model.addAttribute("chiTiet", cthds);
+
 		int tong = 0;
 		for (CTPNDTO ctpn : cthds) {
 			tong += ctpn.getDonGia() * ctpn.getSoLuong();
 		}
 		model.addAttribute("tongTien", tong);
-		model.addAttribute("idhd", id);
+		model.addAttribute("id", id);
 		return "admin/ctpn";
 	}
 
 	/* hiển thị form */
 	@RequestMapping(value = "formNhapHang", method = RequestMethod.GET)
-	public String index_formNhapHang(ModelMap model) {
-		model.addAttribute("nh", new PhieuNhapDTO());
+	public String index_formNhapHang(ModelMap model, @ModelAttribute("pn") PhieuNhapDTO pn) {
+		if (pn == null) {
+			model.addAttribute("pn", new PhieuNhapDTO());
+
+		} else {
+			model.addAttribute("pn", pn);
+
+		}
 		return "admin/form/inputNhapHang";
 	}
 
 	@RequestMapping(value = "admin-nhaphang", params = "linkDelete")
-	public  String deleteDonNhapHang(HttpServletRequest request, ModelMap model,
-			@ModelAttribute("nh") PhieuNhapDTO nh) {
+	public String deleteDonNhapHang(HttpServletRequest request, ModelMap model, @ModelAttribute("pn") PhieuNhapDTO nh) {
 		String id1 = request.getParameter("id");
 		long id = Long.parseLong(id1);
 		Integer temp = this.deleteDonNhapHang(this.getDonNhapHang(id));
@@ -81,11 +86,9 @@ public class QLNhapHangController {
 
 	/* thêm đơn nhập hàng */
 	@RequestMapping(value = "formNhapHang", params = "Insert", method = RequestMethod.POST)
-	public String add_DonNhapHang(HttpServletRequest request, ModelMap model,
-			@ModelAttribute("nh") PhieuNhapDTO nh) {
+	public String add_DonNhapHang(HttpServletRequest request, ModelMap model, @ModelAttribute("pn") PhieuNhapDTO nh) {
 
 		nh.setNvThucHien((long) 1);
-		;
 
 		nh.setNgayThucHien(new Date());
 
@@ -105,7 +108,7 @@ public class QLNhapHangController {
 	}
 
 	@RequestMapping(value = "formNhapHang", params = "btnupdate", method = RequestMethod.POST)
-	public String edit_NhapHang(HttpServletRequest requets, ModelMap model, @ModelAttribute("nh") PhieuNhapDTO nh) {
+	public String edit_NhapHang(HttpServletRequest requets, ModelMap model, @ModelAttribute("pn") PhieuNhapDTO nh) {
 		/*
 		 * UserModel user1 = (UserModel) SessionUtil.getInstance().getValue(requets,
 		 * "USERMODEL"); nh.setCpnv(user1.getUsernv());
@@ -139,12 +142,13 @@ public class QLNhapHangController {
 		// Timestamp ngaynhap = (Timestamp) phieunhap.getNgayThucHien();
 		// String ngaynhap1 = ngaynhap.toLocalDateTime().toString();
 		// model.addAttribute("ngaynhaphang", ngaynhap1);
-		model.addAttribute("nh", phieunhap);
+		model.addAttribute("pn", phieunhap);
 
 		model.addAttribute("btnupdate", "true");
 		return "admin/form/inputNhapHang";
 	}
 
+	
 	public List<String> checkInfo(PhieuNhapDTO cp) {
 
 		List<String> listError = new ArrayList<>();

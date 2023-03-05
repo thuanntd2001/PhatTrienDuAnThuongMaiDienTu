@@ -1,13 +1,26 @@
 package springboot.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import springboot.entity.DDHEntity;
 
 //@Entity
 //@Table(name = "DONDATHANG")
 public class DDHDTO {
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "MADDH")
+
+	
+	
+	public DDHDTO(DDHEntity model) {
+		super();
+		this.setId(model.getId());
+		this.setKhThucHien(model.getKhThucHien().getMaKH());
+		this.setNgayThucHien(model.getNgayThucHien());
+		this.setNvThucHien(model.getNvThucHien().getMaNV());
+		this.setTinhTrang(model.getTinhTrang());
+	}
+
 	private Long id;
 
 	//@Column(name = "NGAYTHUCHIEN")
@@ -31,8 +44,21 @@ public class DDHDTO {
 		return nvThucHien;
 	}
 
+	List<CTDDHDTO> ctddhs = new ArrayList<CTDDHDTO>();
 	//@Column(name = "TINHTRANG")
 	private Integer tinhTrang;
+
+	public List<CTDDHDTO> getCtddhs() {
+		return ctddhs;
+	}
+
+
+
+	public void setCtddhs(List<CTDDHDTO> ctddhs) {
+		this.ctddhs = ctddhs;
+	}
+
+
 
 	public void setNvThucHien(Long nvThucHien) {
 		this.nvThucHien = nvThucHien;

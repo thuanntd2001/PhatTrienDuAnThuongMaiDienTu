@@ -2,26 +2,28 @@ package spring.dto;
 
 //@Entity
 //@Table(name = "CTDDH")
-public class CTPNDTO {	
+public class CTPNDTO {
 
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "ID")
+	// @Id
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	// @Column(name = "ID")
 	private Long id;
 
-	//@Column(name = "SOLUONG")
+	// @Column(name = "SOLUONG")
 	private Integer soLuong;
 
-	//@ManyToOne
-	//@JoinColumn(name = "SANPHAM")
+	// @ManyToOne
+	// @JoinColumn(name = "SANPHAM")
 	private Long sanPham;
 
-	//@ManyToOne
-	//@JoinColumn(name = "MAPN")
+	// @ManyToOne
+	// @JoinColumn(name = "MAPN")
 	private Long phieuNhap;
 
-	//@Column(name = "DONGIA")
+	// @Column(name = "DONGIA")
 	private Integer donGia;
+	
+	private PhieuNhapDTO pn;
 
 	public Integer getSoLuong() {
 		return soLuong;
@@ -30,8 +32,6 @@ public class CTPNDTO {
 	public void setSoLuong(Integer soLuong) {
 		this.soLuong = soLuong;
 	}
-
-	
 
 	public Long getSanPham() {
 		return sanPham;
@@ -63,6 +63,14 @@ public class CTPNDTO {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public PhieuNhapDTO getPn() {
+		return pn;
+	}
+
+	public void setPn(PhieuNhapDTO pn) {
+		this.pn = pn;
 	}
 
 }

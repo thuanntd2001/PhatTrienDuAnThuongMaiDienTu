@@ -8,7 +8,7 @@ public class ThongKeDTO {
 	private int chiPhi;
 	private int loiNhuan;
 	private List<DDHDTO> DDHs;
-	private List<PhieuNhapDTO> chiPhis;
+	private List<PhieuNhapDTO> phieuNhaps;
 
 	
 	public int getSoDDH() {
@@ -26,19 +26,19 @@ public class ThongKeDTO {
 	public void setDDHs(List<DDHDTO> hoaDons) {
 		DDHs = hoaDons;
 	}
-	public List<PhieuNhapDTO> getChiPhis() {
-		return chiPhis;
+	public List<PhieuNhapDTO> getPhieuNhaps() {
+		return phieuNhaps;
 	}
-	public void setChiPhis(List<PhieuNhapDTO> chiPhis) {
-		this.chiPhis = chiPhis;
+	public void setPhieuNhaps(List<PhieuNhapDTO> phieuNhaps) {
+		this.phieuNhaps = phieuNhaps;
 	}
 	public void setDoanhThu(int doanhThu) {
 		this.doanhThu = doanhThu;
 	}
-	public int getChiPhi() {
+	public int getPhieuNhap() {
 		return chiPhi;
 	}
-	public void setChiPhi(int chiPhi) {
+	public void setPhieuNhap(int chiPhi) {
 		this.chiPhi = chiPhi;
 	}
 	public int getLoiNhuan() {

@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +37,6 @@ public class UserKHAPI {
 			e.setIcon(item.getIcon());
 			e.setID(item.getUserkh().getMaKH());
 			e.setPasswd(item.getPasswd());
-			e.setStatus(item.getStatus());
 			e.setUserName(item.getUserName());
 	
 			listDTO.add(e);
@@ -56,7 +55,6 @@ public class UserKHAPI {
 			save.setPasswd(model.getPasswd());
 			save.setUserkh(khrepo.getOne(model.getID()));
 			save.setEmail(model.getEmail());
-			save.setStatus(1);
 			save.setIcon(null);
 
 			check = repo.save(save);
@@ -92,7 +90,6 @@ public class UserKHAPI {
 				save.setPasswd(model.getPasswd());
 				save.setUserkh(khrepo.getOne(model.getID()));
 				save.setEmail(model.getEmail());
-				save.setStatus(model.getStatus());
 				save.setIcon(model.getIcon());
 				check = repo.save(save);
 			} catch (Exception e) {
@@ -108,7 +105,7 @@ public class UserKHAPI {
 
 	}
 
-	@PatchMapping(value = "/userkh")
+	@DeleteMapping(value = "/userkh")
 	public String deleteUserKH(@RequestBody String ids) {
 		Optional<UserKHEntity> option = repo.findById(ids);
 		if (option.isEmpty()) {
@@ -117,11 +114,9 @@ public class UserKHAPI {
 			return "404";
 		} else {
 			System.out.print("tồn tại");
-			UserKHEntity save = option.get();
 
 			try {
-				save.setStatus(0);
-				repo.save(save);
+				repo.deleteById(ids);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return "02";

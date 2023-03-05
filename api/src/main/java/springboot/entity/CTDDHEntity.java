@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "CTDDH")
-public class CTDDHEntity {	
+public class CTDDHEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,9 @@ public class CTDDHEntity {
 	@ManyToOne
 	@JoinColumn(name = "MADDH")
 	private DDHEntity ddh;
+	
+	@Column(name = "TONGTIEN")
+	private Integer tongTien;
 
 	public SanPhamEntity getSanPham() {
 		return sanPham;
@@ -45,9 +48,6 @@ public class CTDDHEntity {
 		this.ddh = ddh;
 	}
 
-	@Column(name = "TONGTIEN")
-	private Integer tongTien;
-
 	public Integer getSoLuong() {
 		return soLuong;
 	}
@@ -56,8 +56,6 @@ public class CTDDHEntity {
 		this.soLuong = soLuong;
 	}
 
-	
-
 	public Integer getTongTien() {
 		return tongTien;
 	}
@@ -65,6 +63,7 @@ public class CTDDHEntity {
 	public void setTongTien(Integer tongTien) {
 		this.tongTien = tongTien;
 	}
+
 	public Long getId() {
 		return id;
 	}

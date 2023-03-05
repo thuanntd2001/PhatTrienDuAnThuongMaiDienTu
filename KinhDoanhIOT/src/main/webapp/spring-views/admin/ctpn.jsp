@@ -44,9 +44,16 @@
                     </div>
                 </div>
                 <div class="" style="margin: 16px;">
-                    <a style="font-size: 16px; padding: 10px;" class="btn btn-secondary" href="hoa-don.htm">
+                    <a style="font-size: 16px; padding: 10px;" class="btn btn-secondary" href="admin-nhaphang.htm">
                         QUAY LẠI
                     </a>
+                    <a
+								href="/dichvu/admin-home/ctpn.htm?add&id=${id}"<%--
+																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
+																		--%>>
+									<button id="#exampleModal2" type="button"
+										class="btn btn-warning">Thêm CTPN</button>
+							</a><
                 </div>
                 
                

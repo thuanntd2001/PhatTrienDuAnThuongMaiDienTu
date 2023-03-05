@@ -14,9 +14,7 @@ public class UserKHEntity {
 	@Id
 	@Column(name="USERNAME")
 	private String userName;
-	
-//	@ManyToOne
-//	@JoinColumn(name="MAKH")
+
 
     @OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="MAKH")
@@ -26,9 +24,7 @@ public class UserKHEntity {
 	private String passwd;
 	
 
-	
-	@Column(name="STATUS")
-	private Integer status;
+
 	
 	@Column(name ="EMAIL")
 	private String email;
@@ -80,13 +76,7 @@ public class UserKHEntity {
 
 
 
-	public Integer getStatus() {
-		return status;
-	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
 
 	public UserKHEntity(String userName, KhachHangEntity userkh, String passwd,  Integer status,
 			String email, String icon) {
@@ -94,7 +84,6 @@ public class UserKHEntity {
 		this.userName = userName;
 		this.userkh = userkh;
 		this.passwd = passwd;
-		this.status = status;
 		this.email = email;
 		this.icon = icon;
 	}

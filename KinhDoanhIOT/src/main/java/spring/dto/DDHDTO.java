@@ -1,13 +1,18 @@
 package spring.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
- 
- 
+
+//@Entity
+//@Table(name = "DONDATHANG")
 public class DDHDTO {
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "MADDH")
+
+	
+	
+
+
 	private Long id;
 
 	//@Column(name = "NGAYTHUCHIEN")
@@ -26,6 +31,7 @@ public class DDHDTO {
 	//@JoinColumn(name = "MAKH")
 	private Long khThucHien;
 	
+	private List<CTDDHDTO> ctddhs= new ArrayList<CTDDHDTO>();
 
 	public Long getNvThucHien() {
 		return nvThucHien;
@@ -77,6 +83,18 @@ public class DDHDTO {
 	public DDHDTO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public List<CTDDHDTO> getCtddhs() {
+		return ctddhs;
+	}
+
+
+
+	public void setCtddhs(List<CTDDHDTO> ctddhs) {
+		this.ctddhs = ctddhs;
 	}
 
 
