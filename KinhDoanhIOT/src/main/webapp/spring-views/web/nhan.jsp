@@ -33,7 +33,7 @@
             <div class="header-content d-flex justify-content-center">QUẢN LÝ NHÃN SẢN PHẨM</div>
                <h4>${message}</h4>
 			<div>
-				<a href="/dichvu/admin-home/formLoaiSP.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+				<a href="formNhan.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
 						type="button" class="btn btn-primary">Thêm nhãn</button>
 				</a>
