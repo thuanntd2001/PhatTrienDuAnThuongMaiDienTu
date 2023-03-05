@@ -8,6 +8,6 @@ encoding//src/main/java/spring/controller/admin/QLTaiKhoanController.java=UTF-8
 encoding//src/main/java/spring/controller/admin/UserAdminController.java=UTF-8
 encoding//src/main/java/spring/controller/chung/LoginController.java=UTF-8
 encoding//src/main/java/spring/controller/chung/LoginKHController.java=UTF-8
-encoding//src/main/java/spring/controller/khachhang/HomeKH.java=UTF-8
 encoding//src/main/java/spring/controller/web/UserController.java=UTF-8
 encoding//src/main/resources/message_vi.properties=ISO-8859-1
+encoding//src/main/webapp/spring-views/khachhang/home.jsp=UTF-8

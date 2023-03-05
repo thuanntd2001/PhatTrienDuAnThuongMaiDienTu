@@ -19,6 +19,8 @@ import com.quancafehighland.utils.SessionUtil;
 
 import spring.bean.Collector;
 import spring.dto.LoginDTO;
+import spring.dto.LoginKHDTO;
+
 
 @Controller
 public class LoginKHController extends HttpServlet {
@@ -59,21 +61,22 @@ public class LoginKHController extends HttpServlet {
 		String action = request.getParameter("action");
 		if (action != null && action.equals("login")) {
 
-			LoginDTO model = FormUtil.toModel(LoginDTO.class, request);
+			LoginKHDTO model = FormUtil.toModel(LoginKHDTO.class, request);
 			try {
-			model = Collector.postObj("/loginkh",model,LoginDTO.class);
+			model = Collector.postObj("/loginkh",model,LoginKHDTO.class);
 			}catch(Exception e) {
 				response.sendRedirect(request.getContextPath()
 						+ "/khachhang-login.htm?action=login&message=username_password_invalid&alert=danger");
 			}
-			if (model.getMaNV() != null) {
 
-				SessionUtil.getInstance().putValue(request, "USERKHMODEL", model);
+
+			SessionUtil.getInstance().putValue(request, "USERKHMODEL", model);
     
-					response.sendRedirect(request.getContextPath() + "/khachhang-home.htm");
+			response.sendRedirect(request.getContextPath() + "/khachhang-home/index.htm");
+				
+				
 			
 			} 
 		}
 	}
 	
-}
