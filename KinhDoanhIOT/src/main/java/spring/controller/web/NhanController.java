@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.security.Timestamp;
 import java.text.ParseException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Controller;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
 import spring.dto.NhanDTO;
+import spring.dto.NhanVienDTO;
 import spring.dto.Nhan_SanPhamDTO;
+import spring.dto.PhieuNhapDTO;
 import spring.dto.SanPhamDTO;
 
 
@@ -46,14 +50,17 @@ public class NhanController {
 	}
 	
 	
+	
+	
+	
 	/* hiển thị form */
 	@RequestMapping(value = "formNhan", method = RequestMethod.GET)
-	public String index_formSanPham(ModelMap model) {
-		model.addAttribute("nsp", new NhanDTO());
-
-		model.addAttribute("sanphams", getSanPhams());
-		
-
+	public String index_formSanPham(ModelMap model, @ModelAttribute("nsp") NhanDTO nsp) {
+		if (nsp == null) {
+			model.addAttribute("nsp", new NhanDTO());
+		} else {
+			model.addAttribute("sanphams", getSanPhams());
+		}
 		return "web/form/inputNhanSP";
 	}
 	
@@ -70,70 +77,57 @@ public class NhanController {
 	
 	
 	
+	
 	@RequestMapping(value = "formNhan", params = "Insert", method = RequestMethod.POST)
-	public <E> String addNhan(HttpServletRequest request, ModelMap model, @ModelAttribute("nsp") NhanDTO nsp) {
-		String error = "";
-		Integer temp = 0;
-		String tenNhan = request.getParameter("tenNhan");
+	public String addNhan(HttpServletRequest request, ModelMap model, @ModelAttribute("nsp") NhanDTO nsp) {
+		nsp.setNvTao((long) 2);
+		
+		nsp.setNgayTao(new Date());
 
-		
-		
-		String dateInString1 = request.getParameter("ngayvaolam");
-		Date ngayvaolam;
-		try {
-			ngayvaolam = DateUtils.parseDate(dateInString1, new String[] { "yyyy-MM-dd", "dd/MM-yyyy" });
-			nsp.setNgayTao(ngayvaolam);
-		
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		nsp.setTenNhan(tenNhan);
-		nsp.setNvTao(getNvThucHienFromSession(request));
-		temp = this.insertNhanSP(nsp);
-		
+		List<String> listError = checkInfo(nsp);
+		Integer temp = this.insertNhanSP(nsp);
+
 		if (temp != 0) {
 			model.addAttribute("message", "Thêm thành công");
 
+			nsp = new NhanDTO();
+
 		} else {
-			model.addAttribute("message", "Thêm thất bại " + error);
+			model.addAttribute("message", "Thêm thất bại! " + listError);
 		}
 
-		return "redirect:nhan.htm";
+		return "web/nhan";
+	}
+
+	public List<String> checkInfo(NhanDTO nsp) {
+
+		List<String> listError = new ArrayList<>();
+
+		return listError;
+
 	}
 	
-	private long getNvThucHienFromSession(HttpServletRequest request) {
-	    String manv = (String) request.getSession().getAttribute("USERMODEL.userName");
-	    if (manv == null) {
-	        return 1;
-	    }
-	    return Long.parseLong(manv);
-	}
 	
 	
+
 	public Integer insertNhanSP(NhanDTO nsp) {
-		String flag;
-		try {
-			 flag = Collector.postMess("/nhan", nsp);
-			System.out.println(flag);
-		}
-		catch(Exception e) {
-			System.out.println("loi api");
-			e.printStackTrace();
-			return 0;
-		}
-		
+		String flag = Collector.postMess("/nhan", nsp);
+		System.out.println(flag);
 		if (flag.equals("00")) {
 			return 1;
 		} else
 			return 0;
+
 	}
 	
 	
 	
+	
 }
-
+	
+	
+	
+	
 
 
 	

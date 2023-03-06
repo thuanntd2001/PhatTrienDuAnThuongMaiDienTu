@@ -73,7 +73,7 @@
 								<td>
 									<div class="">
 										<a style="font-size: 10px;" class="btn btn-primary"
-											href="hoa-don/${hd.id}.htm?linkView"> XEM </a>
+											href="xacnhandh/${ddh.id}.htm?linkView"> XEM </a>
 									</div>
 									
 								</td>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>THÊM NHÃN</title>
+<title>THÊM TỪ KHÓA</title>
 <base href="${pageContext.servletContext.contextPath}/">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -29,24 +29,24 @@ body {
 <body>
 	<div style="margin-top: 7%;" class="container container card">
 		<div class="card-header">
-			<h4>Nhập Thông Tin Nhãn</h4>
+			<h4>Nhập Thông Tin Từ Khóa</h4>
 		</div>
 		<form:form id="form-1" class="card-body"
-			action="formNhan.htm" modelAttribute="nsp" method="post">
+			action="formTuKhoa.htm" modelAttribute="nsp" method="post">
 			<div class="form-row">
 			
 			</div>
-			<label>Tên sản phẩm</label>
+			<label>Tên Nhãn</label>
 			<br>
 			<div class="form-row">
 				<div class="select-menu">
 
 					<h5>
-						<select name="sp">
-							<c:forEach items="${sanphams}" var="sp">
+						<select name="tukhoa">
+							<c:forEach items="${nhans}" var="nhan">
 
 								<option >
-									${sp.ten}</option>
+									${nhan.tenNhan}</option>
 							</c:forEach>
 						</select>
 					</h5>
@@ -56,8 +56,8 @@ body {
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label>Tên Nhãn</label> <br>
-					<form:input id="tenNhan" path="tenNhan" type="text" />
+					<label>Tên từ khóa</label> <br>
+					<form:input id="tenTuKhoa" path="tenTuKhoa" type="text" />
 					<span class="form-message"></span>
 				</div>
 				<div class="form-group">

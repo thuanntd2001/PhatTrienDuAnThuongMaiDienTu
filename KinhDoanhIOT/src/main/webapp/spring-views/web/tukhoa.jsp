@@ -33,7 +33,7 @@
             <div class="header-content d-flex justify-content-center">QUẢN LÝ TỪ KHÓA</div>
                <h4>${message}</h4>
 			<div>
-				<a href="/dichvu/admin-home/formLoaiSP.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+				<a href="formTuKhoa.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
 						type="button" class="btn btn-primary">Thêm từ khóa</button>
 				</a>
@@ -59,6 +59,7 @@
                         <tr>
                             <th scope="row">Tên từ khóa</th>
                             <th scope="row">Ngày tạo</th>
+                      
              
                             <th></th>
                         </tr>
@@ -69,6 +70,7 @@
                      <tr>
 							<td>${tukhoa.tenTuKhoa}</td>                          
                             <td>${tukhoa.ngayTao}</td>
+                    
         
                             <td><a href="/dichvu/admin-home/formLoaiSP.htm?linkEdit&id=${th.id}">
 											<button type="button"

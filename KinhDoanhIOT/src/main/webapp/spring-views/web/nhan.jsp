@@ -59,6 +59,7 @@
                         <tr>
                             <th scope="row">Tên nhãn</th>
                             <th scope="row">Ngày tạo</th>
+                      
              
                             <th></th>
                         </tr>
@@ -69,6 +70,7 @@
                      <tr>
 							<td>${nhan.tenNhan}</td>                          
                             <td>${nhan.ngayTao}</td>
+                    
         
                             <td><a href="/dichvu/admin-home/formLoaiSP.htm?linkEdit&id=${th.id}">
 											<button type="button"

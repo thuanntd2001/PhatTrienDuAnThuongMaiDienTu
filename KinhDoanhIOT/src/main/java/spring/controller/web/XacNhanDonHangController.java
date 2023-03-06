@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
+import spring.dto.CTDDHDTO;
+import spring.dto.CTPNDTO;
 import spring.dto.ChiTietHDDTO;
 import spring.dto.DDHDTO;
 import spring.dto.HoaDonDTO;
@@ -40,6 +42,29 @@ public class XacNhanDonHangController {
 		
         
 		return "web/xacnhandh";
+	}
+	
+	
+	@RequestMapping(value = "xacnhandh/{id}.htm", params = "linkView")
+	public String xemChiTietDH(HttpServletRequest request, ModelMap model, @PathVariable("id") Long id) {
+		List<CTDDHDTO> ctddhs = this.getCtddhs(id);
+
+		model.addAttribute("chiTiet",ctddhs);
+		model.addAttribute("id", id);
+		return "web/CTDDH";
+	}
+	
+	
+	public List<CTDDHDTO> getCtddhs(Long idddh) {
+		List<CTDDHDTO> list = null;
+		try {
+			list = Collector.getListAll("/ctddh?maddh=" + idddh.toString(), CTDDHDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 	
 }
