@@ -89,7 +89,7 @@ public class QLSanPhamController {
 
 	@RequestMapping(value = "formSanPham", params = "btnupdate", method = RequestMethod.POST)
 	public <E> String editTD(HttpServletRequest requets, ModelMap model, @ModelAttribute("td") SanPhamDTO td) {
-
+td.setTrangThai(1);
 		Integer temp = this.updateTD(td);
 		if (temp != 0) {
 			model.addAttribute("message", "Cập nhật thành công");
@@ -102,10 +102,13 @@ public class QLSanPhamController {
 	}
 
 	@RequestMapping(value = "admin-qlsanpham", params = "linkDelete")
-	public <E> String deleteDonNhapHang(HttpServletRequest request, ModelMap model,
-			@ModelAttribute("td") SanPhamDTO td) {
+	public <E> String deleteDonNhapHang(HttpServletRequest request, ModelMap model) {
+		Long idTD = Long.parseLong(request.getParameter("id"));
 
-		Integer temp = this.deleteSanPham(td);
+		SanPhamDTO td=(this.getSP(idTD));
+		td.setTrangThai(0);
+		Integer temp = this.updateTD(td);
+
 		if (temp != 0) {
 			model.addAttribute("message", "Delete thành công");
 		} else {
@@ -116,7 +119,9 @@ public class QLSanPhamController {
 	}
 
 	public Integer deleteSanPham(SanPhamDTO td) {
-		String flag = Collector.delMess("/sanpham", td);
+//		ObjDelLong a= new ObjDelLong();
+//		a.setId(td.getID());
+		String flag = Collector.patchMess("/sanpham", td);
 		System.out.println(flag);
 		if (flag.equals("00")) {
 			return 1;

@@ -121,7 +121,7 @@
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
 													<button name="btnXOA" id="#exampleModal2" type="button"
-														class="btn btn-warning">Xóa</button>
+														class="btn btn-warning">Nghỉ việc</button>
 												</a>
 							</td>
 							

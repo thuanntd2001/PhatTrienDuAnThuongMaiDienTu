@@ -82,8 +82,14 @@ body {
 				</div>
 				<div class="col-md-6">
 
+					<form:input id="dvt" value="${dvt}"
+						path="slTon" type="hidden"  /> <span
+						class="form-message"></span>
+				</div>
+				<div class="col-md-6">
+
 					<label>ICON</label> <br> <form:input id="dvt" value="${icon}"
-						path="icon" type="text"  /> <span
+						path="icon" type="file"  /> <span
 						class="form-message"></span>
 				</div>
 			</div>
