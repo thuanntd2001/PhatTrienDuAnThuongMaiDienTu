@@ -41,37 +41,29 @@ public class QLSanPhamController {
 	@RequestMapping(value = "formSanPham", method = RequestMethod.GET)
 	public String index_formSanPham(ModelMap model) {
 		model.addAttribute("nsp", new NhanDTO());
+		model.addAttribute("td", new SanPhamDTO());
 
 		model.addAttribute("loaisps", getLoaiSPs());
 
 		return "admin/form/inputSanPham";
 	}
 
-	
-
 //thêm 
 	@RequestMapping(value = "formSanPham", params = "Insert", method = RequestMethod.POST)
 	public <E> String addSanPham(HttpServletRequest request, ModelMap model, @ModelAttribute("td") SanPhamDTO td) {
 		String error = "";
 		Integer temp = 0;
-		if (CheckIDSanPham(td.getID())) {
-			error = "ID thực đơn đã tồn tại!!!";
-		} else {
-			String idLoaiTU = request.getParameter("loai");
-			String tmp = request.getParameter("gia");
-			Integer giaTD = Integer.parseInt(tmp);
-			String tenTD = request.getParameter("ten");
-			String dvt = request.getParameter("dvt");
-
-			td.setLoai(Long.parseLong(idLoaiTU));
-			td.setGia(giaTD);
-			td.setTen(tenTD);
-			td.setIcon("gi do");
+		
 			td.setSlTon(0);
-			td.setDvt(dvt);
+
+			if (td.getIcon().equals("")) {
+				td.setIcon("logo.webp");
+			}
+			td.setSlTon(0);
+			if (td.getDvt().equals("")) td.setDvt("Cái");
 			td.setTrangThai(1);
 			temp = this.insertSanPham(td);
-		}
+		
 		if (temp != 0) {
 			model.addAttribute("message", "Thêm thành công");
 
@@ -82,69 +74,48 @@ public class QLSanPhamController {
 		return "redirect:admin-qlsanpham.htm";
 	}
 
-	
-	
-	@RequestMapping(value = "formSanPham", params = "linkEdit" )
-	public String editTD_showform (HttpServletRequest request, ModelMap model,@ModelAttribute("td") SanPhamDTO td) {
-		
-		Long idTD = td.getID();
-		model.addAttribute("loais",this.getLoaiSPs());
-		Long x = this.getSP(idTD).getLoai();
-		model.addAttribute("idloaiTU", td.getLoai());
-		
-		String ten = this.getSP(idTD).getTen();
-		model.addAttribute("ten",ten);
-		model.addAttribute("gia",this.getSP(idTD).getGia());
+	@RequestMapping(value = "formSanPham", params = "linkEdit")
+	public String editTD_showform(HttpServletRequest request, ModelMap model) {
+		Long idTD = Long.parseLong(request.getParameter("id"));
 
-		/*model.addAttribute("td",td);*/
-		model.addAttribute("btnupdate","true");
-		model.addAttribute("read","true");
+		SanPhamDTO td = this.getSP(idTD);
+		model.addAttribute("loaisps", getLoaiSPs());
+		model.addAttribute("td", td);
+
+		model.addAttribute("btnupdate", "true");
+		model.addAttribute("read", "true");
 		return "admin/form/inputSanPham";
 	}
 
-	@RequestMapping(value = "formSanPham", params = "btnupdate" , method = RequestMethod.POST )
-	public <E> String editTD(HttpServletRequest requets, ModelMap model, 
-			@ModelAttribute("td") SanPhamDTO td) {
-		String idLoaiTU =requets.getParameter("loai");	
-		td.setLoai(Long.parseLong(idLoaiTU));
-		
-		
-		String tmp =requets.getParameter("gia");
-		Integer giaTD = Integer.parseInt(tmp);
-		String tenTD =requets.getParameter("ten");
-		//td.setid1((long)1);
-		td.setGia(giaTD);
-		td.setTen(tenTD);
+	@RequestMapping(value = "formSanPham", params = "btnupdate", method = RequestMethod.POST)
+	public <E> String editTD(HttpServletRequest requets, ModelMap model, @ModelAttribute("td") SanPhamDTO td) {
+
 		Integer temp = this.updateTD(td);
-		if( temp != 0) {
-			model.addAttribute("message", "Cập nhật thành công");	
-		}
-		else {
+		if (temp != 0) {
+			model.addAttribute("message", "Cập nhật thành công");
+		} else {
 			model.addAttribute("message", "Cập nhật không thành công");
 
 		}
-		
+
 		return "admin/qlsanpham";
 	}
-	
-	
-	
-	
-	
+
 	@RequestMapping(value = "admin-qlsanpham", params = "linkDelete")
-	public <E> String deleteDonNhapHang (HttpServletRequest request, ModelMap model, @ModelAttribute("td") SanPhamDTO td) {
-		
+	public <E> String deleteDonNhapHang(HttpServletRequest request, ModelMap model,
+			@ModelAttribute("td") SanPhamDTO td) {
+
 		Integer temp = this.deleteSanPham(td);
-		if(temp != 0) {
-			model.addAttribute("message","Delete thành công");
-		}
-		else {
+		if (temp != 0) {
+			model.addAttribute("message", "Delete thành công");
+		} else {
 			model.addAttribute("message", "Delete không thành công ! Thực đơn đã có trong hóa đơn");
 		}
-		
+
 		return "admin/qlsanpham";
 	}
-	public Integer deleteSanPham (SanPhamDTO td) {
+
+	public Integer deleteSanPham(SanPhamDTO td) {
 		String flag = Collector.delMess("/sanpham", td);
 		System.out.println(flag);
 		if (flag.equals("00")) {
@@ -152,6 +123,7 @@ public class QLSanPhamController {
 		} else
 			return 0;
 	}
+
 	public List<LoaiSPDTO> getLoaiSPs() {
 		List<LoaiSPDTO> list = null;
 		try {
@@ -181,7 +153,7 @@ public class QLSanPhamController {
 		if (td.getGia() == 0) {
 			listError.add("chưa nhập giá thành");
 		}
-		if (td.getID()==null) {
+		if (td.getID() == null) {
 			listError.add("chưa nhập ID");
 		}
 
@@ -192,15 +164,14 @@ public class QLSanPhamController {
 	public Integer insertSanPham(SanPhamDTO td) {
 		String flag;
 		try {
-			 flag = Collector.postMess("/sanpham", td);
+			flag = Collector.postMess("/sanpham", td);
 			System.out.println(flag);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("loi api");
 			e.printStackTrace();
 			return 0;
 		}
-		
+
 		if (flag.equals("00")) {
 			return 1;
 		} else
@@ -213,13 +184,14 @@ public class QLSanPhamController {
 		Long user;
 		for (int i = 0; i < n; i++) {
 			user = list.get(i).getID();
-			if (user==IDthucDon) {
+			if (user == IDthucDon) {
 				return true;
 			}
 		}
 		return false;
 	}
-	public SanPhamDTO getSP (Long id) {
+
+	public SanPhamDTO getSP(Long id) {
 		List<SanPhamDTO> list = null;
 		try {
 			list = Collector.getListAll("/sanpham", SanPhamDTO.class);
@@ -228,17 +200,18 @@ public class QLSanPhamController {
 			e.printStackTrace();
 		}
 		SanPhamDTO ss = new SanPhamDTO();
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).getID().equals(id))
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getID().equals(id))
 				ss = list.get(i);
 		}
-		
+
 		return ss;
 	}
+
 	public Integer updateTD(SanPhamDTO td) {
 		String flag = Collector.putMess("/sanpham", td);
 		System.out.println(flag);
-		if (flag.equals("00")){
+		if (flag.equals("00")) {
 			return 1;
 		} else
 			return 0;

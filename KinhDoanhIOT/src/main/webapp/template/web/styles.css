@@ -5,7 +5,16 @@
     box-sizing: border-box;
     
 }
-
+.product__item__pic {
+	height: 270px;
+	position: relative;
+	overflow: hidden;
+}
+.set-bg {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+}
 body {
     background-color:rgb(255, 255, 255) ;
     position: relative;

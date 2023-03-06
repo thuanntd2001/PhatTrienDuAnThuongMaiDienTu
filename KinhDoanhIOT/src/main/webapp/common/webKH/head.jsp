@@ -23,7 +23,9 @@
 <link rel="stylesheet" href="<c:url value='/template/khachhang/css/jquery-ui.min.css'/>" type="text/css"/>
 <link rel="stylesheet" href="<c:url value='/template/khachhang/css/owl.carousel.min.css'/>" type="text/css"/>
 <link rel="stylesheet" href="<c:url value='/template/khachhang/css/slicknav.min.css'/>" type="text/css"/>
-<link rel="stylesheet" href="<c:url value='/template/khachhang/css/style.css'/>" type="text/css"/>
+<%-- <link rel="stylesheet" href="<c:url value='/template/khachhang/css/style.css'/>" type="text/css"/> --%>
+   <link href="<c:url value='/template/webKH/styles.css'/>" rel="stylesheet" type="text/css"> 
+<link href="<c:url value='/template/khachhang/css/style.css'/>" rel="stylesheet" type="text/css">  
 
 <link rel="shortcut icon" type="image/png"
 	href="https://www.logo.wine/a/logo/Costa_Coffee/Costa_Coffee-Logo.wine.svg" />

@@ -49,7 +49,7 @@
 						<th scope="row">Tên</th>
 						<th scope="row">Giá</th>
 						<th scope="row">SL tồn</th>
-
+						<th scope="row">ICON</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -62,6 +62,9 @@
 							<td>${th.ten}</td>
 							<td>${th.gia}</td>
 							<td>${th.slTon}</td>
+							<td><div class="product__item__pic set-bg">
+									<img alt="" src="<c:url value='/common/images/products/${th.icon}'/>" ></div></td>
+
 
 							<td><a
 								href="/dichvu/admin-home/formSanPham.htm?linkEdit&id=${th.ID}">

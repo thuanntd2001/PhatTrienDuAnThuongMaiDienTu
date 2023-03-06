@@ -41,7 +41,7 @@
                             <li><a href="./index.html">Trang chủ</a></li>
                             <li class="active"><a href="./shop-grid.html">Sản phẩm</a></li>
                             <li><a href="./contact.html">Liên hệ</a></li>
-                            
+                            </ul>
                                     
                                
                     </nav>
@@ -63,7 +63,7 @@
     </header>
 <!-- END_HEADER -->
   <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/bread.jpg">
+	<section class="breadcrumb-section set-bg" data-setbg="<c:url value='/template/khachhang/img/bread.jpg'/>">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

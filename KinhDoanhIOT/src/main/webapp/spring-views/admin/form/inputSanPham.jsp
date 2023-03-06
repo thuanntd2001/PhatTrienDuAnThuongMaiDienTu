@@ -64,20 +64,26 @@ body {
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label>Tên Sản Phẩm</label> <br> <input id="tenTU"
-						required="true" minlength="1" value="${ten}" name="ten"
+					<label>Tên Sản Phẩm</label> <br> <form:input id="tenTU"
+						required="true" minlength="1" value="${ten}" path="ten"
 						type="text" /> <span class="form-message"></span>
 				</div>
 				<div class="col-md-6">
 
-					<label>Giá Thành</label> <br> <input id="giathanh" min="1"
-						max="1000000" value="${gia}" name="gia" type="number"
+					<label>Giá Thành</label> <br> <form:input id="giathanh" min="1"
+						max="1000000" value="${gia}" path="gia" type="number"
 						required="true" /> <span class="form-message"></span>
 				</div>
 				<div class="col-md-6">
 
-					<label>ĐVT</label> <br> <input id="dvt" value="${dvt}"
-						name="dvt" type="text" required="true" /> <span
+					<label>ĐVT</label> <br> <form:input id="dvt" value="${dvt}"
+						path="dvt" type="text"  /> <span
+						class="form-message"></span>
+				</div>
+				<div class="col-md-6">
+
+					<label>ICON</label> <br> <form:input id="dvt" value="${icon}"
+						path="icon" type="text"  /> <span
 						class="form-message"></span>
 				</div>
 			</div>
