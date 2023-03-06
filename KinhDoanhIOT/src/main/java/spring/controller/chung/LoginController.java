@@ -70,7 +70,7 @@ public class LoginController extends HttpServlet {
 				response.sendRedirect(request.getContextPath()
 						+ "/dang-nhap.htm?action=login&message=username_password_invalid&alert=danger");
 			}
-			if (model != null) {
+			if (model.getMaNV() != null) {
 
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
 
@@ -79,6 +79,11 @@ public class LoginController extends HttpServlet {
 				} else if (model.getRoleID() != null) {
 					response.sendRedirect(request.getContextPath() + "/user.htm");
 				}
+			}
+			else {
+
+				response.sendRedirect(request.getContextPath()
+						+ "/dang-nhap.htm?action=login&message=username_password_invalid&alert=danger");
 			}
 		}
 	}

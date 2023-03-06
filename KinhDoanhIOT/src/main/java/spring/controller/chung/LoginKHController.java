@@ -66,13 +66,17 @@ public class LoginKHController extends HttpServlet {
 				response.sendRedirect(request.getContextPath()
 						+ "/khachhang-login.htm?action=login&message=username_password_invalid&alert=danger");
 			}
-			if (model != null) {
+			if (model.getMaKH() != null) {
 
 				SessionUtil.getInstance().putValue(request, "USERKHMODEL", model);
     
 					response.sendRedirect(request.getContextPath() + "/KH-home.htm");
 			
 			} 
+			else {
+				response.sendRedirect(request.getContextPath()
+						+ "/khachhang-login.htm?action=login&message=username_password_invalid&alert=danger");
+			}
 		}
 	}
 	
