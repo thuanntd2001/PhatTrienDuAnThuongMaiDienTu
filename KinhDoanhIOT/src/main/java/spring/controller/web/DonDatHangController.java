@@ -43,16 +43,6 @@ public class DonDatHangController {
 		return "web/DDH";
 	}
 	
-	@RequestMapping(value = "ddh", params="btnsearch")
-	public <E> String showMen2u(ModelMap model,HttpServletRequest request) {
-		
-		
-		
-
-
-	
-		return "web/bill";
-	}
 	
 	@RequestMapping(value = "ddh/{id}.htm", params = "linkView")
 	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model,
@@ -65,7 +55,6 @@ public class DonDatHangController {
 		for (ChiTietHDDTO cthd : chiTietHD) {
 			tong += cthd.getTongTien();
 		}
-
 		model.addAttribute("tongTien",tong);
 		model.addAttribute("idhd",id);
 		return "web/bill2";
