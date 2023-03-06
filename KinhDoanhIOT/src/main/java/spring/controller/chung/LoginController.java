@@ -80,11 +80,7 @@ public class LoginController extends HttpServlet {
 					response.sendRedirect(request.getContextPath() + "/user.htm");
 				}
 			}
-			else {
-
-				response.sendRedirect(request.getContextPath()
-						+ "/dang-nhap.htm?action=login&message=username_password_invalid&alert=danger");
-			}
+		
 		}
 	}
 }

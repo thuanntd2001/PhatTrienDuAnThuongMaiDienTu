@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="zxx">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <head>
 
 <jsp:include page="/common/webKH/head.jsp" />
+</head>
+
 <body>
 	<jsp:include page="/common/webKH/header.jsp" />
 	<jsp:include page="/common/webKH/menubar.jsp" />
@@ -189,10 +191,7 @@
 
 
 
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
+
 
 	<jsp:include page="/common/webKH/footer.jsp" />
 	<script
