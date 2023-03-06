@@ -71,12 +71,12 @@
 									<button type="button" class="btn btn-primary"
 										data-toggle="modal" data-whatever="@mdo">SỬA</button>
 							</a></td>
-							<td><a
-								href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.ID}"<%--
+							<%-- <td><a
+								href="/dichvu/admin-home/admin-qlsanpham.htm?linkDelete&id=${th.ID}"
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
-																		--%>>
+																		>
 									<button name="btnXOA1" type="button" class="btn btn-warning">Xóa</button>
-							</a></td>
+							</a></td> --%>
 
 						</tr>
 					</c:forEach>
