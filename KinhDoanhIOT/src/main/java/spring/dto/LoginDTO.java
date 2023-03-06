@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class LoginDTO {
 	private Long maNV;
-	private Long maKH;
 
 	private String hoTen;
 	private Date ngaySinh;
@@ -100,7 +99,6 @@ public class LoginDTO {
 
 	private String passwd;
 
-	private Integer status;
 
 	private String email;
 
@@ -142,13 +140,7 @@ public class LoginDTO {
 		this.passwd = passwd;
 	}
 
-	public Integer getStatus() {
-		return status;
-	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
 
 	public Long getID() {
 		return ID;
@@ -166,12 +158,6 @@ public class LoginDTO {
 		this.roleID = roleID;
 	}
 
-	public Long getMaKH() {
-		return maKH;
-	}
 
-	public void setMaKH(Long maKH) {
-		this.maKH = maKH;
-	}
 
 }

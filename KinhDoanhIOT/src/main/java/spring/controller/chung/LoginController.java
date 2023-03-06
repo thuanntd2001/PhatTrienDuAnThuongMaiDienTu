@@ -64,10 +64,13 @@ public class LoginController extends HttpServlet {
 			try {
 			model = Collector.postObj("/login",model,LoginDTO.class);
 			}catch(Exception e) {
+				System.out.println(model.getUserName());
+				System.out.println(model.getPasswd());
+
 				response.sendRedirect(request.getContextPath()
 						+ "/dang-nhap.htm?action=login&message=username_password_invalid&alert=danger");
 			}
-			if (model.getMaNV() != null) {
+			if (model != null) {
 
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
 

@@ -87,7 +87,6 @@ public class UserAdminController {
 			user2.setID(user1.getID());
 			user2.setRoleID(user1.getRoleID());
 			user2.setIcon("1234");
-			user2.setStatus(user1.getStatus());
 			user2.setUserName(user1.getUserName());
 			
 			String check= Collector.putMess("/user", user2);

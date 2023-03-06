@@ -9,7 +9,6 @@ public class LoginKHDTO {
 	private boolean gioiTinh;
 	private String sdt;
 	private String diaChi;
-	private boolean daNghi;
 
 	public Long getMaKH() {
 		return maKH;
@@ -63,27 +62,18 @@ public class LoginKHDTO {
 	}
 
 
-	public boolean isDaNghi() {
-		return daNghi;
-	}
 
-	public void setDaNghi(boolean daNghi) {
-		this.daNghi = daNghi;
-	}
 
 	private String userName;
 
 	private String passwd;
 
-	private Integer status;
 
 	private String email;
 
 	private String icon;
 
-	private Long ID;
 
-	private Long roleID;
 
 	public String getEmail() {
 		return email;
@@ -117,28 +107,6 @@ public class LoginKHDTO {
 		this.passwd = passwd;
 	}
 
-	public Integer getStatus() {
-		return status;
-	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public Long getID() {
-		return ID;
-	}
-
-	public void setID(Long id) {
-		this.ID = id;
-	}
-
-	public Long getRoleID() {
-		return roleID;
-	}
-
-	public void setRoleID(Long roleID) {
-		this.roleID = roleID;
-	}
 
 }

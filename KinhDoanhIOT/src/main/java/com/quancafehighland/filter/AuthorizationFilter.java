@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.quancafehighland.utils.SessionUtil;
 
 import spring.dto.LoginDTO;
+import spring.dto.LoginKHDTO;
 
 public class AuthorizationFilter implements Filter {
 
@@ -33,7 +34,7 @@ public class AuthorizationFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String url = request.getRequestURI();
 		LoginDTO model = (LoginDTO) SessionUtil.getInstance().getValue(request, "USERMODEL");
-		LoginDTO modelkh = (LoginDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+		LoginKHDTO modelkh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 //admin
 		if (url.indexOf("/admin") != -1) {
 
@@ -51,10 +52,10 @@ public class AuthorizationFilter implements Filter {
 		} 
 		
 		// khach hang
-		else if (url.indexOf("/thanhtoan") != -1 || url.indexOf("/giohang")!=-1|| url.indexOf("/KH")!=-1  ) {
+		else if (url.indexOf("/thanhtoan") != -1 || url.indexOf("/giohang")!=-1|| url.indexOf("KH")!=-1  ) {
 			if (modelkh == null) {
 				response.sendRedirect(
-						request.getContextPath() + "/dang-nhap.htm?action=login&message=not_login&alert=danger");
+						request.getContextPath() + "//khachhang-login.htm?action=login&message=not_login&alert=danger");
 			}
 			else filterChain.doFilter(servletRequest, servletResponse);
 		}

@@ -2,38 +2,36 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 
-<div class="sidebar">
-	<div class="logo_content">
-		<div class="logo">
-			<div class="logo_name">icdayroi.com</div>
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="hero__categories">
+					<div class="hero__categories__all">
+						<i class="fa fa-bars"></i> <span>Tất cả danh mục</span>
+					</div>
+					<ul>
+						<li><a href="#">Thiết bị nhiệt</a></li>
+						<li><a href="#">Thiết bị lạnh</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-9">
+				<div class="hero__search">
+					<div class="hero__search__form">
+						<form action="#">
+
+							<input type="text" placeholder="Nhập từ khóa cần tìm">
+							<button type="submit" class="site-btn">TÌM KIẾM</button>
+						</form>
+					</div>
+
+				</div>
+			</div>
 		</div>
-
 	</div>
-	<ul class="nav_list">
+</section>
+<!-- Hero Section End -->
 
-
-		<li><a href="goi-mon.htm"> <i class="fas fa-cash-register"></i>
-				<span class="links_name">GỌI MÓN</span>
-		</a></li>
-		<li><a href="thanh-toan.htm"> <i class="fas fa-cash-register"></i>
-				<span class="links_name">THANH TOÁN</span>
-		</a></li>
-
-		<li><a href="hoa-don.htm"> <i
-				class="fas fa-file-invoice-dollar"></i> <span class="links_name">QUẢN
-					LÝ HÓA ĐƠN</span>
-		</a></li>
-		<li><a href="thuc-don.htm"> <i class="fas fa-coffee"></i> <span
-				class="links_name">QUẢN LÝ THỰC ĐƠN</span>
-		</a></li>
-		<li><a href="user.htm"> <i class="fas fa-user"></i> <span
-				class="links_name">TÀI KHOẢN</span>
-		</a></li>
-
-		<li><a href="dang-nhap.htm?action=logout"> <i
-				class="fas fa-sign-out-alt"></i> <span class="links_name">ĐĂNG
-					XUẤT</span>
-		</a></li>
-	</ul>
-</div>
 

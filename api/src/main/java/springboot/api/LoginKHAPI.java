@@ -40,7 +40,6 @@ public class LoginKHAPI {
 			e.setSdt(kh.getSdt());
 			e.setEmail(user.getEmail());
 			e.setIcon(user.getIcon());
-			//e.setID(user.getUserkh().getMaNV());
 			e.setPasswd(user.getPasswd());
 			e.setUserName(user.getUserName());
 			return e;
