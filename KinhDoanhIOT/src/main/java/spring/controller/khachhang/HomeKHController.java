@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class HomeKH {
+public class HomeKHController {
 
 	// CONTROLLER
 	@RequestMapping(value = "KH-home", method = RequestMethod.GET)
@@ -20,3 +20,4 @@ public class HomeKH {
 
 
 }
+

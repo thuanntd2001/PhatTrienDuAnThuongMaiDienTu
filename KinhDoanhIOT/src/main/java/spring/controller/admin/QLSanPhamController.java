@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
 import spring.dto.LoaiSPDTO;
+import spring.dto.NhanDTO;
 import spring.dto.SanPhamDTO;
 
 @Controller
@@ -39,7 +40,7 @@ public class QLSanPhamController {
 	/* hiển thị form */
 	@RequestMapping(value = "formSanPham", method = RequestMethod.GET)
 	public String index_formSanPham(ModelMap model) {
-		model.addAttribute("td", new SanPhamDTO());
+		model.addAttribute("nsp", new NhanDTO());
 
 		model.addAttribute("loaisps", getLoaiSPs());
 

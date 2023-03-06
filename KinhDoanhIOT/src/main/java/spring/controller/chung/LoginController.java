@@ -23,15 +23,13 @@ import spring.dto.LoginDTO;
 @Controller
 public class LoginController extends HttpServlet {
 
-
 	private static final long serialVersionUID = 1L;
 	Locale localeVi = new Locale("vi");
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message_vi", localeVi);
 
 //	@Autowired
 //	RestTemplate rest;
-	
-	
+
 	@RequestMapping(value = "dang-nhap", method = RequestMethod.GET)
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -62,10 +60,12 @@ public class LoginController extends HttpServlet {
 
 			LoginDTO model = FormUtil.toModel(LoginDTO.class, request);
 			try {
+
 			model = Collector.postObj("/login",model,LoginDTO.class);
 			}catch(Exception e) {
 				System.out.println(model.getUserName());
 				System.out.println(model.getPasswd());
+
 
 				response.sendRedirect(request.getContextPath()
 						+ "/dang-nhap.htm?action=login&message=username_password_invalid&alert=danger");
@@ -79,7 +79,7 @@ public class LoginController extends HttpServlet {
 				} else if (model.getRoleID() != null) {
 					response.sendRedirect(request.getContextPath() + "/user.htm");
 				}
-			} 
+			}
 		}
 	}
 }
