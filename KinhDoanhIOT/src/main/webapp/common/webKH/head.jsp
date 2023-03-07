@@ -26,6 +26,7 @@
 <%-- <link rel="stylesheet" href="<c:url value='/template/khachhang/css/style.css'/>" type="text/css"/> --%>
    <link href="<c:url value='/template/webKH/styles.css'/>" rel="stylesheet" type="text/css"> 
 <link href="<c:url value='/template/khachhang/css/style.css'/>" rel="stylesheet" type="text/css">  
+<script src="<c:url value='/template/khachhang/js/main.js'/>"></script>
 
 <link rel="shortcut icon" type="image/png"
 	href="https://www.logo.wine/a/logo/Costa_Coffee/Costa_Coffee-Logo.wine.svg" />

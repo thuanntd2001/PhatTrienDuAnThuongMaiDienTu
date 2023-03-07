@@ -20,7 +20,7 @@ import spring.dto.SanPhamDTO;
 public class HomeKHController {
 
 	// CONTROLLER
-	@RequestMapping(value = "KH-home", method = RequestMethod.GET)
+	@RequestMapping(value = "khachhanghome", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap model) {
 		if (SessionUtil.getInstance().getValue(request, "LoaiSPs") == null) {
 			SessionUtil.getInstance().putValue(request, "LoaiSPs", getLoaiSPs());

@@ -36,11 +36,9 @@
 	src="<c:url value='/template/khachhang/js/jquery-3.3.1.min.js'/>"></script>
 <script src="<c:url value='/template/khachhang/"js/bootstrap.min.js'/>"></script>
 <script
-	src="<c:url value='/template/khachhang/"js/jquery.nice-select.min.js'/>"></script>
+	src="<c:url value='/template/khachhang/js/jquery.nice-select.min.js'/>"></script>
 <script src="<c:url value='/template/khachhang/"js/jquery-ui.min.js'/>"></script>
+<script src="<c:url value='/template/khachhang/js/jquery.slicknav.js'/>"></script>
+<script src="<c:url value='/template/khachhang/js/mixitup.min.js'/>"></script>
 <script
-	src="<c:url value='/template/khachhang/"js/jquery.slicknav.js'/>"></script>
-<script src="<c:url value='/template/khachhang/"js/mixitup.min.js'/>"></script>
-<script
-	src="<c:url value='/template/khachhang/"js/owl.carousel.min.js'/>"></script>
-<script src="<c:url value='/template/khachhang/"js/main.js'/>"></script>
+	src="<c:url value='/template/khachhang/js/owl.carousel.min.js'/>"></script>

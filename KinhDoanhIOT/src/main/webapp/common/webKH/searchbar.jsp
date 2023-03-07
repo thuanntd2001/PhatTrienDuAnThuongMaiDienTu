@@ -3,6 +3,10 @@
 <%@include file="/common/taglib.jsp"%>
 
 <!-- Hero Section Begin -->
+<br>
+<br>
+<br>
+<br>
 <section class="hero hero-normal">
 	<div class="container">
 		<div class="col-lg-9">

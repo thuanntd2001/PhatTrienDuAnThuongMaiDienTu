@@ -70,7 +70,7 @@ public class LoginKHController extends HttpServlet {
 
 				SessionUtil.getInstance().putValue(request, "USERKHMODEL", model);
     
-					response.sendRedirect(request.getContextPath() + "/KH-home.htm");
+					response.sendRedirect(request.getContextPath() + "/khachhanghome.htm");
 			
 			} 
 			
