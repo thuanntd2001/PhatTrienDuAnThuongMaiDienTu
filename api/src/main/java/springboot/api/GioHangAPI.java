@@ -37,7 +37,7 @@ public class GioHangAPI {
 		if (idkh == null) {
 			System.out.print("null");
 
-			return null;
+			return new ArrayList<GioHangDTO>();
 		}
 			
 		else {

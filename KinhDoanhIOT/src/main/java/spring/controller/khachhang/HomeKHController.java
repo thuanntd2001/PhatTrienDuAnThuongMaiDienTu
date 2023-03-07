@@ -31,6 +31,17 @@ public class HomeKHController {
 
 		return "khachhang/home";
 	}
+	@RequestMapping(value = "khachhanghome",params = "linkLoai", method = RequestMethod.GET)
+	public String indexLoai(HttpServletRequest request, ModelMap model) {
+		if (SessionUtil.getInstance().getValue(request, "LoaiSPs") == null) {
+			SessionUtil.getInstance().putValue(request, "LoaiSPs", getLoaiSPs());
+		}
+		if (SessionUtil.getInstance().getValue(request, "SanPhams") == null) {
+			SessionUtil.getInstance().putValue(request, "SanPhams", getSanPhams());
+		}
+
+		return "khachhang/home";
+	}
 
 	public List<LoaiSPDTO> getLoaiSPs() {
 		List<LoaiSPDTO> list = null;
