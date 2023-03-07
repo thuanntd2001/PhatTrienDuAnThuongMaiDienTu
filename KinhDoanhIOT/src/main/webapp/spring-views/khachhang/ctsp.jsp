@@ -38,19 +38,20 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
-                            <span>(18 đánh giá)</span>
+                           <!--  <span>(18 đánh giá)</span> -->
                         </div>
                         <div class="product__details__price">${td.gia}</div>
                         <p>mô tả sản phẩm</p>
+                        <form action="KH-giohang.htm?id=${td.ID }" method="post">
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="number" name="sl" value="1">
                                 </div>
                             </div>
                         </div>
-                        <a href="KH-giohang.htm?id=${td.ID }&sl" class="primary-btn">Thêm vào giỏ hàng</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <button type="submit" class="primary-btn">Thêm vào giỏ hàng</button>
+                        </form>
                         <ul>
                         	<c:if test="${td.slTon > 0 }">
 							  <li><b>Trạng thái</b> <span>Còn hàng</span></li>

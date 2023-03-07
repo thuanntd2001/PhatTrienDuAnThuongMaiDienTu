@@ -9,7 +9,6 @@
 
 <body>
 	<jsp:include page="/common/webKH/header.jsp" />
-	<jsp:include page="/common/webKH/menubar.jsp" />
 
 	<!-- CONTENT -->
 	<div class="container-fluid main">
@@ -18,90 +17,89 @@
 				<jsp:include page="/common/webKH/searchbar.jsp" />
 				<!-- Shoping Cart Section Begin -->
 				<section class="shoping-cart spad">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="shoping__cart__table">
-									<table>
-										<thead>
-											<tr>
-												<th class="shoping__product">Sản phẩm</th>
-												<th>Giá tiền</th>
-												<th>Số lượng</th>
-												<th>Tổng cộng</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<form:form method="post" action="KH-giohang.htm"
-												modelAttribute="gioHangs">
-												<c:forEach var="gh" items="${gioHangs}" varStatus="status">
+					<form:form method="post" action="KH-giohang.htm"
+						modelAttribute="gioHangForm">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="shoping__cart__table">
+
+										<table>
+											<thead>
+												<tr>
+													<th>No.</th>
+													<th class="shoping__product">Sản phẩm</th>
+													<th>Giá tiền</th>
+													<th>Số lượng</th>
+													<th>Tổng cộng</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<c:forEach var="gh" items="${gioHangForm.gioHangs}"
+													varStatus="status">
 
 
 
 
-												<%-- 	<tr>
+													<tr>
+														<td align="center">${status.count}</td>
 														<td class="shoping__cart__item"><img
 															src="img/cart/cart-1.jpg" alt="">
-															<h5>mon thu 1</h5></td>
-														<td class="shoping__cart__price">$55.00</td>
+															<h5>${spGioHang[status.index].ten}</h5></td>
+														<td class="shoping__cart__price">
+															${spGioHang[status.index].gia} Đồng</td>
 														<td class="shoping__cart__quantity">
 															<div class="quantity">
 																<div class="pro-qty">
-																	<form:input path="gh[${status.index}].soLuong"
+																	<form:input path="gioHangs[${status.index}].soLuong"
 																		name="soLuong" id="soLuong" type="number" />
 																</div>
 															</div>
 														</td>
-														<td class="shoping__cart__total">$110.00</td>
+														<td class="shoping__cart__total">${spGioHang[status.index].gia * gh.soLuong}
+															Đồng</td>
 														<td class="shoping__cart__item__close"><span
 															class="icon_close"></span></td>
-													</tr> --%>
+													</tr>
 
 
 
 
 												</c:forEach>
-											</form:form>
-											<c:forEach var="th" items="${spGioHang}">
 
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="shoping__cart__btns">
-									<a href="./shop-grid.html" class="primary-btn cart-btn">MUA
-										TIẾP</a> <a href="#" class="primary-btn cart-btn cart-btn-right"><span
-										class="icon_loading"></span> CẬP NHẬT GIỎ HÀNG</a>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="shoping__continue">
-									<div class="shoping__discount">
-										<h5>Mã giảm giá</h5>
-										<form action="#">
-											<input type="text" placeholder="Nhập mã giảm giá">
-											<button type="submit" class="site-btn">XÁC NHẬN</button>
-										</form>
+
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6">
-								<div class="shoping__checkout">
-									<h5>Tổng tiền</h5>
-									<ul>
-										<li>Tạm tính <span>50000</span></li>
-										<li>Tổng<span>20000000</span></li>
-									</ul>
-									<a href="#" class="primary-btn">XÁC NHẬN MUA HÀNG</a>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="shoping__cart__btns">
+										<a href="khachhanghome.htm" class="primary-btn cart-btn">MUA
+											TIẾP</a>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="shoping__continue">
+									
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="shoping__checkout">
+										<h5>Tổng tiền</h5>
+										<ul>
+											<li>Tổng<span>20000000</span></li>
+										</ul>
+										<button type="submit" class="site-btn">XÁC NHẬN MUA HÀNG</button>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</form:form>
+
 				</section>
 				<!-- Shoping Cart Section End -->
 
