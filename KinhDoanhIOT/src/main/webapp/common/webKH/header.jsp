@@ -58,7 +58,7 @@
 					<ul>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>đã
 									thích</span></a></li>
-						<li><a href="./shoping-cart.html"><i
+						<li><a href="KH-giohang.htm"><i
 								class="fa fa-shopping-bag"></i> <span>0</span></a></li>
 					</ul>
 				</div>

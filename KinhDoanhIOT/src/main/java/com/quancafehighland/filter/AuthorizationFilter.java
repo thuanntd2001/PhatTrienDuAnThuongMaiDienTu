@@ -62,7 +62,7 @@ public class AuthorizationFilter implements Filter {
 		
 		
 		//login chung
-		else if (url.indexOf("/dang-nhap") != -1 || url.equals("/dichvu/") || url.indexOf("/mailer")!=-1 || url.indexOf("/khachhang")!=-1 ) {
+		else if (url.indexOf("/dang-nhap") != -1 || url.equals("/dichvu/") || url.indexOf("template")!=-1 || url.indexOf("common")!=-1 || url.indexOf("/khachhang")!=-1 ) {
 			filterChain.doFilter(servletRequest, servletResponse);
 		} 
 		//nhan vien
