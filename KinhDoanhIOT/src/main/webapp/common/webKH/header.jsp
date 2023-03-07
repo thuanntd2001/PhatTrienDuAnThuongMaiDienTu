@@ -45,9 +45,9 @@
 			<div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
-						<li><a href="./index.html">Trang chủ</a></li>
-						<li class="active"><a href="./shop-grid.html">Sản phẩm</a></li>
-						<li><a href="./contact.html">Liên hệ</a></li>
+						<li><a href="#">Trang chủ</a></li>
+						<li class="active"><a href="khachhanghome.htm">Sản phẩm</a></li>
+						<li><a href="#">Liên hệ</a></li>
 					</ul>
 
 
@@ -56,9 +56,8 @@
 			<div class="col-lg-3">
 				<div class="header__cart">
 					<ul>
-						<li><a href="#"><i class="fa fa-heart"></i> <span>đã
-									thích</span></a></li>
-						<li><a href="./shoping-cart.html"><i
+						
+						<li><a href="KH-giohang.htm"><i
 								class="fa fa-shopping-bag"></i> <span>0</span></a></li>
 					</ul>
 				</div>

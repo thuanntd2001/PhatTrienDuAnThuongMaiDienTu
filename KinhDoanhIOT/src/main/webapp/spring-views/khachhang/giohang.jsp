@@ -9,82 +9,99 @@
 
 <body>
 	<jsp:include page="/common/webKH/header.jsp" />
-	<jsp:include page="/common/webKH/menubar.jsp" />
 
 	<!-- CONTENT -->
 	<div class="container-fluid main">
 		<div class="container">
 			<div class="content">
 				<jsp:include page="/common/webKH/searchbar.jsp" />
-				<!-- Product Section Begin -->
-				<section class="product spad">
-
-					<div class="col-lg-9 col-md-7">
-
-
-						<div class="filter__item">
+				<!-- Shoping Cart Section Begin -->
+				<section class="shoping-cart spad">
+					<form:form method="post" action="KH-giohang.htm"
+						modelAttribute="gioHangForm">
+						<div class="container">
 							<div class="row">
-								<div class="col-lg-4 col-md-5">
-									<div class="filter__sort">
-										<span>Sắp xếp</span> <select>
-											<option value="0">Mặc định</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-lg-4 col-md-4">
-									<div class="filter__found">
-										<h6>
-											<span> ${SanPhams.size()} </span> Sản phẩm
-										</h6>
-									</div>
-								</div>
+								<div class="col-lg-12">
+									<div class="shoping__cart__table">
 
+										<table>
+											<thead>
+												<tr>
+													<th>No.</th>
+													<th class="shoping__product">Sản phẩm</th>
+													<th>Giá tiền</th>
+													<th>Số lượng</th>
+													<th>Tổng cộng</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+
+												<c:forEach var="gh" items="${gioHangForm.gioHangs}"
+													varStatus="status">
+
+
+
+
+													<tr>
+														<td align="center">${status.count}</td>
+														<td class="shoping__cart__item"><img
+															src="img/cart/cart-1.jpg" alt="">
+															<h5>${spGioHang[status.index].ten}</h5></td>
+														<td class="shoping__cart__price">
+															${spGioHang[status.index].gia} Đồng</td>
+														<td class="shoping__cart__quantity">
+															<div class="quantity">
+																<div class="pro-qty">
+																	<form:input path="gioHangs[${status.index}].soLuong"
+																		name="soLuong" id="soLuong" type="number" />
+																</div>
+															</div>
+														</td>
+														<td class="shoping__cart__total">${spGioHang[status.index].gia * gh.soLuong}
+															Đồng</td>
+														<td class="shoping__cart__item__close"><span
+															class="icon_close"></span></td>
+													</tr>
+
+
+
+
+												</c:forEach>
+
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="shoping__cart__btns">
+										<a href="khachhanghome.htm" class="primary-btn cart-btn">MUA
+											TIẾP</a>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="shoping__continue">
+									
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="shoping__checkout">
+										<h5>Tổng tiền</h5>
+										<ul>
+											<li>Tổng<span>20000000</span></li>
+										</ul>
+										<button type="submit" class="site-btn">XÁC NHẬN MUA HÀNG</button>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="row">
+					</form:form>
 
-
-							<c:forEach var="th" items="${SanPhams}">
-
-								<div class="col-lg-4 col-md-6 col-sm-6">
-									<div class="product__item">
-										<div class="product__item__pic set-bg"
-											data-setbg="<c:url value='/common/images/products/${th.icon}'/>">
-											<ul class="product__item__pic__hover">
-												<li><a href="#"><i class="fa fa-heart"></i></a></li>
-												<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-												<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-											</ul>
-										</div>
-										<div class="product__item__text">
-											<h6>
-												<a href="khachhang-ctsp.htm?id=${th.ID} ">${th.ten}</a>
-											</h6>
-											<h5>${th.gia}đ</h5>
-										</div>
-									</div>
-								</div>
-
-							</c:forEach>
-
-
-
-
-
-
-
-
-
-
-
-						</div>
-					</div>
-					<div class="product__pagination">
-						<a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#"><i
-							class="fa fa-long-arrow-right"></i></a>
-					</div>
 				</section>
-				<!-- Product Section End -->
+				<!-- Shoping Cart Section End -->
 
 			</div>
 

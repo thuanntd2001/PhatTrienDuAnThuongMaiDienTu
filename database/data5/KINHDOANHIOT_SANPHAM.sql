@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `USERKH`
+-- Dumping data for table `SANPHAM`
 --
 
-LOCK TABLES `USERKH` WRITE;
-/*!40000 ALTER TABLE `USERKH` DISABLE KEYS */;
-INSERT INTO `USERKH` VALUES ('khachhang1','1234',1,3,1,'qwe@ee','lo_highland.png');
-/*!40000 ALTER TABLE `USERKH` ENABLE KEYS */;
+LOCK TABLES `SANPHAM` WRITE;
+/*!40000 ALTER TABLE `SANPHAM` DISABLE KEYS */;
+INSERT INTO `SANPHAM` VALUES (1,'Arduino Uno',1,200000,'Cái',201,'logo.webp',1,NULL),(2,'CB Nhiệt độ KJ45',2,10000,'Cái',1400,'logo.webp',1,NULL),(3,'Arduino MICRO',1,200000,'Cái',200,'arduino-nano.webp',1,NULL),(4,'ádfff',1,120000,'cái',0,'gi do',1,NULL),(5,'ewgw',1,200000,'qwer',0,'gi do',1,NULL),(6,'cảm biến ánh sáng',2,30000,'10 cái',0,'gi do',1,NULL),(7,'cảm biên bụi',2,5000,'cái',0,'gi do',1,NULL),(8,'Khung xe',3,80000,'Cái',0,'logo.webp',1,NULL),(9,'Rasbpery Pi 1',1,800000,'Cái',0,'raspberry-pi-4-8g.webp',1,NULL),(10,'gi do',1,4000,'Cái',0,'xy-wt01.webp',1,NULL);
+/*!40000 ALTER TABLE `SANPHAM` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -34,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-01 17:21:57
+-- Dump completed on 2023-03-07 14:44:02

@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `USER`
+-- Dumping data for table `USERKH`
 --
 
-LOCK TABLES `USER` WRITE;
-/*!40000 ALTER TABLE `USER` DISABLE KEYS */;
-INSERT INTO `USER` VALUES ('admin','1234',1,1,1,'abc@hh.com','lo_highland.png'),('nhanvien1','1234',2,2,1,'ádas@ss.com','lo_highland.png');
-/*!40000 ALTER TABLE `USER` ENABLE KEYS */;
+LOCK TABLES `USERKH` WRITE;
+/*!40000 ALTER TABLE `USERKH` DISABLE KEYS */;
+INSERT INTO `USERKH` VALUES ('khachhang1','1234',1,'qwe@ee','lo_highland.png');
+/*!40000 ALTER TABLE `USERKH` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -34,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-01 17:21:57
+-- Dump completed on 2023-03-07 14:44:00

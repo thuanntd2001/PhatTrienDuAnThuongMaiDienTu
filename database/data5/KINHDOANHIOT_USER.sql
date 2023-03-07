@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `SANPHAM`
+-- Dumping data for table `USER`
 --
 
-LOCK TABLES `SANPHAM` WRITE;
-/*!40000 ALTER TABLE `SANPHAM` DISABLE KEYS */;
-INSERT INTO `SANPHAM` VALUES (1,'Arduino Uno',1,200000,'Cái',200,'logo.webp',1),(2,'CB Nhiệt độ KJ45',2,10000,'Cái',1000,'logo.webp',1);
-/*!40000 ALTER TABLE `SANPHAM` ENABLE KEYS */;
+LOCK TABLES `USER` WRITE;
+/*!40000 ALTER TABLE `USER` DISABLE KEYS */;
+INSERT INTO `USER` VALUES ('admin','1234',1,1,'abc@hh.com','lo_highland.png'),('nhanvien1','1234',2,2,'ádas@ss.com','lo_highland.png'),('nhanvien2','1234',3,2,'','logo.webp');
+/*!40000 ALTER TABLE `USER` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -34,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-15 21:19:22
+-- Dump completed on 2023-03-07 14:44:00
