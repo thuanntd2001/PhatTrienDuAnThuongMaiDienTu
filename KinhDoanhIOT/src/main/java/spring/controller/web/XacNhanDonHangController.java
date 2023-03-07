@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.quancafehighland.utils.SessionUtil;
+
 import spring.bean.Collector;
 import spring.dto.CTDDHDTO;
 import spring.dto.CTPNDTO;
 import spring.dto.ChiTietHDDTO;
 import spring.dto.DDHDTO;
 import spring.dto.HoaDonDTO;
+import spring.dto.LoginDTO;
 import spring.dto.PhieuNhapDTO;
 import spring.dto.TuKhoaDTO;
 
@@ -81,28 +84,41 @@ public class XacNhanDonHangController {
 	}
 	
 	
-	@RequestMapping(value = "xacnhanddh", params = "btnupdate", method = RequestMethod.POST)
-	public String edit_NhapHang(HttpServletRequest requets, ModelMap model, @ModelAttribute("pn") DDHDTO nh) {
+	@RequestMapping(value = "xacnhanddh/{id}", params = "linkView", method = RequestMethod.GET)
+	public String edit_NhapHang(HttpServletRequest requets, ModelMap model, @PathVariable("id") long id) {
 		/*
 		 * UserModel user1 = (UserModel) SessionUtil.getInstance().getValue(requets,
 		 * "USERMODEL"); nh.setCpnv(user1.getUsernv());
 		 */
 		DDHDTO cp = new DDHDTO();
-		cp = getDonDatHang(nh.getKhThucHien());
-		nh.setTinhTrang((int) 1);
+		cp = getDonDatHang(id);
+		cp.setTinhTrang((int) 1);
+		LoginDTO nhanvien = (LoginDTO) SessionUtil.getInstance().getValue(requets, "USERMODEL");
+		cp.setNvThucHien(nhanvien.getMaNV());
 
-		List<String> listError = checkInfo(nh);
-		Integer temp = this.updateNH(nh);
-		if (temp != 0) {
-			model.addAttribute("message", "Cập nhật thành công");
-
-		} else {
+		List<String> listError = checkInfo(cp);
+		Integer temp = this.updateNH(cp);
+		if (temp == 0) {
 			model.addAttribute("message", "Cập nhật không thành công! " + listError);
 
-		}
+		} 
 
 		// model.addAttribute("bans", list);
-		return "web/xacnhanddh";
+		List<DDHDTO> list=null;
+		try {
+			list = Collector.getListAll("/ddh",DDHDTO.class);
+			list = list.stream()
+                    .filter(ddh -> ddh.getTinhTrang() == 0)
+                    .collect(Collectors.toList());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("list", list);
+		
+        
+		return "web/xacnhandh";
 	}
 	
 	public List<String> checkInfo(DDHDTO cp) {
@@ -128,7 +144,10 @@ public class XacNhanDonHangController {
 		}
 		DDHDTO ss = new DDHDTO();
 		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getKhThucHien() == id)
+			if (list.get(i).getId() == null) {
+				return null;
+			}
+			if (list.get(i).getId() == id)
 				ss = list.get(i);
 		}
 
