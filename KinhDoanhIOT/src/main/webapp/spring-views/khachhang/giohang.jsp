@@ -56,7 +56,13 @@
 																	<form:input path="gioHangs[${status.index}].soLuong"
 																		name="soLuong" id="soLuong" type="number" />
 																</div>
+																<form:input path="gioHangs[${status.index}].maSP"
+																	name="maSP" id="maSP" type="hidden" />
+																<form:input path="gioHangs[${status.index}].ID"
+																	name="id" id="id" type="hidden" />
 															</div>
+
+
 														</td>
 														<td class="shoping__cart__total">${spGioHang[status.index].gia * gh.soLuong}
 															Đồng</td>
@@ -83,9 +89,7 @@
 									</div>
 								</div>
 								<div class="col-lg-6">
-									<div class="shoping__continue">
-									
-									</div>
+									<div class="shoping__continue"></div>
 								</div>
 								<div class="col-lg-6">
 									<div class="shoping__checkout">
@@ -93,7 +97,8 @@
 										<ul>
 											<li>Tổng<span>20000000</span></li>
 										</ul>
-										<button type="submit" class="site-btn">XÁC NHẬN MUA HÀNG</button>
+										<button type="submit" class="site-btn">XÁC NHẬN MUA
+											HÀNG</button>
 									</div>
 								</div>
 							</div>

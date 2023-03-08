@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import springboot.config.Collector;
 import springboot.dto.CTDDHDTO;
-import springboot.dto.CTPNDTO;
 import springboot.dto.DDHDTO;
 import springboot.entity.DDHEntity;
 import springboot.input.ObjDelLong;
@@ -58,7 +57,10 @@ public class DDHAPI {
 		try {
 			save.setKhThucHien(khRepo.findById(model.getKhThucHien()).get());
 			save.setNgayThucHien(model.getNgayThucHien());
-			save.setNvThucHien(nvRepo.findById(model.getNvThucHien()).get());
+			if(model.getNvThucHien() != null) {
+				save.setNvThucHien(nvRepo.findById(model.getNvThucHien()).get());
+
+			}
 			save.setTinhTrang(model.getTinhTrang());
 			check = repo.save(save);
 		} catch (Exception e) {

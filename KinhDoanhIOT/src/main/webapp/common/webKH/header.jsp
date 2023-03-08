@@ -47,7 +47,7 @@
 					<ul>
 						<li><a href="#">Trang chủ</a></li>
 						<li class="active"><a href="khachhanghome.htm">Sản phẩm</a></li>
-						<li><a href="#">Liên hệ</a></li>
+						<li><a href="/dichvu/khachhang-login.htm?action=logout">Đăng xuất</a></li>
 					</ul>
 
 

@@ -52,7 +52,7 @@
 											data-setbg="<c:url value='/common/images/products/${th.icon}'/>">
 											<ul class="product__item__pic__hover">
 												
-												<li><a href="KH-giohangthem.htm?id=${th.ID}&sl=1 }"><i class="fa fa-shopping-cart"></i></a></li>
+												<li><a href="KH-giohangthem.htm?id=${th.ID}&sl=1"><i class="fa fa-shopping-cart"></i></a></li>
 											</ul>
 										</div>
 										<div class="product__item__text">

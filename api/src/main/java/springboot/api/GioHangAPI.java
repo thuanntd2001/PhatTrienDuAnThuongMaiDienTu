@@ -126,7 +126,18 @@ public class GioHangAPI {
 		Optional<GioHangEntity> option = repo.findById(ids.getId());
 		if (option.isEmpty()) {
 
-			System.out.print("ko tồn tại");
+			System.out.print("ko tồn tại ");
+			System.out.println(ids.getId());
+
+//			try {
+//
+//				repo.deleteById(ids.getId());
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				return "02";
+//			}
+
+			
 			return "404";
 		} else {
 			System.out.print("tồn tại");
