@@ -13,7 +13,7 @@
 	<ul class="nav_list">
 		<c:forEach var="loai" items="${LoaiSPs}">
 
-			<li><a href="KHsearch-loai.htm?id=${loai.id}"> <i class="fas fa-table"></i> <span
+			<li><a href="khachhangsearch-loai.htm?id=${loai.id}"> <i class="fas fa-table"></i> <span
 					class="links_name">${loai.tenLoai}</span>
 			</a></li>
 		</c:forEach>

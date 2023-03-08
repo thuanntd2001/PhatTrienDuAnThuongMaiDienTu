@@ -74,7 +74,7 @@ body {
 				</div>
 			</div>
 			<div class="card-footer">
-				<button class="btn btn-primary" type="submit" name="btnupdate">Xác
+				<button class="btn btn-primary" type="submit">Xác
 					nhận đơn hàng</button>
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
 					href="ddh.htm"> QUAY LẠI </a>

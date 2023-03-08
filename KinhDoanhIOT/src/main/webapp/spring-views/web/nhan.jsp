@@ -30,7 +30,7 @@
 	<div class="row main">
 
             <div class="container">
-            <div class="header-content d-flex justify-content-center">QUẢN LÝ NHÃN SẢN PHẨM</div>
+            <div class="header-content d-flex justify-content-center">QUẢN LÝ NHÃN</div>
                <h4>${message}</h4>
 			<div>
 				<a href="formNhan.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->

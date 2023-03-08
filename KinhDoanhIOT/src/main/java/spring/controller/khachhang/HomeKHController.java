@@ -1,6 +1,7 @@
 package spring.controller.khachhang;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,23 +23,30 @@ public class HomeKHController {
 	// CONTROLLER
 	@RequestMapping(value = "khachhanghome", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap model) {
-		if (SessionUtil.getInstance().getValue(request, "LoaiSPs") == null) {
-			SessionUtil.getInstance().putValue(request, "LoaiSPs", getLoaiSPs());
-		}
-		if (SessionUtil.getInstance().getValue(request, "SanPhams") == null) {
-			SessionUtil.getInstance().putValue(request, "SanPhams", getSanPhams());
-		}
+	
+			model.addAttribute("LoaiSPs", getLoaiSPs());
+		
+	
+			model.addAttribute("SanPhams", getSanPhams());
+		
 
 		return "khachhang/home";
 	}
-	@RequestMapping(value = "khachhanghome",params = "linkLoai", method = RequestMethod.GET)
+	@RequestMapping(value = "khachhangsearch-loai", method = RequestMethod.GET)
 	public String indexLoai(HttpServletRequest request, ModelMap model) {
-		if (SessionUtil.getInstance().getValue(request, "LoaiSPs") == null) {
-			SessionUtil.getInstance().putValue(request, "LoaiSPs", getLoaiSPs());
+		List<SanPhamDTO> sps = this.getSanPhams();
+		List<SanPhamDTO> sps2 = new ArrayList<SanPhamDTO>();
+		
+		Long idLoai = Long.parseLong(request.getParameter("id"));
+		for (int i = 0; i< sps.size();i++) {
+			if (sps.get(i).getLoai() == idLoai ) {
+				sps2.add(sps.get(i));
+			}
 		}
-		if (SessionUtil.getInstance().getValue(request, "SanPhams") == null) {
-			SessionUtil.getInstance().putValue(request, "SanPhams", getSanPhams());
-		}
+		model.addAttribute("LoaiSPs", getLoaiSPs());
+		
+		
+		model.addAttribute("SanPhams",sps2);
 
 		return "khachhang/home";
 	}

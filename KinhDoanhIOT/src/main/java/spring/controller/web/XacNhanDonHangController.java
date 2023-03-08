@@ -63,7 +63,7 @@ public class XacNhanDonHangController {
 
 	
 	
-	@RequestMapping(value = "xacnhanddh/{id}",  method = RequestMethod.POST)
+	@RequestMapping(value = "xacnhanddh/{id}", method = RequestMethod.POST)
 	public String edit_NhapHang(HttpServletRequest requets, ModelMap model, @PathVariable("id") long id) {
 		/*
 		 * UserModel user1 = (UserModel) SessionUtil.getInstance().getValue(requets,
@@ -81,22 +81,22 @@ public class XacNhanDonHangController {
 
 		} 
 
-		// model.addAttribute("bans", list);
-//		List<DDHDTO> list=null;
-//		try {
-//			list = Collector.getListAll("/ddh",DDHDTO.class);
-//			list = list.stream()
-//                    .filter(ddh -> ddh.getTinhTrang() == 0)
-//                    .collect(Collectors.toList());
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		model.addAttribute("list", list);
+	
+		List<DDHDTO> list=null;
+		try {
+			list = Collector.getListAll("/ddh",DDHDTO.class);
+			list = list.stream()
+                   .filter(ddh -> ddh.getTinhTrang() == 0)
+                   .collect(Collectors.toList());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("list", list);
 		
         
-		return "redirect:xacnhanddh.htm";
+		return "web/xacnhanCTDDH";
 	}
 
 	
