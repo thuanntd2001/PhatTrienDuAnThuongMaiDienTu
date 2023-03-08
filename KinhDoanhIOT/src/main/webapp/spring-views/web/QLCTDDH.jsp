@@ -36,7 +36,7 @@ body {
 	<div style="margin-top: 2%; border-style: groove;"
 		class="container card">
 		<div class="card-header">
-			<h4>Xác nhận đơn hàng</h4>
+			<h4>Chi tiết đơn hàng</h4>
 		</div>
 		<form:form class="card-body" id="form-1" action="xacnhanddh/${idddh}.htm"
 			modelAttribute="pn" method="post">
@@ -57,15 +57,15 @@ body {
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="cthd" items="${chiTiet}">
+							<c:forEach var="ctddh" items="${chiTiet}">
 								<tr>
-									<td>${cthd.ddh }</td>
-									<td>${cthd.sanPham }</td>
+									<td>${ctddh.ddh }</td>
+									<td>${ctddh.sanPham }</td>
 									<td>
-										<%-- ${cthd.soLuong } --%>
+										<%-- ${ctddh.soLuong } --%>
 									</td>
-									<td>${cthd.soLuong }</td>
-									<td>${cthd.tongTien}đồng</td>
+									<td>${ctddh.soLuong }</td>
+									<td>${ctddh.tongTien}đồng</td>
 								</tr>
 							</c:forEach>
 
@@ -73,12 +73,7 @@ body {
 					</table>
 				</div>
 			</div>
-			<div class="card-footer">
-				<button class="btn btn-primary" type="submit" name="btnupdate">Xác
-					nhận đơn hàng</button>
-				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
-					href="ddh.htm"> QUAY LẠI </a>
-			</div>
+			
 
 
 		</form:form>

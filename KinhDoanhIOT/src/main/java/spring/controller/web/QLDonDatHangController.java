@@ -8,19 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
-import spring.dto.ChiTietHDDTO;
+import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
-import spring.dto.HoaDonDTO;
 
 
 
 @Controller
-public class DonDatHangController {
+public class QLDonDatHangController {
 
 	@RequestMapping(value = "ddh" , method = RequestMethod.GET)
 	public <E> String showMenu(ModelMap model,HttpServletRequest request) {
@@ -40,27 +38,43 @@ public class DonDatHangController {
 		model.addAttribute("list", list);
 		
         
-		return "web/DDH";
+		return "web/QLDDH";
 	}
 	
 	
-	@RequestMapping(value = "ddh/{id}.htm", params = "linkView")
-	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model,
-			@PathVariable("id") Long id) throws IOException {
+	@RequestMapping(value = "ddh.htm", params = "linkView")
+	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model
+			) throws IOException {
+		
+		Long id= Long.parseLong(request.getParameter("id"));
+
+		List<CTDDHDTO> cthds = this.getCtDDHs(id);
 
 		
-		List<ChiTietHDDTO> chiTietHD = Collector.getListAll("/chitiethd?idhd="+Long.toString(id),ChiTietHDDTO.class);
-		model.addAttribute("chiTietHD", chiTietHD);
-		int tong=0;
-		for (ChiTietHDDTO cthd : chiTietHD) {
-			tong += cthd.getTongTien();
+		  model.addAttribute("chiTiet", cthds);
+		 
+		int tong = 0;
+		for (CTDDHDTO ctpn : cthds) {
+			tong += ctpn.getTongTien();
 		}
-		model.addAttribute("tongTien",tong);
-		model.addAttribute("idhd",id);
-		return "web/bill2";
+		model.addAttribute("tongTien", tong);
+		model.addAttribute("idddh", id);
+		
+		return "web/QLCTDDH";
 	}
 
-	
+
+	public List<CTDDHDTO> getCtDDHs(Long idpn) {
+		List<CTDDHDTO> list = null;
+		try {
+			list = Collector.getListAll("/ctddh?maddh=" + idpn.toString(), CTDDHDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 	
 
 

@@ -40,6 +40,7 @@ public class DDHAPI {
 			save.setId(model.getId());
 			save.setKhThucHien(model.getKhThucHien().getMaKH());
 			save.setNgayThucHien(model.getNgayThucHien());
+			if (model.getNvThucHien()!=null)
 			save.setNvThucHien(model.getNvThucHien().getMaNV());
 			save.setTinhTrang(model.getTinhTrang());
 

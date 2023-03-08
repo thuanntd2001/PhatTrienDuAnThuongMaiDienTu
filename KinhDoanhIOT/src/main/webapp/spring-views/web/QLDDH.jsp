@@ -30,9 +30,10 @@
 	<div class="container-fluid main">
 		<div class="container">
 			<div class="content">
-				<div class="header-content d-flex justify-content-center">DANH SÁCH ĐƠN ĐẶT HÀNG</div>
+				<div class="header-content d-flex justify-content-center">DANH
+					SÁCH ĐƠN ĐẶT HÀNG</div>
 				<div class="original-info d-flex justify-content-center">
-				
+
 					<div class=" mg-0-40">
 						Ngày: <span id="date-now"></span>
 					</div>
@@ -63,7 +64,7 @@
 							<th scope="row">Mã khách hàng</th>
 							<th scope="row">Ngày xác nhận</th>
 							<th scope="row">Nhân viên xác nhận</th>
-							<th scope="row">Trạng thái đơn hàng</th>						
+							<th scope="row">Trạng thái đơn hàng</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -73,13 +74,59 @@
 								<td>${ddh.khThucHien}</td>
 								<td>${ddh.ngayThucHien}</td>
 								<td>${ddh.nvThucHien}</td>
-								<td>${ddh.tinhTrang}</td>
+								<td>Trạng thái ${ddh.tinhTrang}: <c:choose>
+										<c:when test="${ddh.tinhTrang == 1}">
+												Đã xác nhận đơn hàng
+												</c:when>
+										<c:when test="${ddh.tinhTrang == 2}">
+												Đang chuẩn bi hàng
+												</c:when>
+										<c:when test="${ddh.tinhTrang == 3}">
+												Đang giao hàng
+												</c:when>
+
+										<c:when test="${ddh.tinhTrang == 4}">
+												Giao hàng thành công
+												</c:when>
+										<c:otherwise>
+												Đổi trả
+												</c:otherwise>
+									</c:choose></td>
 								<td>
 									<div class="">
 										<a style="font-size: 10px;" class="btn btn-primary"
-											href="hoa-don/${hd.id}.htm?linkView"> XEM </a>
+											href="ddh.htm?linkView"> XEM </a>
 									</div>
 								</td>
+
+								<td>
+									<div class="">
+										<a style="font-size: 10px;" class="btn btn-primary"
+											href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
+											 <c:choose>
+												<c:when test="${ddh.tinhTrang == 1}">
+												Đang chuẩn bi hàng
+												</c:when>
+												<c:when test="${ddh.tinhTrang == 2}">
+												Đang giao hàng
+												</c:when>
+
+												<c:when test="${ddh.tinhTrang == 3}">
+												Giao hàng thành công
+												</c:when>
+												<c:otherwise>
+												Đổi trả
+												</c:otherwise>
+											</c:choose>
+
+
+
+										</a>
+										
+								
+									</div>
+								</td>
+
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -15,7 +15,7 @@
 		<li><a href="ddh.htm"> <i class="fas fa-cash-register"></i>
 				<span class="links_name">QUẢN LÝ ĐƠN ĐẶT HÀNG</span>
 		</a></li>
-		<li><a href="xacnhanDH.htm"> <i class="fas fa-cash-register"></i>
+		<li><a href="xacnhanddh.htm"> <i class="fas fa-cash-register"></i>
 				<span class="links_name">XÁC NHẬN ĐƠN HÀNG</span>
 		</a></li>
 
