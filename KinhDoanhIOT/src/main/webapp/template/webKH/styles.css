@@ -2,13 +2,14 @@
 
 /*------------------------------------ sidebar  -----------------------------------------*/
 .sidebar {
-    position: fixed;
+   position: fixed;
+  
     padding: 0 14px;
     background-color: #fff;
     width: 230px;
     box-shadow: 0px 0px 20px rgb(1 41 112 / 50%);
     z-index: 200;
-    left: 0;
+    right: 0;
     bottom: 0;
     top: 76px;
 }

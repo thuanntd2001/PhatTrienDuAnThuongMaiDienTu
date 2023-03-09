@@ -15,6 +15,7 @@ import com.quancafehighland.utils.SessionUtil;
 
 import spring.bean.Collector;
 import spring.dto.LoaiSPDTO;
+import spring.dto.NhanDTO;
 import spring.dto.SanPhamDTO;
 
 @Controller
@@ -25,6 +26,7 @@ public class HomeKHController {
 	public String index(HttpServletRequest request, ModelMap model) {
 	
 			model.addAttribute("LoaiSPs", getLoaiSPs());
+			model.addAttribute("Nhans", getNhans());
 		
 	
 			model.addAttribute("SanPhams", getSanPhams());
@@ -44,7 +46,7 @@ public class HomeKHController {
 			}
 		}
 		model.addAttribute("LoaiSPs", getLoaiSPs());
-		
+		model.addAttribute("Nhans", getNhans());
 		
 		model.addAttribute("SanPhams",sps2);
 
@@ -66,6 +68,18 @@ public class HomeKHController {
 		List<SanPhamDTO> list = null;
 		try {
 			list = Collector.getListAll("/sanpham", SanPhamDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	public List<NhanDTO> getNhans() {
+		List<NhanDTO> list = null;
+		try {
+			list = Collector.getListAll("/nhan", NhanDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

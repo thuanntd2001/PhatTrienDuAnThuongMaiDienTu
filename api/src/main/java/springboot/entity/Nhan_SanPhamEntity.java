@@ -20,7 +20,7 @@ public class Nhan_SanPhamEntity {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "SANPHAM")
+	@JoinColumn(name = "SANPHAM_ID")
 	private SanPhamEntity sanPham;
 	
 	@ManyToOne
