@@ -21,6 +21,7 @@ import spring.dto.SanPhamDTO;
 public class TimKiemController {
 
 	// CONTROLLER
+
 	@RequestMapping(value = "khachhangtimkiem", method = RequestMethod.GET)
 	public String indexLoai(HttpServletRequest request, ModelMap model) {
 		List<SanPhamDTO> sps2 = null;

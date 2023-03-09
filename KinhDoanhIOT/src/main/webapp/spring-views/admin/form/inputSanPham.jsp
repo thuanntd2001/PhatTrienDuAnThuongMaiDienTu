@@ -68,6 +68,13 @@ body {
 						required="true" minlength="1" value="${ten}" path="ten"
 						type="text" /> <span class="form-message"></span>
 				</div>
+				
+				<div class="form-group col-md-6">
+					<label>Mô tả Sản Phẩm</label> <br> <form:input id="tenTU"
+						required="true" minlength="1"  path="moTa"
+						type="textarea" /> <span class="form-message"></span>
+				</div>
+				
 				<div class="col-md-6">
 
 					<label>Giá Thành</label> <br> <form:input id="giathanh" min="1"
@@ -115,7 +122,7 @@ body {
 						Validator.isRequired('#giathanh',
 								'Vui lòng nhập vào giá thành'),
 						Validator.isRequired('#tenTU',
-								'Vui lòng nhập vào tên thức uống'),
+								'Vui lòng nhập '),
 
 				/*  Validator.isEmail('#email'),
 				   Validator.minLength('#password', 6),

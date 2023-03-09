@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name="SANPHAM")
 public class SanPhamEntity {
@@ -60,6 +62,11 @@ public class SanPhamEntity {
 	@Column(name = "TRANGTHAI")
 	private Integer trangThai;
 	
+	
+	@Column(name = "MOTA")
+	@Type(type="text")
+	private String moTa;
+	
 	@ManyToOne
 	@JoinColumn(name="LOAI")
 	private LoaiSPEntity loaiSP;
@@ -78,6 +85,14 @@ public class SanPhamEntity {
 
 	public void setGia(Integer gia) {
 		this.gia = gia;
+	}
+
+	public String getMoTa() {
+		return moTa;
+	}
+
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
 	}
 
 	public Integer getSlTon() {

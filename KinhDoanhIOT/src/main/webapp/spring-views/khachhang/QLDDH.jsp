@@ -95,7 +95,7 @@
 								<td>
 									<div class="">
 										<a style="font-size: 10px;" class="btn btn-primary"
-											href="ddh.htm?linkView&id=${ddh.id}"> XEM </a>
+											href="ddh.htm?linkView"> XEM </a>
 									</div>
 								</td>
 

@@ -12,6 +12,7 @@
 		<div class="col-lg-9">
 			<div class="hero__search">
 				<div class="hero__search__form">
+
 					<form action="khachhangtimkiem.htm" method = "get">
 
 						<input type="text" placeholder="Nhập từ khóa cần tìm" name="searchnhan">

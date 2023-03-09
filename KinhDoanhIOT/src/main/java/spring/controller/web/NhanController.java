@@ -1,29 +1,19 @@
 package spring.controller.web;
 
 import java.io.IOException;
-import java.security.Timestamp;
-import java.text.ParseException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
 import spring.dto.NhanDTO;
-import spring.dto.NhanVienDTO;
-import spring.dto.Nhan_SanPhamDTO;
-import spring.dto.PhieuNhapDTO;
 import spring.dto.SanPhamDTO;
 
 
@@ -84,7 +74,6 @@ public class NhanController {
 		
 		nsp.setNgayTao(new Date());
 
-		List<String> listError = checkInfo(nsp);
 		Integer temp = this.insertNhanSP(nsp);
 
 		if (temp != 0) {
@@ -93,19 +82,13 @@ public class NhanController {
 			nsp = new NhanDTO();
 
 		} else {
-			model.addAttribute("message", "Thêm thất bại! " + listError);
+			model.addAttribute("message", "Thêm thất bại! ");
 		}
 
 		return "web/nhan";
 	}
 
-	public List<String> checkInfo(NhanDTO nsp) {
 
-		List<String> listError = new ArrayList<>();
-
-		return listError;
-
-	}
 	
 	
 	
