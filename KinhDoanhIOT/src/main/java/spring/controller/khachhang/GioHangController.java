@@ -35,6 +35,7 @@ public class GioHangController {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
 		List<GioHangDTO> gioHangs = getGioHangs(kh.getMaKH());
+		
 
 		GioHangForm ghf = new GioHangForm();
 		ghf.setGioHangs(gioHangs);
@@ -48,6 +49,7 @@ public class GioHangController {
 			spGioHang.add(sp);
 		}
 		model.addAttribute("spGioHang", spGioHang);
+	
 
 		return "khachhang/giohang";
 
