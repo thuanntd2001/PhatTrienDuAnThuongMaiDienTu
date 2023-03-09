@@ -1,6 +1,5 @@
 package spring.controller.khachhang;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,13 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quancafehighland.utils.SessionUtil;
 
-import spring.bean.Collector;
+import spring.bean.APIFunction;
 import spring.bean.GioHangForm;
-import spring.bean.ObjDelLong;
 import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
 import spring.dto.GioHangDTO;
-import spring.dto.LoaiSPDTO;
 import spring.dto.LoginKHDTO;
 import spring.dto.SanPhamDTO;
 
@@ -34,17 +31,17 @@ public class GioHangController {
 	public <E> String showGioHang(HttpServletRequest request, ModelMap model) {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
-		List<GioHangDTO> gioHangs = getGioHangs(kh.getMaKH());
+		List<GioHangDTO> gioHangs = 	APIFunction.getGioHangs(kh.getMaKH());
 
 		GioHangForm ghf = new GioHangForm();
 		ghf.setGioHangs(gioHangs);
 
 		model.addAttribute("gioHangForm", ghf);
 
-		List<SanPhamDTO> lstSPs = getSanPhams();
+		List<SanPhamDTO> lstSPs = 	APIFunction.getSanPhams();
 		List<SanPhamDTO> spGioHang = new ArrayList<SanPhamDTO>();
 		for (GioHangDTO gh : gioHangs) {
-			SanPhamDTO sp = this.getSP(gh.getMaSP(), lstSPs);
+			SanPhamDTO sp = APIFunction.getSP(gh.getMaSP(), lstSPs);
 			spGioHang.add(sp);
 		}
 		model.addAttribute("spGioHang", spGioHang);
@@ -59,7 +56,7 @@ public class GioHangController {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
 		List<GioHangDTO> gioHangs = gioHangForm.getGioHangs();
-		List<SanPhamDTO> lstSPs = getSanPhams();
+		List<SanPhamDTO> lstSPs = APIFunction.getSanPhams();
 
 
 		DDHDTO ddh = new DDHDTO();
@@ -79,19 +76,19 @@ public class GioHangController {
 //			System.out.println(giohang.getMaSP());
 //			System.out.println(lstSPs);
 //
-//			System.out.println(this.getSP(giohang.getMaSP(), lstSPs));
-			ct.setTongTien(giohang.getSoLuong()* this.getSP(giohang.getMaSP(), lstSPs).getGia());
+//			System.out.println(APIFunction.getSP(giohang.getMaSP(), lstSPs));
+			ct.setTongTien(giohang.getSoLuong()* APIFunction.getSP(giohang.getMaSP(), lstSPs).getGia());
 			cts.add(ct);
 					
 		}
 		ddh.setCtddhs(cts);
 
 
-		String check = this.postDDH(ddh);
+		String check = APIFunction.postDDH(ddh);
 		if (check.equals("00")) {
 			model.addAttribute("message","Dat hang thanh cong");
 			for (GioHangDTO gh : gioHangs) {
-				check = this.delGioHang(gh);
+				check = APIFunction.delGioHang(gh);
 				if (!check.equals("00")) {
 					model.addAttribute("message","RESET gio hang that bai");
 					break;
@@ -119,7 +116,7 @@ public class GioHangController {
 		gh.setMaSP(idsp);
 		gh.setSoLuong(sl);
 
-		String check = this.postGioHang(gh);
+		String check = APIFunction.postGioHang(gh);
 		if (check.equals("00"))
 			model.addAttribute("message","Them SP thanh cong");
 		else
@@ -128,78 +125,6 @@ public class GioHangController {
 
 	}
 
-	public List<GioHangDTO> getGioHangs(Long id) {
-		List<GioHangDTO> list = null;
-		try {
-			list = Collector.getListAll("/giohang?makh=" + id.toString(), GioHangDTO.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return list;
-	}
-
-	public String postGioHang(GioHangDTO gh) {
-		String check;
-		check = Collector.postMess("/giohang", gh);
-
-		return check;
-	}
 	
-	public String postDDH(DDHDTO ddh) {
-		String check;
-		check = Collector.postMess("/ddh", ddh);
-
-		return check;
-	}
-	
-	public String delGioHang(GioHangDTO gh) {
-		String check;
-		ObjDelLong del= new ObjDelLong();
-		del.setId(gh.getID());
-		check = Collector.delMess("/giohang", del);
-
-		return check;
-	}
-
-	public List<SanPhamDTO> getSanPhams() {
-		List<SanPhamDTO> list = null;
-		try {
-			list = Collector.getListAll("/sanpham", SanPhamDTO.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return list;
-	}
-
-	public LoaiSPDTO findOneLoai(Long id) {
-		List<LoaiSPDTO> list = null;
-		try {
-			list = Collector.getListAll("/loaisp", LoaiSPDTO.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		LoaiSPDTO ss = new LoaiSPDTO();
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getId().equals(id))
-				ss = list.get(i);
-		}
-
-		return ss;
-	}
-
-	public SanPhamDTO getSP(Long id, List<SanPhamDTO> list) {
-
-		SanPhamDTO ss = null;
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getID().equals(id))
-				ss = list.get(i);
-		}
-
-		return ss;
-	}
 
 }

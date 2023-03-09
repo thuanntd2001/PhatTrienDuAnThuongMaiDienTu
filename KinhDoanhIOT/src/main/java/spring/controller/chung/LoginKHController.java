@@ -46,7 +46,7 @@ public class LoginKHController extends HttpServlet {
 			rd.forward(request, response);
 		} else if (action != null && action.equals("logout")) {
 			SessionUtil.getInstance().removeValue(request, "USERKHMODEL");
-			response.sendRedirect(request.getContextPath() + "/dang-nhap.htm?action=login");
+			response.sendRedirect(request.getContextPath() + "/khachhang-login.htm?action=login");
 
 		} else {
 			response.sendRedirect(request.getContextPath() + "/khachhang-login.htm?action=login");

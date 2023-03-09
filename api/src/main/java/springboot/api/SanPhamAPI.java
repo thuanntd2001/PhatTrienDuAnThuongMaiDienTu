@@ -39,7 +39,7 @@ public class SanPhamAPI {
 			save.setSlTon(model.getSlTon());
 			save.setTen(model.getTen());
 			save.setTrangThai(1);
-			
+			save.setMoTa(model.getMoTa());
 			
 			listDTO.add(save);
 		}
@@ -60,6 +60,7 @@ public class SanPhamAPI {
 			save.setSlTon(model.getSlTon());
 			save.setTen(model.getTen());
 			save.setTrangThai(1);
+			save.setMoTa(model.getMoTa());
 
 			check = repo.save(save);
 		} catch (Exception e) {
@@ -99,6 +100,8 @@ public class SanPhamAPI {
 				save.setSlTon(model.getSlTon());
 				save.setTen(model.getTen());
 				save.setTrangThai(1);
+				save.setMoTa(model.getMoTa());
+
 				check = repo.save(save);
 			} catch (Exception e) {
 				e.printStackTrace();

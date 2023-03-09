@@ -45,7 +45,7 @@
 			<div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
-						<li><a href="#">Trang chủ</a></li>
+						<li><a href="KHdonhang.htm">Đơn hàng của tôi</a></li>
 						<li class="active"><a href="khachhanghome.htm">Sản phẩm</a></li>
 						<li><a href="/dichvu/khachhang-login.htm?action=logout">Đăng xuất</a></li>
 					</ul>
@@ -58,7 +58,7 @@
 					<ul>
 						
 						<li><a href="KH-giohang.htm"><i
-								class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+								class="fa fa-shopping-bag"></i> <span> </span></a></li>
 					</ul>
 				</div>
 			</div>

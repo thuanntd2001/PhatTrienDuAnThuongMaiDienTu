@@ -19,6 +19,17 @@ public class SanPhamDTO {
 
 	private Long loai;
 
+	private String moTa;
+	
+	
+	public String getMoTa() {
+		return moTa;
+	}
+
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
+	}
+
 	public String getIcon() {
 		return icon;
 	}
