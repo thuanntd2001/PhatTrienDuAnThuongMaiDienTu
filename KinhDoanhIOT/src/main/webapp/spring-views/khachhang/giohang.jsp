@@ -24,7 +24,7 @@
 								<div class="col-lg-12">
 									<div class="shoping__cart__table">
 
-										<table>
+										<table id ='cart-table'>
 											<thead>
 												<tr>
 													<th>No.</th>
@@ -55,7 +55,7 @@
 																<div class="pro-qty">
 																	<form:input path="gioHangs[${status.index}].soLuong"
 																		class="quality-input" name="soLuong" id="soLuong"
-																		onchange='checkSoLuong' min="1" type="number" />
+																		onchange='checkSoLuong' onchange='tinhTongTien' min="1" type="number" />
 																</div>
 																<form:input path="gioHangs[${status.index}].maSP"
 																	name="maSP" id="maSP" type="hidden" />
@@ -160,8 +160,24 @@
 					
 						});
 			});
-			
-	
-	
-	
+	function tinhTongTien() {
+		  let table = document.getElementById('cart-table');
+		  let rows = table.getElementsByTagName('tr');
+		  let total = 0;
+		  
+		  // bỏ qua hàng đầu tiên vì đó là header
+		  for (let i = 1; i < rows.length; i++) {
+		    let row = rows[i];
+		    let price = parseFloat(row.cells[2].textContent);
+		    let quantity = parseFloat(row.cells[3].querySelector('input[type="number"]').value);
+		    let subtotal = price * quantity;
+		    row.cells[4].querySelector('span').textContent = subtotal + ' Đồng';
+		    total += subtotal;
+		  }
+		  
+		  document.getElementById('total').textContent = total + ' Đồng';
+		}
+
 </script>
+
+
