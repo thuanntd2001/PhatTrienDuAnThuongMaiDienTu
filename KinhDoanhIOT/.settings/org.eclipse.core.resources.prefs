@@ -11,7 +11,11 @@ encoding//src/main/java/spring/controller/chung/LoginController.java=UTF-8
 encoding//src/main/java/spring/controller/chung/LoginKHController.java=UTF-8
 encoding//src/main/java/spring/controller/khachhang/CTSPController.java=UTF-8
 encoding//src/main/java/spring/controller/khachhang/GioHangController.java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/java/spring/controller/khachhang/TheoDoiDDHController.java=UTF-8
+=======
+encoding//src/main/java/spring/controller/khachhang/TimKiemController.java=UTF-8
+>>>>>>> 952e82f657169043e582964532d4580dd1cb86a8
 encoding//src/main/java/spring/controller/web/UserController.java=UTF-8
 encoding//src/main/resources/message_vi.properties=ISO-8859-1
 encoding//src/main/webapp/spring-views/khachhang/home.jsp=UTF-8

@@ -1,6 +1,7 @@
 package spring.controller.khachhang;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,21 +26,14 @@ public class HomeKHController {
 	// CONTROLLER
 	@RequestMapping(value = "khachhanghome", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap model) {
+
 		if (SessionUtil.getInstance().getValue(request, "LoaiSPs") == null) {
 			SessionUtil.getInstance().putValue(request, "LoaiSPs",APIFunction.getLoaiSPs());
 		}
 		if (SessionUtil.getInstance().getValue(request, "SanPhams") == null) {
 			SessionUtil.getInstance().putValue(request, "SanPhams", APIFunction.getSanPhams());
 		}
-		kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
-		if (kh== null) {
-		model.addAttribute("slgh",0);
-		SessionUtil.getInstance().putValue(request, "slgh", 0);
-		}
-		else {
-		model.addAttribute("slgh",APIFunction.getGioHangs(kh.getMaKH()).size());
-		SessionUtil.getInstance().putValue(request, "slgh", APIFunction.getGioHangs(kh.getMaKH()).size());
-		}
+	
 		return "khachhang/home";
 	}
 

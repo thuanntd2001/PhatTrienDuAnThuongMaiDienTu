@@ -31,28 +31,8 @@ body {
 		<div class="card-header">
 			<h4>Nhập Thông Tin Nhãn</h4>
 		</div>
-		<form:form id="form-1" class="card-body"
-			action="formNhan.htm" modelAttribute="nsp" method="post">
-			<div class="form-row">
-			
-			</div>
-			<label>Tên sản phẩm</label>
-			<br>
-			<div class="form-row">
-				<div class="select-menu">
-
-					<h5>
-						<select name="sp">
-							<c:forEach items="${sanphams}" var="sp">
-
-								<option >
-									${sp.ten}</option>
-							</c:forEach>
-						</select>
-					</h5>
-
-				</div>
-			</div>
+		<form:form id="form-1" class="card-body" action="formNhan.htm"
+			modelAttribute="nsp" method="post">
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
@@ -61,24 +41,18 @@ body {
 					<span class="form-message"></span>
 				</div>
 				<div class="form-group">
-				<button class="btn btn-primary" type="submit"
-					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Update' : 'Insert'}</button>
-				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
-					href="admin-home/admin-qlthucdon.htm"> QUAY LẠI </a>
-			</div>
-				
+					<button class="btn btn-primary" type="submit"
+						name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Update' : 'Insert'}</button>
+					<a style="font-size: 16px; padding: 10px;"
+						class="btn btn-secondary" href="admin-home/admin-qlthucdon.htm">
+						QUAY LẠI </a>
 				</div>
-				
-				</div>
-				
-				
-				</div>
-				
-				
 
-			
+			</div>
 		</form:form>
 	</div>
+
+
 
 	<script src="<c:url value='/template/admin/validation.js'/>"></script>
 	<script>
