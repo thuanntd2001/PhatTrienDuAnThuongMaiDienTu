@@ -19,7 +19,7 @@ import spring.dto.SanPhamDTO;
 public class TimKiemController {
 
 	// CONTROLLER
-	@RequestMapping(value = "timkiem", method = RequestMethod.GET)
+	@RequestMapping(value = "khachhangtimkiembar.htm", method = RequestMethod.GET)
 	public <E> String showSanPham(HttpServletRequest request, ModelMap model) {
 		Long idTD = Long.parseLong(request.getParameter("id"));
 		SanPhamDTO td = this.getSP(idTD);

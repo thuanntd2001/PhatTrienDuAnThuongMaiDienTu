@@ -2,6 +2,7 @@
 
 /*------------------------------------ sidebar  -----------------------------------------*/
 .sidebar {
+	font-family:  sans-serif;
     position: fixed;
     padding: 0 14px;
     background-color: #fff;

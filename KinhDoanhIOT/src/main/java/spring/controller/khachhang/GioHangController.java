@@ -119,8 +119,8 @@ public class GioHangController {
 		String check = APIFunction.postGioHang(gh);
 		if (check.equals("00"))
 			model.addAttribute("message","Them SP thanh cong");
-		else
-			model.addAttribute("message","Them SP that bai");
+//		else
+//			model.addAttribute("message","Them SP that bai");
 		return "redirect:KH-giohang.htm";
 
 	}
