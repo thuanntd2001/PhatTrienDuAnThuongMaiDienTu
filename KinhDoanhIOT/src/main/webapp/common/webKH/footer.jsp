@@ -24,9 +24,26 @@
 			<div class="col-lg-12">
 				<div class="footer__copyright"></div>
 
+
+
 			</div>
 		</div>
 	</div>
+
+	<div class="logo_content">
+		<div class="logo">
+			<div class="logo_name">Danh Mục Nhãn</div>
+		</div>
+
+	</div>
+	<ul class="nav_list">
+		<c:forEach var="nhan" items="${Nhans}">
+
+			<li><a href="khachhangtimkiem.htm?searchnhan=${nhan.tenNhan}"> <i
+					class="fas fa-table"></i> <span class="links_name">${nhan.tenNhan}</span>
+			</a></li>
+		</c:forEach>
+	</ul>
 </footer>
 <!-- Footer Section End -->
 <!-- Js Plugins -->

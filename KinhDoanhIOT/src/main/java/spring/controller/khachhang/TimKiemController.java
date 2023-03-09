@@ -1,6 +1,7 @@
 package spring.controller.khachhang;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
 import spring.dto.LoaiSPDTO;
+import spring.dto.Nhan_SanPhamDTO;
 import spring.dto.SanPhamDTO;
 
 @Controller
@@ -19,30 +21,27 @@ import spring.dto.SanPhamDTO;
 public class TimKiemController {
 
 	// CONTROLLER
-	@RequestMapping(value = "khachhangtimkiembar.htm", method = RequestMethod.GET)
-	public <E> String showSanPham(HttpServletRequest request, ModelMap model) {
-		Long idTD = Long.parseLong(request.getParameter("id"));
-		SanPhamDTO td = this.getSP(idTD);
-		model.addAttribute("td", td);
-		model.addAttribute("loai", this.findOneLoai(td.getLoai()));
 
-		return "khachhang/ctsp";
+	@RequestMapping(value = "khachhangtimkiem", method = RequestMethod.GET)
+	public String indexLoai(HttpServletRequest request, ModelMap model) {
+		List<SanPhamDTO> sps2 = null;
 
+		String tenNhan = request.getParameter("searchnhan");
+		sps2 = this.locTheoNhan(tenNhan);
+		model.addAttribute("SanPhams", sps2);
+		model.addAttribute("LoaiSPs", getLoaiSPs());
+
+		return "khachhang/home";
 	}
 
-
-
-
-
-	public List<LoaiSPDTO> getLoaiSPs() {
-		List<LoaiSPDTO> list = null;
+	public List<Nhan_SanPhamDTO> getNhanSPs(String tenNhan) {
+		List<Nhan_SanPhamDTO> list = null;
 		try {
-			list = Collector.getListAll("/loaisp", LoaiSPDTO.class);
+			list = Collector.getListAll("/nhansanpham?tennhan=" + tenNhan, Nhan_SanPhamDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return list;
 	}
 
@@ -56,7 +55,8 @@ public class TimKiemController {
 		}
 		return list;
 	}
-	public LoaiSPDTO findOneLoai (Long id) {
+
+	public LoaiSPDTO findOneLoai(Long id) {
 		List<LoaiSPDTO> list = null;
 		try {
 			list = Collector.getListAll("/loaisp", LoaiSPDTO.class);
@@ -65,16 +65,13 @@ public class TimKiemController {
 			e.printStackTrace();
 		}
 		LoaiSPDTO ss = new LoaiSPDTO();
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).getId().equals(id))
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getId().equals(id))
 				ss = list.get(i);
 		}
-		
+
 		return ss;
 	}
-
-
-
 
 	public SanPhamDTO getSP(Long id) {
 		List<SanPhamDTO> list = null;
@@ -91,6 +88,29 @@ public class TimKiemController {
 		}
 
 		return ss;
+	}
+
+	public List<SanPhamDTO> locTheoNhan(String tenNhan) {
+		List<SanPhamDTO> sps2 = new ArrayList<SanPhamDTO>();
+
+		List<Nhan_SanPhamDTO> nsps = this.getNhanSPs(tenNhan);
+		for (Nhan_SanPhamDTO nsp : nsps) {
+			sps2.add(this.getSP(nsp.getSanPham()));
+		}
+
+		return sps2;
+	}
+	
+	
+	public List<LoaiSPDTO> getLoaiSPs() {
+		List<LoaiSPDTO> list = null;
+		try {
+			list = Collector.getListAll("/loaisp", LoaiSPDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

@@ -33,6 +33,7 @@ public class GioHangController {
 
 		List<GioHangDTO> gioHangs = 	APIFunction.getGioHangs(kh.getMaKH());
 
+
 		GioHangForm ghf = new GioHangForm();
 		ghf.setGioHangs(gioHangs);
 
@@ -45,6 +46,7 @@ public class GioHangController {
 			spGioHang.add(sp);
 		}
 		model.addAttribute("spGioHang", spGioHang);
+	
 
 		return "khachhang/giohang";
 

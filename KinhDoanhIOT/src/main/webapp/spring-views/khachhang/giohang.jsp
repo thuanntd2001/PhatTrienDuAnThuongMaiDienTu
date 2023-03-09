@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <head>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <jsp:include page="/common/webKH/head.jsp" />
-
 </head>
 
 <body>
@@ -54,7 +54,8 @@
 															<div class="quantity">
 																<div class="pro-qty">
 																	<form:input path="gioHangs[${status.index}].soLuong"
-																		name="soLuong" id="soLuong" type="number" />
+																		class="quality-input" name="soLuong" id="soLuong"
+																		onchange='checkSoLuong' min="1" type="number" />
 																</div>
 																<form:input path="gioHangs[${status.index}].maSP"
 																	name="maSP" id="maSP" type="hidden" />
@@ -64,7 +65,8 @@
 
 
 														</td>
-														<td class="shoping__cart__total">${spGioHang[status.index].gia * gh.soLuong}
+														<td class="shoping__cart__total"><span
+															id="totalPrice-${status.index}">${spGioHang[status.index].gia * gh.soLuong}</span>
 															Đồng</td>
 														<td class="shoping__cart__item__close"><span
 															class="icon_close"></span></td>
@@ -95,7 +97,7 @@
 									<div class="shoping__checkout">
 										<h5>Tổng tiền</h5>
 										<ul>
-											<li>Tổng<span>20000000</span></li>
+											<li>Tổng<span id='total'>0</span>Đồng</li>
 										</ul>
 										<button type="submit" class="site-btn">XÁC NHẬN MUA
 											HÀNG</button>
@@ -135,3 +137,31 @@
 </body>
 
 </html>
+
+
+<script>
+	$(document).ready(
+			function() {
+				// Lắng nghe sự kiện thay đổi số lượng sản phẩm
+				$('input.quality-input').on(
+						'change',
+						function() {
+							// Lấy giá trị số lượng sản phẩm mới
+							var soLuong = parseInt($(this).val());
+							// Lấy giá trị giá tiền của sản phẩm hiện tại
+							var giaTien = parseInt($(this).closest('tr').find(
+									'.shoping__cart__price').text().replace(
+									/\D/g, ''));
+							// Tính toán giá tiền mới
+							var giaTienMoi = soLuong * giaTien;
+							// Cập nhật giá tiền mới vào cột "Tổng cộng"
+							$(this).closest('tr').find('.shoping__cart__total')
+									.text(giaTienMoi + " Đồng");
+					
+						});
+			});
+			
+	
+	
+	
+</script>

@@ -12,10 +12,11 @@
 		<div class="col-lg-9">
 			<div class="hero__search">
 				<div class="hero__search__form">
-					<form action="khachhangtimkiembar.htm" method = "get">
 
-						<input type="text" placeholder="Nhập từ khóa cần tìm">
-						<button type="submit" class="site-btn" name = "tuKhoa">TÌM KIẾM</button>
+					<form action="khachhangtimkiem.htm" method = "get">
+
+						<input type="text" placeholder="Nhập từ khóa cần tìm" name="searchnhan">
+						<button type="submit" class="site-btn">TÌM KIẾM</button>
 					</form>
 				</div>
 
