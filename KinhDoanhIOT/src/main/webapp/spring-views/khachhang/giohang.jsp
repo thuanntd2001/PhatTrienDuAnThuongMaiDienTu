@@ -24,7 +24,7 @@
 								<div class="col-lg-12">
 									<div class="shoping__cart__table">
 
-										<table id ='cart-table'>
+										<table>
 											<thead>
 												<tr>
 													<th>No.</th>
@@ -55,7 +55,7 @@
 																<div class="pro-qty">
 																	<form:input path="gioHangs[${status.index}].soLuong"
 																		class="quality-input" name="soLuong" id="soLuong"
-																		onchange='checkSoLuong' onchange='tinhTongTien' min="1" type="number" />
+																		onchange="tinhTongTien" min="1" type="number" />
 																</div>
 																<form:input path="gioHangs[${status.index}].maSP"
 																	name="maSP" id="maSP" type="hidden" />
@@ -68,6 +68,7 @@
 														<td class="shoping__cart__total"><span
 															id="totalPrice-${status.index}">${spGioHang[status.index].gia * gh.soLuong}</span>
 															Đồng</td>
+															
 														<td class="shoping__cart__item__close"><span
 															class="icon_close"></span></td>
 													</tr>
@@ -94,10 +95,11 @@
 									<div class="shoping__continue"></div>
 								</div>
 								<div class="col-lg-6">
-									<div class="shoping__checkout">
-										<h5>Tổng tiền</h5>
+									<div class="shoping__checkout" >
+										<h5>Thanh Toán</h5>
 										<ul>
-											<li>Tổng<span id='total'>0</span>Đồng</li>
+											<li>Tổng tiền phải trả<span id ='total' ></span>
+											</li>
 										</ul>
 										<button type="submit" class="site-btn">XÁC NHẬN MUA
 											HÀNG</button>
@@ -141,7 +143,21 @@
 
 <script>
 	$(document).ready(
+			
 			function() {
+				var tongTienPhaiTra = 0;
+				$('input.quality-input').each(
+						function() {
+							var soLuong = parseInt($(this).val());
+							var giaTien = parseInt($(this).closest(
+									'tr').find(
+									'.shoping__cart__price').text()
+									.replace(/\D/g, ''));
+							var giaTienMoi = soLuong * giaTien;
+							tongTienPhaiTra += giaTienMoi;
+						});
+				// Cập nhật tổng tiền phải trả
+				document.getElementById("total").innerHTML = tongTienPhaiTra + " Đồng";
 				// Lắng nghe sự kiện thay đổi số lượng sản phẩm
 				$('input.quality-input').on(
 						'change',
@@ -157,27 +173,23 @@
 							// Cập nhật giá tiền mới vào cột "Tổng cộng"
 							$(this).closest('tr').find('.shoping__cart__total')
 									.text(giaTienMoi + " Đồng");
-					
+							
+
+							var tongTienPhaiTra = 0;
+							$('input.quality-input').each(
+									function() {
+										var soLuong = parseInt($(this).val());
+										var giaTien = parseInt($(this).closest(
+												'tr').find(
+												'.shoping__cart__price').text()
+												.replace(/\D/g, ''));
+										var giaTienMoi = soLuong * giaTien;
+										tongTienPhaiTra += giaTienMoi;
+									});
+							// Cập nhật tổng tiền phải trả
+							document.getElementById("total").innerHTML = tongTienPhaiTra + " Đồng";
+									
+
 						});
 			});
-	function tinhTongTien() {
-		  let table = document.getElementById('cart-table');
-		  let rows = table.getElementsByTagName('tr');
-		  let total = 0;
-		  
-		  // bỏ qua hàng đầu tiên vì đó là header
-		  for (let i = 1; i < rows.length; i++) {
-		    let row = rows[i];
-		    let price = parseFloat(row.cells[2].textContent);
-		    let quantity = parseFloat(row.cells[3].querySelector('input[type="number"]').value);
-		    let subtotal = price * quantity;
-		    row.cells[4].querySelector('span').textContent = subtotal + ' Đồng';
-		    total += subtotal;
-		  }
-		  
-		  document.getElementById('total').textContent = total + ' Đồng';
-		}
-
 </script>
-
-
