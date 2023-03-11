@@ -133,7 +133,7 @@ public class UserKHAPI {
 
 	@PatchMapping(value = "/userkh")
 	public String deleteNV(@RequestBody ObjDelString maXacNhan) {
-		UserKHEntity nvoption = repo.findByMaXacNhanAndStatus(maXacNhan.getId(), 0);
+		UserKHEntity nvoption = repo.findByMaXacThucAndStatus(maXacNhan.getId(), 0);
 		if (nvoption==null) {
 
 			System.out.print("ko tồn tại code");

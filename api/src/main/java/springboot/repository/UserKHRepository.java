@@ -17,7 +17,7 @@ public interface UserKHRepository extends JpaRepository<UserKHEntity, String>{
 			  nativeQuery = true)
 	List<UserKHEntity> findAllActive();
 	UserKHEntity findByUserNameAndPasswdAndStatus(String userName, String passwd,int status);
-	UserKHEntity findByMaXacNhanAndStatus(String maXacNhan,int status);
+	UserKHEntity findByMaXacThucAndStatus(String maXacNhan,int status);
 
 }
 
