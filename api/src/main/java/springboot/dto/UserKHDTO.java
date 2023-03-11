@@ -13,8 +13,16 @@ public class UserKHDTO {
 	private String icon;
 
 	private Long ID;
+	private String maXacThuc;
 
-	private Long roleID;
+
+	public String getMaXacThuc() {
+		return maXacThuc;
+	}
+
+	public void setMaXacThuc(String maXacThuc) {
+		this.maXacThuc = maXacThuc;
+	}
 
 	public String getEmail() {
 		return email;
@@ -64,12 +72,5 @@ public class UserKHDTO {
 		this.ID = id;
 	}
 
-	public Long getRoleID() {
-		return roleID;
-	}
-
-	public void setRoleID(Long roleID) {
-		this.roleID = roleID;
-	}
 
 }

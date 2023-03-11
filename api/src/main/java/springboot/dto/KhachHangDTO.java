@@ -9,10 +9,10 @@ public class KhachHangDTO {
 	private boolean gioiTinh;
 	private String sdt;
 	private String diaChi;
-	private boolean trangThai;
+	private int trangThai;
 	
 	public KhachHangDTO(Long maKH, String hoTen, Date ngaySinh, boolean gioiTinh,  String sdt, 
-			String diaChi, boolean trangThai) {
+			String diaChi, int trangThai) {
 		super();
 		this.maKH = maKH;
 		this.hoTen = hoTen;
@@ -62,10 +62,10 @@ public class KhachHangDTO {
 		this.diaChi = diaChi;
 	}
 
-	public boolean getTrangThai() {
+	public int getTrangThai() {
 		return trangThai;
 	}
-	public void setTrangThai(boolean trangThai) {
+	public void setTrangThai(int trangThai) {
 		this.trangThai = trangThai;
 	}
 	

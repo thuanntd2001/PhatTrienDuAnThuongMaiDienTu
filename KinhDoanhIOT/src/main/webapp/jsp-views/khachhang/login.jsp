@@ -37,9 +37,9 @@
 </head>
 <body>
 
-	<main class="container"> <header class="row text-center">
+	 <header class="row text-center">
 
-	</header> <section class="row">
+	</header> 
 	<div class="col-6 offset-3 mt-5 ">
 		<form action="" method="post">
 			<div class="card">
@@ -77,14 +77,14 @@
 					<button type="submit" class="btn btn-primary">Đăng Nhập</button>
 
 					<button class="btn btn-secondary" type="reset">Làm Mới</button>
-					<a href="mailer/form.htm" class="btn btn-primary">Quên mật
-						khẩu?</a>
+					<a href="khachhang-dangky.htm" class="btn btn-primary">Chưa có tài khoản? Đăng ký</a>
+					<a href="khachhang-xacnhan.htm" >Nhập mã xác thực tài khoản</a>
 
 				</div>
 			</div>
 		</form>
 	</div>
-	</section> <a href="/dichvu/dang-nhap.htm?action=login"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+	<a href="/dichvu/dang-nhap.htm?action=login"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 		<button type="button">Nhan Vien</button>
 	</a>
 </body>

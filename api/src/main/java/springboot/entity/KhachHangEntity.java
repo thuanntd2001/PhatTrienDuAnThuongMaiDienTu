@@ -47,7 +47,7 @@ public class KhachHangEntity {
 
 
 	@Column(name = "TRANGTHAI")
-	private Boolean trangThai;
+	private int trangThai;
 
 	@OneToMany(mappedBy = "khThucHien", fetch = FetchType.LAZY)
 	private Collection<DDHEntity> ddhs;
@@ -130,12 +130,12 @@ public class KhachHangEntity {
 
 
 
-	public Boolean getTrangThai() {
+	public int getTrangThai() {
 		return trangThai;
 	}
 
-	public void setTrangThai(Boolean trangThai) {
-		this.trangThai = trangThai;
+	public void setTrangThai(int i) {
+		this.trangThai = i;
 	}
 
 

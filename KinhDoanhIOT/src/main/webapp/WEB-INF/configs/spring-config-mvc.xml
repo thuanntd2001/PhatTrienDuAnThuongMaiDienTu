@@ -19,7 +19,24 @@
 	<context:annotation-config />
 	<mvc:annotation-driven/>
 	
-	
+		<!-- gửi mail -->
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="465" />
+		<property name="username" value="lekhoi0702@gmail.com" />
+		<property name="password" value="zbpxyexmgnotxunp" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>
+				<prop key="mail.smtp.starttls.enable">false</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
 	<!-- Cấu hình view -->
 	<bean id="viewResolver" 
 		p:prefix="/spring-views/" p:suffix=".jsp"

@@ -9,6 +9,26 @@ public class LoginKHDTO {
 	private boolean gioiTinh;
 	private String sdt;
 	private String diaChi;
+	private int trangThai;
+
+	private String maXacThuc;
+
+
+	public String getMaXacThuc() {
+		return maXacThuc;
+	}
+
+	public void setMaXacThuc(String maXacThuc) {
+		this.maXacThuc = maXacThuc;
+	}
+
+	public int getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
+	}
 
 	public Long getMaKH() {
 		return maKH;
@@ -34,7 +54,7 @@ public class LoginKHDTO {
 		this.ngaySinh = ngaySinh;
 	}
 
-	public boolean isGioiTinh() {
+	public boolean getGioiTinh() {
 		return gioiTinh;
 	}
 

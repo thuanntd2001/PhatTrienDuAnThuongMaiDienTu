@@ -9,29 +9,39 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USERKH")
+@Table(name = "USERKH")
 public class UserKHEntity {
 	@Id
-	@Column(name="USERNAME")
+	@Column(name = "USERNAME")
 	private String userName;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="MAKH")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "MAKH")
 	private KhachHangEntity userkh;
-	
-	@Column(name="PASSWD")
+
+	@Column(name = "PASSWD")
 	private String passwd;
-	
 
+	@Column(name = "MAXACTHUC")
+	private String maXacThuc;
 
-	
-	@Column(name ="EMAIL")
+	@Column(name = "EMAIL")
 	private String email;
-	
-	@Column(name="ICON")
+
+	@Column(name = "ICON")
 	private String icon;
-	
+
+	@Column(name = "STATUS")
+	private int status;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -48,7 +58,13 @@ public class UserKHEntity {
 		this.icon = icon;
 	}
 
+	public String getMaXacThuc() {
+		return maXacThuc;
+	}
 
+	public void setMaXacThuc(String maXacThuc) {
+		this.maXacThuc = maXacThuc;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -74,12 +90,8 @@ public class UserKHEntity {
 		this.passwd = passwd;
 	}
 
-
-
-
-
-	public UserKHEntity(String userName, KhachHangEntity userkh, String passwd,  Integer status,
-			String email, String icon) {
+	public UserKHEntity(String userName, KhachHangEntity userkh, String passwd, Integer status, String email,
+			String icon) {
 		super();
 		this.userName = userName;
 		this.userkh = userkh;
@@ -93,5 +105,4 @@ public class UserKHEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 }

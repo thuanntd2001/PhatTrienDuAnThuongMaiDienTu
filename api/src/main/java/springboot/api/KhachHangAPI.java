@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import springboot.config.Collector;
 import springboot.dto.KhachHangDTO;
+import springboot.dto.LoginKHDTO;
+import springboot.dto.UserKHDTO;
 import springboot.entity.KhachHangEntity;
 import springboot.repository.KhachHangRepository;
 
@@ -42,7 +45,7 @@ public class KhachHangAPI {
 	}
 
 	@PostMapping(value = "/khachhang")
-	public String createKH(@RequestBody KhachHangDTO model) {
+	public String createKH(@RequestBody LoginKHDTO model) {
 
 		KhachHangEntity save = new KhachHangEntity();
 		KhachHangEntity check = null;
@@ -64,7 +67,22 @@ public class KhachHangAPI {
 
 			return "02";
 		}
-		return "00";
+		
+		else {
+			String flag = "00";
+			UserKHDTO item = new UserKHDTO();
+			item.setEmail(model.getEmail());
+			item.setMaXacThuc(model.getMaXacThuc());
+			item.setPasswd(model.getPasswd());
+			item.setUserName(model.getUserName());
+			item.setStatus(0);
+			item.setID(check.getMaKH());
+			item.setIcon("logo.webp");
+			flag = Collector.postMess("/userkh", item);
+		
+
+			return flag;
+		}
 	}
 
 	@PutMapping(value = "/khachhang")
@@ -118,7 +136,7 @@ public class KhachHangAPI {
 			KhachHangEntity check = null;
 			try {
 
-				save.setTrangThai(true);
+				save.setTrangThai(1);
 				check = repo.save(save);
 
 			} catch (Exception e) {

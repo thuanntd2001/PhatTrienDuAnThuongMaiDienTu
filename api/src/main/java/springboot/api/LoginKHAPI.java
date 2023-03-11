@@ -24,7 +24,7 @@ public class LoginKHAPI {
 	public LoginKHDTO checkUserNameAndPass(@RequestBody UserKHDTO model) {
 
 	
-		UserKHEntity user = urepo.findByUserNameAndPasswd(model.getUserName(),model.getPasswd());
+		UserKHEntity user = urepo.findByUserNameAndPasswdAndStatus(model.getUserName(),model.getPasswd(),1);
 		if (user==null) {
 		return null;
 		}
