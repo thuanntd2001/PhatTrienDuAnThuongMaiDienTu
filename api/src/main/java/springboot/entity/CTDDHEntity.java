@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "CTDDH")
 public class CTDDHEntity {
@@ -31,6 +33,30 @@ public class CTDDHEntity {
 	
 	@Column(name = "TONGTIEN")
 	private Integer tongTien;
+	
+	@Column(name = "DIEM")
+	private Integer diem;
+	
+	@Column(name = "DANHGIA")
+	@Type(type="text")
+
+	private String danhGia;
+
+	public Integer getDiem() {
+		return diem;
+	}
+
+	public void setDiem(Integer diem) {
+		this.diem = diem;
+	}
+
+	public String getDanhGia() {
+		return danhGia;
+	}
+
+	public void setDanhGia(String danhGia) {
+		this.danhGia = danhGia;
+	}
 
 	public SanPhamEntity getSanPham() {
 		return sanPham;

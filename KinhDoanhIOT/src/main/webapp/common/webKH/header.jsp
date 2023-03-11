@@ -27,6 +27,7 @@
 							<div class="header__top__right__auth">
 								<a href="#"><i
 									class="fa fa-user"></i>Xin Chào ${USERKHMODEL.userName} </a>
+									<a href="KHuser.htm">Thông tin tài khoản</a>
 							</div>
 						</c:if>
 					</div>
@@ -45,10 +46,11 @@
 			<div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
+					
 						<li><a href="KHdonhang.htm">Đơn hàng của tôi</a></li>
 						<li class="active"><a href="khachhanghome.htm">Sản phẩm</a></li>
 						<li><a href="/dichvu/khachhang-login.htm?action=logout">Đăng xuất</a></li>
-						<li><a href="userkh.htm">Thông tin tài khoản</a></li>
+						
 					</ul>
 
 

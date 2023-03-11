@@ -19,7 +19,35 @@ public class CTDDHDTO {
 	//@ManyToOne
 	//@JoinColumn(name = "MADDH")
 	private Long ddh;
+	private Integer diem;
+	
+	private String danhGia;
 
+	private String userName;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Integer getDiem() {
+		return diem;
+	}
+
+	public void setDiem(Integer diem) {
+		this.diem = diem;
+	}
+
+	public String getDanhGia() {
+		return danhGia;
+	}
+
+	public void setDanhGia(String danhGia) {
+		this.danhGia = danhGia;
+	}
 	public Long getSanPham() {
 		return sanPham;
 	}

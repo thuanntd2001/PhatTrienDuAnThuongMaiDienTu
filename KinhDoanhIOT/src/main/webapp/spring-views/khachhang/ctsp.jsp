@@ -39,11 +39,11 @@
 											class="fa fa-star-half-o"></i>
 										<!--  <span>(18 đánh giá)</span> -->
 									</div>
-									<div class="product__details__price">${td.gia} Đ</div>
+									<div class="product__details__price">${td.gia}Đ</div>
 									<form action="KH-giohangthem.htm" method="get">
-										
-											<input type="hidden" name="id" value="${td.ID }">
-										
+
+										<input type="hidden" name="id" value="${td.ID }">
+
 										<div class="product__details__quantity">
 											<div class="quantity">
 												<div class="pro-qty">
@@ -89,21 +89,27 @@
 
 										<div class="tab-pane" id="tabs-2" role="tabpanel">
 											<div class="product__details__tab__desc">
-												<h6>Products Infomation</h6>
-												<p>Vestibulum ac diam sit amet quam vehicula elementum
-													sed sit amet dui. Pellentesque in ipsum id orci porta
-													dapibus. Proin eget tortor risus. Vivamus suscipit tortor
-													eget felis porttitor volutpat. Vestibulum ac diam sit amet
-													quam vehicula elementum sed sit amet dui. Donec rutrum
-													congue leo eget malesuada. Vivamus suscipit tortor eget
-													felis porttitor volutpat. Curabitur arcu erat, accumsan id
-													imperdiet et, porttitor at sem. Praesent sapien massa,
-													convallis a pellentesque nec, egestas non nisi. Vestibulum
-													ac diam sit amet quam vehicula elementum sed sit amet dui.
-													Vestibulum ante ipsum primis in faucibus orci luctus et
-													ultrices posuere cubilia Curae; Donec velit neque, auctor
-													sit amet aliquam vel, ullamcorper sit amet ligula. Proin
-													eget tortor risus.</p>
+
+												<div class="review-section">
+													<h2>Đánh giá của khách hàng</h2>
+													<c:forEach var="dg" items="${danhGias}">
+														<div class="review">
+															<div class="review-rating">
+																<c:forEach begin="1" end="5" var="i">
+																	<c:if test="${i <= dg.diem}"><span class="star">&#9733;</span></c:if>
+																	<c:if test="${i > dg.diem}"><span class="star">&#9734;</span></c:if>
+																</c:forEach>
+
+																
+															</div>
+															<div class="review-content">
+																<p class="review-author">${dg.userName}</p>
+																<p class="review-text">${dg.danhGia}</p>
+															</div>
+														</div>
+													</c:forEach>
+												</div>
+
 											</div>
 										</div>
 									</div>
@@ -114,7 +120,7 @@
 				</section>
 				<!-- Product Details Section End -->
 
-				
+
 
 			</div>
 

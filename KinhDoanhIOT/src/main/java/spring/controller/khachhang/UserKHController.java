@@ -26,16 +26,16 @@ public class UserKHController {
 	ServletContext session;
 	
 	
-	@RequestMapping(value = "userkh", method = RequestMethod.GET)
+	@RequestMapping(value = "KHuser", method = RequestMethod.GET)
 	public String index(ModelMap model, HttpServletRequest request) {
 		LoginKHDTO user = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
-		model.addAttribute("userkh", user);
+		model.addAttribute("user", user);
 		model.addAttribute("nv", user);
 		model.addAttribute("changePW", new Password());
-		return "web/user";
+		return "khachhang/userkh";
 	}
 	
-	@RequestMapping(value = "userkh", params = "btnChangePw", method = RequestMethod.POST)
+	@RequestMapping(value = "KHuser", params = "btnChangePw", method = RequestMethod.POST)
 	public String changePassword(HttpServletRequest request, ModelMap model,
 			@ModelAttribute("password") Password password, BindingResult er) {
 		// validation
@@ -78,7 +78,7 @@ public class UserKHController {
 
 	public Integer changePW(HttpServletRequest request,String password,
 			String newpassword, String renewpassword) {
-		LoginKHDTO user1 = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERMODEL");
+		LoginKHDTO user1 = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 		//String id = user1.getUserName();
 		if (password.equals(user1.getPasswd()) && !newpassword.isEmpty() && !renewpassword.isEmpty()
 				&& newpassword.equals(renewpassword)) {

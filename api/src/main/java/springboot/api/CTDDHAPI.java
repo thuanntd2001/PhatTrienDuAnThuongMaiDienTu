@@ -33,8 +33,10 @@ public class CTDDHAPI {
 	@GetMapping("/ctddh")
 	public List<CTDDHDTO> getCTDDH(HttpServletRequest request) {
 		String idkh = request.getParameter("maddh");
+		String idsp = request.getParameter("maspreview");
+
 		long id;
-		if (idkh == null) {
+		if (idkh == null && idsp == null) {
 			System.out.print("null");
 
 			{
@@ -55,7 +57,7 @@ public class CTDDHAPI {
 			}
 		}
 
-		else {
+		else if (idsp == null) {
 			try {
 				id = Long.parseLong(idkh);
 			} catch (Exception e) {
@@ -71,6 +73,30 @@ public class CTDDHAPI {
 				save.setSanPham(model.getSanPham().getId());
 				save.setSoLuong(model.getSoLuong());
 				save.setTongTien(model.getTongTien());
+
+				listDTO.add(save);
+			}
+			System.out.print(list.size());
+			return listDTO;
+		}
+		else  {
+			try {
+				id = Long.parseLong(idsp);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+			List<CTDDHEntity> list = (List<CTDDHEntity>) repo.findReview(id);
+			List<CTDDHDTO> listDTO = new ArrayList<CTDDHDTO>();
+			for (CTDDHEntity model : list) {
+				CTDDHDTO save = new CTDDHDTO();
+				save.setId(model.getId());
+				save.setDdh(model.getDdh().getId());
+				save.setSanPham(model.getSanPham().getId());
+				save.setSoLuong(model.getSoLuong());
+				save.setTongTien(model.getTongTien());
+				save.setDanhGia(model.getDanhGia());
+				save.setDiem(model.getDiem());
 
 				listDTO.add(save);
 			}

@@ -11,6 +11,28 @@ public class CTDDHDTO {
 
 	//@Column(name = "SOLUONG")
 	private Integer soLuong;
+	
+	private Integer diem;
+	
+	private String danhGia;
+
+
+
+	public Integer getDiem() {
+		return diem;
+	}
+
+	public void setDiem(Integer diem) {
+		this.diem = diem;
+	}
+
+	public String getDanhGia() {
+		return danhGia;
+	}
+
+	public void setDanhGia(String danhGia) {
+		this.danhGia = danhGia;
+	}
 
 	//@ManyToOne
 	//@JoinColumn(name = "SANPHAM")
