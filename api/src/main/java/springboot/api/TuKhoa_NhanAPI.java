@@ -72,9 +72,21 @@ public class TuKhoa_NhanAPI {
 			return listDTO;
 		}
 		else {
-			System.out.print("null");
+			List<TuKhoa_NhanEntity> list = (List<TuKhoa_NhanEntity>) repo.findAll();
+			List<TuKhoa_NhanDTO> listDTO = new ArrayList<TuKhoa_NhanDTO>();
+			for (TuKhoa_NhanEntity model : list) {
+				TuKhoa_NhanDTO save = new TuKhoa_NhanDTO();
+				save.setNhan(model.getNhan().getTenNhan());
+				save.setTuKhoa(model.getTuKhoa().getTenTuKhoa());
+				save.setNvSua(model.getNvSua());
+				save.setNvTao(model.getNvTao());
+				save.setNgayTao(model.getNgayTao());
+				
 
-			return null;
+				listDTO.add(save);
+			}
+			System.out.print(list.size());
+			return listDTO;
 		}
 	}
 

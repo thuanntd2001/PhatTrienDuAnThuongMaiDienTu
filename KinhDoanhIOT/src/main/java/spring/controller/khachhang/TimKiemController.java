@@ -41,15 +41,16 @@ public class TimKiemController {
 	public String sanPham_TuKhoa(HttpServletRequest request, ModelMap model) {
 		List<SanPhamDTO> sps2 = new ArrayList<SanPhamDTO>();
 		List<SanPhamDTO> sps1 = this.getSanPhams();
-
 		String tenTuKhoa = this.removeAccent(request.getParameter("searchtukhoa").toLowerCase());
+		List<Long> masps= this.getMaSPTheoTuKhoa(tenTuKhoa);
+
 		//List<TuKhoa_NhanDTO> tuKhoa_Nhans=this.getNhanTuKhoa(tenTuKhoa);
 		//sps2 = this.locTheoNhan(tenNhan);
 		String tenTuKhoas[] = tenTuKhoa.split(" ",0);
 		for (SanPhamDTO sp :sps1) {
 			System.out.println("test: "+tenTuKhoas[0].toString()+" "+sp.getTen());
 
-			if(this.locTheoTenSP(tenTuKhoas, sp.getTen())==1) {
+			if(this.locTheoTenSP(tenTuKhoas, sp.getTen())==1 || masps.contains(sp.getID())) {
 				sps2.add(sp);
 			}
 		}
@@ -163,6 +164,40 @@ public class TimKiemController {
 			e.printStackTrace();
 		}
 		return list;
+	} 
+	
+	public List<Long> getMaSPTheoTuKhoa(String tuKhoa) {
+		List<TuKhoa_NhanDTO> listTuKhoaNhan = new ArrayList<TuKhoa_NhanDTO>();
+		List<Nhan_SanPhamDTO> listNhanSP = new ArrayList<Nhan_SanPhamDTO>();
+		List<Long> listMaSP=new ArrayList<Long>();
+		try {
+			listTuKhoaNhan = Collector.getListAll("/tukhoanhan", TuKhoa_NhanDTO.class);
+			//listNhanSP = Collector.getListAll("/loaisp", Nhan_SanPhamDTO.class);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String temp;
+		tuKhoa=this.removeAccent(tuKhoa.toLowerCase());
+		for (TuKhoa_NhanDTO tkn : listTuKhoaNhan) {
+			temp=this.removeAccent(tkn.getTuKhoa().toLowerCase());
+			
+			if (tuKhoa.indexOf(temp)!=-1 || temp.indexOf(tuKhoa)!= -1) {
+				try {
+					
+					listNhanSP = Collector.getListAll("/nhansanpham?tennhan="+tkn.getNhan(), Nhan_SanPhamDTO.class);
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				for (Nhan_SanPhamDTO nsp : listNhanSP) {
+					listMaSP.add(nsp.getSanPham());
+				}
+			}
+		}
+		return listMaSP;
 	} 
 	
 	public String removeAccent(String s) { String temp = Normalizer.normalize(s, Normalizer.Form.NFD); Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+"); temp = pattern.matcher(temp).replaceAll(""); 
