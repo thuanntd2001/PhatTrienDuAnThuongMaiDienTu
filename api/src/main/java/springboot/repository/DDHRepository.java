@@ -22,17 +22,17 @@ public interface DDHRepository extends JpaRepository<DDHEntity, Long> {
 	Integer soDDHNgay(Integer ngay, Integer thang, Integer nam);
 
 	@Query(value = "SELECT sum(ctddh.tongTien) FROM DDHEntity ddh INNER JOIN ddh.chiTietDDH ctddh WHERE "
-			+ "ddh.tinhTrang = 4 AND " + "YEAR(ddh.ngayThucHien) = ?1", nativeQuery = false)
+			+ "ddh.tinhTrang >= 4 AND " + "YEAR(ddh.ngayThucHien) = ?1", nativeQuery = false)
 	Integer doanhThuNam(Integer nam);
 
 	@Query(value = "SELECT sum(ctddh.tongTien) FROM DDHEntity ddh INNER JOIN ddh.chiTietDDH ctddh WHERE "
-			+ "ddh.tinhTrang = 4 AND "
+			+ "ddh.tinhTrang >= 4 AND "
 
 			+ "MONTH(ddh.ngayThucHien) = ?1 AND YEAR(ddh.ngayThucHien) = ?2", nativeQuery = false)
 	Integer doanhThuThang(Integer thang, Integer nam);
 
 	@Query(value = "SELECT sum(ctddh.tongTien) FROM DDHEntity ddh INNER JOIN ddh.chiTietDDH ctddh WHERE "
-			+ "ddh.tinhTrang = 4 AND "
+			+ "ddh.tinhTrang >= 4 AND "
 
 			+ "DAY(ddh.ngayThucHien) = ?1 AND MONTH(ddh.ngayThucHien) = ?2 AND YEAR(ddh.ngayThucHien) = ?3", nativeQuery = false)
 	Integer doanhThuNgay(Integer ngay, Integer thang, Integer nam);

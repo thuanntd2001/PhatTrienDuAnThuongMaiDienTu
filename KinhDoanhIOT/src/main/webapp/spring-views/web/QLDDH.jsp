@@ -85,7 +85,7 @@
 												Đang giao hàng
 												</c:when>
 
-										<c:when test="${ddh.tinhTrang == 4}">
+										<c:when test="${ddh.tinhTrang >= 4}">
 												Giao hàng thành công
 												</c:when>
 										<c:otherwise>
@@ -101,29 +101,33 @@
 
 								<td>
 									<div class="">
-										<a style="font-size: 10px;" class="btn btn-primary"
-											href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
-											 <c:choose>
-												<c:when test="${ddh.tinhTrang == 1}">
-												Đang chuẩn bi hàng
-												</c:when>
-												<c:when test="${ddh.tinhTrang == 2}">
-												Đang giao hàng
-												</c:when>
 
-												<c:when test="${ddh.tinhTrang == 3}">
-												Giao hàng thành công
-												</c:when>
-												<c:otherwise>
-												Đổi trả
-												</c:otherwise>
-											</c:choose>
+										<c:choose>
+
+											<c:when test="${ddh.tinhTrang == 1}">
+												<a style="font-size: 10px;" class="btn btn-primary"
+													href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
+													Đang chuẩn bi hàng</a>
+											</c:when>
+											<c:when test="${ddh.tinhTrang == 2}">
+												<a style="font-size: 10px;" class="btn btn-primary"
+													href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
+													Đang giao hàng</a>
+											</c:when>
+
+											<c:when test="${ddh.tinhTrang == 3}">
+												<a style="font-size: 10px;" class="btn btn-primary"
+													href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
+													Giao hàng thành công</a>
+											</c:when>
+
+										</c:choose>
 
 
 
-										</a>
-										
-								
+
+
+
 									</div>
 								</td>
 

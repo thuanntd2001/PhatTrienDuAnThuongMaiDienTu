@@ -78,8 +78,7 @@ public class CTDDHAPI {
 			}
 			System.out.print(list.size());
 			return listDTO;
-		}
-		else  {
+		} else {
 			try {
 				id = Long.parseLong(idsp);
 			} catch (Exception e) {
@@ -127,6 +126,38 @@ public class CTDDHAPI {
 			return "02";
 		}
 		return "00";
+	}
+
+	@PutMapping(value = "/danhgia")
+	public String danhGiaCtddh(@RequestBody CTDDHDTO model) {
+
+		Optional<CTDDHEntity> nvoption = repo.findById(model.getId());
+		if (nvoption.isEmpty()) {
+
+			System.out.print("ko tồn tại sp");
+			return "404";
+		}
+
+		else {
+			System.out.print("tồn tại sp");
+			CTDDHEntity save = nvoption.get();
+			CTDDHEntity check = null;
+			try {
+				save.setDanhGia(model.getDanhGia());
+				save.setDiem(model.getDiem());
+
+				check = repo.save(save);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "01";
+			}
+
+			if (check == null) {
+				return "02";
+			}
+			return "00";
+		}
+
 	}
 
 	@PutMapping(value = "/ctddh")
