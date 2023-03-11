@@ -62,7 +62,7 @@ public class DangKyKHController {
 	public <E> String postXacNhan(HttpServletRequest request, ModelMap model) {
 		ObjDelString code = new ObjDelString();
 		code.setId(request.getParameter("maXacNhan"));
-		String check=Collector.patchMess("/userkh", code);
+		String check=Collector.postMess("/userkh2", code);
 		if (check.equals("00")) {
 		
 			model.addAttribute("message", "xac nhan thanh cong");
