@@ -101,23 +101,22 @@
 											<li>Tổng tiền phải trả<span id='total'></span>
 											</li>
 										</ul>
-										<button id="btnthanhtoan" 
-											 class="site-btn">THANH TOÁN</button>
+										<button id="btnthanhtoan" type ="button" class="site-btn">THANH TOÁN</button>
 
 
 									</div>
 								</div>
 							</div>
 						</div>
-			</div>
-			</form:form>
 
-			</section>
-			<!-- Shoping Cart Section End -->
+					</form:form>
+
+				</section>
+				<!-- Shoping Cart Section End -->
+
+			</div>
 
 		</div>
-
-	</div>
 	</div>
 
 
@@ -218,7 +217,7 @@ document.getElementById("btnthanhtoan").addEventListener("click", function() {
 	  var confirmBox = document.createElement("div");
 	  confirmBox.classList.add("confirm-order");
 	  confirmBox.innerHTML = `
-	    <div class="confirm-order-box">
+		  <div class="confirm-order-box">
 	      <h2>Xác nhận đặt hàng</h2>
 	      <p>Bạn có chắc chắn muốn đặt hàng?</p>
 	      <div class="confirm-order-buttons">
@@ -228,8 +227,17 @@ document.getElementById("btnthanhtoan").addEventListener("click", function() {
 	    </div>
 	  `;
 	  document.body.appendChild(confirmBox);
+	  
 
 	  // Thêm code xử lý sự kiện khi người dùng nhấn vào nút "Có" hoặc "Không" ở đây
 
+	});
+document.addEventListener("keydown", function(event) {
+	  if (event.key === "Escape") {
+	    var confirmBox = document.querySelector(".confirm-order");
+	    if (confirmBox) {
+	      confirmBox.remove();
+	    }
+	  }
 	});
 </script>

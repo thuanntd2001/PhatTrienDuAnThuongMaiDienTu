@@ -1,63 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
 <%@include file="/common/taglib.jsp"%>
-
-<!DOCTYPE html>
-<html lang="en">
-
-
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<base href="${pageContext.servletContext.contextPath}/">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href=<c:url value="/common/vendor/themify-icons/themify-icons.css"/>>
-<title>Document</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<jsp:include page="/common/webKH/head.jsp" />
 </head>
-<style>
-label {
-	font-weight: bold;
-}
 
-body {
-	background-color: #d7d7d7;
-}
-
-.form-message {
-	color: red;
-}
-</style>
 <body>
-	<div style="margin-top: 2%; border-style: groove;"
-		class="container card">
-		<div class="card-header">
-			<h4>Chi tiết đơn hàng</h4>
-		</div>
-		<form:form class="card-body" id="form-1" action="xacnhanddh/${idddh}.htm"
-			modelAttribute="pn" method="post">
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<table class="table table-striped datatable shadow-box">
+	<jsp:include page="/common/webKH/header.jsp" />
 
-						<thead>
-							<tr>
-								<th>Mã ĐĐH</th>
-								<th>Mã SP</th>
+	<!-- CONTENT -->
+	<div class="container-fluid main">
+		<div class="container">
+			<div class="content">
+				<div class="header-content d-flex justify-content-center">CHI TIẾT ĐƠN HÀNG</div>
+				<!-- Shoping Cart Section Begin -->
+				<section class="shoping-cart spad">
+					<form:form method="post" action="KHdonhang/${idddh}.htm"
+					>
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="shoping__cart__table">
 
-								<th>Tên SP</th>
-								<th>Số Lượng</th>
+										<table>
+											<thead>
+												<tr>
+													<th>Mã đơn</th>
+													<th>Mã sản phẩm</th>
+													<th>Tên sản phẩm</th>
+													<th>Số lượng</th>
+													<th>Thành tiền</th>
+												</tr>
+											</thead>
+											<tbody>
 
-								<th>Thành Tiền</th>
-
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="ctddh" items="${chiTiet}">
+												<c:forEach var="ctddh" items="${chiTiet}">
 								<tr>
 									<td>${ctddh.ddh }</td>
 									<td>${ctddh.sanPham }</td>
@@ -69,19 +48,47 @@ body {
 								</tr>
 							</c:forEach>
 
-						</tbody>
-					</table>
-				</div>
+
+											</tbody>
+										</table>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
 			</div>
-			
+			</form:form>
 
+			</section>
+			<!-- Shoping Cart Section End -->
 
-		</form:form>
+		</div>
 
 	</div>
+	</div>
 
-	
 
+
+
+
+
+
+	<jsp:include page="/common/webKH/footer.jsp" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$('.set-bg').each(function() {
+			var bg = $(this).data('setbg');
+			$(this).css('background-image', 'url(' + bg + ')');
+		});
+	</script>
 
 </body>
+
 </html>
+
+

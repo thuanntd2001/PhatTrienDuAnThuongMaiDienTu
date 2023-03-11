@@ -32,7 +32,7 @@ public class TheoDoiDDHController {
 		try {
 			list = Collector.getListAll("/ddh",DDHDTO.class);
 			list = list.stream()
-                    .filter(ddh -> ddh.getKhThucHien() != kh.getMaKH())
+                    .filter(ddh -> ddh.getKhThucHien() == kh.getMaKH())
                     .collect(Collectors.toList());
 			
 		} catch (IOException e) {
