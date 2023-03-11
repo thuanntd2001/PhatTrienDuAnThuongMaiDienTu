@@ -25,11 +25,11 @@
 						<div class="filter__item">
 							<div class="row">
 								<div class="col-lg-4 col-md-5">
-									<div class="filter__sort">
+									<!-- <div class="filter__sort">
 										<span>Sắp xếp</span> <select>
 											<option value="0">Mặc định</option>
 										</select>
-									</div>
+									</div> -->
 								</div>
 								<div class="col-lg-4 col-md-4">
 									<div class="filter__found">

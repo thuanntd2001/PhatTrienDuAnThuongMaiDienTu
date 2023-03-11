@@ -39,8 +39,8 @@
 	<ul class="nav_list">
 		<c:forEach var="nhan" items="${Nhans}">
 
-			<li><a href="khachhangtimkiem.htm?searchnhan=${nhan.tenNhan}"> <i
-					class="fas fa-table"></i> <span class="links_name">${nhan.tenNhan}</span>
+			<li><a href="khachhangtimkiem.htm?searchnhan=${nhan.tenNhan}">
+					<i class="fas fa-table"></i> <span class="links_name">${nhan.tenNhan}</span>
 			</a></li>
 		</c:forEach>
 	</ul>
@@ -59,3 +59,5 @@
 <script src="<c:url value='/template/khachhang/js/mixitup.min.js'/>"></script>
 <script
 	src="<c:url value='/template/khachhang/js/owl.carousel.min.js'/>"></script>
+<script src="<c:url value='/template/khachhang/js/main.js'/>"></script>
+

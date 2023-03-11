@@ -1,8 +1,10 @@
 package spring.controller.khachhang;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +17,7 @@ import spring.bean.Collector;
 import spring.dto.LoaiSPDTO;
 import spring.dto.Nhan_SanPhamDTO;
 import spring.dto.SanPhamDTO;
+import spring.dto.TuKhoa_NhanDTO;
 
 @Controller
 
@@ -22,12 +25,36 @@ public class TimKiemController {
 
 	// CONTROLLER
 
-	@RequestMapping(value = "khachhangtimkiem", method = RequestMethod.GET)
-	public String indexLoai(HttpServletRequest request, ModelMap model) {
+	@RequestMapping(value = "khachhangtimkiemnhan", method = RequestMethod.GET)
+	public String sanPham_Nhan(HttpServletRequest request, ModelMap model) {
 		List<SanPhamDTO> sps2 = null;
 
 		String tenNhan = request.getParameter("searchnhan");
 		sps2 = this.locTheoNhan(tenNhan);
+		model.addAttribute("SanPhams", sps2);
+		model.addAttribute("LoaiSPs", getLoaiSPs());
+
+		return "khachhang/home";
+	}
+	
+	@RequestMapping(value = "khachhangtimkiemtukhoa", method = RequestMethod.GET)
+	public String sanPham_TuKhoa(HttpServletRequest request, ModelMap model) {
+		List<SanPhamDTO> sps2 = new ArrayList<SanPhamDTO>();
+		List<SanPhamDTO> sps1 = this.getSanPhams();
+
+		String tenTuKhoa = this.removeAccent(request.getParameter("searchtukhoa").toLowerCase());
+		//List<TuKhoa_NhanDTO> tuKhoa_Nhans=this.getNhanTuKhoa(tenTuKhoa);
+		//sps2 = this.locTheoNhan(tenNhan);
+		String tenTuKhoas[] = tenTuKhoa.split(" ",0);
+		for (SanPhamDTO sp :sps1) {
+			System.out.println("test: "+tenTuKhoas[0].toString()+" "+sp.getTen());
+
+			if(this.locTheoTenSP(tenTuKhoas, sp.getTen())==1) {
+				sps2.add(sp);
+			}
+		}
+
+		
 		model.addAttribute("SanPhams", sps2);
 		model.addAttribute("LoaiSPs", getLoaiSPs());
 
@@ -38,6 +65,17 @@ public class TimKiemController {
 		List<Nhan_SanPhamDTO> list = null;
 		try {
 			list = Collector.getListAll("/nhansanpham?tennhan=" + tenNhan, Nhan_SanPhamDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public List<TuKhoa_NhanDTO> getNhanTuKhoa(String tenTuKhoa) {
+		List<TuKhoa_NhanDTO> list = null;
+		try {
+			list = Collector.getListAll("/tukhoanhan?tentukhoa=" + tenTuKhoa, TuKhoa_NhanDTO.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -100,6 +138,20 @@ public class TimKiemController {
 
 		return sps2;
 	}
+	public int locTheoTenSP(String tuKhoa[], String tenSP) {
+		String tenSPs[] = this.removeAccent(tenSP.toLowerCase()).split(" ", 0);
+		
+		for (int i=0; i<tuKhoa.length;i++) 
+			for (int j=0; j<tenSPs.length;j++) 
+		{
+			System.out.println(tuKhoa[i]+":"+tenSPs[j]+" KQ:"+tuKhoa[i].equals(tenSPs[j]));
+			if (tuKhoa[i].equals(tenSPs[j])){
+				return 1;
+			}
+		}
+
+		return 0;
+	}
 	
 	
 	public List<LoaiSPDTO> getLoaiSPs() {
@@ -111,6 +163,9 @@ public class TimKiemController {
 			e.printStackTrace();
 		}
 		return list;
-	}
+	} 
+	
+	public String removeAccent(String s) { String temp = Normalizer.normalize(s, Normalizer.Form.NFD); Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+"); temp = pattern.matcher(temp).replaceAll(""); 
+    return temp.replaceAll("đ", "d"); }
 
 }
