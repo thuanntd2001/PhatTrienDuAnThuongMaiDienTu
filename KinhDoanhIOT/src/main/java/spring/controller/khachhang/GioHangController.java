@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quancafehighland.utils.SessionUtil;
+import java.text.DecimalFormat;
 
 import spring.bean.APIFunction;
 import spring.bean.GioHangForm;
@@ -21,6 +22,7 @@ import spring.dto.DDHDTO;
 import spring.dto.GioHangDTO;
 import spring.dto.LoginKHDTO;
 import spring.dto.SanPhamDTO;
+import spring.controller.khachhang.CurrencyFormatter;
 
 @Controller
 
@@ -126,6 +128,11 @@ public class GioHangController {
 		return "redirect:KH-giohang.htm";
 
 	}
+	
+	
+	
+	
+	
 
 	
 

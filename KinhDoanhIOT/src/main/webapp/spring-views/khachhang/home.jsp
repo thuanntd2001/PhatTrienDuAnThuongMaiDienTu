@@ -55,11 +55,11 @@
 												<li><a href="KH-giohangthem.htm?id=${th.ID}&sl=1"><i class="fa fa-shopping-cart"></i></a></li>
 											</ul>
 										</div>
-										<div class="product__item__text">
+										<div id="giasp" class="product__item__text">
 											<h6>
 												<a href="khachhang-ctsp.htm?id=${th.ID} ">${th.ten}</a>
 											</h6>
-											<h5>${th.gia}đ</h5>
+											<h5>${th.gia}</h5>
 										</div>
 									</div>
 								</div>
@@ -112,3 +112,11 @@
 </body>
 
 </html>
+<script>
+  const priceElements = document.querySelectorAll('#giasp h5'); // Lấy tất cả các thẻ HTML có id là "giasp" và thẻ h5
+  priceElements.forEach((priceElement) => { // Lặp qua danh sách các thẻ HTML
+    const priceValue = parseInt(priceElement.innerText); // Lấy giá trị từ thẻ HTML và chuyển đổi thành số nguyên
+    const priceFormatted = priceValue.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }); // Định dạng giá trị tiền tệ
+    priceElement.innerText = priceFormatted; // Gán kết quả định dạng vào thẻ HTML
+  });
+</script>

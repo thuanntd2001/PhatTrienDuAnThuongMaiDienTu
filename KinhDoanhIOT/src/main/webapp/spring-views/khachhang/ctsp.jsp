@@ -39,7 +39,7 @@
 											class="fa fa-star-half-o"></i>
 										<!--  <span>(18 đánh giá)</span> -->
 									</div>
-									<div class="product__details__price">${td.gia}Đ</div>
+									<div id="giasp" class="product__details__price">${td.gia}</div>
 									<form action="KH-giohangthem.htm" method="get">
 
 										<input type="hidden" name="id" value="${td.ID }">
@@ -47,7 +47,7 @@
 										<div class="product__details__quantity">
 											<div class="quantity">
 												<div class="pro-qty">
-													<input type="number" name="sl" value="1">
+													<input type="number" name="sl" min="1" value="1">
 												</div>
 
 											</div>
@@ -96,11 +96,15 @@
 														<div class="review">
 															<div class="review-rating">
 																<c:forEach begin="1" end="5" var="i">
-																	<c:if test="${i <= dg.diem}"><span class="star">&#9733;</span></c:if>
-																	<c:if test="${i > dg.diem}"><span class="star">&#9734;</span></c:if>
+																	<c:if test="${i <= dg.diem}">
+																		<span class="star">&#9733;</span>
+																	</c:if>
+																	<c:if test="${i > dg.diem}">
+																		<span class="star">&#9734;</span>
+																	</c:if>
 																</c:forEach>
 
-																
+
 															</div>
 															<div class="review-content">
 																<p class="review-author">${dg.userName}</p>
@@ -144,3 +148,43 @@
 </body>
 
 </html>
+
+
+
+
+
+
+<script>
+	//Lấy phần tử số lượng và giá của sản phẩm
+	const quantityInput = document.querySelector('[name="sl"]');
+	const priceElement = document.querySelector('#giasp');
+
+	// Lấy giá ban đầu của sản phẩm từ phần tử giá và định dạng giá ban đầu dưới dạng tiền Việt
+	const initialPrice = parseFloat(priceElement.textContent);
+	const formattedPrice = initialPrice.toLocaleString('vi-VN', {
+		style : 'currency',
+		currency : 'VND'
+	});
+	priceElement.textContent = formattedPrice;
+
+	// Lắng nghe sự kiện thay đổi số lượng và tính toán giá mới
+	quantityInput.addEventListener('change', function() {
+		// Lấy số lượng mới từ phần tử số lượng
+		const newQuantity = parseInt(this.value);
+
+		// Tính toán giá mới bằng cách nhân giá ban đầu với số lượng mới
+		const newPrice = initialPrice * newQuantity;
+
+		// Định dạng giá mới dưới dạng tiền Việt
+		const formattedNewPrice = newPrice.toLocaleString('vi-VN', {
+			style : 'currency',
+			currency : 'VND'
+		});
+
+		// Cập nhật giá mới đã định dạng vào phần tử giá
+		priceElement.textContent = formattedNewPrice;
+	});
+</script>
+
+
+

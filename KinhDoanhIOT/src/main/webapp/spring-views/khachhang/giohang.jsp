@@ -1,5 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="spring.controller.khachhang.CurrencyFormatter"%>
 <%@include file="/common/taglib.jsp"%>
 <head>
 <script
@@ -48,8 +50,8 @@
 														<td class="shoping__cart__item"><img
 															src="img/cart/cart-1.jpg" alt="">
 															<h5>${spGioHang[status.index].ten}</h5></td>
-														<td class="shoping__cart__price">
-															${spGioHang[status.index].gia} Đồng</td>
+														<td id="price" class="shoping__cart__price">
+															${spGioHang[status.index].gia}</td>
 														<td class="shoping__cart__quantity">
 															<div class="quantity">
 																<div class="pro-qty">
@@ -65,9 +67,8 @@
 
 
 														</td>
-														<td class="shoping__cart__total"><span
-															id="totalPrice-${status.index}">${spGioHang[status.index].gia * gh.soLuong}</span>
-															Đồng</td>
+														<td id="totalPrice" class="shoping__cart__total"><span>${spGioHang[status.index].gia * gh.soLuong}</span>
+														</td>
 
 														<td class="shoping__cart__item__close"><span
 															class="icon_close"></span></td>
@@ -101,7 +102,8 @@
 											<li>Tổng tiền phải trả<span id='total'></span>
 											</li>
 										</ul>
-										<button id="btnthanhtoan" type ="button" class="site-btn">THANH TOÁN</button>
+										<button id="btnthanhtoan" type="button" class="site-btn">THANH
+											TOÁN</button>
 
 
 									</div>
@@ -132,11 +134,11 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
-		$('.set-bg').each(function() {
-			var bg = $(this).data('setbg');
-			$(this).css('background-image', 'url(' + bg + ')');
-		});
-	</script>
+			$('.set-bg').each(function() {
+				var bg = $(this).data('setbg');
+				$(this).css('background-image', 'url(' + bg + ')');
+			});
+		</script>
 
 </body>
 
@@ -144,100 +146,133 @@
 
 
 <script>
-	$(document)
-			.ready(
-
-					function() {
-						var tongTienPhaiTra = 0;
-						$('input.quality-input').each(
-								function() {
-									var soLuong = parseInt($(this).val());
-									var giaTien = parseInt($(this)
-											.closest('tr').find(
-													'.shoping__cart__price')
-											.text().replace(/\D/g, ''));
-									var giaTienMoi = soLuong * giaTien;
-									tongTienPhaiTra += giaTienMoi;
-								});
-						// Cập nhật tổng tiền phải trả
-						document.getElementById("total").innerHTML = tongTienPhaiTra
-								+ " Đồng";
-						// Lắng nghe sự kiện thay đổi số lượng sản phẩm
-						$('input.quality-input')
-								.on(
-										'change',
-										function() {
-											// Lấy giá trị số lượng sản phẩm mới
-											var soLuong = parseInt($(this)
-													.val());
-											// Lấy giá trị giá tiền của sản phẩm hiện tại
-											var giaTien = parseInt($(this)
-													.closest('tr')
-													.find(
-															'.shoping__cart__price')
-													.text().replace(/\D/g, ''));
-											// Tính toán giá tiền mới
-											var giaTienMoi = soLuong * giaTien;
-											// Cập nhật giá tiền mới vào cột "Tổng cộng"
-											$(this).closest('tr').find(
-													'.shoping__cart__total')
-													.text(giaTienMoi + " Đồng");
-
-											var tongTienPhaiTra = 0;
-											$('input.quality-input')
-													.each(
-															function() {
-																var soLuong = parseInt($(
-																		this)
-																		.val());
-																var giaTien = parseInt($(
-																		this)
-																		.closest(
-																				'tr')
-																		.find(
-																				'.shoping__cart__price')
-																		.text()
-																		.replace(
-																				/\D/g,
-																				''));
-																var giaTienMoi = soLuong
-																		* giaTien;
-																tongTienPhaiTra += giaTienMoi;
-															});
-											// Cập nhật tổng tiền phải trả
-											document.getElementById("total").innerHTML = tongTienPhaiTra
-													+ " Đồng";
-
-										});
-					});
+const priceElements = document.querySelectorAll('#totalPrice'); // Lấy tất cả các thẻ HTML có id là "price"
+priceElements.forEach((priceElement) => { // Lặp qua danh sách các thẻ HTML
+  const priceValue = parseInt(priceElement.innerText); // Lấy giá trị từ thẻ HTML và chuyển đổi thành số nguyên
+  const priceFormatted = priceValue.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }); // Định dạng giá trị tiền tệ
+  priceElement.innerText = priceFormatted; // Gán kết quả định dạng vào thẻ HTML
+});
+			
 </script>
+
 
 <script>
-document.getElementById("btnthanhtoan").addEventListener("click", function() {
-	  var confirmBox = document.createElement("div");
-	  confirmBox.classList.add("confirm-order");
-	  confirmBox.innerHTML = `
-		  <div class="confirm-order-box">
-	      <h2>Xác nhận đặt hàng</h2>
-	      <p>Bạn có chắc chắn muốn đặt hàng?</p>
-	      <div class="confirm-order-buttons">
-	        <button class="confirm-order-yes">Có</button>
-	        <a href ="khachhanghome.htm" class="confirm-order-no">Không</a>
-	      </div>
-	    </div>
-	  `;
-	  document.body.appendChild(confirmBox);
-	  
+		$(document)
+				.ready(
+						
+						function() {
+							var tongTienPhaiTra = 0;
+							$('input.quality-input').each(
+									function() {
+										var soLuong = parseInt($(this).val());
+										var giaTien = parseInt($(this)
+												.closest('tr').find(
+														'.shoping__cart__price')
+												.text().replace(/\D/g, ''));
+										var giaTienMoi = soLuong * giaTien;
+										tongTienPhaiTra += giaTienMoi;
+									});
+							// Cập nhật tổng tiền phải trả
+							let formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(tongTienPhaiTra)
+												document.getElementById("total").innerHTML =  formattedPrice;
+							
+							
+							// Lắng nghe sự kiện thay đổi số lượng sản phẩm
+							$('input.quality-input')
+									.on(
+											'change',
+											function() {
+												// Lấy giá trị số lượng sản phẩm mới
+												var soLuong = parseInt($(this)
+														.val());
+												// Lấy giá trị giá tiền của sản phẩm hiện tại
+												var giaTien = parseInt($(this)
+														.closest('tr')
+														.find(
+																'.shoping__cart__price')
+														.text().replace(/\D/g, ''));
+												// Tính toán giá tiền mới
+												var giaTienMoi = soLuong * giaTien;
+												let formattedPrice2 = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(giaTienMoi)
+												// Cập nhật giá tiền mới vào cột "Tổng cộng"
+												$(this).closest('tr').find(
+														'.shoping__cart__total')
+														.text(formattedPrice2);
+												
+												var tongTienPhaiTra = 0;
+												$('input.quality-input')
+														.each(
+																function() {
+																	var soLuong = parseInt($(
+																			this)
+																			.val());
+																	var giaTien = parseInt($(
+																			this)
+																			.closest(
+																					'tr')
+																			.find(
+																					'.shoping__cart__price')
+																			.text()
+																			.replace(
+																					/\D/g,
+																					''));
+																	var giaTienMoi = soLuong
+																			* giaTien;
+																	tongTienPhaiTra += giaTienMoi;
+																});
+												// Cập nhật tổng tiền phải trả
+							let formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(tongTienPhaiTra)
+												document.getElementById("total").innerHTML =  formattedPrice;
+														
+												
+												 
+	
+											});
+						});
+	
+		  
+	</script>
 
-	  // Thêm code xử lý sự kiện khi người dùng nhấn vào nút "Có" hoặc "Không" ở đây
-
-	});
-document.addEventListener("keydown", function(event) {
-	  if (event.key === "Escape") {
-	    var confirmBox = document.querySelector(".confirm-order");
-	    if (confirmBox) {
-	      confirmBox.remove();
-	    }
-	  }
-	});
+<script>
+	document.getElementById("btnthanhtoan").addEventListener("click", function() {
+		  var confirmBox = document.createElement("div");
+		  confirmBox.classList.add("confirm-order");
+		  confirmBox.innerHTML = `
+			  <div class="confirm-order-box">
+		      <h2>Xác nhận đặt hàng</h2>
+		      <p>Bạn có chắc chắn muốn đặt hàng?</p>
+		      <div class="confirm-order-buttons">
+		        <button class="confirm-order-yes">Có</button>
+		        <a href ="khachhanghome.htm" class="confirm-order-no">Không</a>
+		      </div>
+		    </div>
+		  `;
+		  document.body.appendChild(confirmBox);
+		 
+	
+		  // Thêm code xử lý sự kiện khi người dùng nhấn vào nút "Có" hoặc "Không" ở đây
+	
+		});
+	document.addEventListener("keydown", function(event) {
+		  if (event.key === "Escape") {
+		    var confirmBox = document.querySelector(".confirm-order");
+		    if (confirmBox) {
+		      confirmBox.remove();
+		    }
+		  }
+		});
+	</script>
+<script>
+const ppriceElements = document.querySelectorAll('#price'); // Lấy tất cả các thẻ HTML có id là "price"
+ppriceElements.forEach((ppriceElement) => { // Lặp qua danh sách các thẻ HTML
+  const ppriceValue = parseInt(ppriceElement.innerText); // Lấy giá trị từ thẻ HTML và chuyển đổi thành số nguyên
+  const ppriceFormatted = ppriceValue.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }); // Định dạng giá trị tiền tệ
+  ppriceElement.innerText = ppriceFormatted; // Gán kết quả định dạng vào thẻ HTML
+});
+			
+  
 </script>
+
+
+
+
