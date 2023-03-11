@@ -16,9 +16,7 @@
 			<div class="content">
 				<div class="header-content d-flex justify-content-center">CHI TIẾT ĐƠN HÀNG</div>
 				<!-- Shoping Cart Section Begin -->
-				<section class="shoping-cart spad">
-					<form:form method="post" action="KHdonhang/${idddh}.htm"
-					>
+				
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12">
@@ -58,15 +56,13 @@
 
 						</div>
 			</div>
-			</form:form>
-
-			</section>
+	
 			<!-- Shoping Cart Section End -->
 
 		</div>
 
 	</div>
-	</div>
+
 
 
 

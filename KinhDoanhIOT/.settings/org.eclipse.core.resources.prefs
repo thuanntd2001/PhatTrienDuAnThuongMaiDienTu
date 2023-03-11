@@ -17,6 +17,7 @@ encoding//src/main/java/spring/controller/khachhang/DangKyKHController.java=UTF-
 encoding//src/main/java/spring/controller/khachhang/GioHangController.java=UTF-8
 encoding//src/main/java/spring/controller/khachhang/TheoDoiDDHController.java=UTF-8
 encoding//src/main/java/spring/controller/khachhang/TimKiemController.java=UTF-8
+encoding//src/main/java/spring/controller/khachhang/UserKHController.java=UTF-8
 encoding//src/main/java/spring/controller/web/UserController.java=UTF-8
 encoding//src/main/resources/message_vi.properties=ISO-8859-1
 encoding//src/main/webapp/spring-views/khachhang/home.jsp=UTF-8

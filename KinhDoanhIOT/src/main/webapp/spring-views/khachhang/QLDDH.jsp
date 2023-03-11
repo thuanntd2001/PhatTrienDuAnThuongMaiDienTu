@@ -17,9 +17,7 @@
 				<div class="header-content d-flex justify-content-center">DANH
 					SÁCH ĐƠN ĐẶT HÀNG</div>
 				<!-- Shoping Cart Section Begin -->
-				<section class="shoping-cart spad">
-					<form:form method="post" action="KHdonhang.htm"
-						modelAttribute="gioHangForm">
+				
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12">
@@ -67,7 +65,7 @@
 												Đổi trả
 												</c:when>
 															</c:choose></td>
-														</td>
+														
 														<td>
 															<div class="">
 																<a  class="site-btn"
@@ -92,14 +90,11 @@
 
 						</div>
 			</div>
-			</form:form>
 
-			</section>
 			<!-- Shoping Cart Section End -->
 
 		</div>
 
-	</div>
 	</div>
 
 

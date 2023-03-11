@@ -48,6 +48,7 @@
 						<li><a href="KHdonhang.htm">Đơn hàng của tôi</a></li>
 						<li class="active"><a href="khachhanghome.htm">Sản phẩm</a></li>
 						<li><a href="/dichvu/khachhang-login.htm?action=logout">Đăng xuất</a></li>
+						<li><a href="userkh.htm">Thông tin tài khoản</a></li>
 					</ul>
 
 
