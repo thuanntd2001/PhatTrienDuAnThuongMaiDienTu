@@ -14,6 +14,9 @@
 		<li><a href="index.htm"> <i class="fas fa-table"></i> <span
 				class="links_name">QUẢN LÝ NHÂN VIÊN</span>
 		</a></li>
+		<li><a href="indexkh.htm"> <i class="fas fa-table"></i> <span
+				class="links_name">QUẢN LÝ KHÁCH HÀNG</span>
+		</a></li>
 		<li><a href="admin-nhaphang.htm"> <i
 				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
 					LÝ NHẬP HÀNG</span>
@@ -38,7 +41,10 @@
 		</a></li> -->
 
 		<li><a href="admin-taikhoan.htm"> <i class="fas fa-table"></i>
-				<span class="links_name">QUẢN LÝ NGƯỜI DÙNG</span>
+				<span class="links_name">QUẢN LÝ TÀI KHOẢN NHÂN VIÊN</span>
+		</a></li>
+		<li><a href="admin-taikhoankh.htm"> <i class="fas fa-table"></i>
+				<span class="links_name">QUẢN LÝ TÀI KHOẢN KHÁCH HÀNG</span>
 		</a></li>
 		<li><a href="thong-ke.htm"> <i
 				class="fas fa-hand-holding-usd"></i><span class="links_name">THỐNG
