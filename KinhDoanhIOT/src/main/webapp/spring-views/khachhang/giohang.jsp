@@ -70,8 +70,8 @@
 														<td id="totalPrice" class="shoping__cart__total"><span>${spGioHang[status.index].gia * gh.soLuong}</span>
 														</td>
 
-														<td class="shoping__cart__item__close"><span
-															class="icon_close"></span></td>
+														<td class="shoping__cart__item__close"><a href="KH-giohang.htm?xoa&idsp=${spGioHang[status.index].ID}"><span
+															class="icon_close"></span></a></td>
 													</tr>
 
 

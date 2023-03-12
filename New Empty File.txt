@@ -9,6 +9,6 @@
 
 Chờ xác nhận duoc huy ddh (nv kh)
 
-xoa sp gio hang 
+//xoa sp gio hang 
 
 //quan ly khach hang

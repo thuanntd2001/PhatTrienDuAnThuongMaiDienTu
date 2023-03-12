@@ -16,7 +16,9 @@ import com.quancafehighland.utils.SessionUtil;
 import java.text.DecimalFormat;
 
 import spring.bean.APIFunction;
+import spring.bean.Collector;
 import spring.bean.GioHangForm;
+import spring.bean.ObjDelLong;
 import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
 import spring.dto.GioHangDTO;
@@ -33,22 +35,53 @@ public class GioHangController {
 	public <E> String showGioHang(HttpServletRequest request, ModelMap model) {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
-		List<GioHangDTO> gioHangs = 	APIFunction.getGioHangs(kh.getMaKH());
-
+		List<GioHangDTO> gioHangs = APIFunction.getGioHangs(kh.getMaKH());
 
 		GioHangForm ghf = new GioHangForm();
 		ghf.setGioHangs(gioHangs);
 
 		model.addAttribute("gioHangForm", ghf);
 
-		List<SanPhamDTO> lstSPs = 	APIFunction.getSanPhams();
+		List<SanPhamDTO> lstSPs = APIFunction.getSanPhams();
 		List<SanPhamDTO> spGioHang = new ArrayList<SanPhamDTO>();
 		for (GioHangDTO gh : gioHangs) {
 			SanPhamDTO sp = APIFunction.getSP(gh.getMaSP(), lstSPs);
 			spGioHang.add(sp);
 		}
 		model.addAttribute("spGioHang", spGioHang);
+
+		return "khachhang/giohang";
+
+	}
+
+	@RequestMapping(value = "KH-giohang",params="xoa", method = RequestMethod.GET)
 	
+	public <E> String showXoaGioHang(HttpServletRequest request, ModelMap model) {
+		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+		Long idsp = Long.parseLong(request.getParameter("idsp"));
+
+
+		List<GioHangDTO> gioHangs = APIFunction.getGioHangs(kh.getMaKH());
+		for (GioHangDTO gh : gioHangs) {
+			if (gh.getMaSP()==idsp) {
+				ObjDelLong obj= new ObjDelLong();
+				obj.setId(gh.getID());
+				Collector.delMess("/giohang", obj);
+			}
+		}
+		gioHangs = APIFunction.getGioHangs(kh.getMaKH());
+		GioHangForm ghf = new GioHangForm();
+		ghf.setGioHangs(gioHangs);
+
+		model.addAttribute("gioHangForm", ghf);
+
+		List<SanPhamDTO> lstSPs = APIFunction.getSanPhams();
+		List<SanPhamDTO> spGioHang = new ArrayList<SanPhamDTO>();
+		for (GioHangDTO gh : gioHangs) {
+			SanPhamDTO sp = APIFunction.getSP(gh.getMaSP(), lstSPs);
+			spGioHang.add(sp);
+		}
+		model.addAttribute("spGioHang", spGioHang);
 
 		return "khachhang/giohang";
 
@@ -60,51 +93,48 @@ public class GioHangController {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
 		List<GioHangDTO> gioHangs = gioHangForm.getGioHangs();
+		if (gioHangs == null) {
+			return "redirect:KH-giohang.htm?TaoDonThatBaiDoGioHangTrong";
+		}
 		List<SanPhamDTO> lstSPs = APIFunction.getSanPhams();
-
 
 		DDHDTO ddh = new DDHDTO();
 		ddh.setKhThucHien(kh.getMaKH());
 		ddh.setNgayThucHien(new Date());
 		ddh.setTinhTrang(0);
 
-		
 		List<CTDDHDTO> cts = new ArrayList<CTDDHDTO>();
-		CTDDHDTO ct= null;
+		CTDDHDTO ct = null;
 		for (GioHangDTO giohang : gioHangs) {
 			ct = new CTDDHDTO();
 			ct.setSanPham(giohang.getMaSP());
 			ct.setSoLuong(giohang.getSoLuong());
-			
-			
+
 //			System.out.println(giohang.getMaSP());
 //			System.out.println(lstSPs);
 //
 //			System.out.println(APIFunction.getSP(giohang.getMaSP(), lstSPs));
-			ct.setTongTien(giohang.getSoLuong()* APIFunction.getSP(giohang.getMaSP(), lstSPs).getGia());
+			ct.setTongTien(giohang.getSoLuong() * APIFunction.getSP(giohang.getMaSP(), lstSPs).getGia());
 			cts.add(ct);
-					
+
 		}
 		ddh.setCtddhs(cts);
 
-
 		String check = APIFunction.postDDH(ddh);
 		if (check.equals("00")) {
-			model.addAttribute("message","Dat hang thanh cong");
+			model.addAttribute("message", "Dat hang thanh cong");
 			for (GioHangDTO gh : gioHangs) {
 				check = APIFunction.delGioHang(gh);
 				if (!check.equals("00")) {
-					model.addAttribute("message","RESET gio hang that bai");
+					model.addAttribute("message", "RESET gio hang that bai");
 					break;
 				}
 
 			}
-		}
-		else 		model.addAttribute("message","Dat hang that bai");
+		} else
+			model.addAttribute("message", "Dat hang that bai");
 
-
-		 return "redirect:KH-giohang.htm";
-
+		return "redirect:KH-giohang.htm";
 
 	}
 
@@ -122,18 +152,11 @@ public class GioHangController {
 
 		String check = APIFunction.postGioHang(gh);
 		if (check.equals("00"))
-			model.addAttribute("message","Them SP thanh cong");
+			model.addAttribute("message", "Them SP thanh cong");
 //		else
 //			model.addAttribute("message","Them SP that bai");
 		return "redirect:KH-giohang.htm";
 
 	}
-	
-	
-	
-	
-	
-
-	
 
 }
