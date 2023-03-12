@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import spring.bean.APIFunction;
 import spring.bean.Collector;
 import spring.dto.CTPNDTO;
 import spring.dto.PhieuNhapDTO;
-import spring.dto.SanPhamDTO;
 
 @Controller
 
@@ -44,6 +44,9 @@ public class QLNhapHangController {
 	@RequestMapping(value = "admin-nhaphang/{id}.htm", params = "linkView")
 	public String xemChiTietPN(HttpServletRequest request, ModelMap model, @PathVariable("id") Long id) {
 		List<CTPNDTO> cthds = this.getCtnps(id);
+		for (CTPNDTO ct : cthds) {
+			ct.setTenSP(APIFunction.getSP(ct.getSanPham()).getTen());
+		}
 
 		model.addAttribute("chiTiet", cthds);
 

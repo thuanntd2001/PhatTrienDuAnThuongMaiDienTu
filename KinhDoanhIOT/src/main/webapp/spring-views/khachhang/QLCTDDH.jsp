@@ -39,11 +39,17 @@
 											<tr>
 												<td>${ctddh.ddh }</td>
 												<td>${ctddh.sanPham }</td>
-												<td>
-													<%-- ${ctddh.soLuong } --%>
-												</td>
+												<td>${ctddh.tenSP }</td>
 												<td>${ctddh.soLuong }</td>
 												<td id="tongtien">${ctddh.tongTien}</td>
+												<c:if test="${danhGia}"> 
+												<td>
+													<div class="">
+														<a style="font-size: 10px;" class="btn btn-primary"
+															href="KHdanhGia.htm?idct=${ctddh.id}"> Đánh giá </a>
+													</div>
+												</td>
+												</c:if>
 											</tr>
 										</c:forEach>
 

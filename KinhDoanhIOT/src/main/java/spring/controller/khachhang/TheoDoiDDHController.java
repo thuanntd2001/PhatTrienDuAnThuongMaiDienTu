@@ -1,6 +1,7 @@
 package spring.controller.khachhang;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quancafehighland.utils.SessionUtil;
 
+import spring.bean.APIFunction;
 import spring.bean.Collector;
 import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
@@ -28,62 +30,77 @@ public class TheoDoiDDHController {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 		System.out.println(kh.getMaKH());
 
-		List<DDHDTO> list=null;
+		List<DDHDTO> list = null;
 		try {
-			list = Collector.getListAll("/ddh",DDHDTO.class);
-			list = list.stream()
-                    .filter(ddh -> ddh.getKhThucHien() == kh.getMaKH())
-                    .collect(Collectors.toList());
-			
+			list = Collector.getListAll("/ddh", DDHDTO.class);
+			list = list.stream().filter(ddh -> ddh.getKhThucHien() == kh.getMaKH()).collect(Collectors.toList());
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		model.addAttribute("list", list);
-		
-        
+
 		return "khachhang/QLDDH";
 	}
-	
+
 	@RequestMapping(value = "KHdonhang", params = "linkView")
-	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model
-			) throws IOException {
-		
-		Long id= Long.parseLong(request.getParameter("id"));
+	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model) throws IOException {
 
-		List<CTDDHDTO> cthds = this.getCtDDHs(id);
+		Long id = Long.parseLong(request.getParameter("id"));
 
-		
-		  model.addAttribute("chiTiet", cthds);
-		 
+		List<CTDDHDTO> cthds = APIFunction.getCtDDHs(id);
+		for (CTDDHDTO ct : cthds) {
+			ct.setTenSP(APIFunction.getSP(ct.getSanPham()).getTen());
+		}
+		List<DDHDTO> listDDH = new ArrayList<DDHDTO>();
+		try {
+			listDDH = Collector.getListAll("/ddh", DDHDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		model.addAttribute("danhGia", false);
+		for (DDHDTO ddh : listDDH) {
+			if (ddh.getTinhTrang() >= 4 && ddh.getId() == id) {
+				model.addAttribute("danhGia", true);
+				break;
+			}
+
+		}
+
+		model.addAttribute("chiTiet", cthds);
+
 		int tong = 0;
 		for (CTDDHDTO ctpn : cthds) {
 			tong += ctpn.getTongTien();
 		}
 		model.addAttribute("tongTien", tong);
 		model.addAttribute("idddh", id);
-		
+
 		return "khachhang/QLCTDDH";
 	}
 
-
-	public List<CTDDHDTO> getCtDDHs(Long idpn) {
-		List<CTDDHDTO> list = null;
-		try {
-			list = Collector.getListAll("/ctddh?maddh=" + idpn.toString(), CTDDHDTO.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	@RequestMapping(value = "KHdanhGia", method = RequestMethod.GET)
+	public <E> String danhGiaCTDonHang(HttpServletRequest request, ModelMap model) {
+		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+		System.out.println(kh.getMaKH());
+		Long idct = Long.parseLong(request.getParameter("idct"));
+		List<CTDDHDTO> cthds = APIFunction.getCtDDHFull();
+		for (CTDDHDTO ct:cthds) {
+			if (ct.getId()==idct) {
+				model.addAttribute("ct", ct);
+				break;
+			}
+			return "khachhang/form/danhgia";
 		}
 
-		return list;
+		
+
+
+		return "redirect:khachhanghome.htm";
 	}
-	
-
-
-
-
-
 
 }

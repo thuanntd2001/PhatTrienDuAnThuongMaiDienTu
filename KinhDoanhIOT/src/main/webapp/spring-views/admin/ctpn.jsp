@@ -75,7 +75,7 @@
                         	<tr>
                            <td>${cthd.phieuNhap }</td>
                             <td>${cthd.sanPham }</td>
-                            <td><%-- ${cthd.thucDon.ten } --%></td> 
+                            <td> ${cthd.tenSP } </td> 
                             <td>${cthd.donGia } đồng</td>
                             <td>${cthd.soLuong }</td>
                             <td>${cthd.soLuong * cthd.donGia} đồng</td> 

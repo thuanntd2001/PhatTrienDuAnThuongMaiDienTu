@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import spring.bean.APIFunction;
 import spring.bean.Collector;
 import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
@@ -50,7 +51,9 @@ public class QLDonDatHangController {
 
 		List<CTDDHDTO> cthds = this.getCtDDHs(id);
 
-		
+		for (CTDDHDTO ct:cthds ) {
+			ct.setTenSP(APIFunction.getSP(ct.getSanPham()).getTen());
+		}
 		  model.addAttribute("chiTiet", cthds);
 		 
 		int tong = 0;

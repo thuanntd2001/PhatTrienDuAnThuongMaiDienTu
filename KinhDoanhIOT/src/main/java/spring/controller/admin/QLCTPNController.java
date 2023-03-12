@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
 import spring.dto.CTPNDTO;
-import spring.dto.PhieuNhapDTO;
 import spring.dto.SanPhamDTO;
 
 @Controller

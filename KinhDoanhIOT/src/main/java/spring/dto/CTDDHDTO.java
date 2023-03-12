@@ -2,28 +2,38 @@ package spring.dto;
 
 //@Entity
 //@Table(name = "CTDDH")
-public class CTDDHDTO {	
+public class CTDDHDTO {
 
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "ID")
+	// @Id
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	// @Column(name = "ID")
 	private Long id;
 
-	//@Column(name = "SOLUONG")
+	// @Column(name = "SOLUONG")
 	private Integer soLuong;
 
-	//@ManyToOne
-	//@JoinColumn(name = "SANPHAM")
+	// @ManyToOne
+	// @JoinColumn(name = "SANPHAM")
 	private Long sanPham;
 
-	//@ManyToOne
-	//@JoinColumn(name = "MADDH")
+	private String tenSP;
+
+	// @ManyToOne
+	// @JoinColumn(name = "MADDH")
 	private Long ddh;
-	private Integer diem;
-	
+	private Integer diem=0;
+
 	private String danhGia;
 
 	private String userName;
+
+	public String getTenSP() {
+		return tenSP;
+	}
+
+	public void setTenSP(String tenSP) {
+		this.tenSP = tenSP;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -48,6 +58,7 @@ public class CTDDHDTO {
 	public void setDanhGia(String danhGia) {
 		this.danhGia = danhGia;
 	}
+
 	public Long getSanPham() {
 		return sanPham;
 	}
@@ -64,7 +75,7 @@ public class CTDDHDTO {
 		this.ddh = ddh;
 	}
 
-	//@Column(name = "TONGTIEN")
+	// @Column(name = "TONGTIEN")
 	private Integer tongTien;
 
 	public Integer getSoLuong() {
@@ -75,8 +86,6 @@ public class CTDDHDTO {
 		this.soLuong = soLuong;
 	}
 
-	
-
 	public Integer getTongTien() {
 		return tongTien;
 	}
@@ -84,6 +93,7 @@ public class CTDDHDTO {
 	public void setTongTien(Integer tongTien) {
 		this.tongTien = tongTien;
 	}
+
 	public Long getId() {
 		return id;
 	}

@@ -38,8 +38,8 @@ body {
 		<div class="card-header">
 			<h4>Chi tiết đơn hàng</h4>
 		</div>
-		<form:form class="card-body" id="form-1" action="xacnhanddh/${idddh}.htm"
-			modelAttribute="pn" method="post">
+		<form:form class="card-body" id="form-1"
+			action="xacnhanddh/${idddh}.htm" modelAttribute="pn" method="post">
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<table class="table table-striped datatable shadow-box">
@@ -61,9 +61,7 @@ body {
 								<tr>
 									<td>${ctddh.ddh }</td>
 									<td>${ctddh.sanPham }</td>
-									<td>
-										<%-- ${ctddh.soLuong } --%>
-									</td>
+									<td>${ctddh.tenSP }</td>
 									<td>${ctddh.soLuong }</td>
 									<td>${ctddh.tongTien}đồng</td>
 								</tr>
@@ -73,7 +71,7 @@ body {
 					</table>
 				</div>
 			</div>
-			
+
 
 
 		</form:form>
