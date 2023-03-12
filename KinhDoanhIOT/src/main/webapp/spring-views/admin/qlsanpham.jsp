@@ -60,7 +60,7 @@
 							<th scope="row">${th.ID}</th>
 							<td>${th.loai}</td>
 							<td>${th.ten}</td>
-							<td>${th.gia}</td>
+							<td id ="tongtien">${th.gia}</td>
 							<td>${th.slTon}</td>
 							<td><div class="product__item__pic set-bg">
 									<img alt="" src="<c:url value='/common/images/products/${th.icon}'/>" ></div></td>
@@ -92,5 +92,11 @@
 
 
 </body>
-
+<script>
+const tongTiens = document.querySelectorAll("#tongtien");
+tongTiens.forEach(tongTien => {
+  const formattedTongTien = Number(tongTien.textContent.replace(/\D/g, '')).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+  tongTien.textContent = formattedTongTien;
+});
+</script>
 </html>

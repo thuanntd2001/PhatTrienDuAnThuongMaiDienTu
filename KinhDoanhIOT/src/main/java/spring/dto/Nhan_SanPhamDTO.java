@@ -10,7 +10,7 @@ public class Nhan_SanPhamDTO extends LogDTO{
 
 	//@ManyToOne
 	//@JoinColumn(name = "SANPHAM")
-	private Long SanPham;
+	private Long sanPham;
 	
 	//@ManyToOne
 	//@JoinColumn(name = "TENNHAN")
@@ -35,12 +35,12 @@ public class Nhan_SanPhamDTO extends LogDTO{
 
 
 	public Long getSanPham() {
-		return SanPham;
+		return sanPham;
 	}
 
 
 	public void setSanPham(Long sanPham) {
-		SanPham = sanPham;
+		this.sanPham = sanPham;
 	}
 
 

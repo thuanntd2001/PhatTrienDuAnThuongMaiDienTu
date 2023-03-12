@@ -148,25 +148,25 @@ body {
 				<label class="col-sm-2 col-form-label">Nghỉ làm</label>
 				<div class="col-sm-10">
 					<div class="form-check form-check-inline">
-						
-							<form:input path="trangThai" value="1" type="hidden"/>
-							
-						</div>
+
+						<form:input path="trangThai" value="1" type="hidden" />
 
 					</div>
+
 				</div>
 			</div>
+	</div>
 
-			<div class="card-footer">
-				<button class="btn btn-primary" type="submit"
-					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Cập Nhật' : 'Thêm'}</button>
+	<div class="card-footer">
+		<button class="btn btn-primary" type="submit"
+			name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Cập Nhật' : 'Thêm'}</button>
 
-				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
-					href="admin-home/index.htm"> QUAY LẠI </a>
-			</div>
+		<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
+			href="admin-home/index.htm"> QUAY LẠI </a>
+	</div>
 
 
-		</form:form>
+	</form:form>
 
 	</div>
 
@@ -200,4 +200,5 @@ body {
 
 
 </body>
+
 </html>

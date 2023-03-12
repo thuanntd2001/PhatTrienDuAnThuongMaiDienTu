@@ -68,7 +68,7 @@
 								<td>${sanpham.ten}</td>
 								<td>${sanpham.loai}</td>
 								<td>${sanpham.dvt}</td>
-								<td>${sanpham.gia}</td>
+								<td id ='tongtien'>${sanpham.gia}</td>
 								<td>${sanpham.icon}</td>
 								<td>
 									<div class="">
@@ -85,6 +85,13 @@
 
 		</div>
 	</div>
+	<script>
+const tongTiens = document.querySelectorAll("#tongtien");
+tongTiens.forEach(tongTien => {
+  const formattedTongTien = Number(tongTien.textContent.replace(/\D/g, '')).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+  tongTien.textContent = formattedTongTien;
+});
+</script>
 
 	<jsp:include page="/common/web/footer.jsp" />
 	<script

@@ -36,8 +36,25 @@ public class Nhan_SanPhamAPI {
 		String nhan = request.getParameter("tennhan");
 		String sanPham = request.getParameter("sanpham");
 		Long idSanPham;
+		
+		if (nhan == null && sanPham == null)  {
+			List<Nhan_SanPhamEntity> list = (List<Nhan_SanPhamEntity>) repo.findAll();
+			List<Nhan_SanPhamDTO> listDTO = new ArrayList<Nhan_SanPhamDTO>();
+			for (Nhan_SanPhamEntity model : list) {
+				Nhan_SanPhamDTO save = new Nhan_SanPhamDTO();
+				save.setNhan(model.getNhan().getTenNhan());
+				save.setSanPham(model.getSanPham().getId());
+				save.setNvSua(model.getNvSua());
+				save.setNvTao(model.getNvTao());
+				save.setNgayTao(model.getNgayTao());
 
-		if (nhan != null) {
+				listDTO.add(save);
+			}
+			System.out.print(list.size());
+			return listDTO;
+		}
+
+		else if (nhan != null) {
 			List<Nhan_SanPhamEntity> list = (List<Nhan_SanPhamEntity>) nRepo.findById(nhan).get().getChiTietSp();
 			List<Nhan_SanPhamDTO> listDTO = new ArrayList<Nhan_SanPhamDTO>();
 			for (Nhan_SanPhamEntity model : list) {

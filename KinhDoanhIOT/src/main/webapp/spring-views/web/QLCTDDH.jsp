@@ -38,8 +38,8 @@ body {
 		<div class="card-header">
 			<h4>Chi tiết đơn hàng</h4>
 		</div>
-		<form:form class="card-body" id="form-1" action="xacnhanddh/${idddh}.htm"
-			modelAttribute="pn" method="post">
+		<form:form class="card-body" id="form-1"
+			action="xacnhanddh/${idddh}.htm" modelAttribute="pn" method="post">
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<table class="table table-striped datatable shadow-box">
@@ -65,7 +65,7 @@ body {
 										<%-- ${ctddh.soLuong } --%>
 									</td>
 									<td>${ctddh.soLuong }</td>
-									<td>${ctddh.tongTien}đồng</td>
+									<td id="tongtien">${ctddh.tongTien}đồng</td>
 								</tr>
 							</c:forEach>
 
@@ -73,7 +73,7 @@ body {
 					</table>
 				</div>
 			</div>
-			
+
 
 
 		</form:form>
@@ -111,3 +111,10 @@ body {
 
 </body>
 </html>
+<script>
+const tongTiens = document.querySelectorAll("#tongtien");
+tongTiens.forEach(tongTien => {
+  const formattedTongTien = Number(tongTien.textContent.replace(/\D/g, '')).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+  tongTien.textContent = formattedTongTien;
+});
+</script>

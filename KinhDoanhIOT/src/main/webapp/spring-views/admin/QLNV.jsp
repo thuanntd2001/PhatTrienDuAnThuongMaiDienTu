@@ -46,7 +46,7 @@
 					</a>
 
 				</div>
-				
+
 
 
 
@@ -54,7 +54,7 @@
 
 
 			</div>
-		<%-- 	<jsp:useBean id="pagedListHolder" scope="request"
+			<%-- 	<jsp:useBean id="pagedListHolder" scope="request"
 				type="org.springframework.beans.support.PagedListHolder" /> --%>
 			<c:url value="index.htm" var="pagedLink">
 				<c:param name="p" value="~" />
@@ -104,7 +104,7 @@
 								</c:when>
 
 							</c:choose>
-							<td>${nv.luong}</td>
+							<td id="tongtien">${nv.luong}</td>
 							<td>${nv.sdt}</td>
 							<td>${nv.cmnd}</td>
 							<td>${nv.diaChi}</td>
@@ -115,16 +115,14 @@
 							</a></td>
 
 							<!-- del -->
-							<td>
-							<a
-													href="/dichvu/admin-home/index.htm?linkDelete&id=${nv.maNV}"<%--
+							<td><a
+								href="/dichvu/admin-home/index.htm?linkDelete&id=${nv.maNV}"<%--
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
-													<button name="btnXOA" id="#exampleModal2" type="button"
-														class="btn btn-warning">Nghỉ việc</button>
-												</a>
-							</td>
-							
+									<button name="btnXOA" id="#exampleModal2" type="button"
+										class="btn btn-warning">Nghỉ việc</button>
+							</a></td>
+
 
 							<!-- end del  -->
 							<td></td>
@@ -137,8 +135,17 @@
 				pagedListHolder="${pagedListHolder}"></tg:paging>
 		</div>
 	</div>
+
 	<jsp:include page="/common/admin/footer.jsp" />
+
 
 </body>
 
+<script>
+const tongTiens = document.querySelectorAll("#tongtien");
+tongTiens.forEach(tongTien => {
+  const formattedTongTien = Number(tongTien.textContent.replace(/\D/g, '')).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+  tongTien.textContent = formattedTongTien;
+});
+</script>
 </html>

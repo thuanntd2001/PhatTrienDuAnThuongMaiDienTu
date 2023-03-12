@@ -38,8 +38,8 @@ body {
 		<div class="card-header">
 			<h4>Xác nhận đơn hàng</h4>
 		</div>
-		<form:form class="card-body" id="form-1" action="xacnhanddh/${idddh}.htm"
-			modelAttribute="pn" method="post">
+		<form:form class="card-body" id="form-1"
+			action="xacnhanddh/${idddh}.htm" modelAttribute="pn" method="post">
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<table class="table table-striped datatable shadow-box">
@@ -65,7 +65,7 @@ body {
 										<%-- ${cthd.soLuong } --%>
 									</td>
 									<td>${cthd.soLuong }</td>
-									<td>${cthd.tongTien}đồng</td>
+									<td id="tongtien">${cthd.tongTien}đồng</td>
 								</tr>
 							</c:forEach>
 
@@ -74,8 +74,8 @@ body {
 				</div>
 			</div>
 			<div class="card-footer">
-				<button class="btn btn-primary" type="submit">Xác
-					nhận đơn hàng</button>
+				<button class="btn btn-primary" type="submit">Xác nhận đơn
+					hàng</button>
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
 					href="ddh.htm"> QUAY LẠI </a>
 			</div>
@@ -84,6 +84,13 @@ body {
 		</form:form>
 
 	</div>
+	<script>
+const tongTiens = document.querySelectorAll("#tongtien");
+tongTiens.forEach(tongTien => {
+  const formattedTongTien = Number(tongTien.textContent.replace(/\D/g, '')).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+  tongTien.textContent = formattedTongTien;
+});
+</script>
 
 	<script src="<c:url value='/template/admin/validation.js'/>"></script>
 	<script>
