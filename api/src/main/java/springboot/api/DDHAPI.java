@@ -41,8 +41,8 @@ public class DDHAPI {
 			save.setKhThucHien(model.getKhThucHien().getMaKH());
 			save.setNgayThucHien(model.getNgayThucHien());
 			System.out.println(model.getNvThucHien());
-			if (model.getNvThucHien()!=null)
-			save.setNvThucHien(model.getNvThucHien().getMaNV());
+			if (model.getNvThucHien() != null)
+				save.setNvThucHien(model.getNvThucHien().getMaNV());
 			save.setTinhTrang(model.getTinhTrang());
 
 			listDTO.add(save);
@@ -59,7 +59,7 @@ public class DDHAPI {
 		try {
 			save.setKhThucHien(khRepo.findById(model.getKhThucHien()).get());
 			save.setNgayThucHien(model.getNgayThucHien());
-			if(model.getNvThucHien() != null) {
+			if (model.getNvThucHien() != null) {
 				save.setNvThucHien(nvRepo.findById(model.getNvThucHien()).get());
 
 			}
@@ -102,9 +102,13 @@ public class DDHAPI {
 			try {
 
 				save.setId(model.getId());
+
 				save.setKhThucHien(khRepo.findById(model.getKhThucHien()).get());
 				save.setNgayThucHien(model.getNgayThucHien());
-				save.setNvThucHien(nvRepo.findById(model.getNvThucHien()).get());
+				if (model.getNvThucHien() != null) {
+
+					save.setNvThucHien(nvRepo.findById(model.getNvThucHien()).get());
+				}
 				save.setTinhTrang(model.getTinhTrang());
 				check = repo.save(save);
 			} catch (Exception e) {

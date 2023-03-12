@@ -83,6 +83,24 @@ public class TheoDoiDDHController {
 
 		return "khachhang/QLCTDDH";
 	}
+	
+	
+	@RequestMapping(value = "KHdonhang", params = "linkHuy")
+	public <E> String huyDDH(HttpServletRequest request, ModelMap model) throws IOException {
+		Long id = Long.parseLong(request.getParameter("id"));
+		DDHDTO ddh = APIFunction.getDDH(id);
+		if (ddh == null) {
+			return "web/QLCTDDH";
+		}
+		if (ddh.getTinhTrang() <= 2 && ddh.getTinhTrang() >=0) {
+			ddh.setTinhTrang(-1);
+			Collector.putMess("/ddh", ddh);
+
+		}
+
+
+		return "redirect:KHdonhang.htm";
+	}
 
 	@RequestMapping(value = "KHdanhGia", method = RequestMethod.GET)
 	public <E> String danhGiaCTDonHang(HttpServletRequest request, ModelMap model) {

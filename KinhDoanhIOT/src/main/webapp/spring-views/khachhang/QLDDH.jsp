@@ -17,78 +17,82 @@
 				<div class="header-content d-flex justify-content-center">DANH
 					SÁCH ĐƠN ĐẶT HÀNG</div>
 				<!-- Shoping Cart Section Begin -->
-				
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="shoping__cart__table">
 
-										<table>
-											<thead>
-												<tr>
-													<th>Mã đơn</th>
-													<th>Ngày đặt hàng</th>
-													<th>Tình trạng</th>
-												</tr>
-											</thead>
-											<tbody>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="shoping__cart__table">
 
-												<c:forEach var="listddh" items="${list}">
+								<table>
+									<thead>
+										<tr>
+											<th>Mã đơn</th>
+											<th>Ngày đặt hàng</th>
+											<th>Tình trạng</th>
+										</tr>
+									</thead>
+									<tbody>
 
-
+										<c:forEach var="ddh" items="${list}">
 
 
-													<tr>
-														<td>${listddh.id }</td>
-														<td>${listddh.ngayThucHien}</td>
-														<td><c:choose>
-																<c:when test="${listddh.tinhTrang == 0}">
+
+
+											<tr>
+												<td>${ddh.id }</td>
+												<td>${ddh.ngayThucHien}</td>
+												<td><c:choose>
+														<c:when test="${ddh.tinhTrang == 0}">
 												Chờ xác nhận
 												</c:when>
-																<c:when test="${listddh.tinhTrang == 1}">
+														<c:when test="${ddh.tinhTrang == 1}">
 												Đã xác nhận đơn hàng
 												</c:when>
-																<c:when test="${listddh.tinhTrang == 2}">
+														<c:when test="${ddh.tinhTrang == 2}">
 												Đang chuẩn bi hàng
 												</c:when>
-																<c:when test="${listddh.tinhTrang == 3}">
+														<c:when test="${ddh.tinhTrang == 3}">
 												Đang giao hàng
 												</c:when>
 
-																<c:when test="${listddh.tinhTrang == 4}">
+														<c:when test="${ddh.tinhTrang == 4}">
 												Giao hàng thành công
 												</c:when>
-																<c:when test="${listddh.tinhTrang == -1}">
+														<c:when test="${ddh.tinhTrang == -1}">
 												Đã hủy
 												</c:when>
-																<c:when test="${listddh.tinhTrang == -2}">
+														<c:when test="${ddh.tinhTrang == -2}">
 												Đổi trả
 												</c:when>
-															</c:choose></td>
-														
-														<td>
-															<div class="">
-																<a  class="site-btn"
-																	href="KHdonhang.htm?linkView&id=${listddh.id}"> XEM </a>
-															</div>
-														</td>
+													</c:choose></td>
 
-													</tr>
+												<td>
+													<div class="">
+														<a class="site-btn"
+															href="KHdonhang.htm?linkView&id=${ddh.id}"> XEM </a>
+													</div>
+												</td>
+												<c:if test="${ddh.tinhTrang <3 && ddh.tinhTrang >=0}">
+													<td><a style="font-size: 10px;"
+														class="btn btn-primary"
+														href="KHdonhang.htm?linkHuy&id=${ddh.id}"> Hủy ĐH</a></td>
+												</c:if>
+											</tr>
 
 
 
 
-												</c:forEach>
+										</c:forEach>
 
 
-											</tbody>
-										</table>
+									</tbody>
+								</table>
 
-									</div>
-								</div>
 							</div>
-
 						</div>
+					</div>
+
+				</div>
 			</div>
 
 			<!-- Shoping Cart Section End -->
