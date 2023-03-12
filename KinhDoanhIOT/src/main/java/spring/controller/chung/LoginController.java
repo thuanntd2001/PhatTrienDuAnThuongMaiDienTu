@@ -69,6 +69,7 @@ public class LoginController extends HttpServlet {
 
 				response.sendRedirect(request.getContextPath()
 						+ "/dang-nhap.htm?action=login&message=username_password_invalid&alert=danger");
+				return;
 			}
 			if (model.getMaNV() != null && model.getTrangThai()!=0) {
 				System.out.println("trang thai" + model.getTrangThai());

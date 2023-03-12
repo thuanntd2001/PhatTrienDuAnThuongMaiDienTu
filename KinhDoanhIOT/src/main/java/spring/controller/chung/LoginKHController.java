@@ -64,6 +64,8 @@ public class LoginKHController extends HttpServlet {
 			} catch (Exception e) {
 				response.sendRedirect(request.getContextPath()
 						+ "/khachhang-login.htm?action=login&message=username_password_invalid&alert=danger");
+				return;
+
 			}
 			if (model.getMaKH() != null && model.getTrangThai() != 0) {
 				System.out.println("trang thai" + model.getTrangThai());

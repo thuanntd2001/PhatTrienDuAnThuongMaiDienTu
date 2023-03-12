@@ -93,6 +93,23 @@ public class QLDonDatHangController {
 
 		return "redirect:ddh.htm";
 	}
+	
+	@RequestMapping(value = "ddh", params = "linkHuy")
+	public <E> String huyDDH(HttpServletRequest request, ModelMap model) throws IOException {
+		Long id = Long.parseLong(request.getParameter("id"));
+		DDHDTO ddh = APIFunction.getDDH(id);
+		if (ddh == null) {
+			return "web/QLCTDDH";
+		}
+		if (ddh.getTinhTrang() <= 3 && ddh.getTinhTrang() >0) {
+			ddh.setTinhTrang(-1);
+			Collector.putMess("/ddh", ddh);
+
+		}
+
+
+		return "redirect:ddh.htm";
+	}
 
 	public List<CTDDHDTO> getCtDDHs(Long idpn) {
 		List<CTDDHDTO> list = null;

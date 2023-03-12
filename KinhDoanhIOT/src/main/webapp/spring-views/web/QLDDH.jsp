@@ -88,11 +88,19 @@
 										<c:when test="${ddh.tinhTrang >= 4}">
 												Giao hàng thành công
 												</c:when>
+
+										<c:when test="${ddh.tinhTrang == -1}">
+												Đã hủy
+												</c:when>
 										<c:otherwise>
 												Đổi trả
 												</c:otherwise>
 									</c:choose></td>
+
+
 								<td>
+
+
 									<div class="">
 										<a style="font-size: 10px;" class="btn btn-primary"
 											href="ddh.htm?linkView&id=${ddh.id}"> XEM </a>
@@ -130,7 +138,11 @@
 
 									</div>
 								</td>
+								<td><c:if test="${ddh.tinhTrang <4 && ddh.tinhTrang >0}">
+										<a style="font-size: 10px;" class="btn btn-primary"
+											href="ddh.htm?linkHuy&id=${ddh.id}"> Hủy ĐH</a>
 
+									</c:if></td>
 							</tr>
 						</c:forEach>
 					</tbody>
