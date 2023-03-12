@@ -3,6 +3,7 @@ package spring.bean;
 import java.io.IOException;
 import java.util.List;
 
+import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
 import spring.dto.GioHangDTO;
 import spring.dto.LoaiSPDTO;
@@ -48,7 +49,29 @@ public class APIFunction {
 		return ss;
 	}
 
+	static public List<CTDDHDTO> getCtDDHs(Long idpn) {
+		List<CTDDHDTO> list = null;
+		try {
+			list = Collector.getListAll("/ctddh?maddh=" + idpn.toString(), CTDDHDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+		return list;
+	}
+	
+	static public List<CTDDHDTO> getCtDDHFull() {
+		List<CTDDHDTO> list = null;
+		try {
+			list = Collector.getListAll("/ctddh", CTDDHDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 
 
 	static public SanPhamDTO getSP(Long id) {

@@ -35,7 +35,7 @@ public class CTDDHEntity {
 	private Integer tongTien;
 	
 	@Column(name = "DIEM")
-	private Integer diem;
+	private Integer diem=0;
 	
 	@Column(name = "DANHGIA")
 	@Type(type="text")

@@ -102,7 +102,7 @@
 											<li>Tổng tiền phải trả<span id='total'></span>
 											</li>
 										</ul>
-										<button id="btnthanhtoan" type="button" class="site-btn">THANH
+										<button id="btnthanhtoan" type="submit" class="site-btn">THANH
 											TOÁN</button>
 
 
@@ -242,7 +242,7 @@ priceElements.forEach((priceElement) => { // Lặp qua danh sách các thẻ HTM
 		      <h2>Xác nhận đặt hàng</h2>
 		      <p>Bạn có chắc chắn muốn đặt hàng?</p>
 		      <div class="confirm-order-buttons">
-		        <button class="confirm-order-yes">Có</button>
+		        <button type = "submit" class="confirm-order-yes">Có</button>
 		        <a href ="khachhanghome.htm" class="confirm-order-no">Không</a>
 		      </div>
 		    </div>

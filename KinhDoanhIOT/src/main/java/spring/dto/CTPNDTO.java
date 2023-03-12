@@ -19,6 +19,9 @@ public class CTPNDTO {
 	// @ManyToOne
 	// @JoinColumn(name = "MAPN")
 	private Long phieuNhap;
+	
+	private String tenSP;
+
 
 	// @Column(name = "DONGIA")
 	private Integer donGia;
@@ -71,6 +74,14 @@ public class CTPNDTO {
 
 	public void setPn(PhieuNhapDTO pn) {
 		this.pn = pn;
+	}
+
+	public String getTenSP() {
+		return tenSP;
+	}
+
+	public void setTenSP(String tenSP) {
+		this.tenSP = tenSP;
 	}
 
 }

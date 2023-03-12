@@ -37,7 +37,7 @@ public class CTDDHAPI {
 
 		long id;
 		if (idkh == null && idsp == null) {
-			System.out.print("null");
+			//System.out.print("null");
 
 			{
 				List<CTDDHEntity> list = repo.findAll();

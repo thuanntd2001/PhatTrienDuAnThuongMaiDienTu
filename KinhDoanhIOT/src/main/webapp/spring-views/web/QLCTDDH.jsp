@@ -61,9 +61,7 @@ body {
 								<tr>
 									<td>${ctddh.ddh }</td>
 									<td>${ctddh.sanPham }</td>
-									<td>
-										<%-- ${ctddh.soLuong } --%>
-									</td>
+									<td>${ctddh.tenSP }</td>
 									<td>${ctddh.soLuong }</td>
 									<td id="tongtien">${ctddh.tongTien}đồng</td>
 								</tr>

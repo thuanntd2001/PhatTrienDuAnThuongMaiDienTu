@@ -12,7 +12,7 @@ public class CTDDHDTO {
 	//@Column(name = "SOLUONG")
 	private Integer soLuong;
 	
-	private Integer diem;
+	private Integer diem=0;
 	
 	private String danhGia;
 
