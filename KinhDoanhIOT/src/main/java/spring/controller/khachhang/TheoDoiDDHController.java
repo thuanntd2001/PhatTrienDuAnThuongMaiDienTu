@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -85,22 +86,39 @@ public class TheoDoiDDHController {
 
 	@RequestMapping(value = "KHdanhGia", method = RequestMethod.GET)
 	public <E> String danhGiaCTDonHang(HttpServletRequest request, ModelMap model) {
-		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
-		System.out.println(kh.getMaKH());
+		//LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 		Long idct = Long.parseLong(request.getParameter("idct"));
 		List<CTDDHDTO> cthds = APIFunction.getCtDDHFull();
 		for (CTDDHDTO ct:cthds) {
+			System.out.println("idct "+ct.getId());
+
 			if (ct.getId()==idct) {
 				model.addAttribute("ct", ct);
-				break;
+				return "khachhang/form/danhgia";
+
 			}
-			return "khachhang/form/danhgia";
 		}
 
 		
 
 
 		return "redirect:khachhanghome.htm";
+	}
+	
+	@RequestMapping(value = "KHdanhGia", method = RequestMethod.POST)
+	public <E> String guidanhGiaCTDonHang(HttpServletRequest request, ModelMap model,@ModelAttribute("ct") CTDDHDTO ct) {
+		//LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+		String check = Collector.putMess("/danhgia", ct);
+		if (check.equals("00")) {
+			model.addAttribute("message", "tao tk thanh cong");
+			return "redirect:KHdonhang.htm?thanhcong";
+
+		} else {
+			return "redirect:KHdonhang.htm?thatBai";
+		}
+		
+
+
 	}
 
 }
