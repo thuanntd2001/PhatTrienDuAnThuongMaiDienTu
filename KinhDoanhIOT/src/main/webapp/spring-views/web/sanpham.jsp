@@ -32,8 +32,9 @@
 	<div class="container-fluid main">
 		<div class="container">
 			<div class="content">
-				<div class="header-content d-flex justify-content-center">DANH SÁCH SẢN PHẨM</div>
-				
+				<div class="header-content d-flex justify-content-center">DANH
+					SÁCH SẢN PHẨM</div>
+
 
 				<%--  <jsp:useBean id="pagedListHolder" scope="request"
 					type="org.springframework.beans.support.PagedListHolder" /> --%>
@@ -55,6 +56,7 @@
 							<th scope="row">ID</th>
 							<th scope="row">Tên</th>
 							<th scope="row">Loại</th>
+							<th scope="row">SL tồn</th>
 							<th scope="row">Đơn vị tính</th>
 							<th scope="row">Giá</th>
 							<th scope="row">Icon</th>
@@ -67,15 +69,20 @@
 								<th scope="row">${sanpham.ID }</th>
 								<td>${sanpham.ten}</td>
 								<td>${sanpham.loai}</td>
+								<td>${sanpham.slTon}</td>
+
 								<td>${sanpham.dvt}</td>
-								<td id ='tongtien'>${sanpham.gia}</td>
-								<td>${sanpham.icon}</td>
-								<td>
+								<td id='tongtien'>${sanpham.gia}</td>
+								<td><div class="product__item__pic set-bg">
+										<img alt=""
+											src="<c:url value='/common/images/products/${sanpham.icon}'/>">
+									</div></td>
+								<%-- <td>
 									<div class="">
 										<a style="font-size: 10px;" class="btn btn-primary"
 											href="hoa-don/${hd.id}.htm?linkView"> XEM </a>
 									</div>
-								</td>
+								</td> --%>
 							</tr>
 						</c:forEach>
 					</tbody>

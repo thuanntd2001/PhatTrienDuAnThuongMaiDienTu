@@ -9,9 +9,10 @@ public class LoginKHDTO {
 	private boolean gioiTinh;
 	private String sdt;
 	private String diaChi;
-	private int trangThai;
-
+	private int trangThai=1;
 	private String maXacThuc;
+
+
 
 
 	public String getMaXacThuc() {

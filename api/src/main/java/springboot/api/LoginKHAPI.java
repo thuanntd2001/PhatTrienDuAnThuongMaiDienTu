@@ -42,6 +42,7 @@ public class LoginKHAPI {
 			e.setIcon(user.getIcon());
 			e.setPasswd(user.getPasswd());
 			e.setUserName(user.getUserName());
+			e.setTrangThai(kh.getTrangThai());
 			return e;
 		}
 	}

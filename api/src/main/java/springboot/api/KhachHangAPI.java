@@ -86,7 +86,7 @@ public class KhachHangAPI {
 	}
 
 	@PutMapping(value = "/khachhang")
-	public String updateKH(@RequestBody KhachHangDTO model) {
+	public String updateKH(@RequestBody LoginKHDTO model) {
 
 		Optional<KhachHangEntity> khoption = repo.findById(model.getMaKH());
 		if (khoption.isEmpty()) {
@@ -107,6 +107,41 @@ public class KhachHangAPI {
 				save.setNgaySinh(model.getNgaySinh());
 				save.setSdt(model.getSdt());
 				save.setTrangThai(model.getTrangThai());
+				check = repo.save(save);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "01";
+			}
+
+			if (check == null) {
+				return "02";
+			}
+			return "00";
+		}
+
+	}
+	
+	
+	@PutMapping(value = "/khachhang2")
+	public String updateKH2(@RequestBody LoginKHDTO model) {
+
+		Optional<KhachHangEntity> khoption = repo.findById(model.getMaKH());
+		if (khoption.isEmpty()) {
+
+			System.out.print("ko tồn tại kh");
+			return "404";
+		}
+
+		else {
+			System.out.print("tồn tại kh");
+			KhachHangEntity save = khoption.get();
+			KhachHangEntity check = null;
+			try {
+
+				save.setDiaChi(model.getDiaChi());
+				save.setGioiTinh(model.getGioiTinh());
+				save.setHoTen(model.getHoTen());
+				save.setSdt(model.getSdt());
 				check = repo.save(save);
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -54,7 +54,7 @@ public class NhanVienEntity {
 	private Date ngayVaoLam;
 
 	@Column(name = "TRANGTHAI")
-	private Boolean trangThai;
+	private Integer trangThai;
 
 	@OneToMany(mappedBy = "nvThucHien", fetch = FetchType.LAZY)
 	private Collection<DDHEntity> ddhs;
@@ -147,11 +147,11 @@ public class NhanVienEntity {
 		this.ngayVaoLam = ngayVaoLam;
 	}
 
-	public Boolean getTrangThai() {
+	public Integer getTrangThai() {
 		return trangThai;
 	}
 
-	public void setTrangThai(Boolean trangThai) {
+	public void setTrangThai(Integer trangThai) {
 		this.trangThai = trangThai;
 	}
 

@@ -15,57 +15,84 @@ import spring.bean.APIFunction;
 import spring.bean.Collector;
 import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
-
-
+import spring.dto.SanPhamDTO;
 
 @Controller
 public class QLDonDatHangController {
 
-	@RequestMapping(value = "ddh" , method = RequestMethod.GET)
-	public <E> String showMenu(ModelMap model,HttpServletRequest request) {
+	@RequestMapping(value = "ddh", method = RequestMethod.GET)
+	public <E> String showMenu(ModelMap model, HttpServletRequest request) {
 
-		List<DDHDTO> list=null;
+		List<DDHDTO> list = null;
 		try {
-			list = Collector.getListAll("/ddh",DDHDTO.class);
-			list = list.stream()
-                    .filter(ddh -> ddh.getTinhTrang() != 0)
-                    .collect(Collectors.toList());
-			
+			list = Collector.getListAll("/ddh", DDHDTO.class);
+			list = list.stream().filter(ddh -> ddh.getTinhTrang() != 0).collect(Collectors.toList());
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		model.addAttribute("list", list);
-		
-        
+
 		return "web/QLDDH";
 	}
-	
-	
+
 	@RequestMapping(value = "ddh", params = "linkView")
-	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model
-			) throws IOException {
-		
-		Long id= Long.parseLong(request.getParameter("id"));
+	public <E> String xemChiTietHD(HttpServletRequest request, ModelMap model) throws IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
 
 		List<CTDDHDTO> cthds = this.getCtDDHs(id);
 
-		for (CTDDHDTO ct:cthds ) {
+		for (CTDDHDTO ct : cthds) {
 			ct.setTenSP(APIFunction.getSP(ct.getSanPham()).getTen());
 		}
-		  model.addAttribute("chiTiet", cthds);
-		 
+		model.addAttribute("chiTiet", cthds);
+
 		int tong = 0;
 		for (CTDDHDTO ctpn : cthds) {
 			tong += ctpn.getTongTien();
 		}
 		model.addAttribute("tongTien", tong);
 		model.addAttribute("idddh", id);
-		
+
 		return "web/QLCTDDH";
 	}
 
+	@RequestMapping(value = "ddh", params = "linkXacNhan")
+	public <E> String chuyenTT(HttpServletRequest request, ModelMap model) throws IOException {
+		Long id = Long.parseLong(request.getParameter("id"));
+		DDHDTO ddh = APIFunction.getDDH(id);
+		if (ddh == null) {
+			return "web/QLCTDDH";
+		}
+		if (ddh.getTinhTrang() <= 3 && ddh.getTinhTrang() >0) {
+			ddh.setTinhTrang(ddh.getTinhTrang() + 1);
+			Collector.putMess("/ddh", ddh);
+
+		}
+		else if (ddh.getTinhTrang() == 4) {
+			//ddh.setTinhTrang(4);
+			Collector.putMess("/ddh", ddh);
+
+			List<CTDDHDTO> cthds = this.getCtDDHs(id);
+			List<SanPhamDTO> sps = APIFunction.getSanPhams();
+			for (CTDDHDTO ct:cthds)
+				for (SanPhamDTO sp:sps) {
+					if(sp.getID()==ct.getSanPham()) {
+						sp.setSlTon(sp.getSlTon()-ct.getSoLuong());
+						Collector.putMess("/sanpham", sp);
+						break;
+
+					}
+				}
+
+
+		}
+
+		return "redirect:ddh.htm";
+	}
 
 	public List<CTDDHDTO> getCtDDHs(Long idpn) {
 		List<CTDDHDTO> list = null;
@@ -78,8 +105,5 @@ public class QLDonDatHangController {
 
 		return list;
 	}
-	
-
-
 
 }

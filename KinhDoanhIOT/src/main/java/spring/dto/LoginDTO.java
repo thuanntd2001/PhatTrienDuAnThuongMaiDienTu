@@ -13,7 +13,8 @@ public class LoginDTO {
 	private String cmnd;
 	private String diaChi;
 	private Date ngayVaoLam;
-	private boolean daNghi;
+	private int trangThai=1;
+
 
 	public Long getMaNV() {
 		return maNV;
@@ -87,18 +88,11 @@ public class LoginDTO {
 		this.ngayVaoLam = ngayVaoLam;
 	}
 
-	public boolean isDaNghi() {
-		return daNghi;
-	}
 
-	public void setDaNghi(boolean daNghi) {
-		this.daNghi = daNghi;
-	}
 
 	private String userName;
 
 	private String passwd;
-
 
 	private String email;
 
@@ -156,6 +150,14 @@ public class LoginDTO {
 
 	public void setRoleID(Long roleID) {
 		this.roleID = roleID;
+	}
+
+	public int getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
 	}
 
 

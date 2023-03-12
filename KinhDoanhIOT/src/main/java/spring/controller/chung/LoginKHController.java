@@ -23,14 +23,13 @@ import spring.dto.LoginKHDTO;
 @Controller
 public class LoginKHController extends HttpServlet {
 
-
 	private static final long serialVersionUID = 1L;
 	Locale localeVi = new Locale("vi");
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message_vi", localeVi);
 
 //	@Autowired
 //	RestTemplate rest;
-	
+
 	@RequestMapping(value = "khachhang-login", method = RequestMethod.GET)
 	protected void doGetKH(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -61,20 +60,23 @@ public class LoginKHController extends HttpServlet {
 
 			LoginKHDTO model = FormUtil.toModel(LoginKHDTO.class, request);
 			try {
-			model = Collector.postObj("/loginkh",model,LoginKHDTO.class);
-			}catch(Exception e) {
+				model = Collector.postObj("/loginkh", model, LoginKHDTO.class);
+			} catch (Exception e) {
 				response.sendRedirect(request.getContextPath()
 						+ "/khachhang-login.htm?action=login&message=username_password_invalid&alert=danger");
 			}
-			if (model.getMaKH() != null) {
-
+			if (model.getMaKH() != null && model.getTrangThai() != 0) {
+				System.out.println("trang thai" + model.getTrangThai());
 				SessionUtil.getInstance().putValue(request, "USERKHMODEL", model);
-    
-					response.sendRedirect(request.getContextPath() + "/khachhanghome.htm");
-			
-			} 
-			
+
+				response.sendRedirect(request.getContextPath() + "/khachhanghome.htm");
+
+			} else {
+				response.sendRedirect(request.getContextPath()
+						+ "/khachhang-login.htm?action=login&message=username_password_invalid&alert=danger");
+			}
+
 		}
 	}
-	
+
 }

@@ -12,10 +12,10 @@ public class NhanVienDTO {
 	private String cmnd;
 	private String diaChi;
 	private Date ngayVaoLam;
-	private boolean trangThai;
+	private Integer trangThai;
 	
 	public NhanVienDTO(Long maNV, String hoTen, Date ngaySinh, boolean gioiTinh, int luong, String sdt, String cmnd,
-			String diaChi, Date ngayVaoLam, boolean trangThai) {
+			String diaChi, Date ngayVaoLam, Integer trangThai) {
 		super();
 		this.maNV = maNV;
 		this.hoTen = hoTen;
@@ -83,10 +83,10 @@ public class NhanVienDTO {
 	public void setNgayVaoLam(Date ngayVaoLam) {
 		this.ngayVaoLam = ngayVaoLam;
 	}
-	public boolean getTrangThai() {
+	public Integer getTrangThai() {
 		return trangThai;
 	}
-	public void setTrangThai(boolean trangThai) {
+	public void setTrangThai(Integer trangThai) {
 		this.trangThai = trangThai;
 	}
 	

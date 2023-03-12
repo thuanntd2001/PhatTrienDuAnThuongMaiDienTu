@@ -13,6 +13,8 @@ public class LoginDTO {
 	private String cmnd;
 	private String diaChi;
 	private Date ngayVaoLam;
+	private int trangThai=1;
+
 
 	public Long getMaNV() {
 		return maNV;
@@ -148,6 +150,14 @@ public class LoginDTO {
 
 	public void setRoleID(Long roleID) {
 		this.roleID = roleID;
+	}
+
+	public int getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(int trangThai) {
+		this.trangThai = trangThai;
 	}
 
 

@@ -32,6 +32,7 @@ public class Nhan_SanPhamAPI {
 
 	@GetMapping("/nhansanpham")
 	public List<Nhan_SanPhamDTO> getNhan_SanPham(HttpServletRequest request) {
+		System.out.print("heloo get");
 
 		String nhan = request.getParameter("tennhan");
 		String sanPham = request.getParameter("sanpham");
@@ -105,10 +106,13 @@ public class Nhan_SanPhamAPI {
 
 	@PostMapping(value = "/nhansanpham")
 	public String createNhan_SanPham(@RequestBody Nhan_SanPhamDTO model) {
+		System.out.print("heloo post");
 
 		Nhan_SanPhamEntity save = new Nhan_SanPhamEntity();
 		Nhan_SanPhamEntity check = null;
 		try {
+			System.out.print("heloo post");
+
 			save.setNhan(nRepo.findById(model.getNhan()).get());
 			save.setSanPham(spRepo.findById(model.getSanPham()).get());
 			save.setNvSua(model.getNvSua());

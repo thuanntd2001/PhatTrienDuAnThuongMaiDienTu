@@ -65,8 +65,8 @@ body {
 
 
 			<div class="card-footer">
-				<button type="submit" class="btn btn-primary" name="addctnh1">Thêm
-					chi tiết nhập hàng</button>
+				<!-- <button type="submit" class="btn btn-primary" name="addctnh1">Thêm
+					chi tiết nhập hàng</button> -->
 				<button class="btn btn-primary" type="submit"
 					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Update' : 'Insert'}</button>
 

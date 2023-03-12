@@ -39,9 +39,9 @@
 		</a></li>
 
 
-		<li><a href="nhaphang.htm"> <i class="fas fa-user"></i> <span
+<!-- 		<li><a href="nhaphang.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">QUẢN LÝ NHẬP HÀNG</span>
-		</a></li>
+		</a></li> -->
 
 		<li><a href="user.htm"> <i class="fas fa-user"></i> <span
 				class="links_name">TÀI KHOẢN</span>

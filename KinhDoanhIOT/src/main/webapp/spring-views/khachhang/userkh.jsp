@@ -114,93 +114,86 @@
 										</div>
 
 
-<div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-													<!-- Profile Edit Form -->
-													<form:form modelAttribute="nv" method="post" action="userkh.htm"
-														id="form1">
+										<div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+											<!-- Profile Edit Form -->
+											<form:form modelAttribute="nv" method="post"
+												action="KHuser.htm" id="form1">
 														${message1 }
 														
 
 														<div class="row mb-3">
-															<label class="col-md-4 col-lg-3 col-form-label">Họ
-																Tên</label>
-															<div class="col-md-8 col-lg-9">
-																<form:input id="hoTen" cssClass="form-control"
-																	path="hoTen"  />
-															</div>
-														</div>
+													<label class="col-md-4 col-lg-3 col-form-label">Họ
+														Tên</label>
+													<div class="col-md-8 col-lg-9">
+														<form:input id="hoTen" cssClass="form-control"
+															path="hoTen" />
+													</div>
+													<form:input id="ee" cssClass="form-control"
+															path="maKH" type="hidden" />
+												</div>
 
-														<div class="row mb-3">
-															<label class="col-md-4 col-lg-3 col-form-label">Giới
-																Tính</label>
-															<div class="col-md-8 col-lg-9">
-																<form:radiobutton path="gioiTinh" value="True"
-																	label="Nam" />
-																<form:radiobutton path="gioiTinh" value="false"
-																	label="Nữ" />
-															</div>
-														</div>
+												<div class="row mb-3">
+													<label class="col-md-4 col-lg-3 col-form-label">Giới
+														Tính</label>
+													<div class="col-md-8 col-lg-9">
+														<form:radiobutton path="gioiTinh" value="True" label="Nam" />
+														<form:radiobutton path="gioiTinh" value="false" label="Nữ" />
+													</div>
+												</div>
 
-														<div class="row mb-3">
-															<label class="col-md-4 col-lg-3 col-form-label">Ngày
-																Sinh</label>
-															<div class="col-md-8 col-lg-9">
-																<input id="ngaySinh" name="ngaySinhh" type="date"
-																	value="${nv.ngaySinh }" />
-															</div>
-														</div>
+											
 
 
-														<div class="row mb-3">
-															<label class="col-md-4 col-lg-3 col-form-label">SDT</label>
-															<div class="col-md-8 col-lg-9">
-																<form:input id="sdt" cssClass="form-control" path="sdt"
-																	minlength="10" maxlength="10"
-																	pattern="^[0-9]{10,15}$" required="true" />
-															</div>
-
-														</div>
-
-
-														<div class="row mb-3">
-															<label for="address"
-																class="col-md-4 col-lg-3 col-form-label">Địa Chỉ</label>
-															<div class="col-md-8 col-lg-9">
-																<form:input id="diaChi" cssClass="form-control"
-																	path="diaChi" required="true" pattern="^[0-9aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆ
-fFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTu
-UùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\s]{1,50}$" />
-															</div>
-														</div>
-
-													
-
-														<div class="row mb-3">
-															<label
-																class="col-md-4 col-lg-3 col-form-label">Email</label>
-															<div class="col-md-8 col-lg-9">
-																<input id="email" class="form-control" type="email"
-																	name="email" value="${user.email }" required />
-															</div>
-														</div>
-
-														<div class="row mb-3">
-															<label for="username"
-																class="col-md-4 col-lg-3 col-form-label">Tên Tài
-																Khoản</label>
-															<div class="col-md-8 col-lg-9">
-																<input id="userName" class="form-control" type="text"
-																	value="${user.userName }" readonly="readonly" />
-															</div>
-														</div>
-														<div class="text-center">
-															<button type="submit" class="btn btn-primary"
-																name="btnupdate-info">Lưu Thay Đổi</button>
-														</div>
-													</form:form>
-													<!-- End Profile Edit Form -->
+												<div class="row mb-3">
+													<label class="col-md-4 col-lg-3 col-form-label">SDT</label>
+													<div class="col-md-8 col-lg-9">
+														<form:input id="sdt" cssClass="form-control" path="sdt"
+															minlength="10" maxlength="10" pattern="^[0-9]{10,15}$"
+															required="true" />
+													</div>
 
 												</div>
+
+
+												<div class="row mb-3">
+													<label for="address"
+														class="col-md-4 col-lg-3 col-form-label">Địa Chỉ</label>
+													<div class="col-md-8 col-lg-9">
+														<form:input id="diaChi" cssClass="form-control"
+															path="diaChi" required="true"
+															pattern="^[0-9aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆ
+fFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTu
+UùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\s]{1,50}$" />
+													</div>
+												</div>
+
+
+
+												<div class="row mb-3">
+													<label class="col-md-4 col-lg-3 col-form-label">Email</label>
+													<div class="col-md-8 col-lg-9">
+														<input id="email" class="form-control" type="email"
+															name="email" value="${user.email }" required />
+													</div>
+												</div>
+
+												<div class="row mb-3">
+													<label for="username"
+														class="col-md-4 col-lg-3 col-form-label">Tên Tài
+														Khoản</label>
+													<div class="col-md-8 col-lg-9">
+														<input id="userName" class="form-control" type="text"
+															value="${user.userName }" readonly="readonly" />
+													</div>
+												</div>
+												<div class="text-center">
+													<button type="submit" class="btn btn-primary"
+														name="btnupdate-info">Lưu Thay Đổi</button>
+												</div>
+											</form:form>
+											<!-- End Profile Edit Form -->
+
+										</div>
 
 
 

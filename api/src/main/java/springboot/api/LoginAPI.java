@@ -46,6 +46,8 @@ public class LoginAPI {
 			e.setPasswd(user.getPasswd());
 			e.setRoleID(user.getChucVu().getId());
 			e.setUserName(user.getUserName());
+			e.setTrangThai(nv.getTrangThai());
+			
 			return e;
 		}
 	}

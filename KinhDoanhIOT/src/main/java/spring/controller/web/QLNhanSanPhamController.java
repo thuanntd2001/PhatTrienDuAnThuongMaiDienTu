@@ -1,21 +1,15 @@
 package spring.controller.web;
 
 import java.io.IOException;
-import java.security.Timestamp;
-import java.text.ParseException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,8 +18,8 @@ import com.quancafehighland.utils.SessionUtil;
 import spring.bean.Collector;
 import spring.dto.LoginDTO;
 import spring.dto.NhanDTO;
-import spring.dto.SanPhamDTO;
 import spring.dto.Nhan_SanPhamDTO;
+import spring.dto.SanPhamDTO;
 
 @Controller
 public class QLNhanSanPhamController {
@@ -111,7 +105,7 @@ public class QLNhanSanPhamController {
 	}
 
 	public Integer insertNhanSanPham(Nhan_SanPhamDTO nsp) {
-		String flag = Collector.postMess("/nhansanham", nsp);
+		String flag = Collector.postMess("/nhansanpham", nsp);
 		System.out.println(flag);
 		if (flag.equals("00")) {
 			return 1;

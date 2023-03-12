@@ -128,7 +128,7 @@ public class NhanVienAPI {
 			NhanVienEntity check = null;
 			try {
 
-				save.setTrangThai(true);
+				save.setTrangThai(1);
 				check = repo.save(save);
 
 			} catch (Exception e) {
