@@ -114,7 +114,7 @@ public class QLNhanVienHomeController {
 		nv.getDiaChi().trim();
 		nv.getSdt().trim();
 
-		nv.setTrangThai(true);
+		nv.setTrangThai(1);
 
 		Integer temp = this.insertUser(nv);
 		if (temp != 0) {
@@ -266,8 +266,8 @@ public class QLNhanVienHomeController {
 		if (!checkAdmin) {
 			error = ", nhân viên đã có tài khoản, xóa tài khoản trước";
 		} else {
-			tmp.setTrangThai(false);
-;
+			tmp.setTrangThai(0);
+
 			
 			temp = this.updateNV(tmp);
 

@@ -12,27 +12,23 @@
 	<ul class="nav_list">
 
 		<li><a href="index.htm"> <i class="fas fa-table"></i> <span
-				class="links_name">QUẢN LÝ NHÂN VIÊN</span>
+				class="links_name">QL NHÂN VIÊN</span>
 		</a></li>
 		<li><a href="indexkh.htm"> <i class="fas fa-table"></i> <span
-				class="links_name">QUẢN LÝ KHÁCH HÀNG</span>
+				class="links_name">QL KHÁCH HÀNG</span>
 		</a></li>
 		<li><a href="admin-nhaphang.htm"> <i
-				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
-					LÝ NHẬP HÀNG</span>
+				class="fas fa-cash-register"></i> <span class="links_name">QL NHẬP HÀNG</span>
 		</a></li>
 		<li><a href="admin-qlloaisp.htm"> <i
-				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
-					LÝ LOẠI SẢN PHẨM</span>
+				class="fas fa-cash-register"></i> <span class="links_name">QL LOẠI SP</span>
 		</a></li>
 
 		<li><a href="admin-qlsanpham.htm"> <i
-				class="fas fa-cash-register"></i> <span class="links_name">QUẢN
-					LÝ SẢN PHẨM</span>
+				class="fas fa-cash-register"></i> <span class="links_name">QL SẢN PHẨM</span>
 		</a></li>
 		<li><a href="admin-ddh.htm"> <i
-				class="fas fa-file-invoice-dollar"></i> <span class="links_name">QUẢN
-					LÝ ĐƠN ĐẶT HÀNG</span>
+				class="fas fa-file-invoice-dollar"></i> <span class="links_name">QL ĐƠN ĐH </span>
 		</a></li>
 
 <!-- 		<li><a href="admin-qlchucvu.htm"> <i
@@ -41,10 +37,10 @@
 		</a></li> -->
 
 		<li><a href="admin-taikhoan.htm"> <i class="fas fa-table"></i>
-				<span class="links_name">QUẢN LÝ TÀI KHOẢN NHÂN VIÊN</span>
+				<span class="links_name">QL TÀI KHOẢN NHÂN VIÊN</span>
 		</a></li>
 		<li><a href="admin-taikhoankh.htm"> <i class="fas fa-table"></i>
-				<span class="links_name">QUẢN LÝ TÀI KHOẢN KHÁCH HÀNG</span>
+				<span class="links_name">QL TÀI KHOẢN KHÁCH HÀNG</span>
 		</a></li>
 		<li><a href="thong-ke.htm"> <i
 				class="fas fa-hand-holding-usd"></i><span class="links_name">THỐNG

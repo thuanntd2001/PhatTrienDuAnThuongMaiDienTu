@@ -45,7 +45,7 @@ public class QLKhachHangHomeController {
 		KhachHangDTO tmp = this.getKH(maKH);
 
 		Integer temp = 1;
-		tmp.setTrangThai(false);
+		tmp.setTrangThai(0);
 		temp = this.updateKH(tmp);
 		if (temp == 0) {
 			model.addAttribute("message", "Xóa không thành công" );

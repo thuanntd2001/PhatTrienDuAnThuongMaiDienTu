@@ -31,7 +31,7 @@ public class UserKHAPI {
 
 	@GetMapping("/userkh")
 	public List<UserKHDTO> getUserKH() {
-		List<UserKHEntity> list = repo.findAllActive();
+		List<UserKHEntity> list = repo.findAll();
 		List<UserKHDTO> listDTO = new ArrayList<UserKHDTO>();
 		for (UserKHEntity item : list) {
 			UserKHDTO e = new UserKHDTO();
@@ -40,6 +40,7 @@ public class UserKHAPI {
 			e.setID(item.getUserkh().getMaKH());
 			e.setPasswd(item.getPasswd());
 			e.setUserName(item.getUserName());
+			e.setStatus(item.getStatus());
 	
 			listDTO.add(e);
 		}

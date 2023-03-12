@@ -19,7 +19,7 @@
 				<jsp:include page="/common/webKH/searchbar.jsp" />
 				<!-- Shoping Cart Section Begin -->
 				<section class="shoping-cart spad">
-					<form:form method="post" action="KH-giohang.htm"
+					<form:form id="formsubmit" method="post" action="KH-giohang.htm"
 						modelAttribute="gioHangForm">
 						<div class="container">
 							<div class="row">
@@ -57,7 +57,8 @@
 																<div class="pro-qty">
 																	<form:input path="gioHangs[${status.index}].soLuong"
 																		class="quality-input" name="soLuong" id="soLuong"
-																		onchange="tinhTongTien" min="1" type="number" />
+																		onchange="tinhTongTien" min="1"
+																		max="${spGioHang[status.index].slTon}" type="number" />
 																</div>
 																<form:input path="gioHangs[${status.index}].maSP"
 																	name="maSP" id="maSP" type="hidden" />
@@ -70,8 +71,9 @@
 														<td id="totalPrice" class="shoping__cart__total"><span>${spGioHang[status.index].gia * gh.soLuong}</span>
 														</td>
 
-														<td class="shoping__cart__item__close"><a href="KH-giohang.htm?xoa&idsp=${spGioHang[status.index].ID}"><span
-															class="icon_close"></span></a></td>
+														<td class="shoping__cart__item__close"><a
+															href="KH-giohang.htm?xoa&idsp=${spGioHang[status.index].ID}"><span
+																class="icon_close"></span></a></td>
 													</tr>
 
 
@@ -242,12 +244,18 @@ priceElements.forEach((priceElement) => { // Lặp qua danh sách các thẻ HTM
 		      <h2>Xác nhận đặt hàng</h2>
 		      <p>Bạn có chắc chắn muốn đặt hàng?</p>
 		      <div class="confirm-order-buttons">
-		        <button type = "submit" class="confirm-order-yes">Có</button>
-		        <a href ="khachhanghome.htm" class="confirm-order-no">Không</a>
+		        <button id="buttonyes type = "submit" class="confirm-order-yes">Có</button>
+		        <a href ="KH-giohang.htm" class="confirm-order-no">Không</a>
 		      </div>
 		    </div>
 		  `;
+		  
 		  document.body.appendChild(confirmBox);
+
+		  
+		  });
+
+		  
 		 
 	
 		  // Thêm code xử lý sự kiện khi người dùng nhấn vào nút "Có" hoặc "Không" ở đây
@@ -260,7 +268,13 @@ priceElements.forEach((priceElement) => { // Lặp qua danh sách các thẻ HTM
 		      confirmBox.remove();
 		    }
 		  }
-		});
+		}
+	var button = document.getElementById("buttonyes");
+	  button.addEventListener("click", function() {
+	    var form = document.getElementById("formsubmit");
+	    form.submit();
+	  }
+	);
 	</script>
 <script>
 const ppriceElements = document.querySelectorAll('#price'); // Lấy tất cả các thẻ HTML có id là "price"

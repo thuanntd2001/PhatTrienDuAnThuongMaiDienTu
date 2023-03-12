@@ -60,6 +60,7 @@
 					<tr>
 						<th scope="row">Tên Tài Khoản</th>
 						<th scope="row">Email</th>
+						<th scope="row">Trạng thái</th>
 
 						<th scope="row"></th>
 					</tr>
@@ -69,14 +70,18 @@
 						<tr>
 							<td>${tk.userName}</td>
 							<td>${tk.email}</td>
-							
-							<td><a
-								href="/dichvu/admin-home/formTaiKhoanKH.htm?linkEdit&userName=${tk.userName}"<%--
-																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
-																		--%>>
-									<button name="btnXOA" id="#exampleModal2" type="button"
-										class="btn btn-warning">Khóa tài khoản</button>
-							</a></td>
+							<c:if test="${tk.status == 1}">
+								<td>Đã kích hoạt</td>
+							</c:if>
+							<c:if test="${tk.status == 0}">
+								<td>Chưa kích hoạt</td>
+							</c:if>
+
+
+
+
+
+
 
 							<!-- end xóa -->
 						</tr>
