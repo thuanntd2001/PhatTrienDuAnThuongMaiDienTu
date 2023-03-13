@@ -106,6 +106,8 @@
 										</ul>
 										<button id="btnthanhtoan" type="submit" class="site-btn">THANH
 											TOÁN</button>
+										<!-- <a href="KHthanhtoan.htm"><button id="btnthanhtoan" type="button" class="site-btn">THANH
+											TOÁN</button></a> -->	
 
 
 									</div>

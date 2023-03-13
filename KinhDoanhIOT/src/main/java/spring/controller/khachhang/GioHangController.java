@@ -143,6 +143,9 @@ public class GioHangController {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 		Long idsp = Long.parseLong(request.getParameter("id"));
 		Integer sl = Integer.parseInt(request.getParameter("sl"));
+		if (APIFunction.getSP(idsp).getSlTon() < sl) {
+			return"redirect:khachhanghome.htm?khongDuSoLuongHangTrongKho";
+		}
 
 		GioHangDTO gh = new GioHangDTO();
 
