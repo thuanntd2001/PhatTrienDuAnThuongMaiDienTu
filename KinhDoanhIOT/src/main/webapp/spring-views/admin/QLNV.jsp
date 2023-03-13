@@ -33,7 +33,7 @@
 	<div class="container-fluid main">
 		<div style="padding-left: 20px;">
 			<div class="header-content d-flex justify-content-center">QUẢN
-				LÍ NHÂN VIÊN</div>
+				LÝ NHÂN VIÊN</div>
 			<h4>${message}</h4>
 
 			<div class="row">

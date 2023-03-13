@@ -16,7 +16,7 @@
 	<div class="container-fluid main">
 		<div class="container">
 			<div class="header-content d-flex justify-content-center">QUẢN
-				LÍ NHẬP HÀNG</div>
+				LÝ NHẬP HÀNG</div>
 
 			<h4>${message}</h4>
 			<div>
@@ -53,7 +53,7 @@
 						<th scope="row">Nhà Cung Cấp</th>
 						<th scope="row">Tình Trạng</th>
 
-						<th scope="row">NV Tạo</th>
+						
 						<th></th>
 						<th></th>
 					</tr>
@@ -68,7 +68,7 @@
 							<td>${nh.ncc}</td>
 							<td>${nh.tinhTrang}</td>
 
-							<td>${nh.nvThucHien}</td>
+							
 							<td><a
 								href="/dichvu/admin-home/formNhapHang.htm?linkEdit&id=${nh.id}">
 									<button type="button" class="btn btn-secondary">SỬA</button>

@@ -77,7 +77,7 @@ public class LoginController extends HttpServlet {
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
 
 				if (model.getRoleID() == 1) {
-					response.sendRedirect(request.getContextPath() + "/admin-home/index.htm");
+					response.sendRedirect(request.getContextPath() + "/admin-home/admin-index.htm");
 				} else if (model.getRoleID() != null) {
 					response.sendRedirect(request.getContextPath() + "/user.htm");
 				}

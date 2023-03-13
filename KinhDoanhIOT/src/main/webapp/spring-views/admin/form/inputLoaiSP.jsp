@@ -57,7 +57,7 @@ body {
 				<button class="btn btn-primary" type="submit"
 					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Update' : 'Insert'}</button>
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
-					href="admin-home/admin-qlthucdon.htm"> QUAY LẠI </a>
+					href="admin-home/admin-qlloaisp.htm"> QUAY LẠI </a>
 			</div>
 		</form:form>
 	</div>

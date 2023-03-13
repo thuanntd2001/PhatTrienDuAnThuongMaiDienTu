@@ -82,7 +82,7 @@ public class QLTaiKhoanController {
 			model.addAttribute("message", "Thêm thất bại " + error + " ");
 		}
 		System.out.println(error + "1");
-		return "redirect:admin-taikhoan";
+		return "redirect:admin-taikhoan.htm";
 	}
 
 	public UserDTO getTaiKhoan(String username) {

@@ -16,7 +16,7 @@
 
 		<div class="container">
 			<div class="header-content d-flex justify-content-center">QUẢN
-				LÍ HÓA ĐƠN</div>
+				LÝ ĐƠN ĐẶT HÀNG</div>
 			<%-- 	<jsp:useBean id="pagedListHolder" scope="request"
 				type="org.springframework.beans.support.PagedListHolder" /> --%>
 			<c:url value="admin-ddh.htm" var="pagedLink">
@@ -45,16 +45,39 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="hd" items="${list}">
+					<c:forEach var="ddh" items="${list}">
 						<tr>
-							<th scope="row">${hd.id}</th>
-							<td>${hd.nvThucHien}</td>
-							<td>${hd.khThucHien}</td>
-							<td>${hd.ngayThucHien}</td>
-							<td>${hd.tinhTrang}</td>
+							<th scope="row">${ddh.id}</th>
+							<td>${ddh.nvThucHien}</td>
+							<td>${ddh.khThucHien}</td>
+							<td>${ddh.ngayThucHien}</td>
+							<td><c:choose>
+														<c:when test="${ddh.tinhTrang == 0}">
+												Chờ xác nhận
+												</c:when>
+														<c:when test="${ddh.tinhTrang == 1}">
+												Đã xác nhận đơn hàng
+												</c:when>
+														<c:when test="${ddh.tinhTrang == 2}">
+												Đang chuẩn bi hàng
+												</c:when>
+														<c:when test="${ddh.tinhTrang == 3}">
+												Đang giao hàng
+												</c:when>
+
+														<c:when test="${ddh.tinhTrang == 4}">
+												Giao hàng thành công
+												</c:when>
+														<c:when test="${ddh.tinhTrang == -1}">
+												Đã hủy
+												</c:when>
+														<c:when test="${ddh.tinhTrang == -2}">
+												Đổi trả
+												</c:when>
+													</c:choose></td>
 							 <td>
                                 <div class="">
-                                    <a style="font-size: 10px;" class="btn btn-primary" href="admin-ddh/${hd.id}.htm?linkView">
+                                    <a style="font-size: 10px;" class="btn btn-primary" href="admin-ddh/${ddh.id}.htm?linkView">
                                         XEM
                                     </a>
                                 </div>

@@ -66,11 +66,11 @@ public class DangKyKHController {
 		if (check.equals("00")) {
 		
 			model.addAttribute("message", "xac nhan thanh cong");
+			return "redirect:khachhang-login.htm?action=login&xac nhan thanh cong";
 		} else {
 			model.addAttribute("message", "xac nhan  that bai");
+			return "redirect:khachhang-login.htm?action=login&xac nhan that bai";
 		}
-		return "khachhang-login.htm?action=login";
-
 	}
 
 	private String generateRandomString() {

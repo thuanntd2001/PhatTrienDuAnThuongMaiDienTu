@@ -37,7 +37,7 @@
 	<div class="container-fluid main">
 		<div style="padding-left: 20px;">
 			<div class="header-content d-flex justify-content-center">QUẢN
-				LÍ TÀI KHOẢN</div>
+				LÝ TÀI KHOẢN NHÂN VIÊN</div>
 			<h4>${message}</h4>
 			<div>
 				<a href="/dichvu/admin-home/formTaiKhoan.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
@@ -67,6 +67,8 @@
 						<th scope="row">Tên Tài Khoản</th>						 
 						<th scope="row">Mật khẩu</th>
 						<th scope="row">Email</th>
+						<th scope="row">Mã NV</th>
+						
 
 						<th scope="row"></th>
 					</tr>
@@ -77,6 +79,7 @@
 							<td>${tk.userName}</td>
 							<td>${tk.passwd}</td>
 							<td>${tk.email}</td>
+							<td>${tk.ID}</td>
 
 
 							<%-- <td><a

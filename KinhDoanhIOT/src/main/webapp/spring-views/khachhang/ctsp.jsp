@@ -47,7 +47,7 @@
 										<div class="product__details__quantity">
 											<div class="quantity">
 												<div class="pro-qty">
-													<input type="number" name="sl" min="1" value="1">
+													<input type="number" name="sl" min="1" value="1" max="${td.slTon}">
 												</div>
 
 											</div>

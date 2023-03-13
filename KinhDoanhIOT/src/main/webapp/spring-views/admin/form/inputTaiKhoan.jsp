@@ -83,7 +83,7 @@ body {
 					<div class="select-menu">
 
 						<h5>
-							<select name="chucvu">
+							<%-- <select name="chucvu">
 								<c:forEach items="${chucvus}" var="cv">
 
 									<option value="${cv.id}"
@@ -91,7 +91,8 @@ body {
 										${cv.tenChucVu}</option>
 
 								</c:forEach>
-							</select>
+							</select> --%>
+							<input name="chucvu" value="2" type ="hidden"/>
 						</h5>
 					</div>
 				</div>

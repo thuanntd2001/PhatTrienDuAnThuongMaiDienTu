@@ -16,7 +16,7 @@
 	<div class="row main">
 
             <div class="container">
-            <div class="header-content d-flex justify-content-center">QUẢN LÍ LOẠI SẢN PHẨM</div>
+            <div class="header-content d-flex justify-content-center">QUẢN LÝ LOẠI SẢN PHẨM</div>
                <h4>${message}</h4>
 			<div>
 				<a href="/dichvu/admin-home/formLoaiSP.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
@@ -61,15 +61,15 @@
 												class="btn btn-primary" data-toggle="modal" 
 												data-whatever="@mdo">SỬA</button>
 										</a></td>
-                            <td>
+                            <%-- <td>
                                 <a
-														href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.id}"<%--
+														href="/dichvu/admin-home/admin-qlthucdon.htm?linkDelete&id=${th.id}"
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
-																		--%>>
+																		>
 														<button name="btnXOA1" type="button"
 															class="btn btn-warning">Xóa</button>
 													</a>
-                            </td>
+                            </td> --%>
 
                         </tr>
                         </c:forEach>

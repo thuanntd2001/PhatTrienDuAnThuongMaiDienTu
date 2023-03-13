@@ -17,7 +17,7 @@
 
 		<div class="container">
 			<div class="header-content d-flex justify-content-center">QUẢN
-				LÍ SẢN PHẨM</div>
+				LÝ SẢN PHẨM</div>
 			<h4>${message}</h4>
 			<div>
 				<a href="/dichvu/admin-home/formSanPham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->

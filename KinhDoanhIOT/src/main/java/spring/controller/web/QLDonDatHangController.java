@@ -65,35 +65,57 @@ public class QLDonDatHangController {
 		Long id = Long.parseLong(request.getParameter("id"));
 		DDHDTO ddh = APIFunction.getDDH(id);
 		if (ddh == null) {
+			model.addAttribute("don dat hang khong ton tai");
 			return "web/QLCTDDH";
 		}
-		if (ddh.getTinhTrang() <= 3 && ddh.getTinhTrang() >0) {
+		if (ddh.getTinhTrang() <= 2 && ddh.getTinhTrang() > 0) {
 			ddh.setTinhTrang(ddh.getTinhTrang() + 1);
 			Collector.putMess("/ddh", ddh);
+			List<CTDDHDTO> cthds = this.getCtDDHs(id);
+			List<SanPhamDTO> sps = APIFunction.getSanPhams();
+			if (ddh.getTinhTrang() == 3)
+				for (CTDDHDTO ct : cthds)
+					for (SanPhamDTO sp : sps) {
+						if (sp.getID() == ct.getSanPham()) {
+							if (sp.getSlTon() - ct.getSoLuong() < 0) {
+								ddh.setTinhTrang(2);
+								Collector.putMess("/ddh", ddh);
+								return "redirect:ddh.htm?khong du san pham de giao";
 
-		}
-		else if (ddh.getTinhTrang() == 4) {
-			//ddh.setTinhTrang(4);
+							}
+						}
+
+					}
+		} else if (ddh.getTinhTrang() == 3) {
+			ddh.setTinhTrang(4);
 			Collector.putMess("/ddh", ddh);
 
 			List<CTDDHDTO> cthds = this.getCtDDHs(id);
 			List<SanPhamDTO> sps = APIFunction.getSanPhams();
-			for (CTDDHDTO ct:cthds)
-				for (SanPhamDTO sp:sps) {
-					if(sp.getID()==ct.getSanPham()) {
-						sp.setSlTon(sp.getSlTon()-ct.getSoLuong());
+			for (CTDDHDTO ct : cthds)
+				for (SanPhamDTO sp : sps) {
+					if (sp.getID() == ct.getSanPham()) {
+						if (sp.getSlTon() - ct.getSoLuong() < 0) {
+							ddh.setTinhTrang(3);
+							Collector.putMess("/ddh", ddh);
+							return "redirect:ddh.htm?khong du san pham de giao";
+
+						}
+
+						sp.setSlTon(sp.getSlTon() - ct.getSoLuong());
+
 						Collector.putMess("/sanpham", sp);
+						System.out.println("tru so luong thanh cong" + sp.getTen());
 						break;
 
 					}
 				}
 
-
 		}
 
 		return "redirect:ddh.htm";
 	}
-	
+
 	@RequestMapping(value = "ddh", params = "linkHuy")
 	public <E> String huyDDH(HttpServletRequest request, ModelMap model) throws IOException {
 		Long id = Long.parseLong(request.getParameter("id"));
@@ -101,12 +123,11 @@ public class QLDonDatHangController {
 		if (ddh == null) {
 			return "web/QLCTDDH";
 		}
-		if (ddh.getTinhTrang() <= 3 && ddh.getTinhTrang() >0) {
+		if (ddh.getTinhTrang() <= 3 && ddh.getTinhTrang() > 0) {
 			ddh.setTinhTrang(-1);
 			Collector.putMess("/ddh", ddh);
 
 		}
-
 
 		return "redirect:ddh.htm";
 	}

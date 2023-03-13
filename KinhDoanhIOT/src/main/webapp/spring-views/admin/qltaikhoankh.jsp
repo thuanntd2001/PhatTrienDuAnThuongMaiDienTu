@@ -37,7 +37,7 @@
 	<div class="container-fluid main">
 		<div style="padding-left: 20px;">
 			<div class="header-content d-flex justify-content-center">QUẢN
-				LÍ TÀI KHOẢN KHÁCH HÀNG</div>
+				LÝ TÀI KHOẢN KHÁCH HÀNG</div>
 			<h4>${message}</h4>
 
 			<%-- <jsp:useBean id="pagedListHolder" scope="request"
@@ -61,6 +61,8 @@
 						<th scope="row">Tên Tài Khoản</th>
 						<th scope="row">Email</th>
 						<th scope="row">Trạng thái</th>
+						<th scope="row">Mã KH</th>
+						
 
 						<th scope="row"></th>
 					</tr>
@@ -76,6 +78,7 @@
 							<c:if test="${tk.status == 0}">
 								<td>Chưa kích hoạt</td>
 							</c:if>
+							<td>${tk.ID}</td>
 
 
 

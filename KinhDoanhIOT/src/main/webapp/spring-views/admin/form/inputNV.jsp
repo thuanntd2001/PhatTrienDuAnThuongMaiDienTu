@@ -145,30 +145,32 @@ body {
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Nghỉ làm</label>
+				<label class="col-sm-2 col-form-label"></label>
 				<div class="col-sm-10">
 					<div class="form-check form-check-inline">
 
 						<form:input path="trangThai" value="1" type="hidden" />
 
 					</div>
+					
 
 				</div>
-			</div>
-	</div>
-
-	<div class="card-footer">
-		<button class="btn btn-primary" type="submit"
+				<button class="btn btn-primary" type="submit"
 			name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Cập Nhật' : 'Thêm'}</button>
 
 		<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
 			href="admin-home/index.htm"> QUAY LẠI </a>
+			</div>
+	</div>
+
+	<div class="card-footer">
+		
 	</div>
 
 
 	</form:form>
 
-	</div>
+	
 
 	<script src="<c:url value='/template/admin/validation.js'/>"></script>
 	<script>

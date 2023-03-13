@@ -24,7 +24,7 @@ import spring.dto.UserDTO;
 public class QLNhanVienHomeController {
 
 	// CONTROLLER
-	@RequestMapping(value = "index", method = RequestMethod.GET)
+	@RequestMapping(value = "admin-index", method = RequestMethod.GET)
 	public <E> String index(HttpServletRequest request, ModelMap model) {
 		List<NhanVienDTO> list = null;
 		try {
@@ -254,7 +254,7 @@ public class QLNhanVienHomeController {
 		return true;
 	}
 	
-	@RequestMapping(value = "index", params = "linkDelete", method = RequestMethod.GET)
+	@RequestMapping(value = "admin-index", params = "linkDelete", method = RequestMethod.GET)
 	public <E> String deleteNV(HttpServletRequest request, ModelMap model) {
 		String id1 = request.getParameter("id");
 		long maNV = Long.parseLong(id1);

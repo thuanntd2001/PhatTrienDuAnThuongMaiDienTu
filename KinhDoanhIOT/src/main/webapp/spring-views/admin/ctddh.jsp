@@ -33,7 +33,7 @@
 				<div class="header-content d-flex justify-content-center">Chi
 					tiết ĐĐH</div>
 				<div class="original-info d-flex justify-content-center">
-					<div class=" mg-0-40">Họ tên nhân viên: ${NHANVIEN.hoTen}</div>
+					
 					<div class=" mg-0-40">
 						Ngày: <span id="date-now"></span>
 					</div>
@@ -43,7 +43,8 @@
 				</div>
 				<div class="" style="margin: 16px;">
 					<a style="font-size: 16px; padding: 10px;"
-						class="btn btn-secondary" href="hoa-don.htm"> QUAY LẠI </a>
+						class="btn btn-secondary" href="/dichvu/admin-home/admin-ddh.htm">
+						QUAY LẠI </a>
 				</div>
 
 
@@ -59,8 +60,7 @@
 							<th>Số Lượng</th>
 
 							<th>Thành Tiền</th>
-							<th>Điểm</th>
-							<th>Đánh giá</th>
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -70,13 +70,13 @@
 								<td>${cthd.sanPham }</td>
 								<td>${ctddh.tenSP }</td>
 								<td>${cthd.soLuong }</td>
-								<td>${cthd.tongTien}đồng</td>
+								<td id="tongtien">${cthd.tongTien}</td>
 							</tr>
 						</c:forEach>
 
 					</tbody>
 				</table>
-				<h3>Tổng Tiền: ${tongTien} đồng</h3>
+				<h3 id="tongtien">Tổng Tiền: ${tongTien}</h3>
 
 			</div>
 
@@ -89,6 +89,14 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script src="<c:url value='/template/web/scipts.js'/>"></script>
+	<script>
+const tongTiens = document.querySelectorAll("#tongtien");
+tongTiens.forEach(tongTien => {
+  const formattedTongTien = Number(tongTien.textContent.replace(/\D/g, '')).toLocaleString('vi-VN', {style: 'currency', currency: 'VND'});
+  tongTien.textContent = formattedTongTien;
+});
+</script>
 
 </body>
+
 </html>
