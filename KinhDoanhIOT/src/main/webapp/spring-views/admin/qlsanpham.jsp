@@ -24,6 +24,15 @@
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
 						type="button" class="btn btn-primary">Thêm Sản Phẩm</button>
 				</a>
+				<a href="/dichvu/admin-home/admin-qlnhansanpham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
+						type="button" class="btn btn-primary">Xem LK Nhãn-SP</button>
+				</a>
+				<a href="/dichvu/admin-home/admin-qltukhoanhan.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
+						type="button" class="btn btn-primary">Xem LK Từ khóa-Nhãn</button>
+				</a>
+				
 
 			</div>
 			<%-- <jsp:useBean id="pagedListHolder" scope="request"
@@ -70,6 +79,11 @@
 								href="/dichvu/admin-home/formSanPham.htm?linkEdit&id=${th.ID}">
 									<button type="button" class="btn btn-primary"
 										data-toggle="modal" data-whatever="@mdo">SỬA</button>
+							</a></td>
+							<td><a
+								href="/dichvu/admin-home/admin-qlsanpham.htm?linkDelete&id=${th.ID}">
+									<button type="button" class="btn btn-primary"
+										data-toggle="modal" data-whatever="@mdo">Ngừng KD</button>
 							</a></td>
 							<%-- <td><a
 								href="/dichvu/admin-home/admin-qlsanpham.htm?linkDelete&id=${th.ID}"

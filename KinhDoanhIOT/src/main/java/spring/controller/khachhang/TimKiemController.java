@@ -50,7 +50,7 @@ public class TimKiemController {
 		for (SanPhamDTO sp :sps1) {
 			System.out.println("test: "+tenTuKhoas[0].toString()+" "+sp.getTen());
 
-			if(this.locTheoTenSP(tenTuKhoas, sp.getTen())==1 || masps.contains(sp.getID())) {
+			if (this.locTheoTenSP(tenTuKhoas, sp.getTen()) == 1 /* || masps.contains(sp.getID()) */ ) {
 				sps2.add(sp);
 			}
 		}
@@ -170,6 +170,9 @@ public class TimKiemController {
 		List<TuKhoa_NhanDTO> listTuKhoaNhan = new ArrayList<TuKhoa_NhanDTO>();
 		List<Nhan_SanPhamDTO> listNhanSP = new ArrayList<Nhan_SanPhamDTO>();
 		List<Long> listMaSP=new ArrayList<Long>();
+		if (tuKhoa==null || tuKhoa=="") {
+			return listMaSP;
+		}
 		try {
 			listTuKhoaNhan = Collector.getListAll("/tukhoanhan", TuKhoa_NhanDTO.class);
 			//listNhanSP = Collector.getListAll("/loaisp", Nhan_SanPhamDTO.class);
@@ -187,14 +190,15 @@ public class TimKiemController {
 				try {
 					
 					listNhanSP = Collector.getListAll("/nhansanpham?tennhan="+tkn.getNhan(), Nhan_SanPhamDTO.class);
+					for (Nhan_SanPhamDTO nsp : listNhanSP) {
+						listMaSP.add(nsp.getSanPham());
+					}
 
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				for (Nhan_SanPhamDTO nsp : listNhanSP) {
-					listMaSP.add(nsp.getSanPham());
-				}
+				
 			}
 		}
 		return listMaSP;

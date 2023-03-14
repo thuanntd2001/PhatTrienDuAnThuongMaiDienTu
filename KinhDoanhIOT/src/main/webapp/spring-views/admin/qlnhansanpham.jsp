@@ -23,8 +23,8 @@
 
 </head>
 <body>
-	<jsp:include page="/common/web/header.jsp" />
-	<jsp:include page="/common/web/menubar.jsp" />
+	<jsp:include page="/common/admin/header.jsp" />
+	<jsp:include page="/common/admin/menubar.jsp" />
 
 	<!-- CONTEND -->
 	<div class="row main">
@@ -32,13 +32,7 @@
             <div class="container">
             <div class="header-content d-flex justify-content-center">QUẢN LÝ TỪ NHÃN - SẢN PHẨM</div>
                <h4>${message}</h4>
-			<div>
-				<a href="formNhanSanPham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
-					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
-						type="button" class="btn btn-primary">Thêm liên kết</button>
-				</a>
-
-			</div>
+			
 			<%-- <jsp:useBean id="pagedListHolder" scope="request"
 				type="org.springframework.beans.support.PagedListHolder" /> --%>
 			<c:url value="admin-qlthucdon.htm" var="pagedLink">
@@ -60,6 +54,7 @@
                             <th scope="row">Tên nhãn</th>
                             <th scope="row">ID sản phẩm</th>
                             <th scope="row">Ngày tạo</th>
+                               <th scope="row">NV tạo</th>
                       
              
                             <th></th>
@@ -72,8 +67,10 @@
 							<td>${nhansanpham.nhan}</td>  
 							<td>${nhansanpham.sanPham}</td>                        
                             <td>${nhansanpham.ngayTao}</td>
+                             <td>${nhansanpham.nvTao}</td>
                     
         
+                           
 
                         </tr>
                         </c:forEach>
@@ -84,7 +81,7 @@
 				pagedListHolder="${pagedListHolder}"></tg:paging>              
             </div>
         </div>
-	<jsp:include page="/common/web/footer.jsp" />
+	<jsp:include page="/common/admin/footer.jsp" />
 
 
 

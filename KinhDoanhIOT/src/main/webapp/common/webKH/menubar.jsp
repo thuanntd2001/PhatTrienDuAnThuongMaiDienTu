@@ -3,7 +3,7 @@
 <%@include file="/common/taglib.jsp"%>
 
 
-<%-- <div class="sidebar">
+ <%-- <div class="sidebar">
 	<div class="logo_content">
 		<div class="logo">
 			<div class="logo_name">Danh Mục Loại Sản Phẩm</div>
@@ -21,7 +21,7 @@
 
 
 
-</div> --%>
+</div>  --%>
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
 	<div class="container">

@@ -136,7 +136,7 @@ ol {
 
 .set-bg {
 	background-repeat: no-repeat;
-	background-size: cover;
+/* 	background-size: cover; */
 	background-position: top center;
 }
 
@@ -3465,4 +3465,9 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+	
+}
+
+.col-lg-9 {
+   max-width: 100% !important; 
 }

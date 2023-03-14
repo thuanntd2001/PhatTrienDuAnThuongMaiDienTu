@@ -9,7 +9,7 @@
 
 <body>
 	<jsp:include page="/common/webKH/header.jsp" />
-	<jsp:include page="/common/webKH/menubar.jsp" />
+
 
 	<!-- CONTENT -->
 	<div class="container-fluid main">

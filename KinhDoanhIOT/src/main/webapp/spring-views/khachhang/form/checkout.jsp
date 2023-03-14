@@ -80,7 +80,7 @@
 
 									</div>
 									<form:form id="formsubmit" method="post"
-										action="KH-giohang.htm" modelAttribute="gioHangForm">
+										action="KH-giohang.htm" modelAttribute="ghform">
 										<div class="col-lg-4 col-md-6">
 
 											<div class="checkout__order">

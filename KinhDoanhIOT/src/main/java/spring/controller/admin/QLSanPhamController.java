@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
+import spring.bean.ObjDelLong;
 import spring.dto.LoaiSPDTO;
 import spring.dto.NhanDTO;
 import spring.dto.SanPhamDTO;
@@ -104,10 +105,11 @@ td.setTrangThai(1);
 	@RequestMapping(value = "admin-qlsanpham", params = "linkDelete")
 	public <E> String deleteDonNhapHang(HttpServletRequest request, ModelMap model) {
 		Long idTD = Long.parseLong(request.getParameter("id"));
-
+		ObjDelLong xoa= new ObjDelLong();
+		xoa.setId(idTD);
 		SanPhamDTO td=(this.getSP(idTD));
 		td.setTrangThai(0);
-		Integer temp = this.updateTD(td);
+		Integer temp = this.deleteSanPham(xoa);
 
 		if (temp != 0) {
 			model.addAttribute("message", "Delete thành công");
@@ -118,10 +120,10 @@ td.setTrangThai(1);
 		return "admin/qlsanpham";
 	}
 
-	public Integer deleteSanPham(SanPhamDTO td) {
+	public Integer deleteSanPham(ObjDelLong td) {
 //		ObjDelLong a= new ObjDelLong();
 //		a.setId(td.getID());
-		String flag = Collector.patchMess("/sanpham", td);
+		String flag = Collector.delMess("/sanpham", td);
 		System.out.println(flag);
 		if (flag.equals("00")) {
 			return 1;

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,7 +23,7 @@ import spring.dto.SanPhamDTO;
 public class ThanhToanController {
 	// CONTROLLER
 	@RequestMapping(value = "KHthanhtoan", method = RequestMethod.GET)
-	public String index(HttpServletRequest request, ModelMap model) {
+	public String index(HttpServletRequest request, ModelMap model, @ModelAttribute("gh") GioHangForm gh1) {
 		int tong = 0;
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
@@ -43,6 +44,7 @@ public class ThanhToanController {
 		}
 		model.addAttribute("spGioHang", spGioHang);
 		model.addAttribute("tongtien",tong);
+		model.addAttribute("ghform",gh1);
 	
 
 		return "khachhang/form/checkout";

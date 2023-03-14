@@ -9,10 +9,10 @@
 
 <body>
 	<jsp:include page="/common/webKH/header.jsp" />
-	<jsp:include page="/common/webKH/menubar.jsp" />
+<%-- 	<jsp:include page="/common/webKH/menubar.jsp" />
 
-	<!-- CONTENT -->
-	<div class="container-fluid main">
+ --%>	<!-- CONTENT -->
+	<!-- <div class="container-fluid main"> -->
 		<div class="container">
 			<div class="content">
 				<jsp:include page="/common/webKH/searchbar.jsp" />
@@ -47,7 +47,7 @@
 							<c:forEach var="th" items="${SanPhams}">
 
 								<div class="col-lg-4 col-md-6 col-sm-6">
-									<div class="product__item">
+									<div class="product__item" style="padding = 20px;">
 										<div class="product__item__pic set-bg"
 											data-setbg="<c:url value='/common/images/products/${th.icon}'/>">
 											<ul class="product__item__pic__hover">
@@ -88,7 +88,7 @@
 			</div>
 
 		</div>
-	</div>
+	<!-- </div> -->
 
 
 

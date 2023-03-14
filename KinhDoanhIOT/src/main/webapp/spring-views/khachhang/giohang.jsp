@@ -20,7 +20,14 @@
 				<!-- Shoping Cart Section Begin -->
 				<section class="shoping-cart spad">
 					<form:form id="formsubmit" method="post" action="KH-giohang.htm"
+						modelAttribute="gioHangForm"> 
+						<%-- <form:form id="formsubmit" method="get" action="KHthanhtoan.htm"
 						modelAttribute="gioHangForm">
+						 --%>
+						
+						
+						
+						
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12">
@@ -29,7 +36,7 @@
 										<table>
 											<thead>
 												<tr>
-													<th>No.</th>
+													<th>Stt.</th>
 													<th class="shoping__product">Sản phẩm</th>
 													<th>Giá tiền</th>
 													<th>Số lượng</th>
@@ -106,9 +113,8 @@
 										</ul>
 										<button id="btnthanhtoan" type="submit" class="site-btn">THANH
 											TOÁN</button>
-										<!-- <a href="KHthanhtoan.htm"><button id="btnthanhtoan" type="button" class="site-btn">THANH
-											TOÁN</button></a> -->	
-
+<!-- 										 <a href="KHthanhtoan.htm"><button id="btnthanhtoan" type="submit" class="site-btn">Tiến Hành Thanh Toán</button></a> 
+ -->
 
 									</div>
 								</div>

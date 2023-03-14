@@ -354,4 +354,5 @@
     </script>
 	<script src="<c:url value='/template/web/scipts.js'/>"></script>
 </body>
+
 </html>
