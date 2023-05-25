@@ -20,14 +20,14 @@
 				<!-- Shoping Cart Section Begin -->
 				<section class="shoping-cart spad">
 					<form:form id="formsubmit" method="post" action="KH-giohang.htm"
-						modelAttribute="gioHangForm"> 
+						modelAttribute="gioHangForm">
 						<%-- <form:form id="formsubmit" method="get" action="KHthanhtoan.htm"
 						modelAttribute="gioHangForm">
 						 --%>
-						
-						
-						
-						
+
+
+
+
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12">
@@ -54,23 +54,35 @@
 
 													<tr>
 														<td align="center">${status.count}</td>
+
 														<td class="shoping__cart__item"><img
 															src="img/cart/cart-1.jpg" alt="">
 															<h5>${spGioHang[status.index].ten}</h5></td>
+
 														<td id="price" class="shoping__cart__price">
 															${spGioHang[status.index].gia}</td>
 														<td class="shoping__cart__quantity">
 															<div class="quantity">
 																<div class="pro-qty">
-																	<form:input path="gioHangs[${status.index}].soLuong"
-																		class="quality-input" name="soLuong" id="soLuong"
-																		onchange="tinhTongTien" min="1"
-																		max="${spGioHang[status.index].slTon}" type="number" />
+																	<c:if test="${spGioHang[status.index].slTon>0}">
+																		<form:input path="gioHangs[${status.index}].soLuong"
+																			class="quality-input" name="soLuong" id="soLuong"
+																			onchange="tinhTongTien" min="1"
+																			max="${spGioHang[status.index].slTon}" type="number" />
+																	</c:if>
+																	<c:if test="${spGioHang[status.index].slTon<=0}">
+																		<form:input path="gioHangs[${status.index}].soLuong"
+																			class="quality-input" name="soLuong" id="soLuong"
+																			onchange="tinhTongTien" value="1" read-only="true" type="number" />
+																	</c:if>
+
+
 																</div>
 																<form:input path="gioHangs[${status.index}].maSP"
 																	name="maSP" id="maSP" type="hidden" />
 																<form:input path="gioHangs[${status.index}].ID"
 																	name="id" id="id" type="hidden" />
+																
 															</div>
 
 
@@ -81,6 +93,10 @@
 														<td class="shoping__cart__item__close"><a
 															href="KH-giohang.htm?xoa&idsp=${spGioHang[status.index].ID}"><span
 																class="icon_close"></span></a></td>
+															<c:if test="${spGioHang[status.index].slTon<=0}">
+																		
+																		<td class="shoping__cart__item__close">Sản phẩm đã hết hàng</td>
+																	</c:if>
 													</tr>
 
 
@@ -113,7 +129,7 @@
 										</ul>
 										<button id="btnthanhtoan" type="submit" class="site-btn">THANH
 											TOÁN</button>
-<!-- 										 <a href="KHthanhtoan.htm"><button id="btnthanhtoan" type="submit" class="site-btn">Tiến Hành Thanh Toán</button></a> 
+										<!-- 										 <a href="KHthanhtoan.htm"><button id="btnthanhtoan" type="submit" class="site-btn">Tiến Hành Thanh Toán</button></a> 
  -->
 
 									</div>

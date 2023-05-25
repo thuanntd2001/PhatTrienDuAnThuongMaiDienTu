@@ -49,7 +49,10 @@
 					
 						<li><a href="KHdonhang.htm">Đơn hàng của tôi</a></li>
 						<li class="active"><a href="khachhanghome.htm">Sản phẩm</a></li>
-						<li><a href="/dichvu/khachhang-login.htm?action=logout">Đăng xuất</a></li>
+						<c:if test="${USERKHMODEL != null && USERKHMODEL.userName != null}">
+							<li><a href="/dichvu/khachhang-login.htm?action=logout">Đăng xuất</a></li>
+						</c:if>
+						
 						
 					</ul>
 
@@ -82,8 +85,10 @@
 					<h2>SHOP BÁN THIẾT BỊ IOT</h2>
 
 				</div>
+				
 			</div>
 		</div>
 	</div>
+	
 </section>
 <!-- Breadcrumb Section End -->
