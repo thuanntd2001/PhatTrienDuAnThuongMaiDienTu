@@ -16,7 +16,6 @@
 	<div class="container-fluid main">
 		<div class="container">
 			<div class="content">
-				<jsp:include page="/common/webKH/searchbar.jsp" />
 	
 				
 				

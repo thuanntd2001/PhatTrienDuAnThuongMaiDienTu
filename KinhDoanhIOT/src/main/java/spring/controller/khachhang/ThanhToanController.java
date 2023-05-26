@@ -27,16 +27,16 @@ public class ThanhToanController {
 		int tong = 0;
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
-		List<GioHangDTO> gioHangs = APIFunction.getGioHangs(kh.getMaKH());
+		//List<GioHangDTO> gioHangs = APIFunction.getGioHangs(kh.getMaKH());
 
-		GioHangForm ghf = new GioHangForm();
-		ghf.setGioHangs(gioHangs);
+//		GioHangForm ghf = new GioHangForm();
+//		ghf.setGioHangs(gioHangs);
 
-		model.addAttribute("gioHangForm", ghf);
+		//model.addAttribute("gioHangForm", ghf);
 
 		List<SanPhamDTO> lstSPs = APIFunction.getSanPhams();
 		List<SanPhamDTO> spGioHang = new ArrayList<SanPhamDTO>();
-		for (GioHangDTO gh : gioHangs) {
+		for (GioHangDTO gh : gh1.getGioHangs()) {
 			
 			SanPhamDTO sp = APIFunction.getSP(gh.getMaSP(), lstSPs);
 			spGioHang.add(sp);
@@ -45,6 +45,9 @@ public class ThanhToanController {
 		model.addAttribute("spGioHang", spGioHang);
 		model.addAttribute("tongtien",tong);
 		model.addAttribute("ghform",gh1);
+		
+		
+		System.out.print(gh1.getGioHangs().get(0).getSoLuong());
 	
 
 		return "khachhang/form/checkout";

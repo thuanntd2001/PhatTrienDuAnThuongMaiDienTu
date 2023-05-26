@@ -31,9 +31,9 @@
 											<div class="col-lg-6">
 												<div class="checkout__input">
 													<p>
-														Fist Name<span>*</span>
+														Tên Khách Hàng
 													</p>
-													<input readonly type="text">
+													<input readonly type="text" value= "${USERKHMODEL.hoTen}" >
 												</div>
 											</div>
 
@@ -41,9 +41,9 @@
 
 										<div class="checkout__input">
 											<p>
-												Address<span>*</span>
+												Địa chỉ
 											</p>
-											<input readonly type="text" placeholder="Street Address"
+											<input readonly type="text" placeholder="Street Address" value= "${USERKHMODEL.diaChi}"
 												class="checkout__input" readonly>
 										</div>
 
@@ -53,17 +53,17 @@
 											<div class="col-lg-6">
 												<div class="checkout__input">
 													<p>
-														Phone<span>*</span>
+														Số điện thoại
 													</p>
-													<input readonly type="text">
+													<input readonly type="text" value= "${USERKHMODEL.sdt}">
 												</div>
 											</div>
 											<div class="col-lg-6">
 												<div class="checkout__input">
 													<p>
-														Email<span>*</span>
+														Email
 													</p>
-													<input readonly type="text">
+													<input readonly type="text" value= "${USERKHMODEL.email}">
 												</div>
 											</div>
 										</div>
@@ -90,12 +90,12 @@
 
 
 									<div class="checkout__order__products">
-										Products <span>Total</span>
+										Sản phẩm <span>Tổng</span>
 									</div>
 									<ul>
-										<c:forEach var="gh" items="${gioHangForm.gioHangs}"
+										<c:forEach var="gh" items="${ghform.gioHangs}"
 											varStatus="status">
-											<li>${spGioHang[status.index].ten}<span>${spGioHang[status.index].gia * gh.soLuong}</span></li>
+											<li>${spGioHang[status.index].ten}         <span>${spGioHang[status.index].gia * gh.soLuong}</span></li>
 
 
 
@@ -103,7 +103,7 @@
 
 											<form:input path="gioHangs[${status.index}].soLuong"
 												class="quality-input" name="soLuong" id="soLuong"
-												onchange="tinhTongTien" min="1"
+												onchange="tinhTongTien"
 												max="${spGioHang[status.index].slTon}" type="hidden" />
 
 
@@ -118,14 +118,13 @@
 									</ul>
 
 									<div class="checkout__order__total">
-										Total <span> ${tongtien}</span>
+										Tổng cộng <span> ${tongtien}</span>
 									</div>
 
 
 
 
-									<button id="btnthanhtoan" type="submit" class="site-btn">THANH
-										TOÁN</button>
+									<button id="btnthanhtoan" type="submit" class="site-btn">Đặt Hàng</button>
 
 
 								</div>
