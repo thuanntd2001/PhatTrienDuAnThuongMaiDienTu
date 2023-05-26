@@ -64,7 +64,7 @@
 					<ul>
 						
 						<li><a href="KH-giohang.htm"><i
-								class="fa fa-shopping-bag"></i> <span> </span></a></li>
+								class="fa fa-shopping-bag"></i> <span id="myData"> ${slGioHang} </span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -89,6 +89,7 @@
 			</div>
 		</div>
 	</div>
-	
+	<input type="hidden" id="makh" value="${USERKHMODEL.maKH}">
 </section>
+
 <!-- Breadcrumb Section End -->

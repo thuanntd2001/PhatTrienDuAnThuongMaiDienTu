@@ -39,7 +39,7 @@ public class GioHangAPI {
 
 			return new ArrayList<GioHangDTO>();
 		}
-			
+
 		else {
 			try {
 				id = Long.parseLong(idkh);
@@ -61,6 +61,32 @@ public class GioHangAPI {
 			System.out.print(list.size());
 			return listDTO;
 		}
+	}
+
+	@GetMapping("/slgiohang")
+	public ObjDelLong getSLGioHang(HttpServletRequest request) {
+		ObjDelLong sl = new ObjDelLong();
+		String idkh = request.getParameter("makh");
+		long id;
+		if (idkh == null) {
+			System.out.print("null");
+
+			sl.setId(0);
+		}
+
+		else {
+			try {
+				id = Long.parseLong(idkh);
+				List<GioHangEntity> list = repo.findByKhachHangMaKH(id);
+				sl.setId(list.size());
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				sl.setId(0);
+			}
+
+		}
+		return sl;
 	}
 
 	@PostMapping(value = "/giohang")
@@ -137,7 +163,6 @@ public class GioHangAPI {
 //				return "02";
 //			}
 
-			
 			return "404";
 		} else {
 			System.out.print("tồn tại");

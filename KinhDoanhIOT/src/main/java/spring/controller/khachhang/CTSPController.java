@@ -10,10 +10,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.quancafehighland.utils.SessionUtil;
+
 import spring.bean.APIFunction;
 import spring.bean.Collector;
+import spring.bean.ObjDelLong;
 import spring.dto.CTDDHDTO;
 import spring.dto.DDHDTO;
+import spring.dto.LoaiSPDTO;
+import spring.dto.LoginKHDTO;
 import spring.dto.SanPhamDTO;
 import spring.dto.UserKHDTO;
 
@@ -24,12 +29,24 @@ public class CTSPController {
 	// CONTROLLER
 	@RequestMapping(value = "khachhang-ctsp.htm", method = RequestMethod.GET)
 	public <E> String showSanPham(HttpServletRequest request, ModelMap model) {
+		try {
+			LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+			if(kh!=null) {
+			long sl=Collector.getObj("/slgiohang?makh="+kh.getMaKH().toString(), ObjDelLong.class).getId();
+			model.addAttribute("slGioHang", sl);
+
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+		}
 		Long idTD = Long.parseLong(request.getParameter("id"));
 		SanPhamDTO td = APIFunction.getSP(idTD);
 
 		List<CTDDHDTO> danhGias = this.getDanhGia(idTD);
 
 		model.addAttribute("danhGias", danhGias);
+		model.addAttribute("LoaiSPs", getLoaiSPs());
 
 		model.addAttribute("td", td);
 		model.addAttribute("loai", APIFunction.findOneLoai(td.getLoai()));
@@ -68,6 +85,16 @@ public class CTSPController {
 
 		}
 		return null;
+	}
+	public List<LoaiSPDTO> getLoaiSPs() {
+		List<LoaiSPDTO> list = null;
+		try {
+			list = Collector.getListAll("/loaisp", LoaiSPDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

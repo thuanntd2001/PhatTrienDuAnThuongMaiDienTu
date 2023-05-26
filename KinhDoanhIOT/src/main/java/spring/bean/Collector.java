@@ -14,37 +14,43 @@ import spring.config.restConfig.RestClient;
 public class Collector<T> {
 	private static RestClient rc = new RestClient();
 
-
 	private static ObjectMapper objectMapper = new ObjectMapper();
-
-	
-
-
 
 	public static <T> List<T> getListAll(String url, Class<T> elementClass) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<T> list = null;
 		CollectionType listType = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, elementClass);
-		//String json=rc.get(url);
-		//System.out.println(json);
+		// String json=rc.get(url);
+		// System.out.println(json);
 
 		list = objectMapper.readValue(rc.get(url), listType);
-		System.out.println();
 
 		return list;
 
 	}
 
-	public static <K,T> K postObj(String url, T pojo, Class<K> clazz) {
+	public static <T> T getObj(String url, Class<T> elementClass) throws IOException {
+		ObjectMapper objectMapper = new ObjectMapper();
+		T obj = null;
+		// String json=rc.get(url);
+		// System.out.println(json);
+
+		obj = objectMapper.readValue(rc.get(url), elementClass);
+
+		return obj;
+
+	}
+
+	public static <K, T> K postObj(String url, T pojo, Class<K> clazz) {
 		K obj = null;
 
 		try {
-			String json= objectMapper.writeValueAsString(pojo);
-			System.out.println( json);
-			String jsonResponse=rc.post(url, json);
-			
+			String json = objectMapper.writeValueAsString(pojo);
+			System.out.println(json);
+			String jsonResponse = rc.post(url, json);
+
 			obj = objectMapper.readValue(jsonResponse, clazz);
-			
+
 			System.out.println(jsonResponse);
 
 		} catch (JsonParseException e) {
@@ -65,14 +71,13 @@ public class Collector<T> {
 		return obj;
 
 	}
-	
+
 	public static <K> String postMess(String url, K pojo) {
 		String obj = null;
 
 		try {
-			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
+			System.out.println("js: " + objectMapper.writeValueAsString(pojo));
 			obj = rc.post(url, objectMapper.writeValueAsString(pojo));
-			
 
 		} catch (JsonParseException e) {
 			System.out.print("loi json");
@@ -92,14 +97,14 @@ public class Collector<T> {
 		return obj;
 
 	}
+
 	@SuppressWarnings("hiding")
 	public static <K> String putMess(String url, K pojo) {
 		String obj = null;
 
 		try {
-			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
+			System.out.println("js: " + objectMapper.writeValueAsString(pojo));
 			obj = rc.put(url, objectMapper.writeValueAsString(pojo));
-			
 
 		} catch (JsonParseException e) {
 			System.out.print("loi json");
@@ -119,16 +124,14 @@ public class Collector<T> {
 		return obj;
 
 	}
-	
 
 	@SuppressWarnings("hiding")
 	public static <K> String delMess(String url, K pojo) {
 		String obj = null;
 
 		try {
-			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
+			System.out.println("js: " + objectMapper.writeValueAsString(pojo));
 			obj = rc.delete(url, objectMapper.writeValueAsString(pojo));
-			
 
 		} catch (JsonParseException e) {
 			System.out.print("loi json");
@@ -148,15 +151,14 @@ public class Collector<T> {
 		return obj;
 
 	}
-	
+
 	@SuppressWarnings("hiding")
 	public static <K> String patchMess(String url, K pojo) {
 		String obj = null;
 
 		try {
-			System.out.println( "js: "+objectMapper.writeValueAsString(pojo));
+			System.out.println("js: " + objectMapper.writeValueAsString(pojo));
 			obj = rc.patch(url, objectMapper.writeValueAsString(pojo));
-			
 
 		} catch (JsonParseException e) {
 			System.out.print("loi json");

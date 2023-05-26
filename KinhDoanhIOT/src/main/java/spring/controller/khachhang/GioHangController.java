@@ -1,5 +1,6 @@
 package spring.controller.khachhang;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quancafehighland.utils.SessionUtil;
-import java.text.DecimalFormat;
 
 import spring.bean.APIFunction;
 import spring.bean.Collector;
@@ -24,7 +24,6 @@ import spring.dto.DDHDTO;
 import spring.dto.GioHangDTO;
 import spring.dto.LoginKHDTO;
 import spring.dto.SanPhamDTO;
-import spring.controller.khachhang.CurrencyFormatter;
 
 @Controller
 
@@ -33,6 +32,17 @@ public class GioHangController {
 	// CONTROLLER
 	@RequestMapping(value = "KH-giohang", method = RequestMethod.GET)
 	public <E> String showGioHang(HttpServletRequest request, ModelMap model) {
+		try {
+			LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+			if(kh!=null) {
+			long sl=Collector.getObj("/slgiohang?makh="+kh.getMaKH().toString(), ObjDelLong.class).getId();
+			model.addAttribute("slGioHang", sl);
+
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+		}
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
 		List<GioHangDTO> gioHangs = APIFunction.getGioHangs(kh.getMaKH());

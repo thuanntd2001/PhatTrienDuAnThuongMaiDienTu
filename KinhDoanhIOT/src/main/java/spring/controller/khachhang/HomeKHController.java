@@ -12,9 +12,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.quancafehighland.utils.SessionUtil;
+
 import spring.bean.APIFunction;
 import spring.bean.Collector;
+import spring.bean.ObjDelLong;
+
 import spring.dto.LoaiSPDTO;
+import spring.dto.LoginKHDTO;
 import spring.dto.NhanDTO;
 import spring.dto.SanPhamDTO;
 
@@ -25,6 +30,17 @@ public class HomeKHController {
 	// CONTROLLER
 	@RequestMapping(value = "khachhanghome", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, ModelMap model) {
+		try {
+			LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
+			if(kh!=null) {
+			long sl=Collector.getObj("/slgiohang?makh="+kh.getMaKH().toString(), ObjDelLong.class).getId();
+			model.addAttribute("slGioHang", sl);
+
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+		}
 
 	
 			model.addAttribute("LoaiSPs", getLoaiSPs());

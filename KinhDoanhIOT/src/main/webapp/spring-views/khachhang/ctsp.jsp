@@ -12,10 +12,11 @@
 
 
 	<!-- CONTENT -->
+	<jsp:include page="/common/webKH/searchbar.jsp" />
+
 	<div class="container-fluid main">
 		<div class="container">
 			<div class="content">
-				<jsp:include page="/common/webKH/searchbar.jsp" />
 				<!-- Product Details Section Begin -->
 				<section class="product-details spad">
 					<div class="container">
@@ -47,7 +48,8 @@
 										<div class="product__details__quantity">
 											<div class="quantity">
 												<div class="pro-qty">
-													<input type="number" name="sl" min="1" value="1" max="${td.slTon}">
+													<input type="number" name="sl" min="1" value="1"
+														max="${td.slTon}">
 												</div>
 
 											</div>
