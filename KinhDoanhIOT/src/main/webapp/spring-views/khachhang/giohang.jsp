@@ -17,9 +17,12 @@
 		<div class="container">
 			<div class="content">
 				<jsp:include page="/common/webKH/searchbar.jsp" />
-				<!-- Shoping Cart Section Begin -->
+	
+				
+				
+								<!-- Shoping Cart Section Begin -->
 				<section class="shoping-cart spad">
-					<form:form id="formsubmit" method="post" action="KH-giohang.htm"
+					<form:form id="formsubmit" method="post" action="KHthanhtoan.htm"
 						modelAttribute="gioHangForm">
 						<%-- <form:form id="formsubmit" method="get" action="KHthanhtoan.htm"
 						modelAttribute="gioHangForm">
@@ -73,7 +76,8 @@
 																	<c:if test="${spGioHang[status.index].slTon<=0}">
 																		<form:input path="gioHangs[${status.index}].soLuong"
 																			class="quality-input" name="soLuong" id="soLuong"
-																			onchange="tinhTongTien" value="1" read-only="true" type="number" />
+																			onchange="tinhTongTien" value="1" read-only="true"
+																			type="number" />
 																	</c:if>
 
 
@@ -82,7 +86,7 @@
 																	name="maSP" id="maSP" type="hidden" />
 																<form:input path="gioHangs[${status.index}].ID"
 																	name="id" id="id" type="hidden" />
-																
+
 															</div>
 
 
@@ -93,10 +97,11 @@
 														<td class="shoping__cart__item__close"><a
 															href="KH-giohang.htm?xoa&idsp=${spGioHang[status.index].ID}"><span
 																class="icon_close"></span></a></td>
-															<c:if test="${spGioHang[status.index].slTon<=0}">
-																		
-																		<td class="shoping__cart__item__close">Sản phẩm đã hết hàng</td>
-																	</c:if>
+														<c:if test="${spGioHang[status.index].slTon<=0}">
+
+															<td class="shoping__cart__item__close">Sản phẩm đã
+																hết hàng</td>
+														</c:if>
 													</tr>
 
 
@@ -127,9 +132,9 @@
 											<li>Tổng tiền phải trả<span id='total'></span>
 											</li>
 										</ul>
-										<button id="btnthanhtoan" type="submit" class="site-btn">THANH
-											TOÁN</button>
-										<!-- 										 <a href="KHthanhtoan.htm"><button id="btnthanhtoan" type="submit" class="site-btn">Tiến Hành Thanh Toán</button></a> 
+										<button id="btnthanhtoan" type="submit" class="site-btn">Tiến Hành Thanh Toán</button>
+										<!-- <a href="KHthanhtoan.htm"><button id="btnthanhtoan"
+												type="submit" class="site-btn">Tiến Hành Thanh Toán</button></a>
  -->
 
 									</div>
@@ -141,6 +146,12 @@
 
 				</section>
 				<!-- Shoping Cart Section End -->
+				
+				
+				
+				
+				
+				
 
 			</div>
 

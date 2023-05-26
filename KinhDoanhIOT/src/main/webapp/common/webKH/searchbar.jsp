@@ -11,7 +11,7 @@
 	<div class="col-lg-2">
 		<div class="hero__categories">
 			<div class="hero__categories__all">
-				<i class="fa fa-bars"></i> <span>Danh mục loại SP</span>
+				<i class="fa fa-bars"></i> <span>Danh mục</span>
 			</div>
 			<ul>
 				<c:forEach var="loai" items="${LoaiSPs}">

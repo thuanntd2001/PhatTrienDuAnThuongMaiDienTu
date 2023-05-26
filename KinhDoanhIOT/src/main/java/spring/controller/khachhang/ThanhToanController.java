@@ -22,7 +22,7 @@ import spring.dto.SanPhamDTO;
 @Controller
 public class ThanhToanController {
 	// CONTROLLER
-	@RequestMapping(value = "KHthanhtoan", method = RequestMethod.GET)
+	@RequestMapping(value = "KHthanhtoan", method = RequestMethod.POST)
 	public String index(HttpServletRequest request, ModelMap model, @ModelAttribute("gh") GioHangForm gh1) {
 		int tong = 0;
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
@@ -49,5 +49,5 @@ public class ThanhToanController {
 
 		return "khachhang/form/checkout";
 	}
-
+	
 }
