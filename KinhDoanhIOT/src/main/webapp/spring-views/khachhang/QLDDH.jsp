@@ -73,9 +73,51 @@
 													</div>
 												</td>
 												<c:if test="${ddh.tinhTrang <3 && ddh.tinhTrang >=0}">
-													<td><a style="font-size: 10px;"
+													<%-- <td><a style="font-size: 10px;"
 														class="btn btn-primary"
-														href="KHdonhang.htm?linkHuy&id=${ddh.id}"> Hủy ĐH</a></td>
+														href="KHdonhang.htm?linkHuy&id=${ddh.id}"> Hủy ĐH</a></td> --%>
+
+													<!-- del -->
+
+													<td>
+
+														<div class="row">
+															<button name="btnxoa" type="button"
+																class="btn btn-warning" data-toggle="modal"
+																data-target="#n-${ddh.id}">
+																Hủy Đơn
+															</button>
+
+														</div> <!-- Modal -->
+														<div class="modal fade" id="n-${ddh.id}" tabindex="-1"
+															role="dialog" aria-labelledby="exampleModalLabel"
+															aria-hidden="true">
+															<div class="modal-dialog" role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="exampleModalLabel">!!!</h5>
+																		<button type="button" class="close"
+																			data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																		</button>
+																	</div>
+																	<div class="modal-body">Bạn có chắc muốn tiếp tục</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-secondary"
+																			data-dismiss="modal">Thoát</button>
+																		<!-- nut xoa -->
+																		<a
+																			href="KHdonhang.htm?linkHuy&id=${ddh.id}">
+																			<button name="btnXOA" id="#exampleModal2"
+																				type="button" class="btn btn-warning">Đồng ý</button>
+																		</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+
+													<!-- end del  -->
 												</c:if>
 											</tr>
 

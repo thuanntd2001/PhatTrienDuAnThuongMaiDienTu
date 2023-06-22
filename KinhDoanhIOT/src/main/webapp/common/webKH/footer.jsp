@@ -45,6 +45,8 @@
 		</c:forEach>
 	</ul> --%>
 </footer>
+
+
 <!-- Footer Section End -->
 <!-- Js Plugins -->
 "
