@@ -1,5 +1,7 @@
 package springboot.dto;
 
+import java.util.Date;
+
 public class UserKHDTO {
 
 	private String userName;
@@ -14,7 +16,15 @@ public class UserKHDTO {
 
 	private Long ID;
 	private String maXacThuc;
+	private Date ngayDangKy;
 
+	public Date getNgayDangKy() {
+		return ngayDangKy;
+	}
+
+	public void setNgayDangKy(Date ngayDangKy) {
+		this.ngayDangKy = ngayDangKy;
+	}
 
 	public String getMaXacThuc() {
 		return maXacThuc;
@@ -71,6 +81,5 @@ public class UserKHDTO {
 	public void setID(Long id) {
 		this.ID = id;
 	}
-
 
 }

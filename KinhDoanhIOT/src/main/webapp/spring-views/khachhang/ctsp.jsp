@@ -4,6 +4,45 @@
 <head>
 
 <jsp:include page="/common/webKH/head.jsp" />
+<style>
+.review-section {
+	background-color: #f2f2f2;
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+.review-section h2 {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.review {
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.review-rating {
+	font-size: 24px;
+	color: #ffd700;
+	margin-bottom: 10px;
+}
+
+.review-rating .star {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.review-author {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.review-text {
+	font-size: 18px;
+	line-height: 1.5;
+}
+</style>
 
 </head>
 
@@ -92,6 +131,7 @@
 										<div class="tab-pane" id="tabs-2" role="tabpanel">
 											<div class="product__details__tab__desc">
 
+
 												<div class="review-section">
 													<h2>Đánh giá của khách hàng</h2>
 													<c:forEach var="dg" items="${danhGias}">
@@ -105,8 +145,6 @@
 																		<span class="star">&#9734;</span>
 																	</c:if>
 																</c:forEach>
-
-
 															</div>
 															<div class="review-content">
 																<p class="review-author">${dg.userName}</p>

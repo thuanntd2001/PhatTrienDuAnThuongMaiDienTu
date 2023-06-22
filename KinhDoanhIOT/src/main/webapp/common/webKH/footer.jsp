@@ -30,7 +30,7 @@
 		</div>
 	</div>
 
-	<div class="logo_content">
+<%-- 	<div class="logo_content">
 		<div class="logo">
 			<div class="logo_name">Danh Mục Nhãn</div>
 		</div>
@@ -43,7 +43,7 @@
 					<i class="fas fa-table"></i> <span class="links_name">${nhan.tenNhan}</span>
 			</a></li>
 		</c:forEach>
-	</ul>
+	</ul> --%>
 </footer>
 <!-- Footer Section End -->
 <!-- Js Plugins -->

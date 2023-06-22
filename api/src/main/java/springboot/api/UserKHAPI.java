@@ -60,6 +60,8 @@ public class UserKHAPI {
 			save.setEmail(model.getEmail());
 			save.setIcon(model.getIcon());
 			save.setMaXacThuc(model.getMaXacThuc());
+			save.setNgayDangKy(model.getNgayDangKy());
+
 			save.setStatus(model.getStatus());
 
 			check = repo.save(save);

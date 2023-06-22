@@ -112,9 +112,9 @@ td.setTrangThai(1);
 		Integer temp = this.deleteSanPham(xoa);
 
 		if (temp != 0) {
-			model.addAttribute("message", "Delete thành công");
+			model.addAttribute("message", "đưa sản phẩm vào danh mục ngừng KD thành công");
 		} else {
-			model.addAttribute("message", "Delete không thành công ! Thực đơn đã có trong hóa đơn");
+			model.addAttribute("message", "đưa sản phẩm vào danh mục ngừng KD thất bại");
 		}
 
 		return "admin/qlsanpham";

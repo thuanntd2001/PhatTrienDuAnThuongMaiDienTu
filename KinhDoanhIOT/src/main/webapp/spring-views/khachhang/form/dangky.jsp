@@ -33,8 +33,8 @@
 					
 					<label>Email</label>
 
-					<form:input id="userName" type="email" class="form-control"
-						placeholder="Username" path="email" aria-label="userName"
+					<form:input id="email" type="email" class="form-control"
+						placeholder="email" path="email" aria-label="userName"
 						maxlength="50" aria-describedby="basic-addon1" required="true"/>
 					<span class="form-message"></span> 
 					

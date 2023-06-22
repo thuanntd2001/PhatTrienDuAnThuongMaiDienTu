@@ -19,5 +19,6 @@ public interface UserKHRepository extends JpaRepository<UserKHEntity, String>{
 	UserKHEntity findByUserNameAndPasswdAndStatus(String userName, String passwd,int status);
 	UserKHEntity findByMaXacThucAndStatus(String maXacNhan,int status);
 
+
 }
 

@@ -30,21 +30,18 @@
 										<div class="row">
 											<div class="col-lg-6">
 												<div class="checkout__input">
-													<p>
-														Tên Khách Hàng
-													</p>
-													<input readonly type="text" value= "${USERKHMODEL.hoTen}" >
+													<p>Tên Khách Hàng</p>
+													<input readonly type="text" value="${USERKHMODEL.hoTen}">
 												</div>
 											</div>
 
 										</div>
 
 										<div class="checkout__input">
-											<p>
-												Địa chỉ
-											</p>
-											<input readonly type="text" placeholder="Street Address" value= "${USERKHMODEL.diaChi}"
-												class="checkout__input" readonly>
+											<p>Địa chỉ</p>
+											<input readonly type="text" placeholder="Street Address"
+												value="${USERKHMODEL.diaChi}" class="checkout__input"
+												readonly>
 										</div>
 
 
@@ -52,18 +49,14 @@
 										<div class="row">
 											<div class="col-lg-6">
 												<div class="checkout__input">
-													<p>
-														Số điện thoại
-													</p>
-													<input readonly type="text" value= "${USERKHMODEL.sdt}">
+													<p>Số điện thoại</p>
+													<input readonly type="text" value="${USERKHMODEL.sdt}">
 												</div>
 											</div>
 											<div class="col-lg-6">
 												<div class="checkout__input">
-													<p>
-														Email
-													</p>
-													<input readonly type="text" value= "${USERKHMODEL.email}">
+													<p>Email</p>
+													<input readonly type="text" value="${USERKHMODEL.email}">
 												</div>
 											</div>
 										</div>
@@ -95,7 +88,7 @@
 									<ul>
 										<c:forEach var="gh" items="${ghform.gioHangs}"
 											varStatus="status">
-											<li>${spGioHang[status.index].ten}         <span>${spGioHang[status.index].gia * gh.soLuong}</span></li>
+											<li>${spGioHang[status.index].ten}<span>${spGioHang[status.index].gia * gh.soLuong}</span></li>
 
 
 
@@ -121,10 +114,20 @@
 										Tổng cộng <span> ${tongtien}</span>
 									</div>
 
+									<fieldset>
+										<div class="checkout__order__total">Chọn phương thức
+											thanh toán</div>
+										<!-- <input type="radio" id="paypal" name="payment" value="paypal">
+										<label for="paypal">PayPal</label><br>  --><input
+											type="radio" id="cod" name="payment" value="cod" checked>
+										<label for="cod">Thanh toán khi nhận hàng</label><br>
+									</fieldset>
 
 
+									<button id="btnthanhtoan" type="submit" class="site-btn">Đặt
+										Hàng</button>
 
-									<button id="btnthanhtoan" type="submit" class="site-btn">Đặt Hàng</button>
+
 
 
 								</div>

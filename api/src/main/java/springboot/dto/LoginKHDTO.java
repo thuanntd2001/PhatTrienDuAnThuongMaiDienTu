@@ -11,6 +11,8 @@ public class LoginKHDTO {
 	private String diaChi;
 	private int trangThai=1;
 	private String maXacThuc;
+	private Date ngayDangKy;
+
 
 
 
@@ -126,6 +128,14 @@ public class LoginKHDTO {
 
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+
+	public Date getNgayDangKy() {
+		return ngayDangKy;
+	}
+
+	public void setNgayDangKy(Date ngayDangKy) {
+		this.ngayDangKy = ngayDangKy;
 	}
 
 

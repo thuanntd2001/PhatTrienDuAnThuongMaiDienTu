@@ -73,11 +73,13 @@ public class KhachHangAPI {
 			UserKHDTO item = new UserKHDTO();
 			item.setEmail(model.getEmail());
 			item.setMaXacThuc(model.getMaXacThuc());
+			item.setMaXacThuc(model.getMaXacThuc());
 			item.setPasswd(model.getPasswd());
 			item.setUserName(model.getUserName());
 			item.setStatus(0);
 			item.setID(check.getMaKH());
 			item.setIcon("logo.webp");
+			item.setNgayDangKy(model.getNgayDangKy());
 			flag = Collector.postMess("/userkh", item);
 		
 

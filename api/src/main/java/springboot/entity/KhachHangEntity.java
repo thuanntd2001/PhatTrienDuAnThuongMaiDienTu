@@ -25,6 +25,8 @@ public class KhachHangEntity {
 	@Column(name = "MAKH")
 	private Long maKH;
 
+
+	
 	@Column(name = "HOTEN")
 	private String hoTen;
 

@@ -1,5 +1,7 @@
 package springboot.entity;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "USERKH")
@@ -30,9 +36,22 @@ public class UserKHEntity {
 
 	@Column(name = "ICON")
 	private String icon;
+	
+	@Column(name = "NGAYDANGKY")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+	private Date ngayDangKy;
 
 	@Column(name = "STATUS")
 	private int status;
+
+	public Date getNgayDangKy() {
+		return ngayDangKy;
+	}
+
+	public void setNgayDangKy(Date ngayDangKy) {
+		this.ngayDangKy = ngayDangKy;
+	}
 
 	public int getStatus() {
 		return status;

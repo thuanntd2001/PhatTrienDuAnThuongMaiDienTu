@@ -14,7 +14,6 @@ public class UserKHDTO {
 
 	private Long ID;
 
-	private String maXacThuc;
 
 
 	public String getEmail() {
@@ -65,13 +64,7 @@ public class UserKHDTO {
 		this.ID = id;
 	}
 
-	public String getMaXacThuc() {
-		return maXacThuc;
-	}
 
-	public void setMaXacThuc(String maXacThuc) {
-		this.maXacThuc = maXacThuc;
-	}
 
 
 

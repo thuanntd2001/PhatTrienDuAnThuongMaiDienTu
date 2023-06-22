@@ -16,6 +16,10 @@
 		</div>
 		<form class="card-body" id="form-1" action="khachhang-xacnhan.htm"
 			method="post">
+			<label>Tên Đăng Nhập</label>
+
+			<input id="userName" type="text" 
+				maxlength="50"  />
 
 			<label>Mã Xác Nhận</label>
 

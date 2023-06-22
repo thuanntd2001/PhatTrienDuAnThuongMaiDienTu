@@ -11,9 +11,17 @@ public class LoginKHDTO {
 	private String diaChi;
 	private int trangThai=1;
 	private String maXacThuc;
+	private Date ngayDangKy;
 
 
 
+
+
+	public LoginKHDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+		ngayDangKy= new Date();
+	}
 
 	public String getMaXacThuc() {
 		return maXacThuc;
@@ -126,6 +134,14 @@ public class LoginKHDTO {
 
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+
+	public Date getNgayDangKy() {
+		return ngayDangKy;
+	}
+
+	public void setNgayDangKy(Date ngayDangKy) {
+		this.ngayDangKy = ngayDangKy;
 	}
 
 
