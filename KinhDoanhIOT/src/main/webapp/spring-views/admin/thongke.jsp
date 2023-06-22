@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css"
 	href=<c:url value="/template/web/simple-datatables/style.css"/>>
 </head>
-<body> 
+<body>
 
 	<jsp:include page="/common/admin/header.jsp" />
 	<jsp:include page="/common/admin/menubar.jsp" />
@@ -79,7 +79,8 @@
 					<div class="col-md-6 col-lg-3">
 						<div class="card info-card sales-card">
 							<div class="card-body">
-								<div class="card-title text-center">Số Đơn Đặt Hàng Thành Công</div>
+								<div class="card-title text-center">Số Đơn Đặt Hàng Thành
+									Công</div>
 
 								<div class="d-flex align-items-center justify-content-center">
 									<div
@@ -87,7 +88,7 @@
 										style="color: #e2b816; background-color: #f9f6cd;">
 										<i class="bi bi-receipt"></i>
 									</div>
-									<h6>${soDDH} đơn</h6>
+									<h6>${soDDH}đơn</h6>
 								</div>
 							</div>
 
@@ -104,7 +105,7 @@
 										class="card-icon rounded-circle d-flex align-items-center justify-content-center">
 										<i class="bi bi-currency-dollar"></i>
 									</div>
-									<h6>${loiNhuan} đồng</h6>
+									<h6>${loiNhuan}đồng</h6>
 								</div>
 							</div>
 
@@ -123,7 +124,7 @@
 										class="card-icon rounded-circle d-flex align-items-center justify-content-center">
 										<i class="bi bi-currency-dollar"></i>
 									</div>
-									<h6>${doanhThu} đồng</h6>
+									<h6>${doanhThu}đồng</h6>
 								</div>
 							</div>
 
@@ -144,7 +145,7 @@
 										class="card-icon rounded-circle d-flex align-items-center justify-content-center">
 										<i class="bi bi-currency-dollar"></i>
 									</div>
-									<h6>${chiPhi} đồng</h6>
+									<h6>${chiPhi}đồng</h6>
 								</div>
 
 							</div>
@@ -222,8 +223,8 @@
 							<!-- End Line Chart -->
 
 						</div>
-				</div>
-				<!-- End Reports -->
+					</div>
+					<!-- End Reports -->
 
 
 					<!-- Recent Sales -->
@@ -233,13 +234,15 @@
 								<h5 class="card-title">
 									Doanh Thu <span>| Hóa đơn</span>
 								</h5>
-	
+
 								<table class="table table-borderless datatable">
 									<thead>
 										<tr>
 											<th scope="col">ID</th>
 											<th scope="col">Nhân Viên Thực Hiện</th>
 											<th scope="col">Thời Gian</th>
+											<th scope="col">Chi Tiết</th>
+
 										</tr>
 									</thead>
 									<tbody>
@@ -248,17 +251,23 @@
 												<th scope="row">${hd.id}</th>
 												<td>${hd.nvThucHien}</td>
 												<td>${hd.ngayThucHien }</td>
+												<td>
+													<div class="">
+														<a style="font-size: 10px;" class="btn btn-primary"
+															href="admin-ddh/${hd.id}.htm?linkView"> XEM </a>
+													</div>
+												</td>
 											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
-	
+
 							</div>
-	
+
 						</div>
 					</div>
 					<!-- End Recent Sales -->
-	
+
 					<!-- Top Selling -->
 					<div class="col-12">
 						<div class="card top-selling overflow-auto">
@@ -297,14 +306,14 @@
 									</tbody>
 								</table>
 							</div>
-	
+
 						</div>
 					</div>
 					<!-- End Top Selling -->
 				</div>
 
-		</section>
-	</div>
+			</section>
+		</div>
 
 	</div>
 
@@ -313,8 +322,10 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="<c:url value='/template/web/simple-datatables/simple-datatables.js'/>"></script>
-	<script src="<c:url value='/template/web/simple-datatables/tinymce.min.js'/>"></script>
+	<script
+		src="<c:url value='/template/web/simple-datatables/simple-datatables.js'/>"></script>
+	<script
+		src="<c:url value='/template/web/simple-datatables/tinymce.min.js'/>"></script>
 	<script>
         (function () {
             /**

@@ -68,7 +68,7 @@
 							<tr>
 								<td>${cthd.ddh }</td>
 								<td>${cthd.sanPham }</td>
-								<td>${ctddh.tenSP }</td>
+								<td>${cthd.tenSP }</td>
 								<td>${cthd.soLuong }</td>
 								<td id="tongtien">${cthd.tongTien}</td>
 							</tr>
