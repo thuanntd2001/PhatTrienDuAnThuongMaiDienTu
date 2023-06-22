@@ -49,7 +49,7 @@
 																		--%>>
 						<button id="#exampleModal2" type="button" class="btn btn-warning">Thêm
 							CTPN</button>
-					</a><
+					</a>
 				</div>
 
 

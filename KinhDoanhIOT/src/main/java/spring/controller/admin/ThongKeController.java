@@ -1,6 +1,5 @@
 package spring.controller.admin;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -13,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.bean.Collector;
-import spring.dto.DateDTO;
 import spring.dto.DDHDTO;
+import spring.dto.DateDTO;
 import spring.dto.ThongKeDTO;
 
 @Controller
@@ -47,6 +46,7 @@ public class ThongKeController {
 
 		model.addAttribute("hoaDon", b);
 		model.addAttribute("bangPhieuNhap", thongKeList.getPhieuNhaps());
+		System.out.print(thongKeList.getPhieuNhaps().size());
 		model.addAttribute("tongHD", s);
 		return "admin/thongke";
 	}

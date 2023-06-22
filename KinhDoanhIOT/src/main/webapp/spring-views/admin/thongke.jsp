@@ -276,31 +276,29 @@
 								<table class="table table-borderless datatable">
 									<thead>
 										<tr>
-											<th scope="row">Mã Đơn</th>
-											<th scope="col">Tên NL</th>
-											<th scope="col">Ngày Nhập</th>
-											<th scope="col">Số Lượng</th>
-											<th scope="col">Giá DV</th>
-											<th scope="col">Loại Hàng</th>
-											<th scope="col">Nhà Cung Cấp</th>
-											<th scope="col">Dịch Vụ</th>
-											<th scope="col">Ghi Chú</th>
-											<th scope="col">NV Tạo</th>
+											<th scope="row">Mã PN</th>
+											<th scope="row">Ngày Nhập</th>
+
+											<th scope="row">Nhà Cung Cấp</th>
+											<th scope="row">Tình Trạng</th>
+											<th scope="row">Chi Tiết</th>
+
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="bcp" items="${bangChiPhi}">
+										<c:forEach var="bcp" items="${bangPhieuNhap}">
 											<tr>
 												<th scope="row">${bcp.id}</th>
-												<td>${bcp.tenChiPhi}</td>
-												<td>${bcp.ngayNhap}</td>
-												<td>${bcp.soLuong}</td>
-												<td>${bcp.giaDonVi}</td>
-												<td>${bcp.loai}</td>
-												<td>${bcp.nhaCungCap}</td>
-												<td>${bcp.donVi}</td>
-												<td>${bcp.ghiChu}</td>
-												<td>${bcp.nvTao}</td>
+												<td>${bcp.ngayThucHien}</td>
+
+												<td>${bcp.ncc}</td>
+												<td>${bcp.tinhTrang}</td>
+												<td>
+													<div class="">
+														<a style="font-size: 10px;" class="btn btn-primary"
+															href="admin-nhaphang/${bcp.id}.htm?linkView"> XEM </a>
+													</div>
+												</td>
 											</tr>
 										</c:forEach>
 									</tbody>
