@@ -31,7 +31,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="header-content d-flex justify-content-center">DANH
-					SÁCH ĐƠN ĐẶT HÀNG</div>
+					SÁCH ĐƠN ĐẶT HÀNG CỦA NHÂN VIÊN</div>
 				<div class="original-info d-flex justify-content-center">
 
 					<div class=" mg-0-40">
@@ -106,11 +106,11 @@
 											href="ddh.htm?linkView&id=${ddh.id}"> XEM </a>
 									</div>
 								</td>
+								<c:if test="${ddh.tinhTrang !=-1 && ddh.tinhTrang <4}">
+									<td>
+										<div class="">
 
-								<td>
-									<div class="">
-
-										<c:choose>
+											<%-- 	<c:choose>
 
 											<c:when test="${ddh.tinhTrang == 1}">
 												<a style="font-size: 10px;" class="btn btn-primary"
@@ -130,18 +130,114 @@
 											</c:when>
 
 										</c:choose>
+ --%>
+
+											<!-- del -->
+
+
+											<div class="row">
+												<button name="btnxoa" type="button" class="btn btn-primary"
+													data-toggle="modal" data-target="#n-${ddh.id}">
+													<c:choose>
+
+														<c:when test="${ddh.tinhTrang == 1}">
+												 Chuyển sang
+													 chuẩn bi hàng</a>
+														</c:when>
+														<c:when test="${ddh.tinhTrang == 2}">
+												Chuyển sang
+													 giao hàng</a>
+														</c:when>
+
+														<c:when test="${ddh.tinhTrang == 3}">
+												 Chuyển sang
+													Giao hàng thành công</a>
+														</c:when>
+
+													</c:choose>
 
 
 
+												</button>
 
+											</div>
+											<!-- Modal -->
+											<div class="modal fade" id="n-${ddh.id}" tabindex="-1"
+												role="dialog" aria-labelledby="exampleModalLabel"
+												aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel">!!!</h5>
+															<button type="button" class="close" data-dismiss="modal"
+																aria-label="Close">
+																<span aria-hidden="true">&times;</span>
+															</button>
+														</div>
+														<div class="modal-body">Bạn có chắc muốn tiếp tục
+															đổi trạng thái</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Thoát</button>
+															<!-- nut xoa -->
+															<a href="ddh.htm?linkXacNhan&id=${ddh.id}">
+																<button name="btnXOA" id="#exampleModal2" type="button"
+																	class="btn btn-warning">Đồng ý</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
 
+											<!-- end del  -->
+										</div>
+									</td>
+								</c:if>
 
-									</div>
-								</td>
 								<td><c:if test="${ddh.tinhTrang <4 && ddh.tinhTrang >0}">
-										<a style="font-size: 10px;" class="btn btn-primary"
-											href="ddh.htm?linkHuy&id=${ddh.id}"> Hủy ĐH</a>
+										<%-- <a style="font-size: 10px;" class="btn btn-primary"
+											href="ddh.htm?linkHuy&id=${ddh.id}"> Hủy ĐH</a> --%>
 
+
+
+										<!-- del -->
+
+
+										<div class="row">
+											<button name="btnxoa" type="button" class="btn btn-warning"
+												data-toggle="modal" data-target="#n-${ddh.id}">Hủy
+												Đơn</button>
+
+										</div>
+										<!-- Modal -->
+										<div class="modal fade" id="n-${ddh.id}" tabindex="-1"
+											role="dialog" aria-labelledby="exampleModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">!!!</h5>
+														<button type="button" class="close" data-dismiss="modal"
+															aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body">Bạn có chắc muốn tiếp tục hủy
+														đơn</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary"
+															data-dismiss="modal">Thoát</button>
+														<!-- nut xoa -->
+														<a href="ddh.htm?linkHuy&id=${ddh.id}">
+															<button name="btnXOA" id="#exampleModal2" type="button"
+																class="btn btn-warning">Đồng ý</button>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- end del  -->
 									</c:if></td>
 							</tr>
 						</c:forEach>

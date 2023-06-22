@@ -30,7 +30,7 @@
 	<div class="container-fluid main">
 		<div class="container">
 			<div class="content">
-				<div class="header-content d-flex justify-content-center">DANH SÁCH ĐƠN ĐẶT HÀNG</div>
+				<div class="header-content d-flex justify-content-center">DANH SÁCH ĐƠN ĐẶT HÀNG CHƯA XÁC NHẬN</div>
 				<div class="original-info d-flex justify-content-center">
 				
 					<div class=" mg-0-40">

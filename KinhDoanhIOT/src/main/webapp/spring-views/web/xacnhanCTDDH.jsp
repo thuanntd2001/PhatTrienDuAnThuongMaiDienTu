@@ -74,8 +74,8 @@ body {
 				</div>
 			</div>
 			<div class="card-footer">
-				<button class="btn btn-primary" type="submit">Xác nhận đơn
-					hàng</button>
+				<button class="btn btn-primary" type="submit"
+					>Xác nhận đơn hàng</button>
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
 					href="ddh.htm"> QUAY LẠI </a>
 			</div>
@@ -120,6 +120,47 @@ tongTiens.forEach(tongTien => {
 		});
 	</script>
 
+	<script>
+function confirmAction() {
+  // Tạo một form xác nhận
+  var form = document.createElement("form");
+  form.id = "confirm-form";
+  form.method = "post";
+  form.action = "submit-form.php";
 
+  // Thêm các input vào form xác nhận
+  var nameInput = document.createElement("input");
+  nameInput.type = "hidden";
+  nameInput.name = "name";
+  nameInput.value = document.getElementById("name").value;
+  form.appendChild(nameInput);
+
+  var emailInput = document.createElement("input");
+  emailInput.type = "hidden";
+  emailInput.name = "email";
+  emailInput.value = document.getElementById("email").value;
+  form.appendChild(emailInput);
+
+  form.innerHTML += `
+    <p>Bạn có chắc muốn submit form này?</p>
+    <button type="submit">Có</button>
+    <button type="button" onclick="hideForm()">Không</button>
+  `;
+
+  // Thêm form vào trang web
+  document.body.appendChild(form);
+
+  // Ngăn chặn submit form mặc định
+  return false;
+}
+
+function hideForm() {
+  // Ẩn form xác nhận
+  var form = document.getElementById("confirm-form");
+  if (form) {
+    form.style.display = "none";
+  }
+}
+</script>
 </body>
 </html>
