@@ -86,18 +86,53 @@
 							</c:choose>
 							<td>${nv.sdt}</td>
 							<td>${nv.diaChi}</td>
-							<td><a
-								href="/dichvu/admin-home/admin-indexkh.htm?linkDelete&id=${nv.maKH}"<%--
+							<%-- <td><a
+								href="/dichvu/admin-home/admin-indexkh.htm?linkDelete&id=${nv.maKH}"
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
-																		--%>>
+																		>
 									<button name="btnXOA" id="#exampleModal2" type="button"
-										class="btn btn-warning">Khóa thông tin và tài khoản KH</button>
-							</a></td>
-							<!-- del -->
+										class="btn btn-warning">Khóa thông tin và tài khoản
+										KH</button>
+							</a></td> --%>
+							<td>
+								<!-- del -->
 
 
+								<div class="row">
+									<button name="btnxoa" type="button" class="btn btn-warning"
+										data-toggle="modal" data-target="#n-${nv.maKH}">Khóa thông tin và tài khoản
+										KH</button>
 
-							<!-- end del  -->
+								</div> <!-- Modal -->
+								<div class="modal fade" id="n-${nv.maKH}" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">!!!</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">Bạn có chắc muốn tiếp tục</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Thoát</button>
+												<!-- nut xoa -->
+												<a
+													href="/dichvu/admin-home/admin-indexkh.htm?linkDelete&id=${nv.maKH}">
+													<button name="btnXOA" id="#exampleModal2" type="button"
+														class="btn btn-warning">Đồng ý</button>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div> <!-- end del  -->
+
+							</td>
+							<td></td>
 							<td></td>
 						</tr>
 
