@@ -1,5 +1,7 @@
 package spring.dto;
 
+import java.util.Date;
+
 public class UserKHDTO {
 
 	private String userName;
@@ -13,8 +15,25 @@ public class UserKHDTO {
 	private String icon;
 
 	private Long ID;
+	private String maXacThuc;
+	private Date ngayDangKy;
 
 
+	public String getMaXacThuc() {
+		return maXacThuc;
+	}
+
+	public void setMaXacThuc(String maXacThuc) {
+		this.maXacThuc = maXacThuc;
+	}
+
+	public Date getNgayDangKy() {
+		return ngayDangKy;
+	}
+
+	public void setNgayDangKy(Date ngayDangKy) {
+		this.ngayDangKy = ngayDangKy;
+	}
 
 	public String getEmail() {
 		return email;

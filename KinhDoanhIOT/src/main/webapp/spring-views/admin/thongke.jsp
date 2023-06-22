@@ -79,7 +79,7 @@
 					<div class="col-md-6 col-lg-3">
 						<div class="card info-card sales-card">
 							<div class="card-body">
-								<div class="card-title text-center">Số Đơn Đặt Hàng</div>
+								<div class="card-title text-center">Số Đơn Đặt Hàng Thành Công</div>
 
 								<div class="d-flex align-items-center justify-content-center">
 									<div

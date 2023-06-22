@@ -10,14 +10,14 @@ import springboot.entity.DDHEntity;
 public interface DDHRepository extends JpaRepository<DDHEntity, Long> {
 	List<DDHEntity> findByOrderByIdDesc();
 
-	@Query(value = "SELECT COUNT(*) FROM DDHEntity WHERE " + "YEAR(ngayThucHien) = ?1", nativeQuery = false)
+	@Query(value = "SELECT COUNT(*) FROM DDHEntity ddh WHERE "+ "ddh.tinhTrang >= 4 AND " + "YEAR(ngayThucHien) = ?1", nativeQuery = false)
 	Integer soDDHNam(Integer nam);
 
-	@Query(value = "SELECT COUNT(*) FROM DDHEntity WHERE "
+	@Query(value = "SELECT COUNT(*) FROM DDHEntity ddh WHERE "+ "ddh.tinhTrang >= 4 AND "
 			+ "MONTH(ngayThucHien) = ?1 AND YEAR(ngayThucHien) = ?2", nativeQuery = false)
 	Integer soDDHThang(Integer thang, Integer nam);
 
-	@Query(value = "SELECT COUNT(*) FROM DDHEntity WHERE "
+	@Query(value = "SELECT COUNT(*) FROM DDHEntity ddh WHERE "+ "ddh.tinhTrang >= 4 AND "
 			+ "DAY(ngayThucHien) = ?1 AND MONTH(ngayThucHien) = ?2 AND YEAR(ngayThucHien) = ?3", nativeQuery = false)
 	Integer soDDHNgay(Integer ngay, Integer thang, Integer nam);
 
@@ -37,14 +37,15 @@ public interface DDHRepository extends JpaRepository<DDHEntity, Long> {
 			+ "DAY(ddh.ngayThucHien) = ?1 AND MONTH(ddh.ngayThucHien) = ?2 AND YEAR(ddh.ngayThucHien) = ?3", nativeQuery = false)
 	Integer doanhThuNgay(Integer ngay, Integer thang, Integer nam);
 
-	@Query(value = "FROM DDHEntity ddh WHERE " + "YEAR(ddh.ngayThucHien) = ?1", nativeQuery = false)
+	@Query(value = "FROM DDHEntity ddh WHERE " + "ddh.tinhTrang >= 4 AND "
+			+ "YEAR(ddh.ngayThucHien) = ?1", nativeQuery = false)
 	List<DDHEntity> getDDHNam(Integer nam);
 
-	@Query(value = "FROM DDHEntity ddh WHERE "
+	@Query(value = "FROM DDHEntity ddh WHERE " + "ddh.tinhTrang >= 4 AND "
 			+ "MONTH(ddh.ngayThucHien) = ?1 AND YEAR(ddh.ngayThucHien) = ?2", nativeQuery = false)
 	List<DDHEntity> getDDHThang(Integer thang, Integer nam);
 
-	@Query(value = "FROM DDHEntity ddh WHERE "
+	@Query(value = "FROM DDHEntity ddh WHERE " + "ddh.tinhTrang >= 4 AND "
 			+ "DAY(ddh.ngayThucHien) = ?1 AND MONTH(ddh.ngayThucHien) = ?2 AND YEAR(ddh.ngayThucHien) = ?3", nativeQuery = false)
 	List<DDHEntity> getDDHNgay(Integer ngay, Integer thang, Integer nam);
 

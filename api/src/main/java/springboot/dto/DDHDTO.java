@@ -17,7 +17,7 @@ public class DDHDTO {
 		this.setId(model.getId());
 		this.setKhThucHien(model.getKhThucHien().getMaKH());
 		this.setNgayThucHien(model.getNgayThucHien());
-		if (model.getNvThucHien().getMaNV()!=null)
+		if (model.getNvThucHien()!=null)
 		this.setNvThucHien(model.getNvThucHien().getMaNV());
 		this.setTinhTrang(model.getTinhTrang());
 	}

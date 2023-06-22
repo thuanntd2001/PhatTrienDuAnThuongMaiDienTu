@@ -13,6 +13,7 @@ public class PhieuNhapDTO {
 		super();
 		this.setId(model.getId());
 		this.setNgayThucHien(model.getNgayThucHien());
+		if(model.getNvThucHien()!=null)
 		this.setNvThucHien(model.getNvThucHien().getMaNV());
 		this.setTinhTrang(model.getTinhTrang());
 		this.setNcc(model.getNcc());
