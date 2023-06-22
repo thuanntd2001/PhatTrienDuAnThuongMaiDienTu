@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IOT SHOP</title>
-<link rel="shortcut icon" type="image/png" href="https://www.logo.wine/a/logo/Costa_Coffee/Costa_Coffee-Logo.wine.svg"/>
+<link rel="shortcut icon" type="image/png"
+	href="https://www.logo.wine/a/logo/Costa_Coffee/Costa_Coffee-Logo.wine.svg" />
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -21,6 +22,8 @@
 	
 </script>
 <script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
 	
 </script>
@@ -33,4 +36,5 @@
 	href=<c:url value="/common/vendor/bootrap.min.css"/>>
 
 <!-- Custom styles for this template -->
-<link href="<c:url value='/template/web/styles.css'/>" rel="stylesheet" type="text/css"> 
+<link href="<c:url value='/template/web/styles.css'/>" rel="stylesheet"
+	type="text/css">

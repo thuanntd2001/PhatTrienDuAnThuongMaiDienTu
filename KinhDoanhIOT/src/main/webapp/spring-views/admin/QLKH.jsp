@@ -87,11 +87,11 @@
 							<td>${nv.sdt}</td>
 							<td>${nv.diaChi}</td>
 							<td><a
-								href="/dichvu/admin-home/indexkh.htm?linkDelete&id=${nv.maKH}"<%--
+								href="/dichvu/admin-home/admin-indexkh.htm?linkDelete&id=${nv.maKH}"<%--
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
 									<button name="btnXOA" id="#exampleModal2" type="button"
-										class="btn btn-warning">Khóa tài khoản</button>
+										class="btn btn-warning">Khóa thông tin và tài khoản KH</button>
 							</a></td>
 							<!-- del -->
 

@@ -1,7 +1,6 @@
 package spring.controller.admin;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,16 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.quancafehighland.utils.SessionUtil;
-
 import spring.bean.Collector;
-import spring.dto.ChucVuDTO;
-import spring.dto.NhanVienDTO;
-import spring.dto.Nhan_SanPhamDTO;
-import spring.dto.UserDTO;
 import spring.dto.UserKHDTO;
-import spring.dto.KhachHangDTO;
-import spring.dto.LoginDTO;
 
 @Controller
 @RequestMapping(value = "/admin-home/")
@@ -54,7 +45,7 @@ public class QLTaiKhoanKHController {
 		System.out.println(userName);
 
 			UserKHDTO tmp = this.getTaiKhoan(userName);
-			tmp.setStatus(0);
+			tmp.setStatus(-1);
 			temp = this.updateTK(tmp);
 		if (temp != 0) {
 			model.addAttribute("message", "Xóa thành công");

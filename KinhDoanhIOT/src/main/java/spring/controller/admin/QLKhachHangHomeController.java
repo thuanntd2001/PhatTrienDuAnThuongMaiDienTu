@@ -46,7 +46,7 @@ public class QLKhachHangHomeController {
 			model.addAttribute("message", "Xóa thành công");
 		}
 
-		return "redirect:/admin-home/indexkh.htm";
+		return "redirect:/admin-home/admin-indexkh.htm";
 
 	}
 	

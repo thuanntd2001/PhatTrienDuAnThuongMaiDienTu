@@ -23,16 +23,14 @@
 				<a href="/dichvu/admin-home/formSanPham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
 						type="button" class="btn btn-primary">Thêm Sản Phẩm</button>
-				</a>
-				<a href="/dichvu/admin-home/admin-qlnhansanpham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+				</a> <a href="/dichvu/admin-home/admin-qlnhansanpham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
 						type="button" class="btn btn-primary">Xem LK Nhãn-SP</button>
-				</a>
-				<a href="/dichvu/admin-home/admin-qltukhoanhan.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+				</a> <a href="/dichvu/admin-home/admin-qltukhoanhan.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
 						type="button" class="btn btn-primary">Xem LK Từ khóa-Nhãn</button>
 				</a>
-				
+
 
 			</div>
 			<%-- <jsp:useBean id="pagedListHolder" scope="request"
@@ -69,10 +67,12 @@
 							<th scope="row">${th.ID}</th>
 							<td>${th.loai}</td>
 							<td>${th.ten}</td>
-							<td id ="tongtien">${th.gia}</td>
+							<td id="tongtien">${th.gia}</td>
 							<td>${th.slTon}</td>
 							<td><div class="product__item__pic set-bg">
-									<img alt="" src="<c:url value='/common/images/products/${th.icon}'/>" ></div></td>
+									<img alt=""
+										src="<c:url value='/common/images/products/${th.icon}'/>">
+								</div></td>
 
 
 							<td><a
@@ -80,18 +80,50 @@
 									<button type="button" class="btn btn-primary"
 										data-toggle="modal" data-whatever="@mdo">SỬA</button>
 							</a></td>
-							<td><a
+							<%-- <td><a
 								href="/dichvu/admin-home/admin-qlsanpham.htm?linkDelete&id=${th.ID}">
 									<button type="button" class="btn btn-primary"
 										data-toggle="modal" data-whatever="@mdo">Ngừng KD</button>
-							</a></td>
-							<%-- <td><a
-								href="/dichvu/admin-home/admin-qlsanpham.htm?linkDelete&id=${th.ID}"
-																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
-																		>
-									<button name="btnXOA1" type="button" class="btn btn-warning">Xóa</button>
 							</a></td> --%>
+							<td>
+								<!-- del -->
 
+
+								<div class="row">
+									<button name="btnxoa" type="button" class="btn btn-warning"
+										data-toggle="modal" data-target="#n-${th.ID}">Ngừng
+										KD</button>
+
+								</div> <!-- Modal -->
+								<div class="modal fade" id="n-${th.ID}" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">!!!</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">Bạn có chắc muốn tiếp tục</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Thoát</button>
+												<!-- nut xoa -->
+												<a
+													href="/dichvu/admin-home/admin-qlsanpham.htm?linkDelete&id=${th.ID}">
+													<button name="btnXOA" id="#exampleModal2" type="button"
+														class="btn btn-warning">Đồng ý</button>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div> <!-- end del  -->
+
+							</td>
+							<td></td>
 						</tr>
 					</c:forEach>
 

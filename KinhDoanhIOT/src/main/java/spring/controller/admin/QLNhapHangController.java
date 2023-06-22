@@ -81,7 +81,7 @@ public class QLNhapHangController {
 		if (temp != 0) {
 			model.addAttribute("message", "Xóa thành công");
 		} else {
-			model.addAttribute("message", "Xóa không thành công");
+			model.addAttribute("message", "Xóa không thành công hãy kiểm tra xem phiếu nhập có rỗng không");
 		}
 
 		return "admin/qlnhaphang";

@@ -43,20 +43,7 @@
 					</div>
 				</div>
 
-				<%--  <jsp:useBean id="pagedListHolder" scope="request"
-					type="org.springframework.beans.support.PagedListHolder" /> --%>
-				<%-- <c:url value="hoa-don.htm" var="pagedLink">
-					<c:param name="p" value="~" />
-				</c:url>
-                <form class="input-group" style="margin: 20px 0" method="post">
-					<div>
-						<input id="search-input" type="search" name="searchInput"
-							class="form-control" placeholder="Tìm kiếm"/>
-					</div>
-					<button id="search-button" type="submit" class="btn btn-primary" name="btnsearch">
-						<i class="fas fa-search"></i>
-					</button>
-				</form> --%>
+
 				<table class="table table-striped datatable shadow-box bg-white">
 					<thead>
 						<tr>
@@ -110,27 +97,6 @@
 									<td>
 										<div class="">
 
-											<%-- 	<c:choose>
-
-											<c:when test="${ddh.tinhTrang == 1}">
-												<a style="font-size: 10px;" class="btn btn-primary"
-													href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
-													Đang chuẩn bi hàng</a>
-											</c:when>
-											<c:when test="${ddh.tinhTrang == 2}">
-												<a style="font-size: 10px;" class="btn btn-primary"
-													href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
-													Đang giao hàng</a>
-											</c:when>
-
-											<c:when test="${ddh.tinhTrang == 3}">
-												<a style="font-size: 10px;" class="btn btn-primary"
-													href="ddh.htm?linkXacNhan&id=${ddh.id}"> Chuyển sang
-													Giao hàng thành công</a>
-											</c:when>
-
-										</c:choose>
- --%>
 
 											<!-- del -->
 
@@ -193,7 +159,7 @@
 										</div>
 									</td>
 								</c:if>
-
+								<td></td>
 								<td><c:if test="${ddh.tinhTrang <4 && ddh.tinhTrang >0}">
 										<%-- <a style="font-size: 10px;" class="btn btn-primary"
 											href="ddh.htm?linkHuy&id=${ddh.id}"> Hủy ĐH</a> --%>
@@ -239,6 +205,8 @@
 
 										<!-- end del  -->
 									</c:if></td>
+								<td></td>
+
 							</tr>
 						</c:forEach>
 					</tbody>
