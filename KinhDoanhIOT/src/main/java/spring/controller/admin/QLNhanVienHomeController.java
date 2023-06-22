@@ -222,6 +222,35 @@ public class QLNhanVienHomeController {
 		return "redirect:/admin-home/index.htm";
 
 	}
+	@RequestMapping(value = "admin-index", params = "linkDelete", method = RequestMethod.GET)
+	public <E> String deleteNV(HttpServletRequest request, ModelMap model) {
+		String id1 = request.getParameter("id");
+		long maNV = Long.parseLong(id1);
+		NhanVienDTO tmp = this.getNV(maNV);
+
+		Integer temp = 1;
+		Boolean checkAdmin = checkAdmin(maNV);
+		String error = "!!!";
+		if (!checkAdmin) {
+			error = ", nhân viên đã có tài khoản, xóa tài khoản trước";
+		} else {
+			tmp.setTrangThai(0);
+
+			
+			temp = this.updateNV(tmp);
+
+		}
+
+		if (temp == 0) {
+			model.addAttribute("message", "Xóa không thành công" + error);
+		} else {
+			model.addAttribute("message", "Xóa thành công");
+		}
+
+		return "redirect:/admin-home/admin-index.htm";
+
+
+	}
 
 	public Integer updateNV(NhanVienDTO nv) {
 		String flag = Collector.putMess("/nhanvien", nv);
@@ -254,35 +283,7 @@ public class QLNhanVienHomeController {
 		return true;
 	}
 	
-	@RequestMapping(value = "admin-index", params = "linkDelete", method = RequestMethod.GET)
-	public <E> String deleteNV(HttpServletRequest request, ModelMap model) {
-		String id1 = request.getParameter("id");
-		long maNV = Long.parseLong(id1);
-		NhanVienDTO tmp = this.getNV(maNV);
 
-		Integer temp = 1;
-		Boolean checkAdmin = checkAdmin(maNV);
-		String error = "!!!";
-		if (!checkAdmin) {
-			error = ", nhân viên đã có tài khoản, xóa tài khoản trước";
-		} else {
-			tmp.setTrangThai(0);
-
-			
-			temp = this.updateNV(tmp);
-
-		}
-
-		if (temp == 0) {
-			model.addAttribute("message", "Xóa không thành công" + error);
-		} else {
-			model.addAttribute("message", "Xóa thành công");
-		}
-
-		return "redirect:/admin-home/index.htm";
-
-
-	}
 	
 	public int delete_TK(NhanVienDTO nv) {
 		String flag = Collector.delMess("/nhanvien", nv);

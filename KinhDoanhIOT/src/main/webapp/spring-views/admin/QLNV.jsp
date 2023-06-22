@@ -116,7 +116,7 @@
 
 							<!-- del -->
 							<td><a
-								href="/dichvu/admin-home/index.htm?linkDelete&id=${nv.maNV}"<%--
+								href="/dichvu/admin-home/admin-index.htm?linkDelete&id=${nv.maNV}"<%--
 																		href="/CNPM/admin-home/index.htm?linkDelete&id=${nv.maNV}"
 																		--%>>
 									<button name="btnXOA" id="#exampleModal2" type="button"
