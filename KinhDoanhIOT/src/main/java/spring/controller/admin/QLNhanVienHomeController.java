@@ -132,7 +132,7 @@ public class QLNhanVienHomeController {
 
 		}
 //		return "admin/QLNV";
-		return "redirect:/admin-home/index.htm";
+		return "redirect:/admin-home/admin-index.htm";
 	}
 
 	long temp = 0;

@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import springboot.entity.DDHEntity;
 import springboot.entity.PhieuNhapEntity;
 
 public interface PhieuNhapRepository extends JpaRepository<PhieuNhapEntity, Long> {
+	List<PhieuNhapEntity> findByOrderByIdDesc();
 
 	@Query(value = "SELECT COUNT(*) FROM PhieuNhapEntity WHERE " + "tinhTrang >= 1 AND "
 			+ "YEAR(ngayThucHien) = ?1", nativeQuery = false)

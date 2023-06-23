@@ -33,7 +33,7 @@ public class DDHAPI {
 	@GetMapping("/ddh")
 	public List<DDHDTO> getDDH() {
 
-		List<DDHEntity> list = repo.findAll();
+		List<DDHEntity> list = repo.findByOrderByIdDesc();
 		List<DDHDTO> listDTO = new ArrayList<DDHDTO>();
 		for (DDHEntity model : list) {
 			DDHDTO save = new DDHDTO();

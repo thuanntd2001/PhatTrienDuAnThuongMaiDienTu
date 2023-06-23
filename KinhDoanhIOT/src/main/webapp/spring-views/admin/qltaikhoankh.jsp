@@ -61,7 +61,7 @@
 						<th scope="row">Tên Tài Khoản</th>
 						<th scope="row">Email</th>
 						<th scope="row">Trạng thái</th>
-						<th scope="row">Mã KH</th>
+						<th scope="row">Mã khách hàng</th>
 						
 
 						<th scope="row"></th>

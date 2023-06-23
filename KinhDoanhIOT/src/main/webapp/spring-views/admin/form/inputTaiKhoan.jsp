@@ -104,7 +104,7 @@ body {
 			</div>
 			<div class="card-footer">
 				<button class="btn btn-primary" type="submit"
-					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Update' : 'Insert'}</button>
+					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'CẬP NHẬT' : 'THÊM MỚI'}</button>
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
 					href="admin-home/admin-taikhoan.htm"> QUAY LẠI </a>
 			</div>

@@ -4,7 +4,7 @@
 	<!-- Copyright -->
 	<div class="text-center p-3"
 		style="background-color: rgba(0, 0, 0, 0.2);">
-		© 2023 Copyright: <a class="text-dark" href="#+">icdayroi.com</a>
+		© 2023 Copyright: <a class="text-dark" href="#+">linhkieniot.com</a>
 	</div>
 	<!-- Copyright -->
 </footer>

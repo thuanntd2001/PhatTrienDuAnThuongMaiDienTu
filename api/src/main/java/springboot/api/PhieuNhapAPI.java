@@ -33,7 +33,7 @@ public class PhieuNhapAPI {
 	@GetMapping("/phieunhap")
 	public List<PhieuNhapDTO> getPhieuNhap() {
 
-		List<PhieuNhapEntity> list = repo.findAll();
+		List<PhieuNhapEntity> list = repo.findByOrderByIdDesc();
 		List<PhieuNhapDTO> listDTO = new ArrayList<PhieuNhapDTO>();
 		for (PhieuNhapEntity model : list) {
 			PhieuNhapDTO save = new PhieuNhapDTO();

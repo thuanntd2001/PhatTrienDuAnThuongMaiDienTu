@@ -25,10 +25,10 @@
 						type="button" class="btn btn-primary">Thêm Sản Phẩm</button>
 				</a> <a href="/dichvu/admin-home/admin-qlnhansanpham.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
-						type="button" class="btn btn-primary">Xem LK Nhãn-SP</button>
+						type="button" class="btn btn-primary">Xem liên kết Nhãn-SP</button>
 				</a> <a href="/dichvu/admin-home/admin-qltukhoanhan.htm"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
 					<button style="width: 184px; height: 33px; margin-bottom: 5px;"
-						type="button" class="btn btn-primary">Xem LK Từ khóa-Nhãn</button>
+						type="button" class="btn btn-primary">Xem liên kết Từ khóa-Nhãn</button>
 				</a>
 
 
@@ -92,7 +92,7 @@
 								<div class="row">
 									<button name="btnxoa" type="button" class="btn btn-warning"
 										data-toggle="modal" data-target="#n-${th.ID}">Ngừng
-										KD</button>
+									Bán</button>
 
 								</div> <!-- Modal -->
 								<div class="modal fade" id="n-${th.ID}" tabindex="-1"

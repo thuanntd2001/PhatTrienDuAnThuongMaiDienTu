@@ -61,6 +61,14 @@
 											</div>
 										</div>
 
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="checkout__input">
+													<p>Bạn có thể sửa các thông tin trên ở phần "thông tin tài khoản" góc trên bên phải</p>
+												</div>
+											</div>
+										
+										</div>
 
 
 
@@ -118,9 +126,10 @@
 										<div class="checkout__order__total">Chọn phương thức
 											thanh toán</div>
 										<!-- <input type="radio" id="paypal" name="payment" value="paypal">
-										<label for="paypal">PayPal</label><br>  --><input
-											type="radio" id="cod" name="payment" value="cod" checked>
-										<label for="cod">Thanh toán khi nhận hàng</label><br>
+										<label for="paypal">PayPal</label><br>  -->
+										<input type="radio" id="cod" name="payment" value="cod"
+											checked> <label for="cod">Thanh toán khi nhận
+											hàng</label><br>
 									</fieldset>
 
 

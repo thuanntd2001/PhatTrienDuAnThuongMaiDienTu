@@ -53,10 +53,10 @@
 												Khẩu</button>
 										</li>
 
-										<li class="nav-item">
+										<!-- <li class="nav-item">
 											<button class="nav-link" data-bs-toggle="tab"
 												data-bs-target="#avata-edit">Đổi ảnh đại diện</button>
-										</li>
+										</li> -->
 									</ul>
 									<div class="tab-content pt-2">
 										<div class="tab-pane fade show active profile-overview"
@@ -200,7 +200,7 @@ UùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶ�
 
 										<div class="tab-pane fade pt-3" id="profile-change-password">
 											<!-- Change Password Form -->
-											<form:form modelAttribute="changePW" action="userkh.htm"
+											<form:form modelAttribute="changePW" action="KHuser.htm"
 												method="post">
 														${message1}
 														<div class="row mb-3">

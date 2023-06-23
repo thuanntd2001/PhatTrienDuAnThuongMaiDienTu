@@ -73,12 +73,12 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="product__details__text">
 									<h3>${td.ten}</h3>
-									<div class="product__details__rating">
+									<!-- <div class="product__details__rating">
 										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 											class="fa fa-star-half-o"></i>
-										<!--  <span>(18 đánh giá)</span> -->
-									</div>
+										 <span>(18 đánh giá)</span>
+									</div> -->
 									<div id="giasp" class="product__details__price">${td.gia}</div>
 									<form action="KH-giohangthem.htm" method="get">
 

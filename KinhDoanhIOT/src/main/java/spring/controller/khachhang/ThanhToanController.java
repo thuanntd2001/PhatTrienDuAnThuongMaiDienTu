@@ -36,6 +36,10 @@ public class ThanhToanController {
 
 		List<SanPhamDTO> lstSPs = APIFunction.getSanPhams();
 		List<SanPhamDTO> spGioHang = new ArrayList<SanPhamDTO>();
+		if (gh1.getGioHangs()==null)
+		{
+			return "redirect:khachhanghome.htm?gioHangTrong";
+		}
 		for (GioHangDTO gh : gh1.getGioHangs()) {
 			
 			SanPhamDTO sp = APIFunction.getSP(gh.getMaSP(), lstSPs);

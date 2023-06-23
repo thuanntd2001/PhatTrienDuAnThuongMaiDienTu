@@ -68,7 +68,7 @@ body {
 				<!-- <button type="submit" class="btn btn-primary" name="addctnh1">Thêm
 					chi tiết nhập hàng</button> -->
 				<button class="btn btn-primary" type="submit"
-					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Update' : 'Insert'}</button>
+					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'CẬP NHẬT' : 'THÊM MỚI'}</button>
 
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
 					href="admin-home/admin-nhaphang.htm"> QUAY LẠI </a>

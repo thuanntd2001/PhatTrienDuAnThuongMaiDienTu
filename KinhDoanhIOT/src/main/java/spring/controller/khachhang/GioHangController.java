@@ -103,7 +103,7 @@ public class GioHangController {
 		LoginKHDTO kh = (LoginKHDTO) SessionUtil.getInstance().getValue(request, "USERKHMODEL");
 
 		List<GioHangDTO> gioHangs = gioHangForm.getGioHangs();
-		if (gioHangs == null) {
+		if (gioHangs == null || gioHangs.size()==0) {
 			return "redirect:KH-giohang.htm?TaoDonThatBaiDoGioHangTrong";
 		}
 		List<SanPhamDTO> lstSPs = APIFunction.getSanPhams();

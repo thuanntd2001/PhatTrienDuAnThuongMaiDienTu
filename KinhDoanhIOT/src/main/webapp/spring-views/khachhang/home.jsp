@@ -4,7 +4,14 @@
 <head>
 
 <jsp:include page="/common/webKH/head.jsp" />
-
+<style>
+h4 a{
+	color:000;
+}
+h4 a:hover{
+	color:aaa;
+}
+</style>
 </head>
 
 <body>
@@ -61,9 +68,9 @@
 										</ul>
 									</div>
 									<div id="giasp" class="product__item__text">
-										<h6>
+										<h4>
 											<a href="khachhang-ctsp.htm?id=${th.ID} ">${th.ten}</a>
-										</h6>
+										</h4>
 										<h5>${th.gia}</h5>
 										<c:if test="${th.slTon<=0}">
 											<h6>Sản phẩm đã hết hàng</h6>

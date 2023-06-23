@@ -82,8 +82,11 @@ public class QLNhanSanPhamController {
 		nsp.setNgayTao(new Date());
 
 		// List<String> listError = checkInfo(nsp);
-		Integer temp = this.insertNhanSanPham(nsp);
-
+		
+		Integer temp ;
+		
+		try {
+		temp = this.insertNhanSanPham(nsp);
 		if (temp != 0) {
 			model.addAttribute("message", "Thêm thành công");
 
@@ -92,6 +95,12 @@ public class QLNhanSanPhamController {
 		} else {
 			model.addAttribute("message", "Thêm thất bại! ");
 		}
+		}
+		catch(Exception e) {
+			model.addAttribute("message", "Thêm thất bại! ");
+
+		}
+		
 
 		return "web/qlnhansanpham";
 	}
