@@ -52,6 +52,8 @@
 								<div class="product__item" style="">
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='/common/images/products/${th.icon}'/>">
+
+										
 										<ul class="product__item__pic__hover">
 
 											<li><a href="KH-giohangthem.htm?id=${th.ID}&sl=1"><i
@@ -84,7 +86,7 @@
 
 					</div>
 				</div>
-			<!-- 	<div class="product__pagination">
+				<!-- 	<div class="product__pagination">
 					<a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#"><i
 						class="fa fa-long-arrow-right"></i></a>
 				</div> -->

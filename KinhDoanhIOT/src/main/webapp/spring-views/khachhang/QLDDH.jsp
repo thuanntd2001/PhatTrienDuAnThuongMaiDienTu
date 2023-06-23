@@ -49,7 +49,7 @@
 												Đã xác nhận đơn hàng
 												</c:when>
 														<c:when test="${ddh.tinhTrang == 2}">
-												Đang chuẩn bi hàng
+												Đang chuẩn bị hàng
 												</c:when>
 														<c:when test="${ddh.tinhTrang == 3}">
 												Đang giao hàng

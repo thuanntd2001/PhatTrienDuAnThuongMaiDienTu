@@ -45,7 +45,7 @@
 				<div class="card-header">
 					<img style="height: 50px; width: 50px; text-align: center;"
 						src="<c:url value='/common/images/logo.webp'/>" alt="highland">
-					Đăng nhập vào Icdauroi.com
+					Đăng Nhập vào IOT Shop
 
 				</div>
 				<c:if test="${not empty message}">
@@ -86,11 +86,13 @@
 
 	</div>
 
-	</section> <a href="/dichvu/khachhang-login.htm?action=login"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
-		<button type="button">Khach Hang</button>
-	</a> </main>
+	</section>  </main>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
 </body>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="/dichvu/khachhang-login.htm?action=login"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+		<button type="button">Nhân viên</button>
+	</a>
 </html>

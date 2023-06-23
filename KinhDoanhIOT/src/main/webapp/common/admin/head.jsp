@@ -38,3 +38,14 @@
 <!-- Custom styles for this template -->
 <link href="<c:url value='/template/web/styles.css'/>" rel="stylesheet"
 	type="text/css">
+
+<style>
+@font-face {
+	font-family: 'Open Sans';
+	src: url('/path/to/OpenSans-Regular.ttf') format('truetype');
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+</style>

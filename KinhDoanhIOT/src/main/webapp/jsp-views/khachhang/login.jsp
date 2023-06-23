@@ -37,16 +37,13 @@
 </head>
 <body>
 
-	 <header class="row text-center">
-
-	</header> 
 	<div class="col-6 offset-3 mt-5 ">
 		<form action="" method="post">
 			<div class="card">
 				<div class="card-header">
 					<img style="height: 50px; width: 50px; text-align: center;"
 						src="<c:url value='/common/images/logo.webp'/>" alt="highland">
-					Đăng nhập khách hàng
+					Đăng Nhập IOT Shop
 
 				</div>
 				<c:if test="${not empty message}">
@@ -77,15 +74,18 @@
 					<button type="submit" class="btn btn-primary">Đăng Nhập</button>
 
 					<button class="btn btn-secondary" type="reset">Làm Mới</button>
-					<a href="khachhang-dangky.htm" class="btn btn-primary">Chưa có tài khoản? Đăng ký</a>
-					<a href="khachhang-xacnhan.htm" >Nhập mã xác thực tài khoản</a>
+					<a href="khachhang-dangky.htm" class="btn btn-primary">Chưa có
+						tài khoản? Đăng ký</a> <a href="khachhang-xacnhan.htm">Nhập mã
+						xác thực tài khoản</a>
 
 				</div>
 			</div>
 		</form>
 	</div>
-	<a href="/dichvu/dang-nhap.htm?action=login"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
-		<button type="button">Nhan Vien</button>
-	</a>
+
 </body>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="/dichvu/dang-nhap.htm?action=login" type="reset"> <!-- 	<button type="button" class="btn btn-warning">Thêm</button> -->
+	<button type="button">Khách hàng</button>
+</a>
 </html>

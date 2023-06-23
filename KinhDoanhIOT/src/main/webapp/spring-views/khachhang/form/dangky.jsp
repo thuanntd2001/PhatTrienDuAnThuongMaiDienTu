@@ -21,13 +21,13 @@
 
 					<form:input id="userName" type="text" class="form-control"
 						placeholder="Username" path="userName" aria-label="userName"
-						maxlength="50" aria-describedby="basic-addon1" />
+						maxlength="50" aria-describedby="basic-addon1" required="true"/>
 					<span class="form-message"></span> 
 					
 					<label>Password</label>
 					<form:input id="fullname" type="password" class="form-control"
 						placeholder="Password" path="passwd" aria-label="Username"
-						maxlength="50" aria-describedby="basic-addon1" />
+						maxlength="50" aria-describedby="basic-addon1" required="true"/>
 					<span class="form-message"></span> 
 					
 					
@@ -50,7 +50,7 @@
 						</div>
 						<form:input id="fullname" type="text" class="form-control"
 							placeholder="Nguyễn Văn A" path="hoTen" aria-label="Username"
-							maxlength="50" aria-describedby="basic-addon1" />
+							maxlength="50" aria-describedby="basic-addon1" required="true"/>
 						<span class="form-message"></span>
 
 					</div>
@@ -64,7 +64,7 @@
 			<div class="form-group">
 				<label>Địa chỉ</label>
 				<form:input id="diachi" path="diaChi" type="text"
-					class="form-control" placeholder="97 Man Thiện, tp Thủ Đức" />
+					class="form-control" placeholder="97 Man Thiện, tp Thủ Đức" required="true"/>
 				<span class="form-message"></span>
 			</div>
 
@@ -74,7 +74,7 @@
 				<div class="form-group col-md-6">
 					<div class="form-group">
 						<label>Ngày Sinh</label> <br> <input type="date"
-							id="ngaysinh" name="ngaysinh" value="${ngaysinh}" /> <span
+							id="ngaysinh" name="ngaysinh" value="${ngaysinh}" required="true"/> <span
 							class="form-message"></span>
 					</div>
 				</div>

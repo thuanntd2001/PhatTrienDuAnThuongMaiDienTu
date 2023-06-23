@@ -17,7 +17,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href=<c:url value="/common/vendor/themify-icons/themify-icons.css"/>>
-<title>Document</title>
+<title>IOT Shop</title>
 </head>
 <style>
 label {

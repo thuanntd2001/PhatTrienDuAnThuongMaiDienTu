@@ -45,7 +45,7 @@
 			<c:url value="admin-taikhoanKH.htm" var="pagedLink">
 				<c:param name="p" value="~" />
 			</c:url>
-			<form class="input-group" style="margin: 20px 0" method="post">
+			<%-- <form class="input-group" style="margin: 20px 0" method="post">
 				<div>
 					<input id="search-input" type="search" name="searchInput"
 						class="form-control" placeholder="Tìm kiếm" />
@@ -54,7 +54,7 @@
 					name="btnsearch">
 					<i class="fas fa-search"></i>
 				</button>
-			</form>
+			</form> --%>
 			<table class="table table-striped shadow-box bg-white">
 				<thead>
 					<tr>

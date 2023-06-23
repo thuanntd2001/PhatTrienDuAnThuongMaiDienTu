@@ -227,15 +227,16 @@ public class QLNhanVienHomeController {
 		String id1 = request.getParameter("id");
 		long maNV = Long.parseLong(id1);
 		NhanVienDTO tmp = this.getNV(maNV);
+		System.out.println(tmp.getHoTen());
 
-		Integer temp = 1;
+		Integer temp = 0;
 		Boolean checkAdmin = checkAdmin(maNV);
 		String error = "!!!";
 		if (!checkAdmin) {
-			error = ", nhân viên đã có tài khoản, xóa tài khoản trước";
+			error = ", nhân viên đã có tài khoản admin, xóa tài khoản trước";
 		} else {
 			tmp.setTrangThai(0);
-
+			System.out.println(tmp.getHoTen());
 			
 			temp = this.updateNV(tmp);
 
@@ -260,6 +261,15 @@ public class QLNhanVienHomeController {
 		} else
 			return 0;
 	}
+	
+	public Integer patchNV(NhanVienDTO nv) {
+		String flag = Collector.putMess("/nhanvien", nv);
+		System.out.println(flag);
+		if (flag.equals("00")) {
+			return 1;
+		} else
+			return 0;
+	}
 
 	public List<UserDTO> getTaiKhoans() {
 		List<UserDTO> list = null;
@@ -277,7 +287,7 @@ public class QLNhanVienHomeController {
 		List<UserDTO> list = getTaiKhoans();
 		int n = list.size();
 		for(int i=0;i<n;i++) {
-			if(list.get(i).getID() == MaNV)return false;
+			if(list.get(i).getID() == MaNV && list.get(i).getRoleID() == 1)return false;
 		}
 		
 		return true;

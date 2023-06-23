@@ -5,7 +5,7 @@
 <div class="sidebar">
 	<div class="logo_content">
 		<div class="logo">
-			<div class="logo_name">icdayroi.com</div>
+			<div class="logo_name">shoplinhkieniot.com</div>
 		</div>
 
 	</div>

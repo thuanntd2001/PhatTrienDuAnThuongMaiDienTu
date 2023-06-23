@@ -39,8 +39,8 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="header__logo">
-					<a href="khachhanghome.htm"><img
-						src="<c:url value='/common/images/logo.webp'/>" alt=""></a>
+					<a href="khachhanghome.htm" class="navbar-brand"><img
+						src="<c:url value='/common/images/logo.webp'/> " width="75" height="75" alt=""></a>
 				</div>
 			</div>
 			<div class="col-lg-6">
