@@ -49,7 +49,7 @@ body {
 				<div class="form-group row">
 					<label class="col-sm-8 col-form-label">Tình Trạng</label>
 					<div class="col-sm-10">
-						<c:if test="${pn.tinhTrang ==0}">
+						<c:if test="${pn.tinhTrang !=1}">
 							<div class="form-check form-check-inline">
 								<form:radiobutton path="tinhTrang" value="0" />
 								<label class="form-check-label">Dự kiến nhập hàng</label>
