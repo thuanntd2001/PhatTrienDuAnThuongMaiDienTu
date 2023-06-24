@@ -112,7 +112,7 @@ body {
 				<div class="form-group col-md-6">
 					<div class="form-group">
 						<label>Ngày vào làm</label> <br> <input type="date"
-							max="2023-01-01" name="ngayvaolam" value="${ngayvaolam}" />
+							 name="ngayvaolam" value="${ngayvaolam}" />
 					</div>
 				</div>
 
@@ -152,25 +152,24 @@ body {
 						<form:input path="trangThai" value="1" type="hidden" />
 
 					</div>
-					
+
 
 				</div>
 				<button class="btn btn-primary" type="submit"
-			name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Cập Nhật' : 'Thêm'}</button>
+					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Cập Nhật' : 'Thêm'}</button>
 
-		<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
-			href="admin-home/index.htm"> QUAY LẠI </a>
+				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
+					href="admin-home/index.htm"> QUAY LẠI </a>
 			</div>
+		</form:form>
+
 	</div>
 
-	<div class="card-footer">
-		
-	</div>
+	<div class="card-footer"></div>
 
 
-	</form:form>
 
-	
+
 
 	<script src="<c:url value='/template/admin/validation.js'/>"></script>
 	<script>

@@ -31,28 +31,10 @@ body {
 		<div class="card-header">
 			<h4>Nhập Thông Tin Từ Khóa</h4>
 		</div>
-		<form:form id="form-1" class="card-body"
-			action="formTuKhoa.htm" modelAttribute="nsp" method="post">
-			<div class="form-row">
-			
-			</div>
-			<label>Tên Nhãn</label>
-			<br>
-			<div class="form-row">
-				<div class="select-menu">
+		<form:form id="form-1" class="card-body" action="formTuKhoa.htm"
+			modelAttribute="nsp" method="post">
 
-					<h5>
-						<select name="tukhoa">
-							<c:forEach items="${nhans}" var="nhan">
 
-								<option >
-									${nhan.tenNhan}</option>
-							</c:forEach>
-						</select>
-					</h5>
-
-				</div>
-			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
@@ -61,22 +43,21 @@ body {
 					<span class="form-message"></span>
 				</div>
 				<div class="form-group">
-				<button class="btn btn-primary" type="submit"
-					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'CẬP NHẬT' : 'THÊM MỚI'}</button>
-				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
-					href="/dichvu/tukhoa.htm"> QUAY LẠI </a>
-			</div>
-				
+					<button class="btn btn-primary" type="submit"
+						name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'CẬP NHẬT' : 'THÊM MỚI'}</button>
+					<a style="font-size: 16px; padding: 10px;"
+						class="btn btn-secondary" href="/dichvu/tukhoa.htm"> QUAY LẠI
+					</a>
 				</div>
-				
-				</div>
-				
-				
-				</div>
-				
-				
 
-			
+			</div>
+
+
+
+
+
+
+
 		</form:form>
 	</div>
 
