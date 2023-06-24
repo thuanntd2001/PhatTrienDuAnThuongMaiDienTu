@@ -45,8 +45,14 @@ public class DangKyKHController {
 		if (check.equals("00")) {
 			sendAuthCodeEmail(user.getEmail(), authCode);
 			model.addAttribute("message", "tao tk thanh cong");
-		} else {
+		} else if (check.equals("05")){
+			model.addAttribute("message", "tao tk that bai, UserName da ton tai");
+			return "redirect:khachhang-dangky.htm?messsage=tao tk that bai, UserName da ton tai";
+
+		}
+		else {
 			model.addAttribute("message", "tao tk that bai");
+
 		}
 		// Redirect to authentication page
 		return "khachhang/form/maxacnhan";

@@ -18,11 +18,14 @@ import springboot.dto.LoginKHDTO;
 import springboot.dto.UserKHDTO;
 import springboot.entity.KhachHangEntity;
 import springboot.repository.KhachHangRepository;
+import springboot.repository.UserKHRepository;
 
 @RestController
 public class KhachHangAPI {
 	@Autowired
 	KhachHangRepository repo;
+	@Autowired
+	UserKHRepository ukhrepo;
 
 	@GetMapping("/khachhang")
 	public List<KhachHangDTO> getKhachHang() {
@@ -36,8 +39,7 @@ public class KhachHangAPI {
 			e.setHoTen(item.getHoTen());
 			e.setNgaySinh(item.getNgaySinh());
 			e.setSdt(item.getSdt());
-			
-			
+
 			listDTO.add(e);
 		}
 		System.out.print(list.size());
@@ -46,45 +48,47 @@ public class KhachHangAPI {
 
 	@PostMapping(value = "/khachhang")
 	public String createKH(@RequestBody LoginKHDTO model) {
+		if (!ukhrepo.existsById(model.getUserName())) {
+			KhachHangEntity save = new KhachHangEntity();
+			KhachHangEntity check = null;
+			try {
+				save.setTrangThai(model.getTrangThai());
+				save.setDiaChi(model.getDiaChi());
+				save.setGioiTinh(model.getGioiTinh());
+				save.setHoTen(model.getHoTen());
+				save.setNgaySinh(model.getNgaySinh());
+				save.setSdt(model.getSdt());
 
-		KhachHangEntity save = new KhachHangEntity();
-		KhachHangEntity check = null;
-		try {
-			save.setTrangThai(model.getTrangThai());
-			save.setDiaChi(model.getDiaChi());
-			save.setGioiTinh(model.getGioiTinh());
-			save.setHoTen(model.getHoTen());
-			save.setNgaySinh(model.getNgaySinh());
-			save.setSdt(model.getSdt());
+				check = repo.save(save);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.print(model.getHoTen());
+				return "01";
+			}
+			if (check == null) {
 
-			check = repo.save(save);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.print(model.getHoTen());
-			return "01";
+				return "02";
+			}
+
+			else {
+				String flag = "00";
+				UserKHDTO item = new UserKHDTO();
+				item.setEmail(model.getEmail());
+				item.setMaXacThuc(model.getMaXacThuc());
+				item.setMaXacThuc(model.getMaXacThuc());
+				item.setPasswd(model.getPasswd());
+				item.setUserName(model.getUserName());
+				item.setStatus(0);
+				item.setID(check.getMaKH());
+				item.setIcon("logo.webp");
+				item.setNgayDangKy(model.getNgayDangKy());
+				flag = Collector.postMess("/userkh", item);
+
+				return flag;
+			}
 		}
-		if (check == null) {
+		else return "05";
 
-			return "02";
-		}
-		
-		else {
-			String flag = "00";
-			UserKHDTO item = new UserKHDTO();
-			item.setEmail(model.getEmail());
-			item.setMaXacThuc(model.getMaXacThuc());
-			item.setMaXacThuc(model.getMaXacThuc());
-			item.setPasswd(model.getPasswd());
-			item.setUserName(model.getUserName());
-			item.setStatus(0);
-			item.setID(check.getMaKH());
-			item.setIcon("logo.webp");
-			item.setNgayDangKy(model.getNgayDangKy());
-			flag = Collector.postMess("/userkh", item);
-		
-
-			return flag;
-		}
 	}
 
 	@PutMapping(value = "/khachhang")
@@ -122,8 +126,7 @@ public class KhachHangAPI {
 		}
 
 	}
-	
-	
+
 	@PutMapping(value = "/khachhang2")
 	public String updateKH2(@RequestBody LoginKHDTO model) {
 

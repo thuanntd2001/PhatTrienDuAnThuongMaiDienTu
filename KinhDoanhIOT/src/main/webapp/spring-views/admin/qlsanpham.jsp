@@ -56,7 +56,7 @@
 						<th scope="row">Tên</th>
 						<th scope="row">Giá</th>
 						<th scope="row">SL tồn</th>
-						<th scope="row">ICON</th>
+						<th scope="row">Hình ảnh</th>
 						<th></th>
 					</tr>
 				</thead>

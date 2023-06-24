@@ -47,11 +47,11 @@
 												data-bs-target="#profile-edit">Sửa Thông Tin</button>
 										</li>
 
-										<li class="nav-item">
+										<!-- <li class="nav-item">
 											<button class="nav-link" data-bs-toggle="tab"
 												data-bs-target="#profile-change-password">Đổi Mật
 												Khẩu</button>
-										</li>
+										</li> -->
 
 										<!-- <li class="nav-item">
 											<button class="nav-link" data-bs-toggle="tab"

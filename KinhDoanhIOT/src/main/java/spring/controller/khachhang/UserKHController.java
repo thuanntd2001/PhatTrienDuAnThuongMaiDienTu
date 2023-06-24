@@ -39,7 +39,7 @@ public class UserKHController {
 		
 		String check = Collector.putMess("/khachhang2", user);
 		if (check.equals("00")) {
-			model.addAttribute("message", "tao tk thanh cong");
+			model.addAttribute("message", "cap nhat thanh cong, hay dang xuat");
 			return "redirect:KHuser.htm?thanhcong";
 
 		} else {

@@ -47,17 +47,29 @@ body {
 
 
 				<div class="form-group row">
-					<label class="col-sm-4 col-form-label">Tình Trạng</label>
+					<label class="col-sm-8 col-form-label">Tình Trạng</label>
 					<div class="col-sm-10">
-						<div class="form-check form-check-inline">
-							<form:radiobutton path="tinhTrang" value="0" />
-							<label class="form-check-label">Dự kiến nhập hàng</label>
+						<c:if test="${pn.tinhTrang ==0}">
+							<div class="form-check form-check-inline">
+								<form:radiobutton path="tinhTrang" value="0" />
+								<label class="form-check-label">Dự kiến nhập hàng</label>
+								<div class="form-check form-check-inline">
+									<form:radiobutton path="tinhTrang" value="1" />
+									<label class="form-check-label">Đã nhập hàng</label>
+								</div>
+
+							</div>
+						</c:if>
+						
+						<c:if test="${pn.tinhTrang ==1}">
+
 							<div class="form-check form-check-inline">
 								<form:radiobutton path="tinhTrang" value="1" />
 								<label class="form-check-label">Đã nhập hàng</label>
 							</div>
 
-						</div>
+
+						</c:if>
 					</div>
 				</div>
 
