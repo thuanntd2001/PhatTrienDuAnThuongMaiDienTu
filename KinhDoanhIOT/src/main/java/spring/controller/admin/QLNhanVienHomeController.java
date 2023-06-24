@@ -219,7 +219,7 @@ public class QLNhanVienHomeController {
 		}
 
 		//return "admin/QLNV";
-		return "redirect:/admin-home/index.htm";
+		return "redirect:/admin-home/admin-index.htm";
 
 	}
 	@RequestMapping(value = "admin-index", params = "linkDelete", method = RequestMethod.GET)
