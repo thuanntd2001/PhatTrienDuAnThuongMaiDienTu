@@ -96,6 +96,7 @@ public class SanPhamAPI {
 
 				save.setDvt(model.getDvt());
 				save.setGia(model.getGia());
+				if (model.getIcon()!=null && !model.getIcon().equals(""))
 				save.setIcon(model.getIcon());
 				save.setId(model.getID());
 				save.setLoaiSP(loaiRepo.findById(model.getLoai()).get());
