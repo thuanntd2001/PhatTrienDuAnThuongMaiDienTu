@@ -159,7 +159,7 @@ body {
 					name="${btnupdate ? 'btnupdate' : 'Insert'}">${btnupdate ? 'Cập Nhật' : 'Thêm'}</button>
 
 				<a style="font-size: 16px; padding: 10px;" class="btn btn-secondary"
-					href="admin-home/index.htm"> QUAY LẠI </a>
+					href="admin-home/admin-index.htm"> QUAY LẠI </a>
 			</div>
 		</form:form>
 
