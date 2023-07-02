@@ -1,0 +1,17 @@
+# Sử dụng ảnh base tomcat:8.5
+FROM tomcat:8.5
+
+# Sao chép tập tin WAR ứng dụng vào thư mục webapps của Tomcat
+COPY your-app.war /usr/local/tomcat/webapps/
+
+# Sao chép tệp context.xml tùy chỉnh vào Tomcat
+COPY context.xml /usr/local/tomcat/conf/
+
+# Sao chép tập tin JAR chứa các phụ thuộc cần thiết vào thư mục lib của Tomcat
+COPY dependencies/*.jar /usr/local/tomcat/lib/
+
+# Thiết lập biến môi trường JAVA_OPTS để sử dụng Java 8
+ENV JAVA_OPTS="-Dfile.encoding=UTF-8 -Djava.security.egd=file:/dev/./urandom -Duser.timezone=Asia/Ho_Chi_Minh -Xms512M -Xmx1024M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/usr/local/tomcat/logs/"
+
+# Mở cổng 8080 để truy cập ứng dụng thông qua trình duyệt
+EXPOSE 8080

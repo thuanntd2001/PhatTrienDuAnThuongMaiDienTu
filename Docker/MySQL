@@ -1,0 +1,15 @@
+# Sử dụng image chính thức của MySQL
+FROM mysql:latest
+
+# Thêm các biến môi trường cho cơ sở dữ liệu
+ENV MYSQL_ROOT_PASSWORD=password
+ENV MYSQL_DATABASE=mydb
+
+# Sao chép tệp SQL vào container
+COPY mydb.sql /docker-entrypoint-initdb.d/
+
+# Thiết lập cổng mặc định của MySQL
+EXPOSE 3306
+
+# Chạy MySQL khi container được khởi động
+CMD ["mysqld"]
