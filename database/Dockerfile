@@ -9,6 +9,4 @@ RUN mkdir -p /docker-entrypoint-initdb.d
 # Sao chép tệp SQL từ máy tính của bạn vào container
 COPY chinhsuacuoi2.sql /docker-entrypoint-initdb.d/
 
-# Khởi động máy chủ MySQL và nạp tệp SQL
-CMD ["mysqld", "--init-file=/docker-entrypoint-initdb.d/chinhsuacuoi.sql"]
 
