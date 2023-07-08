@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `KINHDOANHIOT` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `KINHDOANHIOT`;
 -- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
 --
 -- Host: localhost    Database: KINHDOANHIOT
@@ -60,7 +62,7 @@ CREATE TABLE `CTDDH` (
   KEY `fk_CTDDH_DONDATHANG1_idx` (`MADDH`),
   CONSTRAINT `fk_CTDDH_DONDATHANG1` FOREIGN KEY (`MADDH`) REFERENCES `DONDATHANG` (`MADDH`),
   CONSTRAINT `fk_CTPX_SANPHAM10` FOREIGN KEY (`SANPHAM`) REFERENCES `SANPHAM` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +71,7 @@ CREATE TABLE `CTDDH` (
 
 LOCK TABLES `CTDDH` WRITE;
 /*!40000 ALTER TABLE `CTDDH` DISABLE KEYS */;
-INSERT INTO `CTDDH` VALUES (1,1,3,600000,1,1,'te'),(58,1,2,400000,2,5,'San pham tot'),(58,3,4,800000,3,2,'san pham nhu cut'),(58,5,3,600000,4,0,NULL),(58,9,4,3200000,5,0,NULL),(58,10,5,20000,6,0,NULL),(59,3,1,200000,7,5,NULL),(59,6,1,30000,8,0,NULL),(59,2,1,10000,9,0,NULL),(60,3,1,200000,10,0,NULL),(61,3,1,200000,11,0,NULL),(62,2,1,10000,12,0,NULL),(63,2,1,10000,13,0,NULL),(64,3,1,200000,14,0,NULL),(65,3,1,200000,15,0,NULL),(66,1,1,200000,16,0,NULL),(66,2,1,10000,17,0,NULL),(67,2,1,10000,18,0,NULL),(67,1,2,400000,19,0,NULL),(68,1,2,400000,20,0,NULL),(68,2,2,20000,21,0,NULL),(69,3,4,800000,22,0,NULL),(69,2,1,10000,23,0,NULL),(70,3,4,800000,24,0,NULL),(71,3,1,200000,25,0,NULL),(72,3,1,200000,26,0,NULL),(72,2,1,10000,27,0,NULL);
+INSERT INTO `CTDDH` VALUES (1,1,3,600000,1,1,'te'),(58,1,2,400000,2,5,'San pham tot'),(58,3,4,800000,3,2,'san pham nhu cut'),(58,5,3,600000,4,0,NULL),(58,9,4,3200000,5,0,NULL),(58,10,5,20000,6,0,NULL),(59,3,1,200000,7,5,NULL),(59,6,1,30000,8,0,NULL),(59,2,1,10000,9,0,NULL),(60,3,1,200000,10,0,NULL),(61,3,1,200000,11,0,NULL),(62,2,1,10000,12,0,NULL),(63,2,1,10000,13,0,NULL),(64,3,1,200000,14,0,NULL),(65,3,1,200000,15,0,NULL),(66,1,1,200000,16,0,NULL),(66,2,1,10000,17,0,NULL),(67,2,1,10000,18,0,NULL),(67,1,2,400000,19,0,NULL),(68,1,2,400000,20,0,NULL),(68,2,2,20000,21,0,NULL),(69,3,4,800000,22,0,NULL),(69,2,1,10000,23,0,NULL),(70,3,4,800000,24,0,NULL),(71,3,1,200000,25,0,NULL),(72,3,1,200000,26,0,NULL),(72,2,1,10000,27,0,NULL),(73,1,1,200000,28,5,'san sham tuyet voi'),(74,2,1,10000,29,0,NULL),(74,3,1,200000,30,0,NULL),(75,3,1,200000,31,0,NULL),(76,3,1,200000,32,0,NULL),(77,3,2,400000,33,0,NULL),(77,2,1,10000,34,0,NULL),(78,3,2,400000,35,0,NULL),(78,2,1,10000,36,0,NULL);
 /*!40000 ALTER TABLE `CTDDH` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +94,7 @@ CREATE TABLE `CTPN` (
   KEY `fk_CTPN_SANPHAM1_idx` (`SANPHAM`),
   CONSTRAINT `fk_CTPN_PHIEUNHAP1` FOREIGN KEY (`MAPN`) REFERENCES `PHIEUNHAP` (`MAPN`),
   CONSTRAINT `fk_CTPN_SANPHAM1` FOREIGN KEY (`SANPHAM`) REFERENCES `SANPHAM` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +103,7 @@ CREATE TABLE `CTPN` (
 
 LOCK TABLES `CTPN` WRITE;
 /*!40000 ALTER TABLE `CTPN` DISABLE KEYS */;
-INSERT INTO `CTPN` VALUES (1,1,20,400000,1),(2,2,300,6000,2),(2,1,3,190000,3),(2,3,3,100000,4),(5,6,3000,5000,5),(5,1,3,100000,6),(1,6,2,2000,7),(5,2,55,8000,8),(4,1,40,4000,9),(3,2,400,3000,10);
+INSERT INTO `CTPN` VALUES (1,1,20,400000,1),(2,2,300,6000,2),(2,1,3,190000,3),(2,3,3,100000,4),(5,6,3000,5000,5),(5,1,3,100000,6),(1,6,2,2000,7),(5,2,55,8000,8),(4,1,40,4000,9),(3,2,400,3000,10),(1,5,12,30000,11);
 /*!40000 ALTER TABLE `CTPN` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +126,7 @@ CREATE TABLE `DONDATHANG` (
   KEY `fk_DONDATHANG_KHACHHANG1_idx` (`MAKH`),
   CONSTRAINT `fk_DONDATHANG_KHACHHANG1` FOREIGN KEY (`MAKH`) REFERENCES `KHACHHANG` (`MAKH`),
   CONSTRAINT `FK_HOADON_NHANVIEN` FOREIGN KEY (`NVXACNHAN`) REFERENCES `NHANVIEN` (`MANV`) ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +135,7 @@ CREATE TABLE `DONDATHANG` (
 
 LOCK TABLES `DONDATHANG` WRITE;
 /*!40000 ALTER TABLE `DONDATHANG` DISABLE KEYS */;
-INSERT INTO `DONDATHANG` VALUES (1,'2023-02-01 00:00:00',2,4,1,0),(58,'2023-03-08 18:12:23',2,4,1,0),(59,'2023-03-09 12:52:18',NULL,-1,1,0),(60,'2023-05-25 20:04:13',NULL,-1,1,0),(61,'2023-05-26 16:37:46',NULL,-1,1,0),(62,'2023-05-26 16:38:27',NULL,-1,1,0),(63,'2023-05-26 16:38:36',NULL,-1,1,0),(64,'2023-05-26 16:46:47',NULL,-1,1,0),(65,'2023-05-26 17:39:54',2,-1,1,0),(66,'2023-05-26 17:59:09',2,4,1,0),(67,'2023-05-26 18:01:16',NULL,-1,1,0),(68,'2023-05-26 20:17:48',2,2,1,0),(69,'2023-06-20 13:12:00',2,2,1,0),(70,'2023-06-22 18:35:28',2,4,1,0),(71,'2023-06-22 19:06:50',2,1,1,0),(72,'2023-06-22 19:09:02',2,1,1,0);
+INSERT INTO `DONDATHANG` VALUES (1,'2023-02-01 00:00:00',2,4,1,0),(58,'2023-03-08 18:12:23',2,4,1,0),(59,'2023-03-09 12:52:18',NULL,-1,1,0),(60,'2023-05-25 20:04:13',NULL,-1,1,0),(61,'2023-05-26 16:37:46',NULL,-1,1,0),(62,'2023-05-26 16:38:27',NULL,-1,1,0),(63,'2023-05-26 16:38:36',NULL,-1,1,0),(64,'2023-05-26 16:46:47',NULL,-1,1,0),(65,'2023-05-26 17:39:54',2,-1,1,0),(66,'2023-05-26 17:59:09',2,4,1,0),(67,'2023-05-26 18:01:16',NULL,-1,1,0),(68,'2023-05-26 20:17:48',2,4,1,0),(69,'2023-06-20 13:12:00',2,2,1,0),(70,'2023-06-22 18:35:28',2,4,1,0),(71,'2023-06-22 19:06:50',2,1,1,0),(72,'2023-06-22 19:09:02',2,2,1,0),(73,'2023-06-23 09:35:11',2,4,1,0),(74,'2023-06-23 13:28:27',NULL,-1,34,0),(75,'2023-06-23 16:01:32',NULL,0,1,0),(76,'2023-06-24 12:59:34',NULL,-1,39,0),(77,'2023-06-24 13:44:52',NULL,-1,39,0),(78,'2023-06-24 13:53:24',2,4,39,0);
 /*!40000 ALTER TABLE `DONDATHANG` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +158,7 @@ CREATE TABLE `GIOHANG` (
   KEY `fk_GIOHANG_KHACHHANG1_idx` (`MAKH`),
   CONSTRAINT `fk_CTPX_SANPHAM100` FOREIGN KEY (`SANPHAM`) REFERENCES `SANPHAM` (`ID`),
   CONSTRAINT `fk_GIOHANG_KHACHHANG1` FOREIGN KEY (`MAKH`) REFERENCES `KHACHHANG` (`MAKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,6 +167,7 @@ CREATE TABLE `GIOHANG` (
 
 LOCK TABLES `GIOHANG` WRITE;
 /*!40000 ALTER TABLE `GIOHANG` DISABLE KEYS */;
+INSERT INTO `GIOHANG` VALUES (1,34,1,42),(5,34,1,43),(3,1,1,47),(2,1,1,48);
 /*!40000 ALTER TABLE `GIOHANG` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +187,7 @@ CREATE TABLE `KHACHHANG` (
   `DIACHI` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `TRANGTHAI` int NOT NULL DEFAULT '1' COMMENT '1 Hoat dong\\n0 BAN\\n',
   PRIMARY KEY (`MAKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +196,7 @@ CREATE TABLE `KHACHHANG` (
 
 LOCK TABLES `KHACHHANG` WRITE;
 /*!40000 ALTER TABLE `KHACHHANG` DISABLE KEYS */;
-INSERT INTO `KHACHHANG` VALUES (1,'thuan1','2001-10-03',_binary '','0987754321','66 thu q9',1),(25,'sdfdsfgh','2001-10-03',_binary '','0987754321','66 thu q9',0),(26,'bnbvnb','2001-10-03',_binary '','0987754321','66 thu q9',0),(27,'cvh',NULL,_binary '\0','8768976897','dfghfgxh',0),(28,'cvh',NULL,_binary '\0','8768976897','dfghfgxh',0),(29,'cvh',NULL,_binary '\0','8768976897','dfghfgxh',0),(30,'asdf',NULL,_binary '','4534543534','sadfsdf',0),(31,'asdfasdf',NULL,_binary '','3545345345','asdfsadfasdf',0),(32,'tran h',NULL,_binary '\0','0932409234','66 kh sdf pos',0);
+INSERT INTO `KHACHHANG` VALUES (1,'thuan1','2001-10-03',_binary '','0987754321','66 thu q9',1),(25,'sdfdsfgh','2001-10-03',_binary '','0987754321','66 thu q9',1),(26,'bnbvnb','2001-10-03',_binary '','0987754321','66 thu q9',1),(27,'cvh',NULL,_binary '\0','8768976897','dfghfgxh',1),(28,'cvh',NULL,_binary '\0','8768976897','dfghfgxh',1),(29,'cvh',NULL,_binary '\0','8768976897','dfghfgxh',1),(30,'asdf',NULL,_binary '','4534543534','sadfsdf',1),(31,'asdfasdf',NULL,_binary '','3545345345','asdfsadfasdf',1),(32,'tran h',NULL,_binary '\0','0932409234','66 kh sdf pos',1),(33,'huhui',NULL,_binary '\0','0909909009','ugiuyguig',1),(34,'huhui',NULL,_binary '\0','0909909009','ugiuyguig',1),(35,'sdfas',NULL,_binary '\0','0909090909','sdfasdf w',1),(36,'asdf',NULL,_binary '\0','0909090909','44 ghgh',1),(37,'asdf',NULL,_binary '\0','0909090909','44 ghgh',1),(38,'thuan',NULL,_binary '\0','9892830482','66 quang trung',1),(39,'thuan',NULL,_binary '','0909092304','66 quang trung',1);
 /*!40000 ALTER TABLE `KHACHHANG` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +246,7 @@ CREATE TABLE `NHAN` (
 
 LOCK TABLES `NHAN` WRITE;
 /*!40000 ALTER TABLE `NHAN` DISABLE KEYS */;
-INSERT INTO `NHAN` VALUES ('cảm','2021-01-01',1,NULL),('linh kiện','2023-06-02',2,NULL),('vi điều khiển','2023-06-02',2,NULL);
+INSERT INTO `NHAN` VALUES ('cảm','2021-01-01',1,NULL),('chip','2023-06-24',2,NULL),('linh kiện','2023-06-02',2,NULL),('man hinh','2023-06-23',2,NULL),('tu dong','2023-06-24',2,NULL),('vi điều khiển','2023-06-02',2,NULL);
 /*!40000 ALTER TABLE `NHAN` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +269,7 @@ CREATE TABLE `NHANVIEN` (
   `NGAYVAOLAM` date NOT NULL,
   `TRANGTHAI` int NOT NULL DEFAULT '0' COMMENT '1 hoat dong\\n0 ban\\n',
   PRIMARY KEY (`MANV`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -275,7 +278,7 @@ CREATE TABLE `NHANVIEN` (
 
 LOCK TABLES `NHANVIEN` WRITE;
 /*!40000 ALTER TABLE `NHANVIEN` DISABLE KEYS */;
-INSERT INTO `NHANVIEN` VALUES (1,'NHAN','2003-03-21',_binary '\0',1000000,'0121275555','45460540654','11 NGUYỄN ĐÌNH CHIỂU','0011-07-13',1),(2,'NGUYỄN LUNG LINH','2001-05-29',_binary '',160000,'0308156570','7084065406440','244 Lê Văn Việt','0013-06-07',1),(3,'NGUYỄN TRẦN ĐỨC THUẬN','0007-07-25',_binary '',60000,'030815654 ','7084065406440','55 NGUYỄN VĂN THỦ','0007-07-13',1),(4,'ĐINH NHO NAM','0025-07-07',_binary '',60000,'03453454  ','70840634440','55 NGUYỄN VĂN THỦ','0011-09-09',1),(5,'TRẦN VỚ VẨN','1977-06-03',_binary '',80000,'0308156543','7084065240','97 MAN THIỆN','2022-01-01',1),(6,'HUỲNH NGỌC DƯƠNG','2001-01-01',_binary '',60000,'23415654  ','7084065406440','55 NGUYỄN VĂN THỦ','2021-06-06',1),(7,'NGUYỄN Long Lanh','2022-04-21',_binary '\0',999999,'123123','34','33 ert','2022-04-21',0),(8,'NGUYỄN LUNG LINh','2022-04-21',_binary '',123,'123','34','33 ert','2022-04-21',0),(9,'NGUYỄN LUNG LINh','2022-04-21',_binary '',123,'123','34','33 ert','2022-04-21',0),(13,'Mộng Mơ','2022-05-01',_binary '\0',123000,'0308156570','13123123123','244 LÊ VĂN VIỆT 2','2022-05-05',0),(16,'Đức Thuận','2001-02-11',_binary '\0',123010,'0308152234','7084065406443','2323 nguyễn trường tộ','2022-05-12',0),(17,'thuan','2002-01-01',_binary '',1230002,'0932323234','3489787874654','23 nguyện ty','2022-05-06',0),(18,'thuan 3','2001-01-16',_binary '\0',2342000,'3434343412','70840654064','33 ert','2022-05-05',0),(19,'NGUYỄN Lóng Lánh long lanh','2002-02-21',_binary '\0',1230000,'0308156570','708406540','2323 nguyễn trường tộ','2022-05-04',0),(23,'Bad girl','1999-02-01',_binary '\0',9000000,'0909232323','12345678910','123 nguyen tu q2','2022-02-01',0),(24,'good boy','1999-02-01',_binary '',9000000,'0909232323','123456756410','123 nguyen tu q2','2022-02-01',0),(25,'hihi','1975-02-16',_binary '\0',100000,'0421241242','131232153245','77 ngu nguc','2022-11-02',0),(26,'hihi','1975-02-16',_binary '',100000,'0421241242','131232153245','77 ngu nguc','2022-11-02',0);
+INSERT INTO `NHANVIEN` VALUES (1,'NHAN','2003-03-21',_binary '\0',1000000,'0121275555','45460540654','11 NGUYỄN ĐÌNH CHIỂU','0011-07-13',1),(2,'NGUYỄN LUNG LINH','2001-05-29',_binary '',160000,'0308156570','7084065406440','244 Lê Văn Việt','0013-06-07',1),(3,'NGUYỄN TRẦN ĐỨC THUẬN','0007-07-25',_binary '',60000,'030815654 ','7084065406440','55 NGUYỄN VĂN THỦ','0007-07-13',1),(4,'ĐINH NHO NAM','0025-07-07',_binary '',60000,'03453454  ','70840634440','55 NGUYỄN VĂN THỦ','0011-09-09',1),(5,'TRẦN VỚ VẨN','1977-06-03',_binary '',80000,'0308156543','7084065240','97 MAN THIỆN','2022-01-01',1),(6,'HUỲNH NGỌC DƯƠNG','2001-01-01',_binary '',60000,'23415654  ','7084065406440','55 NGUYỄN VĂN THỦ','2021-06-06',1),(7,'NGUYỄN Long Lanh','2022-04-21',_binary '\0',999999,'123123','34','33 ert','2022-04-21',1),(8,'NGUYỄN LUNG LINh','2022-04-21',_binary '',123,'123','34','33 ert','2022-04-21',1),(9,'NGUYỄN LUNG LINh','2022-04-21',_binary '',123,'123','34','33 ert','2022-04-21',1),(13,'Mộng Mơ','2022-05-01',_binary '\0',123000,'0308156570','13123123123','244 LÊ VĂN VIỆT 2','2022-05-05',0),(16,'Đức Thuận','2001-02-11',_binary '\0',123010,'0308152234','7084065406443','2323 nguyễn trường tộ','2022-05-12',0),(17,'thuan','2002-01-01',_binary '',1230002,'0932323234','3489787874654','23 nguyện ty','2022-05-06',0),(18,'thuan 3','2001-01-16',_binary '\0',2342000,'3434343412','70840654064','33 ert','2022-05-05',0),(19,'NGUYỄN Lóng Lánh long lanh','2002-02-21',_binary '\0',1230000,'0308156570','708406540','2323 nguyễn trường tộ','2022-05-04',0),(23,'Bad girl','1999-02-01',_binary '\0',9000000,'0909232323','12345678910','123 nguyen tu q2','2022-02-01',0),(24,'good boy','1999-02-01',_binary '',9000000,'0909232323','123456756410','123 nguyen tu q2','2022-02-01',0),(25,'hihi','1975-02-16',_binary '\0',100000,'0421241242','131232153245','77 ngu nguc','2022-11-02',0),(26,'hihi','1975-02-16',_binary '',100000,'0421241242','131232153245','77 ngu nguc','2022-11-02',0),(27,'Nguyễn Ngọc Bút Bi','2023-06-25',_binary '\0',50000000,'0909909009','938263663','123 Hai Bà Trưng, TP. HCM','2000-03-15',1);
 /*!40000 ALTER TABLE `NHANVIEN` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +302,7 @@ CREATE TABLE `NHAN_SANPHAM` (
   KEY `fk_NHAN_SANPHAM_NHAN1_idx` (`TENNHAN`),
   CONSTRAINT `fk_NHAN_has_SANPHAM_SANPHAM1` FOREIGN KEY (`SANPHAM_ID`) REFERENCES `SANPHAM` (`ID`),
   CONSTRAINT `fk_NHAN_SANPHAM_NHAN1` FOREIGN KEY (`TENNHAN`) REFERENCES `NHAN` (`TENNHAN`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -308,7 +311,7 @@ CREATE TABLE `NHAN_SANPHAM` (
 
 LOCK TABLES `NHAN_SANPHAM` WRITE;
 /*!40000 ALTER TABLE `NHAN_SANPHAM` DISABLE KEYS */;
-INSERT INTO `NHAN_SANPHAM` VALUES (1,1,'cảm','2021-01-01',1,NULL),(2,2,'cảm','2021-01-01',1,NULL),(3,1,'vi điều khiển','2023-06-02',2,NULL),(5,9,'vi điều khiển','2023-06-02',2,NULL),(6,8,'linh kiện','2023-06-02',2,NULL),(7,6,'cảm','2023-06-02',2,NULL),(9,7,'cảm','2023-06-02',2,NULL);
+INSERT INTO `NHAN_SANPHAM` VALUES (1,1,'cảm','2021-01-01',1,NULL),(2,2,'cảm','2021-01-01',1,NULL),(3,1,'vi điều khiển','2023-06-02',2,NULL),(5,9,'vi điều khiển','2023-06-02',2,NULL),(6,8,'linh kiện','2023-06-02',2,NULL),(7,6,'cảm','2023-06-02',2,NULL),(9,7,'cảm','2023-06-02',2,NULL),(11,3,'chip','2023-06-24',2,NULL),(12,9,'chip','2023-06-24',2,NULL),(13,6,'tu dong','2023-06-24',2,NULL);
 /*!40000 ALTER TABLE `NHAN_SANPHAM` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,7 +373,7 @@ CREATE TABLE `SANPHAM` (
 
 LOCK TABLES `SANPHAM` WRITE;
 /*!40000 ALTER TABLE `SANPHAM` DISABLE KEYS */;
-INSERT INTO `SANPHAM` VALUES (1,'Arduino Uno',1,200000,'Cái',200,'arduino-uno-r3-dip.webp',1,'san pham chua co mo ta'),(2,'CB Nhiệt độ KJ45',2,10000,'Cái',1399,'cam-bien-nhiet-do-do-am-am2305-jpeg.webp',1,'san pham chua co mo ta'),(3,'Arduino MICRO',1,200000,'Cái',196,'arduino-nano.webp',1,'san pham chua co mo ta'),(4,'nhom-tan-nhiet',2,120000,'cái',0,'nhom-tan-nhiet-jpeg.webp',1,'san pham chua co mo ta'),(5,'module-nguon-12v-300mA',3,200000,'chiec',0,'module-nguon-12v-300ma-jpeg.webp',1,'san pham chua co mo ta'),(6,'cảm biến ánh sáng',2,30000,'10 cái',0,'cam-bien-cuong-do-anh-sang-gy-49.webp',1,'san pham chua co mo ta'),(7,'cảm biên bụi',2,5000,'cái',0,'cam-bien-tiem-can-njk-5002c.webp',1,'san pham chua co mo ta'),(8,'khop-noi-banh-xe',3,80000,'Cái',0,'khop-noi-banh-xe-jpeg.webp',1,'san pham chua co mo ta'),(9,'Rasbpery Pi 1',4,800000,'Cái',0,'raspberry-pi-4-8g.webp',1,'san pham chua co mo ta'),(10,'gi do',2,4000,'Cái',0,'xy-wt01.webp',1,'san pham chua co mo ta');
+INSERT INTO `SANPHAM` VALUES (1,'Arduino Uno',1,200000,'Cái',199,'arduino-uno-r3-dip.webp',1,'san pham chua co mo ta'),(2,'CB Nhiệt độ KJ45',2,10000,'Cái',1396,'cam-bien-nhiet-do-do-am-am2305-jpeg.webp',1,'san pham chua co mo ta'),(3,'Arduino MICRO',1,200000,'Cái',194,'arduino-nano.webp',1,'san pham chua co mo ta'),(4,'nhom-tan-nhiet',2,120000,'cái',1,'nhom-tan-nhiet-jpeg.webp',1,'san pham chua co mo ta'),(5,'module-nguon-12v-300mA',3,200000,'chiec',12,'module-nguon-12v-300ma-jpeg.webp',1,'san pham chua co mo ta'),(6,'cảm biến ánh sáng',2,30000,'10 cái',0,'cam-bien-cuong-do-anh-sang-gy-49.webp',1,'san pham chua co mo ta'),(7,'cam-bien-tiem-can',2,5000,'cái',0,'cam-bien-tiem-can-njk-5002c.webp',1,'san pham chua co mo ta'),(8,'khop-noi-banh-xe',3,80000,'Cái',0,'khop-noi-banh-xe-jpeg.webp',1,'san pham chua co mo ta'),(9,'Rasbpery Pi 1',4,800000,'Cái',0,'raspberry-pi-4-8g.webp',1,'san pham chua co mo ta'),(10,'nhiet-ke',2,4000,'Cái',0,'xy-wt01.webp',1,'san pham chua co mo ta');
 /*!40000 ALTER TABLE `SANPHAM` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -396,7 +399,7 @@ CREATE TABLE `TUKHOA` (
 
 LOCK TABLES `TUKHOA` WRITE;
 /*!40000 ALTER TABLE `TUKHOA` DISABLE KEYS */;
-INSERT INTO `TUKHOA` VALUES ('cam bien','2021-01-01',2,NULL),('ho','2021-01-01',1,NULL),('linh kien','2021-01-01',1,NULL),('nhung','2021-01-01',2,NULL),('pi','2021-01-01',2,NULL),('uno','2021-01-01',2,NULL);
+INSERT INTO `TUKHOA` VALUES ('cam bien','2021-01-01',2,NULL),('ho','2021-01-01',1,NULL),('linh kien','2021-01-01',1,NULL),('nhung','2021-01-01',2,NULL),('pi','2021-01-01',2,NULL),('uno','2021-01-01',2,NULL),('vi xu ly','2023-06-24',2,NULL);
 /*!40000 ALTER TABLE `TUKHOA` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -420,7 +423,7 @@ CREATE TABLE `TUKHOA_NHAN` (
   KEY `fk_TUKHOA_NHAN_NHAN1_idx` (`TENNHAN`),
   CONSTRAINT `fk_TUKHOA_NHAN_NHAN1` FOREIGN KEY (`TENNHAN`) REFERENCES `NHAN` (`TENNHAN`),
   CONSTRAINT `fk_TUKHOA_NHAN_TUKHOA1` FOREIGN KEY (`TENTUKHOA`) REFERENCES `TUKHOA` (`TENTUKHOA`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -429,7 +432,7 @@ CREATE TABLE `TUKHOA_NHAN` (
 
 LOCK TABLES `TUKHOA_NHAN` WRITE;
 /*!40000 ALTER TABLE `TUKHOA_NHAN` DISABLE KEYS */;
-INSERT INTO `TUKHOA_NHAN` VALUES (1,'ho','cảm','2021-01-01',1,NULL),(2,'linh kien','linh kiện','2023-06-02',2,NULL),(3,'pi','vi điều khiển','2023-06-02',2,NULL),(4,'uno','vi điều khiển','2023-06-02',2,NULL);
+INSERT INTO `TUKHOA_NHAN` VALUES (1,'ho','cảm','2021-01-01',1,NULL),(2,'linh kien','linh kiện','2023-06-02',2,NULL),(3,'pi','vi điều khiển','2023-06-02',2,NULL),(4,'uno','vi điều khiển','2023-06-02',2,NULL),(5,'vi xu ly','chip','2023-06-24',2,NULL),(6,'vi xu ly','tu dong','2023-06-24',2,NULL);
 /*!40000 ALTER TABLE `TUKHOA_NHAN` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -495,7 +498,7 @@ CREATE TABLE `USERKH` (
 
 LOCK TABLES `USERKH` WRITE;
 /*!40000 ALTER TABLE `USERKH` DISABLE KEYS */;
-INSERT INTO `USERKH` VALUES ('khachhang1','1234',1,'qwe@ee','lo_highland.png','trfDSu','1972-12-31 16:00:00',1),('khachhang2','1234',29,'asd@gmail.com','logo.webp','enCqjo','1972-12-31 16:00:00',0),('khachhang3','1234',30,'thiensudanduong12@gmail.com','logo.webp','X2DgZv','1972-12-31 16:00:00',0),('khachhang4','1234',31,'thiensudanduong12@gmail.com','logo.webp','TBWmc0','1972-12-31 16:00:00',1),('khachhang5','1234',32,'n19dccn203@student.ptithcm.edu.vn','logo.webp','AAQum0','2023-06-22 04:04:31',1);
+INSERT INTO `USERKH` VALUES ('aaaaa','aaaaa',36,'thiensudanduong12@gmail.com','logo.webp','VxGWJH','2023-06-24 05:37:17',0),('bbbbb','1234',37,'thiensudanduong12@gmail.com','logo.webp','UANOk3','2023-06-24 05:43:27',0),('ccccc','1234',38,'n19dccn203@student.ptithcm.edu.vn','logo.webp','zfo3zg','2023-06-24 05:45:45',1),('ddddd','1234',39,'n19dccn203@student.ptithcm.edu.vn','logo.webp','tnbXwm','2023-06-24 05:55:29',1),('khachhang1','1234',35,'asdfsdf@gmail.com','logo.webp','kyKFWo','2023-06-24 04:56:59',1),('khachhang2','1234',29,'asd@gmail.com','logo.webp','enCqjo','1972-12-31 16:00:00',0),('khachhang3','1234',30,'thiensudanduong12@gmail.com','logo.webp','X2DgZv','1972-12-31 16:00:00',0),('khachhang4','1234',31,'thiensudanduong12@gmail.com','logo.webp','TBWmc0','1972-12-31 16:00:00',1),('khachhang5','1234',32,'n19dccn203@student.ptithcm.edu.vn','logo.webp','AAQum0','2023-06-22 04:04:31',1),('rrrrr','rrrr',34,'2156060089@hcmussh.edu.vn','logo.webp','8unrzS','2023-06-23 02:54:32',1);
 /*!40000 ALTER TABLE `USERKH` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -508,4 +511,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-22 21:44:49
+-- Dump completed on 2023-07-08 14:49:32
