@@ -173,7 +173,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log" suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />      
-        <Context docBase="dichvu.war" path="/dichvu" reloadable="true" source="org.eclipse.jst.jee.server:KinhDoanhIOT"/>
+        <Context docBase="dichvu" path="/dichvu" reloadable="true" source="org.eclipse.jst.jee.server:KinhDoanhIOT"/>
 
       </Host>
     </Engine>
