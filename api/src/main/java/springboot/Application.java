@@ -8,7 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+		//Thread.sleep(3600000);
 
 		SpringApplication.run(Application.class, args);
 

@@ -2,7 +2,7 @@
 FROM tomcat:8.5-jdk8
 
 # Sao chép tập tin WAR ứng dụng vào thư mục webapps của Tomcat
-COPY target/dichvu-1.0.war /usr/local/tomcat
+COPY target/dichvu-1.0.war /usr/local/tomcat/webapps/
 
 
 

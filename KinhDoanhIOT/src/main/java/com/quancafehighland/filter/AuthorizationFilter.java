@@ -55,7 +55,7 @@ public class AuthorizationFilter implements Filter {
 		else if (url.indexOf("/thanhtoan") != -1 || url.indexOf("/giohang")!=-1|| url.indexOf("KH")!=-1  ) {
 			if (modelkh == null) {
 				response.sendRedirect(
-						request.getContextPath() + "//khachhang-login.htm?action=login&message=not_login&alert=danger");
+						request.getContextPath() + "/khachhang-login.htm?action=login&message=not_login&alert=danger");
 			}
 			else filterChain.doFilter(servletRequest, servletResponse);
 		}
